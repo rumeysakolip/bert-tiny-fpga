@@ -1,0 +1,47 @@
+{
+  "seq_len": 64,
+  "parametreler": {
+    "gömme (embedding)": 3972864,
+    "kodlayıcı (encoder)": 396544,
+    "pooler + sınıflandırıcı": 16770
+  },
+  "toplam_parametre": 4386178,
+  "kodlayici_matris_agirlik": 393216,
+  "mac": {
+    "Q/K/V izdüşümleri": 6291456,
+    "Q·Kᵀ": 1048576,
+    "Dikkat·V": 1048576,
+    "Dikkat çıkış izdüşümü": 2097152,
+    "FFN1 (H→4H)": 8388608,
+    "FFN2 (4H→H)": 8388608,
+    "Pooler + sınıflandırıcı": 16640
+  },
+  "toplam_mac": 27279616,
+  "mac_yuzde": {
+    "Q/K/V izdüşümleri": 23.1,
+    "Q·Kᵀ": 3.8,
+    "Dikkat·V": 3.8,
+    "Dikkat çıkış izdüşümü": 7.7,
+    "FFN1 (H→4H)": 30.8,
+    "FFN2 (4H→H)": 30.8,
+    "Pooler + sınıflandırıcı": 0.1
+  },
+  "eleman_sayilari": {
+    "softmax": 16384,
+    "LayerNorm": 40960,
+    "GELU": 65536
+  },
+  "cpu_gecikme_ms": 2.49,
+  "cpu_sure_yuzde": {
+    "Doğrusal katmanlar (GEMM)": 57.0,
+    "Diğer (yeniden şekillendirme, kopyalama, toplama)": 19.2,
+    "Dikkat çekirdeği (Q·Kᵀ + softmax + Dikkat·V)": 9.9,
+    "GELU": 8.2,
+    "LayerNorm": 4.0,
+    "Gömme tablosu": 1.8
+  },
+  "ortam": {
+    "torch": "2.14.1+cu130",
+    "threads": 1
+  }
+}
