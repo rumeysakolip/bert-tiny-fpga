@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# Büyük model dosyaları depoya konmaz (Drive'da tutulur)
+deneyler/**/model/
+*.safetensors
+*.bin
+# Vivado ara dosyaları
+donanim/**/*.cache/
+donanim/**/*.runs/
+donanim/**/*.sim/
+donanim/**/*.hw/
+donanim/**/*.ip_user_files/
+*.jou
+*.log
+*.str
