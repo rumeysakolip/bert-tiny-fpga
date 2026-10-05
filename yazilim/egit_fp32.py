@@ -50,6 +50,21 @@ def parse_args():
     return p.parse_args()
 
 
+def load_tokenizer(model_name: str):
+    """Tokenizer'ı yükler. prajjwal1/bert-tiny deposunda yalnızca vocab.txt bulunur (tokenizer.json yok);
+    bazı transformers sürümlerinde / Hub erişim sorunlarında bu dosyadan tokenizer kurulamayabiliyor.
+    Bu durumda aynı sözlüğü (BERT uncased, 30.522 token) kullanan google-bert/bert-base-uncased
+    tokenizer'ına geçilir. Google'ın küçük BERT modelleri (BERT-Tiny dahil) bu sözlükle eğitilmiştir."""
+    from transformers import AutoTokenizer
+    try:
+        return AutoTokenizer.from_pretrained(model_name), model_name
+    except Exception as e:  # noqa: BLE001
+        yedek = "google-bert/bert-base-uncased"
+        print(f"UYARI: '{model_name}' tokenizer'ı yüklenemedi ({type(e).__name__}). "
+              f"Aynı sözlüğü kullanan '{yedek}' tokenizer'ı kullanılıyor.")
+        return AutoTokenizer.from_pretrained(yedek), yedek
+
+
 def set_seed(seed: int):
     random.seed(seed)
     np.random.seed(seed)
@@ -80,7 +95,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Cihaz: {device}")
 
-    from transformers import (AutoModelForSequenceClassification, AutoTokenizer,
+    from transformers import (AutoModelForSequenceClassification,
                               get_linear_schedule_with_warmup)
 
     # ---------- Veri ----------
@@ -89,7 +104,8 @@ def main():
         ds["train"] = ds["train"].shuffle(seed=args.seed).select(range(args.max_train_samples))
     print(f"Eğitim: {len(ds['train'])} cümle | Doğrulama: {len(ds['validation'])} cümle")
 
-    tok = AutoTokenizer.from_pretrained(args.model_name)
+    tok, tokenizer_name = load_tokenizer(args.model_name)
+    print(f"Tokenizer: {tokenizer_name} (sözlük boyutu {len(tok)})")
 
     def tokenize(b):
         return tok(b["sentence"], padding="max_length", truncation=True, max_length=args.max_len)
@@ -114,6 +130,8 @@ def main():
     # ---------- Model ----------
     model = AutoModelForSequenceClassification.from_pretrained(args.model_name, num_labels=2).to(device)
     n_params = sum(p.numel() for p in model.parameters())
+    assert len(tok) == model.config.vocab_size, (
+        f"Tokenizer sözlüğü ({len(tok)}) model sözlüğüyle ({model.config.vocab_size}) uyuşmuyor")
     print(f"Parametre sayısı: {n_params:,}")
 
     no_decay = ("bias", "LayerNorm.weight")
@@ -167,6 +185,7 @@ def main():
     results = {
         "deney": "FP32 baz doğruluk (G3)",
         "model": args.model_name,
+        "tokenizer": tokenizer_name,
         "veri": "GLUE SST-2 (doğrulama kümesi, 872 cümle)",
         "dogruluk": round(acc, 4),
         "en_iyi_epoch": best_epoch,
