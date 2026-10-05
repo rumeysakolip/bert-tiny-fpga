@@ -51,18 +51,20 @@ def parse_args():
 
 
 def load_tokenizer(model_name: str):
-    """Tokenizer'ı yükler. prajjwal1/bert-tiny deposunda yalnızca vocab.txt bulunur (tokenizer.json yok);
-    bazı transformers sürümlerinde / Hub erişim sorunlarında bu dosyadan tokenizer kurulamayabiliyor.
-    Bu durumda aynı sözlüğü (BERT uncased, 30.522 token) kullanan google-bert/bert-base-uncased
-    tokenizer'ına geçilir. Google'ın küçük BERT modelleri (BERT-Tiny dahil) bu sözlükle eğitilmiştir."""
-    from transformers import AutoTokenizer
+    """Tokenizer'ı BERT sınıfıyla açıkça yükler.
+    prajjwal1/bert-tiny deposunun config.json dosyasında `model_type` alanı yoktur ve depoda yalnızca
+    vocab.txt bulunur. Yeni transformers sürümleri (5.x) model türünü depo adından tahmin etmediği için
+    AutoTokenizer/AutoModel bu depoyu tanıyamaz; bu yüzden Bert* sınıfları doğrudan kullanılır.
+    vocab.txt de okunamazsa aynı sözlüğü (BERT uncased, 30.522 token) kullanan
+    google-bert/bert-base-uncased tokenizer'ına geçilir."""
+    from transformers import BertTokenizer
     try:
-        return AutoTokenizer.from_pretrained(model_name), model_name
+        return BertTokenizer.from_pretrained(model_name, do_lower_case=True), model_name
     except Exception as e:  # noqa: BLE001
         yedek = "google-bert/bert-base-uncased"
-        print(f"UYARI: '{model_name}' tokenizer'ı yüklenemedi ({type(e).__name__}). "
+        print(f"UYARI: '{model_name}' tokenizer'ı yüklenemedi ({type(e).__name__}: {e}). "
               f"Aynı sözlüğü kullanan '{yedek}' tokenizer'ı kullanılıyor.")
-        return AutoTokenizer.from_pretrained(yedek), yedek
+        return BertTokenizer.from_pretrained(yedek), yedek
 
 
 def set_seed(seed: int):
@@ -95,7 +97,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Cihaz: {device}")
 
-    from transformers import (AutoModelForSequenceClassification,
+    from transformers import (BertForSequenceClassification,
                               get_linear_schedule_with_warmup)
 
     # ---------- Veri ----------
@@ -128,7 +130,7 @@ def main():
     val_loader = DataLoader(enc["validation"], batch_size=128, shuffle=False)
 
     # ---------- Model ----------
-    model = AutoModelForSequenceClassification.from_pretrained(args.model_name, num_labels=2).to(device)
+    model = BertForSequenceClassification.from_pretrained(args.model_name, num_labels=2).to(device)
     n_params = sum(p.numel() for p in model.parameters())
     assert len(tok) == model.config.vocab_size, (
         f"Tokenizer sözlüğü ({len(tok)}) model sözlüğüyle ({model.config.vocab_size}) uyuşmuyor")
@@ -172,7 +174,7 @@ def main():
     train_time = time.time() - t0
 
     # ---------- En iyi modelle son değerlendirme ----------
-    model = AutoModelForSequenceClassification.from_pretrained(os.path.join(args.out_dir, "model")).to(device)
+    model = BertForSequenceClassification.from_pretrained(os.path.join(args.out_dir, "model")).to(device)
     acc, logits, preds, labels = evaluate(model, val_loader, device)
 
     with open(os.path.join(args.out_dir, "dogrulama_tahminleri.csv"), "w", newline="", encoding="utf-8") as f:
