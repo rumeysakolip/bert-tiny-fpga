@@ -1,0 +1,45 @@
+Cihaz: cuda
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Eğitim: 67349 cümle | Doğrulama: 872 cümle
+Tokenizer: prajjwal1/bert-tiny (sözlük boyutu 30522)
+Doğrulama token uzunluğu: ort=25.2, maks=55, max_len=64 ile kesilen: %0.00
+[transformers] [1mBertForSequenceClassification LOAD REPORT[0m from: prajjwal1/bert-tiny
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.bias                       | UNEXPECTED | 
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.seq_relationship.weight                | UNEXPECTED | 
+cls.predictions.decoder.weight             | UNEXPECTED | 
+cls.predictions.decoder.bias               | UNEXPECTED | 
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+classifier.weight                          | MISSING    | 
+classifier.bias                            | MISSING    | 
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+Parametre sayısı: 4,386,178
+  epoch 1 adım 500/2105 kayıp=0.6220
+  epoch 1 adım 1000/2105 kayıp=0.5228
+  epoch 1 adım 1500/2105 kayıp=0.4648
+  epoch 1 adım 2000/2105 kayıp=0.4258
+Epoch 1: eğitim kaybı=0.4197  doğrulama doğruluğu=%81.65
+  epoch 2 adım 500/2105 kayıp=0.2518
+  epoch 2 adım 1000/2105 kayıp=0.2511
+  epoch 2 adım 1500/2105 kayıp=0.2456
+  epoch 2 adım 2000/2105 kayıp=0.2410
+Epoch 2: eğitim kaybı=0.2404  doğrulama doğruluğu=%81.77
+  epoch 3 adım 500/2105 kayıp=0.1948
+  epoch 3 adım 1000/2105 kayıp=0.1932
+  epoch 3 adım 1500/2105 kayıp=0.1915
+  epoch 3 adım 2000/2105 kayıp=0.1912
+Epoch 3: eğitim kaybı=0.1904  doğrulama doğruluğu=%81.77
+  epoch 4 adım 500/2105 kayıp=0.1662
+  epoch 4 adım 1000/2105 kayıp=0.1658
+  epoch 4 adım 1500/2105 kayıp=0.1647
+  epoch 4 adım 2000/2105 kayıp=0.1641
+Epoch 4: eğitim kaybı=0.1640  doğrulama doğruluğu=%82.45
+FP32 doğrulama doğruluğu: %82.45 (en iyi epoch: 4)
+Sonuçlar: /content/drive/MyDrive/bert-tiny-fpga/deneyler/fp32_baz/sonuclar.json

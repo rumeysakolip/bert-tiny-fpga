@@ -1,0 +1,55 @@
+{
+  "deney": "FP32 baz doğruluk (G3)",
+  "model": "prajjwal1/bert-tiny",
+  "tokenizer": "prajjwal1/bert-tiny",
+  "veri": "GLUE SST-2 (doğrulama kümesi, 872 cümle)",
+  "dogruluk": 0.8245,
+  "en_iyi_epoch": 4,
+  "parametre_sayisi": 4386178,
+  "fp32_boyut_MB": 16.73,
+  "max_len_ile_kesilen_yuzde": 0.0,
+  "egitim_suresi_sn": 96.2,
+  "ayarlar": {
+    "model_name": "prajjwal1/bert-tiny",
+    "data_dir": null,
+    "out_dir": "/content/drive/MyDrive/bert-tiny-fpga/deneyler/fp32_baz",
+    "max_len": 64,
+    "epochs": 4,
+    "batch_size": 32,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "seed": 42,
+    "max_train_samples": null
+  },
+  "gecmis": [
+    {
+      "epoch": 1,
+      "train_loss": 0.41969707219589353,
+      "val_acc": 0.8165137767791748
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.24035652815021416,
+      "val_acc": 0.8176605701446533
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.19040501437762714,
+      "val_acc": 0.8176605701446533
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.16397999409816258,
+      "val_acc": 0.8245412707328796
+    }
+  ],
+  "ortam": {
+    "cihaz": "cuda",
+    "gpu": "Tesla T4",
+    "python": "3.13.15",
+    "torch": "2.11.0+cu130",
+    "transformers": "5.17.0"
+  },
+  "referans": "Turc ve ark. (2019), BERT-Tiny SST-2 test doğruluğu: %83,2"
+}
