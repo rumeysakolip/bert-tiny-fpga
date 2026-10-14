@@ -1,47 +1,92 @@
-# Uç Cihazlar İçin FPGA Tabanlı BERT-Tiny Hızlandırıcısı
+# BERT-Tiny INT8 FPGA Hızlandırıcısı
 
-BIL 401 Bilgisayar Mühendisliği Tasarımı — Rümeysa Kolip (23010903093)
-Danışman: Dr. Öğr. Üyesi Emin Güney
+BIL 401 bitirme tasarımı. BERT-Tiny modelinin SST-2 duygu sınıflandırma görevindeki çıkarımı INT8
+tamsayı aritmetiğine indiriliyor ve matris çarpımları FPGA üzerinde çıkış-sabit bir sistolik dizi ile
+hızlandırılıyor. Depo; eğitim ve niceleme betiklerini, deney çıktılarını, RTL kaynaklarını ve raporları içerir.
 
-BERT-Tiny modelini SST-2 duygu analizi görevinde eğitip 8 bitlik tamsayıya (INT8) indirgemek ve
-matris çarpımlarını FPGA üzerinde sistolik dizi ile hızlandırmak.
+## Durum (15 Ekim 2026)
 
-## Klasör yapısı
+| Aşama | Durum | Sonuç |
+|---|---|---|
+| FP32 baz eğitimi | tamamlandı | 719 / 872 = %82,45 |
+| Statik INT8 PTQ (6 ayar) | tamamlandı | 716–718 doğru, kayıp 0,11–0,34 puan; hedef ve MLPerf eşiği sağlandı |
+| Softmax/GELU/LayerNorm bit genişliği (I-BERT) | tamamlandı | GELU 12 bit · Softmax 12→16 bit · LayerNorm 16 bit · 4 Newton yinelemesi |
+| QAT (ön koşular, CPU) | kısmi | 710–712 doğru; PTQ'dan geride, zorunlu değil |
+| PE + 4×4 sistolik dizi (RTL) | tamamlandı (benzetim) | PE 1012 kontrol / 0 hata; dizi 264 test / 0 hata; 10 hesap çevrimi |
+| Sentez, kart üzerinde çalıştırma | yapılmadı | — |
 
-| Klasör | İçerik |
+Başarı ölçütleri: hedef ≤1 puan kayıp (≥711 doğru), üst sınır ≤2 puan (≥702), MLPerf eşiği ≥712.
+872 cümlelik kümede 1 puan ≈ 8,72 cümledir; 1–2 cümlelik farklar gürültü sayılır.
+
+## Dizin yapısı
+
+| Dizin | İçerik |
 |---|---|
-| `yazilim/` | Python: veri yükleme, eğitim, niceleme, referans hesaplama modeli |
-| `notebooks/` | Google Colab not defterleri |
-| `donanim/` | Verilog RTL, testbench'ler, Vivado projeleri |
-| `deneyler/` | Deney çıktıları (sonuçlar, tahminler, grafikler) |
-| `belgeler/` | Kaynak listesi, karar notları, raporlar |
+| `yazilim/` | Eğitim, niceleme ve analiz betikleri (`egit_fp32.py`, `nicele_ptq.py`, `nicele_qat.py`, `ibert_*.py`, `hesap_yuku_analizi.py`) |
+| `notebooks/` | Colab not defterleri: FP32 eğitim, INT8 PTQ, QAT |
+| `deneyler/fp32_baz/` | FP32 sonuçları, eğitim günlüğü, 872 cümlenin tahminleri, başarı ölçütleri |
+| `deneyler/int8_ptq/` | PTQ koşuları — kalibrasyon SST-2'nin GitHub kopyasından (6.920 cümle) |
+| `deneyler/int8_ptq_gercek_glue/` | PTQ koşuları — kalibrasyon gerçek GLUE eğitim kümesinden (67.349); iki kaynağın karşılaştırması |
+| `deneyler/g4/` | Softmax/GELU/LayerNorm hassasiyet analizi ve uçtan uca doğruluk |
+| `deneyler/int8_qat/` | QAT ön koşuları (CPU) ve PTQ ile karşılaştırma |
+| `deneyler/hesap_yuku/` | MAC ve CPU süresi dağılımı |
+| `donanim/` | Verilog kaynakları (`rtl/`), testbench'ler (`tb/`), benzetim günlükleri (`sim/`) |
+| `belgeler/` | Raporlar (.docx) ve kaynakça |
 
-## Hızlı başlangıç (Colab)
+Model ağırlıkları (`model.safetensors`, 17 MB) ve veri kümesi dosyaları depoda tutulmaz; Drive'da
+saklanır. Dalga formları (`.vcd`) ve INT8 ağırlık arşivleri (`.npz`) yeniden üretilebilir olduğu için
+depo dışıdır.
 
-1. `notebooks/01_ortam_ve_fp32_egitim.ipynb` dosyasını Colab'da açın.
-2. İlk hücredeki `REPO_URL` değerini bu deponun adresiyle değiştirin.
-3. Çalışma zamanı türünü T4 GPU yapın ve tüm hücreleri çalıştırın.
-
-Yerelde:
+## Kurulum
 
 ```bash
-pip install -r requirements.txt
-python yazilim/egit_fp32.py --out_dir deneyler/fp32_baz
+pip install -r requirements.txt     # torch, transformers, datasets, numpy
 ```
 
-## Model ve veri
+RTL tarafı için Icarus Verilog ve GTKWave gerekir.
 
-- **Model:** [`prajjwal1/bert-tiny`](https://huggingface.co/prajjwal1/bert-tiny): Google'ın resmi BERT-Tiny
-  (`uncased_L-2_H-128_A-2`) ağırlıklarının PyTorch'a çevrilmiş hâli. 2 katman, gizli boyut 128, 2 dikkat başı, ~4,4 M parametre.
-- **Veri:** [GLUE SST-2](https://huggingface.co/datasets/nyu-mll/glue) — eğitim 67.349, doğrulama 872 cümle; 0 = olumsuz, 1 = olumlu.
-  Test kümesinin etiketleri açık olmadığı için doğruluk **doğrulama kümesinde** ölçülür.
-- **Referans:** Turc ve ark. (2019), BERT-Tiny SST-2 test doğruluğu %83,2.
+## Çalıştırma
 
-## İlerleme
+FP32 eğitim (Colab, T4 önerilir):
 
-| Görev | Durum |
-|---|---|
-| G1 Depo yapısı | ✅ |
-| G2 Colab ortamı + SST-2 | Not defteri hazır, Colab'da çalıştırılacak |
-| G3 FP32 baz doğruluk | Eğitim betiği hazır, Colab'da çalıştırılacak |
-| G8 INT8 eğitim sonrası niceleme | Sırada |
+```bash
+python yazilim/egit_fp32.py --out_dir deneyler/fp32_baz --epochs 4 --lr 1e-4 --seed 42
+```
+
+INT8 PTQ (tek koşu; model `deneyler/fp32_baz/model/` konumunda olmalı):
+
+```bash
+python yazilim/nicele_ptq.py \
+  --model_dir deneyler/fp32_baz/model \
+  --fp32_csv  deneyler/fp32_baz/dogrulama_tahminleri.csv \
+  --out_dir   deneyler/int8_ptq \
+  --observer minmax --n_kalib 512
+```
+
+Altı ayarın tamamı için `notebooks/02_nicele_ptq_colab.ipynb`, QAT için `notebooks/03_nicele_qat_colab.ipynb`.
+
+RTL benzetimi (`donanim/` dizininden):
+
+```bash
+iverilog -g2001 -Wall -o sim/tb_pe.vvp rtl/pe.v tb/tb_pe.v && vvp sim/tb_pe.vvp
+iverilog -g2001 -Wall -o sim/tb_systolic_4x4.vvp rtl/pe.v rtl/systolic_4x4.v tb/tb_systolic_4x4.v && vvp sim/tb_systolic_4x4.vvp
+```
+
+## Yöntem özeti
+
+Niceleme statik ve kalibrasyonludur: ağırlıklar çıkış kanalı başına simetrik INT8, aktivasyonlar
+tensör başına sabit ölçekli INT8, bias INT32 (ölçeği aktivasyon × ağırlık). Dinamik niceleme,
+ölçeği çalışma anında hesapladığı ve sabit noktalı donanıma uymadığı için kullanılmamıştır.
+Ölçekler kalibrasyon cümleleriyle bir kez belirlenir; doğrulama kümesi kalibrasyonda kullanılmaz.
+
+Şu an nicelenen işlemler 14 doğrusal katmandır. Gömme tabloları, artık toplamlar, QK^T ve Softmax·V
+çarpımları FP32 kalmaktadır; bu nedenle buradaki doğruluk sayıları tam tamsayı bir hattın doğruluğu
+değildir.
+
+## Kaynaklar
+
+Kim ve ark. (2021) I-BERT, arXiv:2101.01321 · Zafrir ve ark. (2019) Q8BERT, arXiv:1910.06188 ·
+Bondarenko ve ark. (2021) arXiv:2109.12948 · Turc ve ark. (2019) arXiv:1908.08962 ·
+Kung (1982) Why Systolic Architectures? · MLCommons, MLPerf Inference Rules
+
+Ayrıntılı kaynakça: `belgeler/kaynaklar.md`

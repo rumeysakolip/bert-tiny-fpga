@@ -14,3 +14,10 @@ donanim/**/*.ip_user_files/
 *.jou
 *.log
 *.str
+
+# Yeniden üretilebilen büyük çıktılar
+*.vcd
+*.npz
+*.zip
+# Veri kümesi depoda tutulmaz (kaynağı belgelerde)
+*.tsv

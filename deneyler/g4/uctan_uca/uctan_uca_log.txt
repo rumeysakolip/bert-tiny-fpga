@@ -1,0 +1,82 @@
+Loading weights:   0%|          | 0/41 [00:00<?, ?it/s]Loading weights: 100%|██████████| 41/41 [00:00<00:00, 5058.28it/s]
+seed 42 linear=fp32 nl_fp32                doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': None, 'ln': None}
+seed 42 linear=fp32 oneri                  doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 42 linear=fp32 genis                  doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 42 linear=fp32 hepsi_8bit             doğru=702 kayıp=+17 uyuşma=0.9690 kırpılma={'gelu': 0.0, 'softmax': 4e-05, 'ln': 0.0}
+seed 42 linear=fp32 oneri_ln12             doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 42 linear=fp32 yalniz_gelu12          doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 42 linear=fp32 yalniz_gelu8           doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 42 linear=fp32 yalniz_softmax12_16    doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 42 linear=fp32 yalniz_softmax12_8     doğru=712 kayıp=+7 uyuşma=0.9851 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 42 linear=fp32 yalniz_softmax8_16     doğru=720 kayıp=-1 uyuşma=0.9989 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 42 linear=fp32 yalniz_ln16            doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 42 linear=fp32 yalniz_ln12            doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 42 linear=fp32 yalniz_ln8             doğru=702 kayıp=+17 uyuşma=0.9713 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 42 linear=int8 nl_fp32                doğru=719 kayıp=+0 uyuşma=0.9977 kırpılma={'gelu': None, 'softmax': None, 'ln': None}
+seed 42 linear=int8 oneri                  doğru=717 kayıp=+2 uyuşma=0.9977 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 42 linear=int8 genis                  doğru=715 kayıp=+4 uyuşma=0.9954 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 42 linear=int8 hepsi_8bit             doğru=698 kayıp=+21 uyuşma=0.9622 kırpılma={'gelu': 0.0, 'softmax': 4e-05, 'ln': 0.0}
+seed 42 linear=int8 oneri_ln12             doğru=716 kayıp=+3 uyuşma=0.9966 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 42 linear=int8 yalniz_gelu12          doğru=718 kayıp=+1 uyuşma=0.9966 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 42 linear=int8 yalniz_gelu8           doğru=715 kayıp=+4 uyuşma=0.9954 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 42 linear=int8 yalniz_softmax12_16    doğru=719 kayıp=+0 uyuşma=0.9977 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 42 linear=int8 yalniz_softmax12_8     doğru=711 kayıp=+8 uyuşma=0.9885 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 42 linear=int8 yalniz_softmax8_16     doğru=719 kayıp=+0 uyuşma=0.9977 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 42 linear=int8 yalniz_ln16            doğru=717 kayıp=+2 uyuşma=0.9977 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 42 linear=int8 yalniz_ln12            doğru=718 kayıp=+1 uyuşma=0.9989 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 42 linear=int8 yalniz_ln8             doğru=706 kayıp=+13 uyuşma=0.9759 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+Loading weights:   0%|          | 0/41 [00:00<?, ?it/s]Loading weights: 100%|██████████| 41/41 [00:00<00:00, 15485.50it/s]
+seed 43 linear=fp32 nl_fp32                doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': None, 'ln': None}
+seed 43 linear=fp32 oneri                  doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 43 linear=fp32 genis                  doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 43 linear=fp32 hepsi_8bit             doğru=700 kayıp=+19 uyuşma=0.9690 kırpılma={'gelu': 0.0, 'softmax': 6e-05, 'ln': 1e-05}
+seed 43 linear=fp32 oneri_ln12             doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 43 linear=fp32 yalniz_gelu12          doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 43 linear=fp32 yalniz_gelu8           doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 43 linear=fp32 yalniz_softmax12_16    doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 43 linear=fp32 yalniz_softmax12_8     doğru=712 kayıp=+7 uyuşma=0.9851 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 43 linear=fp32 yalniz_softmax8_16     doğru=719 kayıp=+0 uyuşma=0.9954 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 43 linear=fp32 yalniz_ln16            doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 43 linear=fp32 yalniz_ln12            doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 43 linear=fp32 yalniz_ln8             doğru=703 kayıp=+16 uyuşma=0.9725 kırpılma={'gelu': None, 'softmax': None, 'ln': 1e-05}
+seed 43 linear=int8 nl_fp32                doğru=717 kayıp=+2 uyuşma=0.9954 kırpılma={'gelu': None, 'softmax': None, 'ln': None}
+seed 43 linear=int8 oneri                  doğru=718 kayıp=+1 uyuşma=0.9966 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 43 linear=int8 genis                  doğru=717 kayıp=+2 uyuşma=0.9954 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 43 linear=int8 hepsi_8bit             doğru=699 kayıp=+20 uyuşma=0.9633 kırpılma={'gelu': 0.0, 'softmax': 6e-05, 'ln': 1e-05}
+seed 43 linear=int8 oneri_ln12             doğru=719 kayıp=+0 uyuşma=0.9977 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 43 linear=int8 yalniz_gelu12          doğru=718 kayıp=+1 uyuşma=0.9966 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 43 linear=int8 yalniz_gelu8           doğru=721 kayıp=-2 uyuşma=0.9977 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 43 linear=int8 yalniz_softmax12_16    doğru=720 kayıp=-1 uyuşma=0.9966 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 43 linear=int8 yalniz_softmax12_8     doğru=714 kayıp=+5 uyuşma=0.9874 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 43 linear=int8 yalniz_softmax8_16     doğru=718 kayıp=+1 uyuşma=0.9966 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 43 linear=int8 yalniz_ln16            doğru=720 kayıp=-1 uyuşma=0.9989 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 43 linear=int8 yalniz_ln12            doğru=718 kayıp=+1 uyuşma=0.9966 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 43 linear=int8 yalniz_ln8             doğru=704 kayıp=+15 uyuşma=0.9759 kırpılma={'gelu': None, 'softmax': None, 'ln': 1e-05}
+Loading weights:   0%|          | 0/41 [00:00<?, ?it/s]Loading weights: 100%|██████████| 41/41 [00:00<00:00, 7565.28it/s]
+seed 44 linear=fp32 nl_fp32                doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': None, 'ln': None}
+seed 44 linear=fp32 oneri                  doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 44 linear=fp32 genis                  doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 44 linear=fp32 hepsi_8bit             doğru=695 kayıp=+24 uyuşma=0.9633 kırpılma={'gelu': 0.0, 'softmax': 2e-05, 'ln': 0.0}
+seed 44 linear=fp32 oneri_ln12             doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 44 linear=fp32 yalniz_gelu12          doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 44 linear=fp32 yalniz_gelu8           doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 44 linear=fp32 yalniz_softmax12_16    doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 44 linear=fp32 yalniz_softmax12_8     doğru=713 kayıp=+6 uyuşma=0.9862 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 44 linear=fp32 yalniz_softmax8_16     doğru=721 kayıp=-2 uyuşma=0.9977 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 44 linear=fp32 yalniz_ln16            doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 44 linear=fp32 yalniz_ln12            doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 44 linear=fp32 yalniz_ln8             doğru=705 kayıp=+14 uyuşma=0.9748 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 44 linear=int8 nl_fp32                doğru=720 kayıp=-1 uyuşma=0.9989 kırpılma={'gelu': None, 'softmax': None, 'ln': None}
+seed 44 linear=int8 oneri                  doğru=720 kayıp=-1 uyuşma=0.9989 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 44 linear=int8 genis                  doğru=719 kayıp=+0 uyuşma=1.0000 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 44 linear=int8 hepsi_8bit             doğru=694 kayıp=+25 uyuşma=0.9622 kırpılma={'gelu': 0.0, 'softmax': 2e-05, 'ln': 0.0}
+seed 44 linear=int8 oneri_ln12             doğru=718 kayıp=+1 uyuşma=0.9966 kırpılma={'gelu': 0.0, 'softmax': 0.0, 'ln': 0.0}
+seed 44 linear=int8 yalniz_gelu12          doğru=720 kayıp=-1 uyuşma=0.9989 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 44 linear=int8 yalniz_gelu8           doğru=720 kayıp=-1 uyuşma=0.9989 kırpılma={'gelu': 0.0, 'softmax': None, 'ln': None}
+seed 44 linear=int8 yalniz_softmax12_16    doğru=720 kayıp=-1 uyuşma=0.9989 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 44 linear=int8 yalniz_softmax12_8     doğru=709 kayıp=+10 uyuşma=0.9862 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 44 linear=int8 yalniz_softmax8_16     doğru=716 kayıp=+3 uyuşma=0.9966 kırpılma={'gelu': None, 'softmax': 0.0, 'ln': None}
+seed 44 linear=int8 yalniz_ln16            doğru=718 kayıp=+1 uyuşma=0.9943 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 44 linear=int8 yalniz_ln12            doğru=717 kayıp=+2 uyuşma=0.9977 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+seed 44 linear=int8 yalniz_ln8             doğru=704 kayıp=+15 uyuşma=0.9736 kırpılma={'gelu': None, 'softmax': None, 'ln': 0.0}
+Yazıldı: ../uo

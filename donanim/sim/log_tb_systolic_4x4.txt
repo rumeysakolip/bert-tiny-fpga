@@ -1,0 +1,5 @@
+VCD info: dumpfile sim/tb_systolic_4x4.vcd opened for output.
+----------------------------------------------
+Test sayisi (vektor)   : 259 (+5 ek senaryo)
+Gecikme (start kenarindan sonra done'a) : 10..10 cevrim
+SYSTOLIC 4x4 TEST: PASS  (264 test, 0 hata)

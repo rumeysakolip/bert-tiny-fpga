@@ -1,0 +1,923 @@
+{
+  "veri_kaynagi": "CSV: /mnt/user-data/uploads/biitirme-projem/bert-tiny-fpga/deneyler/fp32_baz/dogrulama_tahminleri.csv",
+  "cumle_sayisi": 872,
+  "model_dir": "/mnt/user-data/uploads/biitirme-projem/fp32_baz-20261014T100446Z-1-001/fp32_baz/model",
+  "g3_tutarlilik": "yüklenen model doğruluğu %82.45; G3 CSV tahminlerinden farklı: 0/872",
+  "niceleme": "statik maks-mutlak ölçek (kayıt noktası başına, tüm küme)",
+  "istatistik": {
+    "GELU girdisi · layer.0": {
+      "n": 11234816,
+      "min": -11.256319999694824,
+      "max": 10.849082946777344,
+      "ort": -0.5801558547454809,
+      "std": 1.4399841754173839,
+      "p0.01": -8.831499719619751,
+      "p0.1": -7.351947569847107,
+      "p1": -4.592853999137878,
+      "p50": -0.4920226037502289,
+      "p99": 2.527000975608824,
+      "p99.9": 5.596642365455692,
+      "p99.99": 7.751562520980507,
+      "maks_abs": 11.256319999694824,
+      "maks_abs/std": 7.8169747917071,
+      "maks_abs/p99.9_abs": 1.5310664137297314,
+      "std_adim_orani": {
+        "8": 16.246694326650793,
+        "12": 261.8660101311352,
+        "16": 4191.775063002886,
+        "22": 268281.66341598454
+      }
+    },
+    "GELU girdisi · layer.1": {
+      "n": 11234816,
+      "min": -10.801575660705566,
+      "max": 6.48980712890625,
+      "ort": -0.5282886716265226,
+      "std": 1.2562420240672707,
+      "p0.01": -7.2807976500988,
+      "p0.1": -5.551900029182434,
+      "p1": -3.9349011301994326,
+      "p50": -0.4858567416667938,
+      "p99": 2.1980306982994056,
+      "p99.9": 3.194610471725465,
+      "p99.99": 4.254605433702394,
+      "maks_abs": 10.801575660705566,
+      "maks_abs/std": 8.59832377341896,
+      "maks_abs/p99.9_abs": 1.9455637896808804,
+      "std_adim_orani": {
+        "8": 14.770320744679385,
+        "12": 238.0696579870764,
+        "16": 3810.859053865429,
+        "22": 243902.30645689068
+      }
+    },
+    "Softmax girdisi (skor) · layer.0": {
+      "n": 1291842,
+      "min": -6.055967807769775,
+      "max": 9.434450149536133,
+      "ort": 0.08008080060495955,
+      "std": 1.5350939703222608,
+      "p0.01": -4.834560394287109,
+      "p0.1": -4.119802046775818,
+      "p1": -3.207441146373749,
+      "p50": -0.0012646106770262122,
+      "p99": 4.301889948844931,
+      "p99.9": 6.237909045696259,
+      "p99.99": 7.167774326419702,
+      "maks_abs": 9.434450149536133,
+      "maks_abs/std": 6.145845356656288,
+      "maks_abs/p99.9_abs": 1.5124379147601188,
+      "std_adim_orani": {
+        "8": 20.664366353190456,
+        "12": 333.070534842369,
+        "16": 5331.569230669225,
+        "22": 341230.681590234
+      }
+    },
+    "Softmax girdisi (skor) · layer.1": {
+      "n": 1291842,
+      "min": -11.222856521606445,
+      "max": 10.346475601196289,
+      "ort": 1.3759717371872704,
+      "std": 2.131891062857156,
+      "p0.01": -7.603016430139542,
+      "p0.1": -5.6562124218940735,
+      "p1": -3.6564836072921754,
+      "p50": 1.3458521366119385,
+      "p99": 7.159829859733585,
+      "p99.9": 8.41535921096808,
+      "p99.99": 9.220842304419204,
+      "maks_abs": 11.222856521606445,
+      "maks_abs/std": 5.264272981456002,
+      "maks_abs/p99.9_abs": 1.3336158612194757,
+      "std_adim_orani": {
+        "8": 24.124888744822293,
+        "12": 388.8476162256003,
+        "16": 6224.411255918048,
+        "22": 398374.2878432505
+      }
+    },
+    "LayerNorm girdisi · embeddings.LayerNorm": {
+      "n": 2808704,
+      "min": -1.0167146921157837,
+      "max": 0.36031967401504517,
+      "ort": -0.010473925413096732,
+      "std": 0.06678443680356304,
+      "p0.01": -1.0167146921157837,
+      "p0.1": -0.3663235306739807,
+      "p1": -0.19240742921829224,
+      "p50": -0.009496177546679974,
+      "p99": 0.13441206514835358,
+      "p99.9": 0.19698326785862744,
+      "p99.99": 0.36031967401504517,
+      "maks_abs": 1.0167146921157837,
+      "maks_abs/std": 15.223826699419597,
+      "maks_abs/p99.9_abs": 2.7754555931615426,
+      "std_adim_orani": {
+        "8": 8.342186396856569,
+        "12": 134.46027995563304,
+        "16": 2152.3497768960565,
+        "22": 137754.52397129254
+      },
+      "en_buyuk_kanallar": [
+        {
+          "kanal": 2,
+          "maks_abs": 1.0167146921157837
+        },
+        {
+          "kanal": 32,
+          "maks_abs": 0.495464563369751
+        },
+        {
+          "kanal": 124,
+          "maks_abs": 0.4699784219264984
+        }
+      ]
+    },
+    "LayerNorm girdisi · encoder.layer.0.attention.output.LayerNorm": {
+      "n": 2808704,
+      "min": -12.023443222045898,
+      "max": 9.685040473937988,
+      "ort": -0.006634055524468957,
+      "std": 1.5937043342502935,
+      "p0.01": -8.761486557865142,
+      "p0.1": -5.953263724327088,
+      "p1": -3.9120947909355164,
+      "p50": 0.001161128282546997,
+      "p99": 3.732080023288735,
+      "p99.9": 5.076743208408417,
+      "p99.99": 6.302846119212997,
+      "maks_abs": 12.023443222045898,
+      "maks_abs/std": 7.544337405408348,
+      "maks_abs/p99.9_abs": 2.019638937363713,
+      "std_adim_orani": {
+        "8": 16.83381762710624,
+        "12": 271.3293282101297,
+        "16": 4343.257497538505,
+        "22": 277976.83047640533
+      },
+      "en_buyuk_kanallar": [
+        {
+          "kanal": 2,
+          "maks_abs": 12.023443222045898
+        },
+        {
+          "kanal": 47,
+          "maks_abs": 9.685040473937988
+        },
+        {
+          "kanal": 31,
+          "maks_abs": 9.362367630004883
+        }
+      ]
+    },
+    "LayerNorm girdisi · encoder.layer.0.output.LayerNorm": {
+      "n": 2808704,
+      "min": -28.924846649169922,
+      "max": 10.065117835998535,
+      "ort": 0.03419459097473633,
+      "std": 1.5024125324656208,
+      "p0.01": -24.908597479248048,
+      "p0.1": -9.565824414253235,
+      "p1": -3.769779295921326,
+      "p50": 0.07670915126800537,
+      "p99": 3.1913502240180986,
+      "p99.9": 4.365143297195491,
+      "p99.99": 5.697402656507413,
+      "maks_abs": 28.924846649169922,
+      "maks_abs/std": 19.25226662060728,
+      "maks_abs/p99.9_abs": 3.023769347686481,
+      "std_adim_orani": {
+        "8": 6.596625867629606,
+        "12": 106.32514292155751,
+        "16": 1701.9814157844041,
+        "22": 108930.0829521677
+      },
+      "en_buyuk_kanallar": [
+        {
+          "kanal": 2,
+          "maks_abs": 28.924846649169922
+        },
+        {
+          "kanal": 73,
+          "maks_abs": 15.162762641906738
+        },
+        {
+          "kanal": 32,
+          "maks_abs": 13.03124713897705
+        }
+      ]
+    },
+    "LayerNorm girdisi · encoder.layer.1.attention.output.LayerNorm": {
+      "n": 2808704,
+      "min": -12.660860061645508,
+      "max": 10.157827377319336,
+      "ort": 0.021642226803713086,
+      "std": 1.720921693491842,
+      "p0.01": -6.9294115381717685,
+      "p0.1": -5.467582546710968,
+      "p1": -3.9805123162269593,
+      "p50": -0.0013398341834545135,
+      "p99": 4.198514957427991,
+      "p99.9": 5.8050180711746595,
+      "p99.99": 7.319150967788689,
+      "maks_abs": 12.660860061645508,
+      "maks_abs/std": 7.357022756773985,
+      "maks_abs/p99.9_abs": 2.1810199221453157,
+      "std_adim_orani": {
+        "8": 17.26241771959515,
+        "12": 278.23755174812027,
+        "16": 4453.839696204522,
+        "22": 285054.3038036747
+      },
+      "en_buyuk_kanallar": [
+        {
+          "kanal": 73,
+          "maks_abs": 12.660860061645508
+        },
+        {
+          "kanal": 16,
+          "maks_abs": 10.750831604003906
+        },
+        {
+          "kanal": 111,
+          "maks_abs": 10.157827377319336
+        }
+      ]
+    },
+    "LayerNorm girdisi · encoder.layer.1.output.LayerNorm": {
+      "n": 2808704,
+      "min": -5.989099502563477,
+      "max": 5.49210786819458,
+      "ort": 0.05173807824726973,
+      "std": 1.2706475929465186,
+      "p0.01": -4.652835826539993,
+      "p0.1": -3.8913922538757326,
+      "p1": -2.893487856388092,
+      "p50": 0.05017492175102234,
+      "p99": 2.965239186286932,
+      "p99.9": 3.821608999252337,
+      "p99.99": 4.48751302423476,
+      "maks_abs": 5.989099502563477,
+      "maks_abs/std": 4.713422931589779,
+      "maks_abs/p99.9_abs": 1.5390634281595432,
+      "std_adim_orani": {
+        "8": 26.944325141890985,
+        "12": 434.2916028775657,
+        "16": 6951.848046648361,
+        "22": 444931.6410680458
+      },
+      "en_buyuk_kanallar": [
+        {
+          "kanal": 125,
+          "maks_abs": 5.989099502563477
+        },
+        {
+          "kanal": 50,
+          "maks_abs": 5.7708940505981445
+        },
+        {
+          "kanal": 105,
+          "maks_abs": 5.760535717010498
+        }
+      ]
+    }
+  },
+  "gelu": {
+    "bert.encoder.layer.0.intermediate.dense": [
+      {
+        "girdi_bit": 8,
+        "maks_mutlak_hata": 0.07500264889364638,
+        "rms_hata": 0.0195070302162413,
+        "ref_rms": 0.6322149544277691
+      },
+      {
+        "girdi_bit": 12,
+        "maks_mutlak_hata": 0.02103322783518058,
+        "rms_hata": 0.00794048852050025,
+        "ref_rms": 0.6322149544277691
+      },
+      {
+        "girdi_bit": 16,
+        "maks_mutlak_hata": 0.018323531795610304,
+        "rms_hata": 0.007890408439271034,
+        "ref_rms": 0.6322149544277691
+      },
+      {
+        "girdi_bit": 22,
+        "maks_mutlak_hata": 0.01815464406766676,
+        "rms_hata": 0.007891154695690546,
+        "ref_rms": 0.6322149544277691
+      }
+    ],
+    "bert.encoder.layer.1.intermediate.dense": [
+      {
+        "girdi_bit": 8,
+        "maks_mutlak_hata": 0.06826092248987226,
+        "rms_hata": 0.017400576290278257,
+        "ref_rms": 0.53749325122108
+      },
+      {
+        "girdi_bit": 12,
+        "maks_mutlak_hata": 0.020680155972484293,
+        "rms_hata": 0.007917544491924361,
+        "ref_rms": 0.53749325122108
+      },
+      {
+        "girdi_bit": 16,
+        "maks_mutlak_hata": 0.018310172739691932,
+        "rms_hata": 0.00786464245428514,
+        "ref_rms": 0.53749325122108
+      },
+      {
+        "girdi_bit": 22,
+        "maks_mutlak_hata": 0.018154435295851812,
+        "rms_hata": 0.007866127948464962,
+        "ref_rms": 0.53749325122108
+      }
+    ]
+  },
+  "softmax": {
+    "bert.encoder.layer.0.attention.self.query": [
+      {
+        "girdi_bit": 8,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.07118541548064983,
+        "ort_mutlak_hata": 0.0038401172509317967,
+        "satir_toplami_ort": 0.894941581597776,
+        "satir_toplami_min": 0.71875,
+        "satir_toplami_maks": 0.9921875,
+        "argmax_uyusma": 0.9798569019732944,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 8,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.06633312055877483,
+        "ort_mutlak_hata": 0.0021236949707118336,
+        "satir_toplami_ort": 0.9995363422618582,
+        "satir_toplami_min": 0.99884033203125,
+        "satir_toplami_maks": 0.999969482421875,
+        "argmax_uyusma": 0.9805404912728433,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 12,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.010964169799909884,
+        "ort_mutlak_hata": 0.003444392873894263,
+        "satir_toplami_ort": 0.898645247060566,
+        "satir_toplami_min": 0.734375,
+        "satir_toplami_maks": 0.9921875,
+        "argmax_uyusma": 0.9858497014993391,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 12,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.003731538353379138,
+        "ort_mutlak_hata": 0.00011694966500573256,
+        "satir_toplami_ort": 0.9995370675463221,
+        "satir_toplami_min": 0.998931884765625,
+        "satir_toplami_maks": 0.999969482421875,
+        "argmax_uyusma": 0.9986100350909174,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 16,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.008445607654322507,
+        "ort_mutlak_hata": 0.0034349693906138325,
+        "satir_toplami_ort": 0.898899278813289,
+        "satir_toplami_min": 0.75,
+        "satir_toplami_maks": 0.9921875,
+        "argmax_uyusma": 0.9857585562593993,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 16,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.0008666435106958748,
+        "ort_mutlak_hata": 4.7459495557287176e-05,
+        "satir_toplami_ort": 0.9995371892383462,
+        "satir_toplami_min": 0.998931884765625,
+        "satir_toplami_maks": 0.999969482421875,
+        "argmax_uyusma": 0.9999088547600602,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 22,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.008445607654322507,
+        "ort_mutlak_hata": 0.0034347306178253057,
+        "satir_toplami_ort": 0.8989097818780477,
+        "satir_toplami_min": 0.75,
+        "satir_toplami_maks": 0.9921875,
+        "argmax_uyusma": 0.9858497014993391,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 22,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.0009119092069728163,
+        "ort_mutlak_hata": 4.959946994174748e-05,
+        "satir_toplami_ort": 0.9995375202406519,
+        "satir_toplami_min": 0.998931884765625,
+        "satir_toplami_maks": 0.999969482421875,
+        "argmax_uyusma": 0.9999316410700451,
+        "satir_sayisi": 43886
+      }
+    ],
+    "bert.encoder.layer.1.attention.self.query": [
+      {
+        "girdi_bit": 8,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.03338503800901249,
+        "ort_mutlak_hata": 0.0027194653760268957,
+        "satir_toplami_ort": 0.9219465632547965,
+        "satir_toplami_min": 0.765625,
+        "satir_toplami_maks": 0.9921875,
+        "argmax_uyusma": 0.9933463974843914,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 8,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.028838698861680667,
+        "ort_mutlak_hata": 0.0007233335455703566,
+        "satir_toplami_ort": 0.9995433684116412,
+        "satir_toplami_min": 0.9989013671875,
+        "satir_toplami_maks": 0.999969482421875,
+        "argmax_uyusma": 0.9933463974843914,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 12,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.011495333193486057,
+        "ort_mutlak_hata": 0.0026042551177375135,
+        "satir_toplami_ort": 0.9233904676320467,
+        "satir_toplami_min": 0.765625,
+        "satir_toplami_maks": 0.9921875,
+        "argmax_uyusma": 0.9966276261222258,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 12,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.0040184076974060234,
+        "ort_mutlak_hata": 0.0001308805439743204,
+        "satir_toplami_ort": 0.9995430735692512,
+        "satir_toplami_min": 0.998870849609375,
+        "satir_toplami_maks": 0.999969482421875,
+        "argmax_uyusma": 0.9997037779701955,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 16,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.008410913617577565,
+        "ort_mutlak_hata": 0.002587067097551847,
+        "satir_toplami_ort": 0.9238618594198605,
+        "satir_toplami_min": 0.7734375,
+        "satir_toplami_maks": 0.9921875,
+        "argmax_uyusma": 0.9966048398122408,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 16,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.0008747790987260196,
+        "ort_mutlak_hata": 4.3131993548714646e-05,
+        "satir_toplami_ort": 0.9995429226711412,
+        "satir_toplami_min": 0.998931884765625,
+        "satir_toplami_maks": 0.999969482421875,
+        "argmax_uyusma": 1.0,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 22,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.008335216063424133,
+        "ort_mutlak_hata": 0.0025867105431274184,
+        "satir_toplami_ort": 0.9238757448275077,
+        "satir_toplami_min": 0.7734375,
+        "satir_toplami_maks": 0.9921875,
+        "argmax_uyusma": 0.9966048398122408,
+        "satir_sayisi": 43886
+      },
+      {
+        "girdi_bit": 22,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.0009358142549760196,
+        "ort_mutlak_hata": 4.526178088837601e-05,
+        "satir_toplami_ort": 0.9995429671756529,
+        "satir_toplami_min": 0.998931884765625,
+        "satir_toplami_maks": 0.99993896484375,
+        "argmax_uyusma": 0.999977213690015,
+        "satir_sayisi": 43886
+      }
+    ]
+  },
+  "layernorm": {
+    "bert.embeddings.LayerNorm": [
+      {
+        "girdi_bit": 8,
+        "maks_mutlak_hata": 0.8143529411821158,
+        "rms_hata": 0.11651750592560091,
+        "afin_sonrasi_maks_hata": 0.9633230137881954,
+        "afin_sonrasi_rms_hata": 0.15161491494673376,
+        "tamsayi_varyans_min": 40.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 12,
+        "maks_mutlak_hata": 0.04474078053065611,
+        "rms_hata": 0.006831218276221222,
+        "afin_sonrasi_maks_hata": 0.05552039949295029,
+        "afin_sonrasi_rms_hata": 0.008875115770310962,
+        "tamsayi_varyans_min": 10260.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 16,
+        "maks_mutlak_hata": 0.0028824718777471503,
+        "rms_hata": 0.0004199556948399659,
+        "afin_sonrasi_maks_hata": 0.0034339944209120787,
+        "afin_sonrasi_rms_hata": 0.000545453661885478,
+        "tamsayi_varyans_min": 2628594.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 22,
+        "maks_mutlak_hata": 7.495115577693667e-05,
+        "rms_hata": 1.5427936187384674e-05,
+        "afin_sonrasi_maks_hata": 7.22171544187411e-05,
+        "afin_sonrasi_rms_hata": 2.0149110953182283e-05,
+        "tamsayi_varyans_min": 10767312998.0,
+        "sifir_varyansli_satir": 0
+      }
+    ],
+    "bert.encoder.layer.0.attention.output.LayerNorm": [
+      {
+        "girdi_bit": 8,
+        "maks_mutlak_hata": 0.5233929206810224,
+        "rms_hata": 0.060013690641867075,
+        "afin_sonrasi_maks_hata": 0.9514216781881277,
+        "afin_sonrasi_rms_hata": 0.07258953063721565,
+        "tamsayi_varyans_min": 158.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 12,
+        "maks_mutlak_hata": 0.03141098913327678,
+        "rms_hata": 0.003251757262889999,
+        "afin_sonrasi_maks_hata": 0.057098777636971576,
+        "afin_sonrasi_rms_hata": 0.003940121755868535,
+        "tamsayi_varyans_min": 41130.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 16,
+        "maks_mutlak_hata": 0.001994466556057617,
+        "rms_hata": 0.00019580447903831365,
+        "afin_sonrasi_maks_hata": 0.0036255337870940707,
+        "afin_sonrasi_rms_hata": 0.00023744184777440473,
+        "tamsayi_varyans_min": 10537750.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 22,
+        "maks_mutlak_hata": 5.8178225776472914e-05,
+        "rms_hata": 1.6284033951953897e-05,
+        "afin_sonrasi_maks_hata": 0.00010575615950259021,
+        "afin_sonrasi_rms_hata": 1.96974084864426e-05,
+        "tamsayi_varyans_min": 43165067437.0,
+        "sifir_varyansli_satir": 0
+      }
+    ],
+    "bert.encoder.layer.0.output.LayerNorm": [
+      {
+        "girdi_bit": 8,
+        "maks_mutlak_hata": 1.1512429760957508,
+        "rms_hata": 0.12201110127210991,
+        "afin_sonrasi_maks_hata": 1.1433863784215275,
+        "afin_sonrasi_rms_hata": 0.14525489044339604,
+        "tamsayi_varyans_min": 25.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 12,
+        "maks_mutlak_hata": 0.06343229729163902,
+        "rms_hata": 0.008520213146470317,
+        "afin_sonrasi_maks_hata": 0.06368391314303512,
+        "afin_sonrasi_rms_hata": 0.010383646522488955,
+        "tamsayi_varyans_min": 6641.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 16,
+        "maks_mutlak_hata": 0.003950412116195068,
+        "rms_hata": 0.0005191970755956876,
+        "afin_sonrasi_maks_hata": 0.004163572759790846,
+        "afin_sonrasi_rms_hata": 0.0006319088867210863,
+        "tamsayi_varyans_min": 1701059.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 22,
+        "maks_mutlak_hata": 8.379030025107426e-05,
+        "rms_hata": 1.5313605527802847e-05,
+        "afin_sonrasi_maks_hata": 8.666137768198467e-05,
+        "afin_sonrasi_rms_hata": 1.8878915991459316e-05,
+        "tamsayi_varyans_min": 6967943528.0,
+        "sifir_varyansli_satir": 0
+      }
+    ],
+    "bert.encoder.layer.1.attention.output.LayerNorm": [
+      {
+        "girdi_bit": 8,
+        "maks_mutlak_hata": 0.37987462236617553,
+        "rms_hata": 0.050565759117981744,
+        "afin_sonrasi_maks_hata": 0.38207326766810823,
+        "afin_sonrasi_rms_hata": 0.05259105057328698,
+        "tamsayi_varyans_min": 111.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 12,
+        "maks_mutlak_hata": 0.02170430226997322,
+        "rms_hata": 0.003256855016524192,
+        "afin_sonrasi_maks_hata": 0.021588710445160864,
+        "afin_sonrasi_rms_hata": 0.0033887778648849587,
+        "tamsayi_varyans_min": 28969.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 16,
+        "maks_mutlak_hata": 0.0013896811566533884,
+        "rms_hata": 0.00019558571239448308,
+        "afin_sonrasi_maks_hata": 0.0015301837307424293,
+        "afin_sonrasi_rms_hata": 0.00020343993009157768,
+        "tamsayi_varyans_min": 7421409.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 22,
+        "maks_mutlak_hata": 4.690771915338843e-05,
+        "rms_hata": 1.6298314868294807e-05,
+        "afin_sonrasi_maks_hata": 5.991693786189245e-05,
+        "afin_sonrasi_rms_hata": 1.7058986227004785e-05,
+        "tamsayi_varyans_min": 30398675589.0,
+        "sifir_varyansli_satir": 0
+      }
+    ],
+    "bert.encoder.layer.1.output.LayerNorm": [
+      {
+        "girdi_bit": 8,
+        "maks_mutlak_hata": 0.20484608895380152,
+        "rms_hata": 0.03309671809134452,
+        "afin_sonrasi_maks_hata": 0.22898457662952154,
+        "afin_sonrasi_rms_hata": 0.033835592675308,
+        "tamsayi_varyans_min": 377.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 12,
+        "maks_mutlak_hata": 0.013926508578646857,
+        "rms_hata": 0.0020018000277509775,
+        "afin_sonrasi_maks_hata": 0.01314486879224308,
+        "afin_sonrasi_rms_hata": 0.0020466511106406434,
+        "tamsayi_varyans_min": 97511.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 16,
+        "maks_mutlak_hata": 0.0008344675630218568,
+        "rms_hata": 0.00011864135967304247,
+        "afin_sonrasi_maks_hata": 0.0007794717505040794,
+        "afin_sonrasi_rms_hata": 0.00012137198630386756,
+        "tamsayi_varyans_min": 24985822.0,
+        "sifir_varyansli_satir": 0
+      },
+      {
+        "girdi_bit": 22,
+        "maks_mutlak_hata": 3.830214419853206e-05,
+        "rms_hata": 1.6729302025451922e-05,
+        "afin_sonrasi_maks_hata": 5.126203516869765e-05,
+        "afin_sonrasi_rms_hata": 1.7153333640903076e-05,
+        "tamsayi_varyans_min": 102347647345.0,
+        "sifir_varyansli_satir": 0
+      }
+    ]
+  },
+  "isqrt": {
+    "bert.embeddings.LayerNorm": [
+      {
+        "girdi_bit": 8,
+        "gereken_sabit_yineleme": 3,
+        "maks_varyans": 226.0
+      },
+      {
+        "girdi_bit": 12,
+        "gereken_sabit_yineleme": 4,
+        "maks_varyans": 58682.0
+      },
+      {
+        "girdi_bit": 16,
+        "gereken_sabit_yineleme": 4,
+        "maks_varyans": 15034639.0
+      },
+      {
+        "girdi_bit": 22,
+        "gereken_sabit_yineleme": 5,
+        "maks_varyans": 61585598386.0
+      }
+    ],
+    "bert.encoder.layer.0.attention.output.LayerNorm": [
+      {
+        "girdi_bit": 8,
+        "gereken_sabit_yineleme": 3,
+        "maks_varyans": 890.0
+      },
+      {
+        "girdi_bit": 12,
+        "gereken_sabit_yineleme": 4,
+        "maks_varyans": 231767.0
+      },
+      {
+        "girdi_bit": 16,
+        "gereken_sabit_yineleme": 4,
+        "maks_varyans": 59386328.0
+      },
+      {
+        "girdi_bit": 22,
+        "gereken_sabit_yineleme": 5,
+        "maks_varyans": 243259743929.0
+      }
+    ],
+    "bert.encoder.layer.0.output.LayerNorm": [
+      {
+        "girdi_bit": 8,
+        "gereken_sabit_yineleme": 3,
+        "maks_varyans": 200.0
+      },
+      {
+        "girdi_bit": 12,
+        "gereken_sabit_yineleme": 3,
+        "maks_varyans": 51943.0
+      },
+      {
+        "girdi_bit": 16,
+        "gereken_sabit_yineleme": 4,
+        "maks_varyans": 13311470.0
+      },
+      {
+        "girdi_bit": 22,
+        "gereken_sabit_yineleme": 4,
+        "maks_varyans": 54527210446.0
+      }
+    ],
+    "bert.encoder.layer.1.attention.output.LayerNorm": [
+      {
+        "girdi_bit": 8,
+        "gereken_sabit_yineleme": 3,
+        "maks_varyans": 1176.0
+      },
+      {
+        "girdi_bit": 12,
+        "gereken_sabit_yineleme": 4,
+        "maks_varyans": 305909.0
+      },
+      {
+        "girdi_bit": 16,
+        "gereken_sabit_yineleme": 4,
+        "maks_varyans": 78371106.0
+      },
+      {
+        "girdi_bit": 22,
+        "gereken_sabit_yineleme": 5,
+        "maks_varyans": 321026463057.0
+      }
+    ],
+    "bert.encoder.layer.1.output.LayerNorm": [
+      {
+        "girdi_bit": 8,
+        "gereken_sabit_yineleme": 3,
+        "maks_varyans": 1302.0
+      },
+      {
+        "girdi_bit": 12,
+        "gereken_sabit_yineleme": 4,
+        "maks_varyans": 338801.0
+      },
+      {
+        "girdi_bit": 16,
+        "gereken_sabit_yineleme": 4,
+        "maks_varyans": 86795509.0
+      },
+      {
+        "girdi_bit": 22,
+        "gereken_sabit_yineleme": 5,
+        "maks_varyans": 355533502784.0
+      }
+    ]
+  },
+  "rastgele_girdi_sonuclari": {
+    "gelu": [
+      {
+        "girdi_bit": 8,
+        "maks_mutlak_hata": 0.04826,
+        "rms_hata": 0.01456,
+        "ref_rms": 1.023
+      },
+      {
+        "girdi_bit": 12,
+        "maks_mutlak_hata": 0.01999,
+        "rms_hata": 0.0082,
+        "ref_rms": 1.023
+      },
+      {
+        "girdi_bit": 16,
+        "maks_mutlak_hata": 0.01827,
+        "rms_hata": 0.00818,
+        "ref_rms": 1.023
+      }
+    ],
+    "softmax": [
+      {
+        "girdi_bit": 8,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.1183,
+        "ort_mutlak_hata": 0.002152,
+        "satir_toplami_ort": 0.8911,
+        "argmax_uyusma": 0.9754
+      },
+      {
+        "girdi_bit": 8,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.11348,
+        "ort_mutlak_hata": 0.002056,
+        "satir_toplami_ort": 0.9991,
+        "argmax_uyusma": 0.9754
+      },
+      {
+        "girdi_bit": 12,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.01056,
+        "ort_mutlak_hata": 0.001412,
+        "satir_toplami_ort": 0.9097,
+        "argmax_uyusma": 0.9924
+      },
+      {
+        "girdi_bit": 12,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.00322,
+        "ort_mutlak_hata": 5.6e-05,
+        "satir_toplami_ort": 0.9991,
+        "argmax_uyusma": 0.9984
+      },
+      {
+        "girdi_bit": 16,
+        "cikis_bit": 8,
+        "maks_mutlak_hata": 0.0084,
+        "ort_mutlak_hata": 0.001405,
+        "satir_toplami_ort": 0.9101,
+        "argmax_uyusma": 0.992
+      },
+      {
+        "girdi_bit": 16,
+        "cikis_bit": 16,
+        "maks_mutlak_hata": 0.00087,
+        "ort_mutlak_hata": 3e-05,
+        "satir_toplami_ort": 0.9991,
+        "argmax_uyusma": 0.9998
+      }
+    ],
+    "isqrt": {
+      "yineleme_sayisi_yakinsama": 5,
+      "maks_hata_tamsayi": 0.0,
+      "tam_dogru_icin_gereken_sabit_yineleme": 4
+    },
+    "layernorm": [
+      {
+        "girdi_bit": 12,
+        "hidden": 128,
+        "maks_mutlak_hata": 0.0127,
+        "rms_hata": 0.00218
+      },
+      {
+        "girdi_bit": 16,
+        "hidden": 128,
+        "maks_mutlak_hata": 0.0008,
+        "rms_hata": 0.00014
+      },
+      {
+        "girdi_bit": 22,
+        "hidden": 128,
+        "maks_mutlak_hata": 0.0,
+        "rms_hata": 2e-05
+      }
+    ]
+  }
+}

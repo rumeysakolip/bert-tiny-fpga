@@ -1,0 +1,97 @@
+{
+  "gelu": [
+    {
+      "girdi_bit": 8,
+      "maks_mutlak_hata": 0.04826,
+      "rms_hata": 0.01456,
+      "ref_rms": 1.023
+    },
+    {
+      "girdi_bit": 12,
+      "maks_mutlak_hata": 0.01999,
+      "rms_hata": 0.0082,
+      "ref_rms": 1.023
+    },
+    {
+      "girdi_bit": 16,
+      "maks_mutlak_hata": 0.01827,
+      "rms_hata": 0.00818,
+      "ref_rms": 1.023
+    }
+  ],
+  "softmax": [
+    {
+      "girdi_bit": 8,
+      "cikis_bit": 8,
+      "maks_mutlak_hata": 0.1183,
+      "ort_mutlak_hata": 0.002152,
+      "satir_toplami_ort": 0.8911,
+      "argmax_uyusma": 0.9754
+    },
+    {
+      "girdi_bit": 8,
+      "cikis_bit": 16,
+      "maks_mutlak_hata": 0.11348,
+      "ort_mutlak_hata": 0.002056,
+      "satir_toplami_ort": 0.9991,
+      "argmax_uyusma": 0.9754
+    },
+    {
+      "girdi_bit": 12,
+      "cikis_bit": 8,
+      "maks_mutlak_hata": 0.01056,
+      "ort_mutlak_hata": 0.001412,
+      "satir_toplami_ort": 0.9097,
+      "argmax_uyusma": 0.9924
+    },
+    {
+      "girdi_bit": 12,
+      "cikis_bit": 16,
+      "maks_mutlak_hata": 0.00322,
+      "ort_mutlak_hata": 5.6e-05,
+      "satir_toplami_ort": 0.9991,
+      "argmax_uyusma": 0.9984
+    },
+    {
+      "girdi_bit": 16,
+      "cikis_bit": 8,
+      "maks_mutlak_hata": 0.0084,
+      "ort_mutlak_hata": 0.001405,
+      "satir_toplami_ort": 0.9101,
+      "argmax_uyusma": 0.992
+    },
+    {
+      "girdi_bit": 16,
+      "cikis_bit": 16,
+      "maks_mutlak_hata": 0.00087,
+      "ort_mutlak_hata": 3e-05,
+      "satir_toplami_ort": 0.9991,
+      "argmax_uyusma": 0.9998
+    }
+  ],
+  "isqrt": {
+    "yineleme_sayisi_yakinsama": 5,
+    "maks_hata_tamsayi": 0.0,
+    "tam_dogru_icin_gereken_sabit_yineleme": 4
+  },
+  "layernorm": [
+    {
+      "girdi_bit": 12,
+      "hidden": 128,
+      "maks_mutlak_hata": 0.0127,
+      "rms_hata": 0.00218
+    },
+    {
+      "girdi_bit": 16,
+      "hidden": 128,
+      "maks_mutlak_hata": 0.0008,
+      "rms_hata": 0.00014
+    },
+    {
+      "girdi_bit": 22,
+      "hidden": 128,
+      "maks_mutlak_hata": 0.0,
+      "rms_hata": 2e-05
+    }
+  ]
+}

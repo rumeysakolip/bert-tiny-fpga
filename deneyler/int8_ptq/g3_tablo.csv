@@ -1,0 +1,9 @@
+kosu,observer,aktivasyon,n_kalib,dogru_int8,kayip_puan,kayip_cumle,uyusan,uyusma_orani,fp32D_int8Y,fp32Y_int8D
+minmax_sim_n128,minmax,simetrik,128,719,0.0,0,870,0.9977,1,1
+minmax_sim_n512,minmax,simetrik,512,719,0.0,0,872,1.0,0,0
+percentile99.99_sim_n128,percentile 99.99,simetrik,128,718,0.11,1,867,0.9943,3,2
+percentile99.99_sim_n512,percentile 99.99,simetrik,512,719,0.0,0,868,0.9954,2,2
+minmax_asim_n512,minmax,asimetrik,512,718,0.11,1,869,0.9966,2,1
+percentile99.99_asim_n512,percentile 99.99,asimetrik,512,718,0.11,1,871,0.9989,1,0
+minmax_sim_n512_fp32cls,minmax,simetrik,512,719,0.0,0,872,1.0,0,0
+percentile99.99_sim_n128_fp32cls,percentile 99.99,simetrik,128,718,0.11,1,867,0.9943,3,2

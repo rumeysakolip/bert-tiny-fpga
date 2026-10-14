@@ -1,0 +1,65 @@
+{
+  "deney": "Statik INT8 PTQ (percentile99.99_asim_n512)",
+  "model_dir": "deneyler/fp32_baz/model",
+  "tokenizer": "deneyler/fp32_baz/model",
+  "ayarlar": {
+    "model_dir": "deneyler/fp32_baz/model",
+    "fp32_csv": "deneyler/fp32_baz/dogrulama_tahminleri.csv",
+    "data_dir": "/tmp/claude-0/sst2",
+    "out_dir": "deneyler/int8_ptq",
+    "ad": null,
+    "max_len": 64,
+    "n_kalib": 512,
+    "observer": "percentile",
+    "pct": 99.99,
+    "asimetrik": true,
+    "fp32_katmanlar": null,
+    "agirlik_kaydet": false,
+    "seed": 42,
+    "device": "cpu"
+  },
+  "nicelenen_katman_sayisi": 14,
+  "nicelenmeyen": [
+    "softmax",
+    "gelu",
+    "layernorm",
+    "artik_toplam",
+    "QK^T",
+    "softmax*V",
+    "embedding"
+  ],
+  "fp32_csv_ile_farkli_tahmin": 0,
+  "kalibrasyon_sn": 1.99,
+  "sonuc": {
+    "n": 872,
+    "dogruluk_fp32": 0.8245,
+    "dogruluk_int8": 0.8234,
+    "dogru_fp32": 719,
+    "dogru_int8": 718,
+    "kayip_puan": 0.11,
+    "kayip_cumle": 1,
+    "uyusma_orani": 0.9989,
+    "uyusmayan_cumle": 1,
+    "fp32_dogru_int8_yanlis": 1,
+    "fp32_yanlis_int8_dogru": 0,
+    "mlperf_orani": 0.9986,
+    "hedef_saglandi": true,
+    "sinir_saglandi": true,
+    "mlperf_saglandi": true,
+    "esikler": {
+      "bir_puan_cumle": 8.72,
+      "min_dogru_hedef": 711,
+      "en_cok_kayip_cumle_hedef": 8,
+      "min_dogru_sinir": 702,
+      "en_cok_kayip_cumle_sinir": 17,
+      "min_dogru_mlperf": 712,
+      "en_cok_kayip_cumle_mlperf": 7
+    },
+    "karar": "HEDEF sağlandı (<=1 puan)",
+    "maks_logit_farki": 0.197,
+    "ort_logit_farki": 0.0187
+  },
+  "ortam": {
+    "torch": "2.14.1+cu130"
+  }
+}

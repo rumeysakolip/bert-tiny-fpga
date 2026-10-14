@@ -1,0 +1,34 @@
+Cihaz: cpu | koşu: qat_onizleme_cpu_lr1e-5_e2_s43
+FP32 doğruluk (yeniden hesap): %82.45 (719/872) | CSV ile farklı tahmin: 0
+PTQ (QAT öncesi) doğruluk: %82.45 | kayıp: 0.0 puan (0 cümle) | uyuşma: %100.00
+Sahte nicelemeli Linear katmanı: 14
+QAT başlangıcı (sahte niceleme, eğitimsiz) doğrulama: %82.45
+Eğitim kümesi tokenleştirildi: 6920 cümle (1 sn)
+Epoch 1: eğitim kaybı=0.1783 | doğrulama (sahte niceleme) %81.54 | 27 sn
+Epoch 2: eğitim kaybı=0.1706 | doğrulama (sahte niceleme) %81.42 | 26 sn
+QAT INT8 (tamsayı yolu) doğruluk: %81.42 (710/872) | kayıp: 1.03 puan (9 cümle) | uyuşma: %98.05 | SINIR içinde ama hedef aşıldı (1–2 puan) -> hata analizi (G5)
+Tutarlılık sahte niceleme ↔ tamsayı: tahmin uyuşması %100.00, maks logit farkı 0.022
+
+# Statik INT8: PTQ ve QAT yan yana — qat_onizleme_cpu_lr1e-5_e2_s43
+
+| Ölçüt | FP32 | PTQ | QAT |
+|---|---|---|---|
+| Doğru cümle (872 içinde) | 719 | 719 | 710 |
+| Doğruluk | %82.45 | %82.45 | %81.42 |
+| FP32'ye göre kayıp (puan) | — | 0.0 | 1.03 |
+| FP32'ye göre kayıp (cümle) | — | 0 | 9 |
+| FP32–INT8 tahmin uyuşma oranı | — | %100.00 (0 cümle farklı) | %98.05 (17 cümle farklı) |
+| FP32 doğru → INT8 yanlış | — | 0 | 13 |
+| FP32 yanlış → INT8 doğru | — | 0 | 4 |
+| Maks / ort. mutlak logit farkı (FP32'ye göre) | — | 0.3548 / 0.0224 | 0.9268 / 0.1288 |
+| Hedef (≤1 puan, ≥711 doğru) | — | ✔ | ✘ |
+| Üst sınır (≤2 puan, ≥702 doğru) | — | ✔ | ✔ |
+| MLPerf (≥%99 FP32) | — | ✔ | ✘ |
+
+QAT için karar: SINIR içinde ama hedef aşıldı (1–2 puan) -> hata analizi (G5)
+
+Tutarlılık (QAT sahte niceleme ↔ tamsayı yolu, doğrulama kümesi): tahmin uyuşması %100.00, maks mutlak logit farkı 0.022, ort. 0.000448.
+
+Not: 872 cümlelik kümede 1–2 cümlelik farklar gürültüdür (1 puan ≈ 8,72 cümle).
+
+Çıktılar: real/out/qat_onizleme_cpu_lr1e-5_e2_s43

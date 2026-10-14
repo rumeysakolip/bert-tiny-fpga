@@ -1,0 +1,2 @@
+VCD info: dumpfile sim/tb_pe.vcd opened for output.
+PE TEST: PASS  (1012 kontrol, 0 hata)
