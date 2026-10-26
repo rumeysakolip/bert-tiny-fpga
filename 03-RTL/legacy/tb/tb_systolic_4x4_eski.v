@@ -3,7 +3,7 @@
 // tarafından üretilen tb/vektor/*.mem dosyalarından okunur; çalıştırma
 // donanim/ dizininden yapılmalıdır (bkz. README.md).
 `timescale 1ns/1ps
-module tb_systolic_4x4;
+module tb_systolic_4x4_eski;
     localparam MAXT = 1024;
 
     reg          clk = 0;
@@ -13,7 +13,7 @@ module tb_systolic_4x4;
     wire [511:0] c_flat;
     wire         busy, done;
 
-    systolic_4x4 dut (.clk(clk), .rst(rst), .start(start), .a_flat(a_flat),
+    systolic_4x4_eski dut (.clk(clk), .rst(rst), .start(start), .a_flat(a_flat),
                       .b_flat(b_flat), .c_flat(c_flat), .busy(busy), .done(done));
 
     always #5 clk = ~clk;
@@ -116,8 +116,8 @@ module tb_systolic_4x4;
     endtask
 
     initial begin
-        $dumpfile("sim/tb_systolic_4x4.vcd");
-        $dumpvars(0, tb_systolic_4x4);
+        $dumpfile("sim/tb_systolic_4x4_eski.vcd");
+        $dumpvars(0, tb_systolic_4x4_eski);
 
         errors = 0; bad_tests = 0; lat_min = 1000; lat_max = 0;
         $readmemh("tb/vektor/meta.mem", memMeta);

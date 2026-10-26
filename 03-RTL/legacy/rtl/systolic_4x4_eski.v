@@ -30,7 +30,7 @@
 // Sabit 4x4 (genelleştirme kapsam dışı).
 // -----------------------------------------------------------------------------
 `timescale 1ns/1ps
-module systolic_4x4 (
+module systolic_4x4_eski (
     input  wire              clk,
     input  wire              rst,      // senkron reset, aktif-yüksek
     input  wire              start,
@@ -125,7 +125,7 @@ module systolic_4x4 (
                     assign b_in = b_o[((gi-1)*N + gj)*8 +: 8];   // üstteki PE
                 end
 
-                pe u_pe (
+                pe_eski u_pe (
                     .clk  (clk),
                     .rst  (pe_rst),
                     .en   (run),

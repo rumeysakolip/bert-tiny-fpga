@@ -1,0 +1,4 @@
+idx,etiket,fp32,B_float,tam_hat,logit_fark_B_float,logit_fark_tam,cumle
+60,1,0,0,1,-0.094,0.047,"this is a story of two misfits who do n't stand a chance alone , but together they are magnificent . "
+501,1,0,1,0,0.258,-0.023,"harrison 's flowers puts its heart in the right place , but its brains are in no particular place at all . "
+800,0,0,1,0,0.094,-0.07,"for all its technical virtuosity , the film is so mired in juvenile and near-xenophobic pedagogy that it 's enough to make one pine for the day when godard can no longer handle the rigors of filmmaking . "
