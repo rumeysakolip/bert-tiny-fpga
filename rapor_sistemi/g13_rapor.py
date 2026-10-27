@@ -128,7 +128,7 @@ def main():
         tablo(d, [["Kaynak", "Kullanılan", "Mevcut (XC7A35T)"], ["Slice LUT", o["LUT"], "20 800"], ["Slice FF", o["FF"], "41 600"],
                   ["BRAM36", o["BRAM36"], "50"], ["DSP48E1", o["DSP"], "90"]], [5, 4, 5])
         d.add_paragraph(f"Sentez sonrası zamanlama özeti (100 MHz kısıtı, yerleştirme-yönlendirme YOK, bu yüzden yalnızca kaba tahmin): WNS = {o['WNS']} ns. Kesin zamanlama için implementasyon gerekir. "
-                        "Plan tahmini 64 PE için ≈72 DSP idi; ölçülen yalnızca 4 DSP: PE çarpıcıları LUT'a eşlendi (LUT %48,6). 100 MHz kısıtı sentez sonrası bile ihlal ediliyor (WNS negatif); frekans düşürme veya DSP'ye zorlama/yazmaçlı çarpma açık maddedir.")
+                        "Plan tahmini 64 PE için ≈72 DSP idi. İlk sentezde PE çarpıcıları LUT'a eşlendi (4 DSP, 10 110 LUT, WNS −0,456 ns); PE modülüne use_dsp ipucu eklenince 64 PE çarpıcısı DSP48E1'e eşlendi (68 DSP, 3 816 LUT, WNS pozitif). RTL mantığı değişmedi; benzetim regresyonu ve sentezlenmiş dizi ağ listesi (xsim, 64 DSP) 0 hata ile geçti. Zamanlama yerleştirme-yönlendirme öncesi kaba tahmindir.")
     else:
         d.add_paragraph("Sentez çıktıları bulunamadı (03-RTL/sentez/cikti).")
 

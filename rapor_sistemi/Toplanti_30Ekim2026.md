@@ -9,8 +9,8 @@
 - PC→FPGA→PC döngüsü: 6 L0 katmanı, 602 paket, 0 fark; bozuk CRC → HATA döndü.
 
 **3. Sentez (Vivado post-synth, yerleştirme yok)**
-- 10 110 LUT (%48,6), 6 451 FF, 15 BRAM, **4 DSP** (tahmin ≈72 idi: PE çarpıcıları LUT'a eşlendi).
-- 100 MHz'de WNS −0,456 ns (kaba) → frekans düşürme / DSP'ye zorlama gerekli.
+- İlk sentez: 10 110 LUT, **4 DSP** (tahmin ≈72). PE'ye `use_dsp` ipucu eklenince: 3 816 LUT (%18,4), 4 216 FF, 15 BRAM, **68 DSP** (%75,6).
+- 100 MHz'de WNS: ilk sentezde −0,456 ns, DSP'li sentezde **+1,648 ns** (yalnızca sentez, yerleştirme yok; kesin değil). Sentezlenmiş 8×8 dizi ağ listesi xsim'de 0 hata.
 
 **4. Dürüst performans**
 - Hesap ms düzeyi; ama ağırlıklar UART'tan her çıkarımda akar: ≈420 KB → ≈4,6 sn @921 600 baud (hesap). CPU 2,49 ms. **Hız kazancı beklenmiyor.**

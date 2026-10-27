@@ -4,7 +4,7 @@
   "alt_baslik": "Vivado 2025.1, xc7a35tcpg236-1, yalnızca synth_design (yerleştirme/yönlendirme yok), üst modül hizlandirici_uart_ust",
   "gorev": "G12 — sentez ve kart hazırlık paketi",
   "tarih": "27 Ekim 2026",
-  "durum": "SENTEZ YAPILDI (post-synth). 100 MHz kısıtı kaba tahminde İHLAL: WNS -0.456 ns. Kart yok.",
+  "durum": "SENTEZ YAPILDI (post-synth). 100 MHz kısıtı kaba tahminde SAĞLANDI: WNS 1.648 ns (ilk sentezde −0,456 ns idi). Kart yok.",
   "amac": "RTL'in Basys3 (XC7A35T) üzerindeki kaynak kullanımını ve kaba zamanlamasını Vivado ile ölçmek, plandaki tahminlerle karşılaştırmak ve farkları nedenleriyle kaydetmek.",
   "kararlar": [
     [
@@ -26,8 +26,8 @@
       "alintilar": [
         "SN-03"
       ],
-      "bizde": "Plan 64 PE için ≈72 DSP bekliyordu (tahmin). Sentez yalnızca 4 DSP kullandı; 64 adet 9b×8b çarpıcı LUT/carry zincirine eşlendi (PE başına ≈145 LUT, hiyerarşik rapor). Toplam 10110 LUT (%48.6).",
-      "fark": "Kaynaktaki gözlemin (çarpma birimi DSP'nin çoğunu tüketir) tersi bizde ölçüldü: küçük çarpıcılar için Vivado DSP yerine LUT seçti. Nedeni bu çalışmada incelenmedi; DSP'ye zorlama (use_dsp) veya çarpmayı PE içinde yazmaçlı yazmak denenebilir (açık nokta).",
+      "bizde": "Plan 64 PE için ≈72 DSP bekliyordu (tahmin). İlk sentezde 64 çarpıcı LUT'a eşlendi (yalnızca 4 DSP, 10 110 LUT, WNS −0,456 ns). pe.v'ye use_dsp ipucu eklenince sentez 68 DSP verdi (64 PE + yeniden ölçekleme), LUT 3816 (%18.3) ve FF 4216'e düştü.",
+      "fark": "Varsayılan sentez küçük (9b×8b) çarpıcılar için LUT seçti; use_dsp ile DSP'ye zorlanınca kaynaktaki gözlem (çarpma birimi DSP'yi tüketir) bizde de görüldü. Ek yazmaçlı çarpma gerekmedi: çarp-biriktir tek DSP48E1'de, gecikme (tile = K+2N−2) değişmeden eşlendi.",
       "sekil": [
         "S2"
       ]
@@ -59,13 +59,13 @@
       ],
       [
         "Slice LUT",
-        "10110",
+        "3816",
         "20 800",
         "—"
       ],
       [
         "Slice FF",
-        "6451",
+        "4216",
         "41 600",
         "≈2 048 (gölge) + PE"
       ],
@@ -77,13 +77,13 @@
       ],
       [
         "DSP48E1",
-        "4",
+        "68",
         "90",
         "≈72"
       ],
       [
         "WNS (10 ns)",
-        "-0.456 ns",
+        "1.648 ns",
         "—",
         "—"
       ]
@@ -94,10 +94,11 @@
     ]
   },
   "sinirlar": [
-    "Zamanlama sentez sonrası, yerleştirme ve yönlendirme olmadan; en kötü yol 10.35 ns (kritik yol dizideki PE acc toplamasına giden k_reg/kontrol yolu, 17 mantık seviyesi). Bu 100 MHz'i karşılamaz; gerçek frekans implementasyon sonrası belirlenmelidir (düşük frekansta çalıştırma seçeneği vardır).",
+    "Zamanlama sentez sonrası, yerleştirme ve yönlendirme olmadan; en kötü yol 4.45 ns (kritik yol kcnt'den PE DSP girişine, 5 mantık seviyesi). Sentez sonrası 100 MHz karşılanıyor; yönlendirme gecikmesi eklenince değişebilir, gerçek frekans implementasyon sonrası belirlenmelidir.",
     "Yalnızca sentez yapıldı: implementasyon, bitstream, güç ve kartta çalıştırma yok.",
-    "BRAM sayısı hedefte tahminin altındadır (15 ≤ 50); LUT %48,6 ile en kısıtlı kaynaktır.",
-    "Plandaki ‘64 PE ≈ 64 DSP’ varsayımı doğrulanmadı; DSP kullanımı bu tasarımda ölçülen 4'tür."
+    "BRAM sayısı hedefte tahminin altındadır (15 ≤ 50); LUT %18,4 ve DSP %75,6 kullanımda; DSP en kısıtlı kaynaktır.",
+    "DSP ipucu etkisi: ilk sentez 4 DSP / 10 110 LUT / WNS −0,456 ns; use_dsp ile 68 DSP / 3 816 LUT / WNS +1,648 ns. İkisi de yerleştirme öncesi sentez ölçümüdür.",
+    "Sentezlenmiş 8×8 dizi ağ listesi (64 DSP) xsim ile K=64 ve K=128 vektörlerinde 198 test, 25 344 kontrol, 0 hata verdi; tam üst modül ağ listesi benzetimi yapılmadı."
   ],
   "sekiller": {
     "S1": {
@@ -121,7 +122,7 @@
     "S4": {
       "dosya": "sekiller/tr12_s4_zamanlama.png",
       "baslik": "100 MHz hedefi ve sentez sonrası kritik yol.",
-      "aciklama": "Kritik yol 10 ns hedefini aşıyor (WNS negatif); bu kaba bir tahmindir, yönlendirme gecikmeleri eklenmemiştir.",
+      "aciklama": "Kritik yol 10 ns hedefinin altında (WNS pozitif); bu kaba bir tahmindir, yönlendirme gecikmeleri eklenmemiştir.",
       "genislik_cm": 11
     }
   },

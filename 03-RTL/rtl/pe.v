@@ -16,6 +16,7 @@
 //   en=0  : her sey tutulur
 // -----------------------------------------------------------------------------
 `timescale 1ns/1ps
+(* use_dsp = "yes" *)   // sentez ipucu: carp-biriktir DSP48E1'e eslensin (davranis degismez)
 module pe #(
     parameter A_W   = 9,
     parameter B_W   = 8,

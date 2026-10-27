@@ -47,7 +47,7 @@ def tr12():
     for i in range(2):
         ax.text(i - 0.2, tahmin[i] + 1, str(tahmin[i]), ha="center", fontsize=7); ax.text(i + 0.2, olc[i] + 1, f"{olc[i]:g}", ha="center", fontsize=7)
     ax.set_xticks(x); ax.set_xticklabels(etk); ax.legend(fontsize=7)
-    ax.set_title("Tahmin ve ölçüm: DSP 64 PE için bekleniyordu, sentez PE çarpıcılarını LUT'a eşledi")
+    ax.set_title("Tahmin ve ölçüm: use_dsp ipucuyla 64 PE çarpıcısı DSP48E1'e eşlendi")
     kaydet(fig, "tr12_s2_tahmin.png")
 
     fig, ax = plt.subplots(figsize=(6.0, 2.8))
@@ -62,10 +62,10 @@ def tr12():
     kaydet(fig, "tr12_s3_dagilim.png")
 
     fig, ax = plt.subplots(figsize=(6.0, 2.4))
-    ax.bar(["hedef 10,0 ns\n(100 MHz)", "kritik yol\n(sentez sonrası)"], [10.0, top["yol_gecikme"]], color=[YESIL, KIRMIZI])
+    ax.bar(["hedef 10,0 ns\n(100 MHz)", "kritik yol\n(sentez sonrası)"], [10.0, top["yol_gecikme"]], color=[YESIL, YESIL if top['WNS'] >= 0 else KIRMIZI])
     ax.text(1, top["yol_gecikme"] + 0.2, f"{top['yol_gecikme']:.2f} ns, WNS {top['WNS']} ns", ha="center", fontsize=7)
     ax.set_ylabel("ns"); ax.set_ylim(0, 12.5)
-    ax.set_title("Zamanlama: 100 MHz kısıtı sentez sonrası ihlal ediliyor (kaba tahmin, yönlendirme yok)")
+    ax.set_title("Zamanlama: 100 MHz kısıtı sentez sonrası sağlanıyor (kaba tahmin, yönlendirme yok)")
     kaydet(fig, "tr12_s4_zamanlama.png")
     json.dump({"top": top, "modul": mod}, open(os.path.join(RTL, "sim", "g12_ozet.json"), "w"), indent=1)
 
