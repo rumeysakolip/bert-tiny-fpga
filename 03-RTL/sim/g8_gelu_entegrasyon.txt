@@ -1,0 +1,4 @@
+WARNING: tb/tb_katman.v:92: $readmemh(../02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_ffn1_gelu_cikis.mem): Too many words in the file for the requested range [0:32767].
+----------------------------------------------
+KATMAN_CEVRIM l0_ffn1 K=128 C=512 : cumle basina 73352 ; teorik (K+14)*P*NB = 72704 ; kirpilan eleman (toplam) 0
+DOGRUSAL KATMAN TEST (l0_ffn1 K=128 C=512 n=37): PASS  (32768 kontrol, 0 hata)

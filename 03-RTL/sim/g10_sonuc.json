@@ -1,0 +1,68 @@
+{
+ "sonuclar": [
+  {
+   "ad": "l0_qk_h0",
+   "a_isaretsiz": 0,
+   "pass": true,
+   "ayrinti": "16384 kontrol, 0 hata",
+   "cevrim": 5131,
+   "sure_sn": 116.0
+  },
+  {
+   "ad": "l0_av_h0",
+   "a_isaretsiz": 1,
+   "pass": true,
+   "ayrinti": "16384 kontrol, 0 hata",
+   "cevrim": 5131,
+   "sure_sn": 15.6
+  },
+  {
+   "ad": "l0_qk_h1",
+   "a_isaretsiz": 0,
+   "pass": true,
+   "ayrinti": "16384 kontrol, 0 hata",
+   "cevrim": 5131,
+   "sure_sn": 115.7
+  },
+  {
+   "ad": "l0_av_h1",
+   "a_isaretsiz": 1,
+   "pass": true,
+   "ayrinti": "16384 kontrol, 0 hata",
+   "cevrim": 5131,
+   "sure_sn": 19.1
+  },
+  {
+   "ad": "l1_qk_h0",
+   "a_isaretsiz": 0,
+   "pass": true,
+   "ayrinti": "16384 kontrol, 0 hata",
+   "cevrim": 5131,
+   "sure_sn": 120.8
+  },
+  {
+   "ad": "l1_av_h0",
+   "a_isaretsiz": 1,
+   "pass": true,
+   "ayrinti": "16384 kontrol, 0 hata",
+   "cevrim": 5131,
+   "sure_sn": 17.8
+  },
+  {
+   "ad": "l1_qk_h1",
+   "a_isaretsiz": 0,
+   "pass": true,
+   "ayrinti": "16384 kontrol, 0 hata",
+   "cevrim": 5131,
+   "sure_sn": 120.4
+  },
+  {
+   "ad": "l1_av_h1",
+   "a_isaretsiz": 1,
+   "pass": true,
+   "ayrinti": "16384 kontrol, 0 hata",
+   "cevrim": 5131,
+   "sure_sn": 17.6
+  }
+ ]
+}

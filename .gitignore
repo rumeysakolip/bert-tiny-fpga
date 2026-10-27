@@ -3,3 +3,4 @@ __pycache__/
 *.vvp
 .ipynb_checkpoints/
 _kontrol/
+03-RTL/sim/tb_pe.vcd

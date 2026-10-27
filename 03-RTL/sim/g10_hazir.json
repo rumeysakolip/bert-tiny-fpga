@@ -1,0 +1,30 @@
+{
+ "l0_h0": {
+  "qk_maks": 31791,
+  "av_maks": 12563,
+  "p_min": 0,
+  "p_maks": 253,
+  "p_ort_satir_toplam": 255.08984375
+ },
+ "l0_h1": {
+  "qk_maks": 27762,
+  "av_maks": 16744,
+  "p_min": 0,
+  "p_maks": 253,
+  "p_ort_satir_toplam": 255.0078125
+ },
+ "l1_h0": {
+  "qk_maks": 20433,
+  "av_maks": 14874,
+  "p_min": 0,
+  "p_maks": 247,
+  "p_ort_satir_toplam": 255.01171875
+ },
+ "l1_h1": {
+  "qk_maks": 25865,
+  "av_maks": 15778,
+  "p_min": 0,
+  "p_maks": 247,
+  "p_ort_satir_toplam": 255.0625
+ }
+}
