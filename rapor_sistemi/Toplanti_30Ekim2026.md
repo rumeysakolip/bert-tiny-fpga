@@ -16,12 +16,12 @@
 - Hesap ms düzeyi; ama ağırlıklar UART'tan her çıkarımda akar: ≈420 KB → ≈4,6 sn @921 600 baud (hesap). CPU 2,49 ms. **Hız kazancı beklenmiyor.**
 
 **5. Açık maddeler**
-- G3 (512 cümle × 3 tohum) yapılmadı; G11 (Softmax/LayerNorm RTL) yapılmadı; pooler/classifier RTL'de doğrulanmadı; zincirli akış yok.
+- G3 (512 cümle × 3 tohum) yapılmadı; Softmax/LayerNorm RTL birimleri yazıldı ve bit-birebir doğrulandı (TR10/TR11) ama sisteme bağlanmadı; pooler/classifier RTL'de doğrulanmadı; zincirli akış yok.
 - Literatür: 9 bit A ve PC–FPGA UART için 2021 sonrası kaynak bulunamadı; alıntılar PDF'te gözle doğrulanmalı.
 
 **6. Danışmandan istenen kararlar**
-- Softmax/LayerNorm host'ta kalsın mı, G11 kapsama alınsın mı?
-- LayerNorm 12 vs 16 bit (sentez verisi LN RTL olmadığından yok).
+- Softmax/LayerNorm birimleri hazır ama bağlı değil: sisteme bağlansın mı, host'ta mı kalsın?
+- LayerNorm 12 vs 16 bit (12 bit sürümün sentez verisi var; 16 bit sentezlenmedi).
 - Ağırlığı kartta kalıcı saklama (UART trafiğini kaldırmak) araştırılsın mı?
 
 *FPGA/kart soruları (Basys3+Vivado erişimi, bitstream, USB-UART, DSP çıkarımı, 100 MHz kapanışı) danışmana değil FPGA'dan anlayan hocaya.*

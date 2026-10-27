@@ -1,0 +1,31 @@
+{
+ "q_abs_max": 32768,
+ "d_abs_max": 32626,
+ "var_max": 337587133,
+ "std_max": 18373,
+ "std_min": 1,
+ "y_abs_max": 46175,
+ "gamma_q_abs_max": 7446,
+ "beta_q_abs_max": 30,
+ "M0_max": 979406163,
+ "n": [
+  50,
+  50,
+  49,
+  49,
+  49
+ ],
+ "eps_q": [
+  1,
+  1,
+  1,
+  1,
+  1
+ ],
+ "carpim1_max": 343819050,
+ "ln_satir": 485,
+ "ln_gercek": 480,
+ "sm_satir": 325,
+ "sm_gercek": 320,
+ "isqrt_newton_eq_floor": true
+}

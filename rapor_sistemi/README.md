@@ -20,6 +20,6 @@ Her RTL tasarım adımı bittiğinde bir Word raporu üretilir (TRnn). Kural:
 | TR06 | Tek doğrusal katman uçtan uca | SW-01, KV-04 | – |
 | TR07 | GELU LUT | SN-02, QK-02 | GELU LUT için doğrudan kaynak |
 | TR08 | Host↔FPGA arabirimi (UART, protokol) | – | **Kaynak bulunamadı** |
-| TR09 | Softmax | SW-04, IV-02, IO-03, IO-04 | – |
-| TR10 | LayerNorm / tamsayı karekök | SW-05, IV-03, QK-01 | – |
-| TR11 | Sentez ve kaynak kullanımı | SN-03, QK-03 | – |
+| TR10 | Softmax | SW-04, IV-02, IO-03, IO-04 | – |
+| TR11 | LayerNorm / tamsayı karekök | SW-05, IV-03, QK-01 | – |
+| TR12 | Sentez ve kaynak kullanımı | SN-03, QK-03 | – |

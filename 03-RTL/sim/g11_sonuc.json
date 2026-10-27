@@ -1,0 +1,92 @@
+{
+ "birim": {
+  "softmax": {
+   "sonuc": "PASS",
+   "satir": 325,
+   "kontrol": 20800,
+   "hata": 0,
+   "cevrim_min": 2049,
+   "cevrim_maks": 2049,
+   "faz_cevrimleri": {
+    "1": 65,
+    "2": 64,
+    "3": 64,
+    "4": 64,
+    "5": 64,
+    "6": 1664,
+    "7": 64,
+    "8": 64
+   }
+  },
+  "layernorm": {
+   "sonuc": "PASS",
+   "satir": 485,
+   "kontrol": 62080,
+   "hata": 0,
+   "cevrim_min": 5274,
+   "cevrim_maks": 5274,
+   "faz_cevrimleri": {
+    "1": 129,
+    "2": 1,
+    "3": 130,
+    "4": 1,
+    "5": 20,
+    "6": 1,
+    "7": 128,
+    "8": 4352,
+    "9": 128,
+    "10": 128,
+    "11": 128,
+    "12": 128,
+    "13": 128
+   }
+  }
+ },
+ "mutant": [
+  {
+   "ad": "sm1",
+   "birim": "softmax",
+   "tanim": "bolme oncesi yuvarlama yarimi silindi",
+   "sonuc": "FAIL",
+   "hata": 3629,
+   "yakalandi": true,
+   "aciklama": ""
+  },
+  {
+   "ad": "sm2",
+   "birim": "softmax",
+   "tanim": "LUT doyum indisi 511 yerine 510",
+   "sonuc": "PASS",
+   "hata": 0,
+   "yakalandi": false,
+   "aciklama": "esdeger mutant: exp tablosunun 510. ve 511. girisleri ayni degerde (15 bit yuvarlamadan sonra), doyum indisi cikisi degistirmez"
+  },
+  {
+   "ad": "ln1",
+   "birim": "layernorm",
+   "tanim": "negatif bolmede taban (floor) duzeltmesi silindi",
+   "sonuc": "FAIL",
+   "hata": 159,
+   "yakalandi": true,
+   "aciklama": ""
+  },
+  {
+   "ad": "ln2",
+   "birim": "layernorm",
+   "tanim": "yeniden olceklemede yuvarlama sabiti silindi",
+   "sonuc": "FAIL",
+   "hata": 30632,
+   "yakalandi": true,
+   "aciklama": ""
+  },
+  {
+   "ad": "ln3",
+   "birim": "layernorm",
+   "tanim": "std >= 1 kirpmasi kaldirildi",
+   "sonuc": "PASS",
+   "hata": 0,
+   "yakalandi": false,
+   "aciklama": "esdeger mutant: eps_q >= 1 oldugundan var + eps_q >= 1 ve karekok >= 1; std >= 1 kirpmasi bu parametrelerde hic devreye girmez (savunma amacli)"
+  }
+ ]
+}

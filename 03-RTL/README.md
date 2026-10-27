@@ -29,7 +29,7 @@ vivado -mode batch -source sentez/sentez.tcl -tclargs hizlandirici_uart_ust   # 
 Test vektörleri: `../02-RTL_Altin_Model/03_Sonuclar/test_vektorleri` (düzen: `OKUBENI.md`).
 
 ## Bilinen sınırlar
-Softmax/LayerNorm/artık toplam RTL'de yok (host). pooler/classifier RTL'de doğrulanmadı. Basys3 pin atamaları (`sentez/basys3.xdc`) kartta denenmedi.
+Softmax/LayerNorm birimleri (`softmax_birim.v`, `layernorm_birim.v`, `bolucu_seri.v`) bağımsız olarak yazıldı ve bit-birebir doğrulandı (`python scripts/g11_vektor_uret.py && python scripts/kos_g11.py`), ancak üst modüle BAĞLI DEĞİL; artık toplam RTL'de yok (host). pooler/classifier RTL'de doğrulanmadı. Basys3 pin atamaları (`sentez/basys3.xdc`) kartta denenmedi.
 
 ## Sentez iyileştirmesi (use_dsp)
 `pe.v` modülüne `(* use_dsp = "yes" *)` eklendi; RTL davranışı değişmedi. Post-sentez (yerleştirme yok): 3 816 LUT, 4 216 FF, 15 BRAM, 68 DSP, WNS +1,648 ns (önceki: 10 110 LUT, 4 DSP, WNS −0,456 ns; `sentez/cikti/onceki_*.txt`). Sentezlenmiş dizi ağ listesi: `sentez/ps_sentez.tcl` + `sim/postsynth/` (xsim; testbench'e GSR için 200 ns gecikme eklendi).

@@ -80,7 +80,7 @@ def main():
                 ["G8 GELU LUT", "Tamam", "ffn1+GELU bit-birebir (1 cümle)"],
                 ["G9 host↔FPGA arabirimi", "Tamam (benzetim)", f"6 L0 katmanı PC→FPGA→PC bit-birebir; hata enjeksiyonu HATA döndü"],
                 ["G10 dikkat çekirdeği", "Tamam", f"{sum(1 for s in g10 if s['pass'])}/{len(g10)} koşu bit-birebir"],
-                ["G11 Softmax/LayerNorm RTL", "YAPILMADI", "Host'ta kalıyor (plandaki varsayılan)"],
+                ["G11 Softmax/LayerNorm RTL", "Tamam (bağımsız birimler, benzetim)", "Softmax 325 satır, LayerNorm 485 satır altın modelle bit-birebir, 0 hata; sistem içine BAĞLANMADI (host'ta kalıyor)"],
                 ["G12 sentez", "Vivado sentez sonrası (yerleştirme yok)", "bkz. Bölüm 6"]]
     tablo(d, gorevler, [5.0, 3.5, 7.5])
 
@@ -143,7 +143,7 @@ def main():
     d.add_heading("8. Sınırlar ve açık noktalar", 1)
     for s in ["Tüm sonuçlar benzetimdir; kartta çalıştırma, zamanlama kapanışı ve güç ölçümü yoktur.",
               "G3 (512 cümle × 3 tohum kalibrasyon) yapılmadı; ara ölçekler 128 cümle/tek tohumlu.",
-              "Softmax, LayerNorm ve artık toplam FPGA'da değil, host'ta (G11 yapılmadı). Katmanlar altın girdileriyle ayrı doğrulandı; zincirli FPGA→host→FPGA akışı doğrulanmadı.",
+              "Softmax, LayerNorm ve artık toplam FPGA'da değil, host'ta çalışır; Softmax ve LayerNorm RTL birimleri yazıldı ve altın modelle bit-birebir doğrulandı (TR10, TR11) ancak üst modüle bağlanmadı. Katmanlar altın girdileriyle ayrı doğrulandı; zincirli FPGA→host→FPGA akışı doğrulanmadı.",
               "pooler/classifier RTL'de doğrulanmadı (tek CLS token düzeni).",
               "pyserial arka ucu yazıldı, kartta denenmedi; UART yalnızca bit düzeyi benzetimde sınandı.",
               "Literatür: PE 9 bit A girişi ve PC–FPGA UART arabirimi için 2021 sonrası doğrulanmış kaynak bulunamadı; alıntıların PDF'te bölüm numarasıyla gözle doğrulanması gerekir."]:
@@ -151,8 +151,8 @@ def main():
 
     d.add_heading("9. Sonraki adımlar ve danışmandan istenen kararlar", 1)
     for s in ["Okulda Basys3 ve Vivado erişimi; bitstream yükleme, USB-UART doğrulaması (FPGA'dan anlayan hocayla).",
-              "Karar: Softmax/LayerNorm'ün bu çalışmada host'ta kalması kabul mü, yoksa G11 kapsama alınsın mı?",
-              "Karar: LayerNorm girdi genişliği 12 vs 16 bit (sentez verisi bu raporda).",
+              "Karar: Softmax/LayerNorm RTL birimleri hazır ama bağlı değil; sisteme bağlanması kapsama alınsın mı, yoksa host'ta mı kalsın?",
+              "Karar: LayerNorm girdi genişliği 12 vs 16 bit (12 bit sürümün sentez verisi hazır; 16 bit sürüm sentezlenmedi).",
               "Ağırlıkları kartta kalıcı saklama (flash/BRAM) ile UART trafiğini kaldırma seçeneğinin değerlendirilmesi.",
               "G3 kalibrasyonu (Colab) ve zincirli uçtan uca benzetim."]:
         d.add_paragraph(s, style="List Bullet")
