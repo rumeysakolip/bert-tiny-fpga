@@ -33,3 +33,6 @@ Softmax/LayerNorm birimleri (`softmax_birim.v`, `layernorm_birim.v`, `bolucu_ser
 
 ## Sentez iyileştirmesi (use_dsp)
 `pe.v` modülüne `(* use_dsp = "yes" *)` eklendi; RTL davranışı değişmedi. Post-sentez (yerleştirme yok): 3 816 LUT, 4 216 FF, 15 BRAM, 68 DSP, WNS +1,648 ns (önceki: 10 110 LUT, 4 DSP, WNS −0,456 ns; `sentez/cikti/onceki_*.txt`). Sentezlenmiş dizi ağ listesi: `sentez/ps_sentez.tcl` + `sim/postsynth/` (xsim; testbench'e GSR için 200 ns gecikme eklendi).
+
+## Implementasyon (yerleştirme + yönlendirme, bitstream yok)
+`vivado -mode batch -source sentez/impl.tcl` (cwd: 03-RTL). Sonuç (`sentez/cikti/impl_*.txt`): 3 702 LUT, 4 219 FF, 15 BRAM, 68 DSP; 100 MHz setup WNS +0,721 ns, hold WHS +0,026 ns, 0 hatalı uç nokta, 0 yönlendirme hatası; güç tahmini 0,170 W (güven: orta). Giriş/çıkış gecikmeleri (rx, rst, tx) kısıtlanmadı.
