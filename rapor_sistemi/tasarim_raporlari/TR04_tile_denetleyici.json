@@ -1,0 +1,172 @@
+{
+  "rapor_no": "TR04",
+  "baslik": "Tile Denetleyici ve Host'tan Panel Akıtma",
+  "alt_baslik": "tile_denetleyici.v, panel_tamponu.v, bram_sdp.v: 8×8 tile sırası, gölge acc, çift tamponlu panel",
+  "gorev": "G5 — tile denetleyici",
+  "tarih": "27 Ekim 2026",
+  "durum": "UYGULANDI (benzetim). l0_q 4 cümle bit-birebir. Sentez sonucu TR12'de.",
+  "amac": "Y[T×C] = X[T×K]·Wᵀ çarpımını 8 token × 8 kanal tile'larına bölen, aktivasyonu BRAM'de tutup ağırlığı panel panel (host'tan) akıtan denetleyicinin kararlarını, literatür karşılığını ve bit-birebir doğrulamasını kaydetmek.",
+  "kararlar": [
+    [
+      "Döngü sırası",
+      "Panel dış, token bloğu iç",
+      "Token dış, panel iç",
+      "Bir ağırlık paneli 8 token bloğunda yeniden kullanılır; her panel host'tan yalnızca bir kez akar (K=128: 1 088 B)."
+    ],
+    [
+      "Aktivasyon",
+      "BRAM'de yerleşik, 64 bit sözcük = 8 token baytı",
+      "Her panelde yeniden gönderme",
+      "Aktivasyon bir kez yüklenir, tüm paneller için yeniden kullanılır."
+    ],
+    [
+      "Panel tamponu",
+      "Çift tampon (ping-pong), pan_hazir/pan_bitti el sıkışması",
+      "Tek tampon",
+      "Host p+1'i yazarken FPGA p'yi işler; el sıkışma yapısal çakışmayı önler."
+    ],
+    [
+      "Çıkış",
+      "Gölge acc + bias ekleme, 64 çevrimde akıtma",
+      "Doğrudan c_flat okuma",
+      "Sonraki tile hesaplanırken çıkış akıtılır (K+15 ≥ 64 olduğundan örtüşür; K<49 için koruma bayrağı out_tasma)."
+    ],
+    [
+      "Tile başlatma",
+      "done görüldüğü çevrimde bir sonraki start",
+      "Ayrı START durumu",
+      "Tile periyodu K+15 (hesap K+14 + 1 başlatma çevrimi)."
+    ]
+  ],
+  "literatur": [
+    {
+      "konu": "Aktivasyonun BRAM'de kalıcı tutulması, ağırlığın blok blok akıtılması",
+      "alintilar": [
+        "KV-01"
+      ],
+      "bizde": "Aktivasyon BRAM'i (girdi) bir kez yazılır; ağırlık paneli (B) host'tan akıtılır ve panel tamponunda 8 token bloğu boyunca yeniden kullanılır. Yapı kaynaktakiyle aynı düzendir: A yerleşik, B blok blok akar.",
+      "fark": "Kaynakta B, kart üzerindeki DDR'den akıtılır; bizde B bir PC'den UART ile gelir. Bu fark ölçümlüdür: bir panelin hesabı 11.4 µs sürerken 921 600 baud'da aktarımı yaklaşık 12.1 ms sürer (hesap; ≈1055× fazla, Şekil 2). Mimari UART-bağımlı olduğundan hız kazancı beklenmez (bkz. Sınırlar).",
+      "sekil": [
+        "S2"
+      ]
+    },
+    {
+      "konu": "Tile'ın BRAM'e sığması",
+      "alintilar": [
+        "TL-01"
+      ],
+      "bizde": "Belleğin en kötü durum büyüklüğü (K, C ≤ 512): aktivasyon 256 Kb, çıkış 256 Kb, panel tamponu 2·32 Kb + bias/M0; toplamı Şekil 3'te hesapla gösterildi (≈ 18 BRAM36, tahmin).",
+      "fark": "Kaynaktaki ‘tile’ iki seviyeli döşemenin dış tile'ıdır; bizdeki 8×8 tile hesap birimidir, BRAM'e sığması gereken şey katman aktivasyonlarıdır. Sentez sayısı TR12'dedir.",
+      "sekil": [
+        "S3"
+      ]
+    },
+    {
+      "konu": "Dış tile'ın bir kez yüklenip çok kez yeniden kullanılması",
+      "alintilar": [
+        "TL-02"
+      ],
+      "bizde": "Ağırlık paneli 8 kez (token blokları), aktivasyon C/8 kez (paneller) yeniden kullanılır. Yeniden kullanım oranı T=64 token ile 8 ile sınırlıdır; bu yüzden aktarım hesapla örtüşmez.",
+      "fark": "Kaynak yeniden kullanımı bellek trafiğini azaltmak için önerir; bizim durumumuzda trafik PC–FPGA kanalıdır ve yeniden kullanım yalnızca 8× olduğu için kanal doymuş kalır. Daha uzun dizi (T>64) ya da ağırlığın kartta kalıcı saklanması (flash/BRAM) çözüm adaylarıdır; ölçülmedi.",
+      "sekil": [
+        "S1"
+      ]
+    },
+    {
+      "konu": "Bloklu matris çarpımı",
+      "alintilar": [
+        "SN-01"
+      ],
+      "bizde": "Tile haritası (Şekil 1): 64×128 çıktı 8×16 tile ızgarasıdır, 128 tile her cümle için işlenir; sıra panel-ana'dır.",
+      "fark": "Kaynak genel bir fikir sunar; sıra ve bellek düzeni bizim mimarimize özgüdür."
+    },
+    {
+      "konu": "Host'tan (PC) panel akıtma",
+      "alintilar": [],
+      "bizde": "pan_hazir[b] / pan_bitti el sıkışması (TR08'deki protokolle sürülür). Host panelleri sırayla gönderir; çıkış katı panelin son tile'ını bitirince tamponu ‘boş’ ilan eder.",
+      "fark": "Doğrudan karşılık bulunamadı; mühendislik kararı. 2021 sonrası doğrulanmış, PC'den ağırlık akıtan bir hızlandırıcı kaynağı bulunamadı.",
+      "sekil": [
+        "S4"
+      ]
+    }
+  ],
+  "dogrulama": {
+    "arac": "Icarus Verilog; altın = 02-RTL_Altin_Model test vektörleri",
+    "kaynak_dosyalar": [
+      "03-RTL/sim/g5_tile_l0q.txt",
+      "03-RTL/sim/g7_sonuc.json",
+      "03-RTL/sim/g10_sonuc.json"
+    ],
+    "tablo": [
+      [
+        "Test",
+        "Kapsam",
+        "Çevrim (ölçülen / teorik)",
+        "Sonuç"
+      ],
+      [
+        "tb_tile l0_q",
+        "4 cümle, 64×128 birikeç (bias dahil), 16 panel × 8 blok",
+        "18387 / 18176",
+        "PASS — 32768 kontrol, 0 hata; 512 tile"
+      ],
+      [
+        "tb_tile dikkat (8 koşu)",
+        "Q·Kᵀ ve P·V, K=64, 4 cümle",
+        "5131 / 4992",
+        "PASS — 16384 kontrol, 0 hata (×8)"
+      ],
+      [
+        "Katman başına çevrim",
+        "12 doğrusal katman (TR06)",
+        "%0.3…%1.2 fazla",
+        "bkz. Şekil 5"
+      ]
+    ],
+    "sekil": [
+      "S5"
+    ]
+  },
+  "sinirlar": [
+    "Tile periyodu K+15'tir; teorik K+14'e göre ölçülen katman çevrimleri %0.3–%1.2 fazladır (başlatma, panel geçişi, boşaltma).",
+    "Hesap yalnızca 11.4 µs/panel iken 921 600 baud aktarımı ≈12.1 ms/panel'dir (hesap); sistem UART'a bağlıdır. 3 Mbaud ile bile ≈250× fazladır.",
+    "Gölge kopya 2 048 FF'dir; çıkış seçici 64:1 çoklayıcıdır (sentez maliyeti TR12'de).",
+    "K<49 için çıkış akıtması bir sonraki tile'ın bitişiyle çakışabilir; denetleyici out_tasma bayrağıyla bunu bildirir (kullanılan K ≥ 64).",
+    "Tüm sonuçlar benzetimdir; kartta çalıştırma yoktur."
+  ],
+  "sekiller": {
+    "S1": {
+      "dosya": "sekiller/tr04_s1_tile_haritasi.png",
+      "baslik": "Tile haritası ve işlenme sırası (l0_q).",
+      "aciklama": "Her hücre bir 8×8 çıktı tile'ıdır; satır token bloğu, sütun çıkış paneli. Sayı, işlenme sırasıdır: aynı panel 8 token bloğunda art arda kullanılır, sonra bir sonraki panel gelir.",
+      "genislik_cm": 13
+    },
+    "S2": {
+      "dosya": "sekiller/tr04_s2_zaman.png",
+      "baslik": "Bir panel için hesap ve UART aktarım süresi (log ölçek, hesap).",
+      "aciklama": "Yeşil çubuk 8 tile'ın 100 MHz'deki hesap süresi, turuncu/kırmızı çubuklar 3 Mbaud ve 921 600 baud'da panelin (1 088+ bayt) aktarım süresidir. Aktarım hesaptan üç büyüklük mertebesi uzundur: çift tamponlama aktarımı gizleyemez, yalnızca hesabı aktarımın arkasına saklar.",
+      "genislik_cm": 13
+    },
+    "S3": {
+      "dosya": "sekiller/tr04_s3_bram.png",
+      "baslik": "Bellek yerleşimi (en kötü durum, hesap).",
+      "aciklama": "Üç ana bellek ve boyutları; sözcük 64 bit. BRAM36 sayısı bit sayısından hesaplanmıştır (tahmin, sentez TR12).",
+      "genislik_cm": 13
+    },
+    "S4": {
+      "dosya": "sekiller/tr04_s4_dalga.png",
+      "baslik": "l0_q ilk tile'lar dalga formu.",
+      "aciklama": "state, start_now, sys_done, blk ve o_run sinyalleri: bir tile bitince aynı çevrimde bir sonraki başlar; gölge akıtması (o_run, out_valid) bir sonraki tile hesaplanırken sürer.",
+      "genislik_cm": 14
+    },
+    "S5": {
+      "dosya": "sekiller/tr04_s5_cevrim.png",
+      "baslik": "Katman başına çevrim: teorik ve benzetim.",
+      "aciklama": "Mavi çubuk (K+14)·P·8 formülü, turuncu çubuk benzetimde kos'tan layer_done'a ölçülen çevrimdir; fark tile başına +1 ve panel geçişlerinden gelir.",
+      "genislik_cm": 13
+    }
+  },
+  "mimari_sekilleri": [
+    "S1"
+  ]
+}

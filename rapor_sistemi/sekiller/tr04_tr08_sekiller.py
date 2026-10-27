@@ -250,6 +250,7 @@ def tr08():
     kaydet(fig, "tr08_s5_hacim.png")
 
 
+
 if __name__ == "__main__":
     import sys
     for f in (sys.argv[1:] or ["tr04", "tr05", "tr06", "tr07", "tr08"]):

@@ -1,0 +1,122 @@
+{
+  "rapor_no": "TR08",
+  "baslik": "Host–FPGA Arabirimi ve Host-in-the-Loop",
+  "alt_baslik": "komut_cozucu.v, uart_rx/tx.v, hizlandirici_surucu.py: paket protokolü, CRC8, benzetim arka ucu",
+  "gorev": "G9 — host↔hızlandırıcı arabirimi",
+  "tarih": "27 Ekim 2026",
+  "durum": "UYGULANDI (benzetim; UART bit düzeyi testli). Kart ve pyserial arka ucu DENENMEDİ.",
+  "amac": "PC'nin (host) hızlandırıcıyı sürdüğü paket protokolünü, komut çözücüyü, UART katmanını ve Python sürücüyü tanımlamak; L0'ın 6 doğrusal katmanını PC→(benzetilen) FPGA→PC döngüsünde altın modelle doğrulamak.",
+  "kararlar": [
+    [
+      "Protokol",
+      "cmd/len/payload/CRC8, dur-ve-bekle, ACK/HATA/VERI",
+      "Akış (paketsiz)",
+      "Basit, bozuk paketi yakalar; her pakete yanıt gelir."
+    ],
+    [
+      "UART",
+      "8N1, parametrik CLKS_PER_BIT (109 → 921 600 baud, 33 → 3 Mbaud @100 MHz)",
+      "SPI/USB-FIFO",
+      "Basys3 USB-UART'ı; ek donanım gerekmez."
+    ],
+    [
+      "Arka uç",
+      "Aynı sürücü API'si: SimArkaUc (Icarus) ve SeriArkaUc (pyserial)",
+      "Yalnız benzetim",
+      "Kart gelince sürücü değişmeden kullanılır; bekleme adımı DURUM sorgusuyla."
+    ],
+    [
+      "Yazma güvenliği",
+      "Yazmalar CRC'den önce uygulanır, host HATA'da paketi yeniden gönderir; CFG yalnızca CRC doğruysa",
+      "Tamponlayıp sonra yaz",
+      "Tampon BRAM maliyeti yok; yazmalar idempotent."
+    ]
+  ],
+  "literatur": [
+    {
+      "konu": "PC–FPGA UART arabirimi ve paket protokolü",
+      "alintilar": [],
+      "bizde": "Protokol, CRC8 (poly 0x07) ve el sıkışma (pan_hazir/pan_bos) kendi tasarımımızdır; ayrıntı Şekil 2 ve 3.",
+      "fark": "Doğrudan karşılık bulunamadı; mühendislik kararı. 2021 sonrası doğrulanmış, PC'den hızlandırıcıya UART ile ağırlık akıtan bir kaynak bulunamadı; aramaya devam edilecek.",
+      "sekil": [
+        "S2",
+        "S3"
+      ]
+    }
+  ],
+  "dogrulama": {
+    "arac": "Icarus Verilog; host/g9_host_dongusu.py; altın = test vektörü .mem",
+    "kaynak_dosyalar": [
+      "03-RTL/sim/g9_l0_sonuc.json",
+      "03-RTL/sim/g9_l0_log.txt",
+      "03-RTL/tb/tb_uart.v"
+    ],
+    "tablo": [
+      [
+        "Test",
+        "Kapsam",
+        "Sonuç"
+      ],
+      [
+        "Host-in-the-loop",
+        "6 L0 katmanı, cümle 0, 602 paket, 283905 bayt PC→FPGA",
+        "PASS — l0_q: 0 fark, l0_k: 0 fark, l0_v: 0 fark, l0_attn_out: 0 fark, l0_ffn1: 0 fark, l0_ffn2: 0 fark"
+      ],
+      [
+        "Hata enjeksiyonu",
+        "bozuk CRC'li CFG; bilinmeyen komut",
+        "HATA(CRC) ve HATA(bilinmeyen komut) döndü: True"
+      ],
+      [
+        "UART bit düzeyi",
+        "tb_uart.v (CLKS_PER_BIT=16): DURUM, bozuk CRC, CFG",
+        "PASS — 10 kontrol, 0 hata"
+      ]
+    ],
+    "sekil": [
+      "S4",
+      "S5"
+    ]
+  },
+  "sinirlar": [
+    "Aktarım hacmi 277 KB (PC→FPGA, 6 katman) → 921 600 baud'da ≈3.88 sn, 3 Mbaud'da ≈1.19 sn (hesap; donanımda doğrulanmadı). Bir cümlelik çıkarımın tüm 14 katmanı için ağırlıklar her seferinde akıtılacağından ≈420 KB → 921 600 baud'da ≈4,6 sn (hesap).",
+    "pyserial arka ucu (SeriArkaUc) yazıldı ancak kartta denenmedi; UART bit düzeyi yalnızca benzetimde sınandı.",
+    "Host-in-the-loop, her katmanın altın girdisiyle yapıldı; Softmax/LayerNorm/artık toplam FPGA'da yok (host'ta kalıyor), zincirleme PC–FPGA akışı denenmedi.",
+    "Çok hızlı UART (3 Mbaud) için 100 MHz'den bölme (CLKS_PER_BIT=33) bit hız hatası ≈%1; kartta doğrulanmalı."
+  ],
+  "sekiller": {
+    "S1": {
+      "dosya": "sekiller/tr08_s1_sistem.png",
+      "baslik": "Sistem: PC ve FPGA iş bölümü.",
+      "aciklama": "PC tokenizer, gömme ve paketlemeyi yapar; FPGA USB-UART üzerinden gelen paketleri çözer, BRAM'lere yazar ve tile/dizi/yeniden ölçekleme hattını çalıştırır.",
+      "genislik_cm": 14
+    },
+    "S2": {
+      "dosya": "sekiller/tr08_s2_paket.png",
+      "baslik": "Paket biçimi ve komut kodları.",
+      "aciklama": "Her paket cmd, uzunluk (2 bayt, LE), yük ve CRC8'den oluşur. Yanıtlar ACK, HATA(kod) ya da VERI'dir (VERI kendi CRC'sini taşır).",
+      "genislik_cm": 14
+    },
+    "S3": {
+      "dosya": "sekiller/tr08_s3_zaman.png",
+      "baslik": "Bir katman için host–FPGA mesaj sırası.",
+      "aciklama": "Mavi oklar PC→FPGA, kırmızı ok FPGA→PC. İki panel önceden yüklenir, CALISTIR sonrası boşalan tampon yeni panelle doldurulur; layer_done ardından çıkış okunur.",
+      "genislik_cm": 13
+    },
+    "S4": {
+      "dosya": "sekiller/tr08_s4_uart.png",
+      "baslik": "UART dalga formu (tb_uart.vcd).",
+      "aciklama": "rx_pin: DURUM isteği (4 bayt); tx_pin: VERI yanıtı (7 bayt). Her bayt 10 bit (başlangıç, 8 veri, durdurma).",
+      "genislik_cm": 14
+    },
+    "S5": {
+      "dosya": "sekiller/tr08_s5_hacim.png",
+      "baslik": "L0 doğrusal katmanları veri hacmi (hesap).",
+      "aciklama": "Her katman için aktivasyon, ağırlık+bias+M0 ve çıktı baytları; ffn1/ffn2 ağırlıkları baskındır.",
+      "genislik_cm": 12
+    }
+  },
+  "mimari_sekilleri": [
+    "S1"
+  ]
+}

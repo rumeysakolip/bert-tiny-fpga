@@ -1,0 +1,155 @@
+{
+  "rapor_no": "TR06",
+  "baslik": "Doğrusal Katman Uçtan Uca",
+  "alt_baslik": "dogrusal_katman.v: aktivasyon BRAM → dizi → +bias → yeniden ölçekle → çıkış BRAM",
+  "gorev": "G7 — tek doğrusal katman uçtan uca",
+  "tarih": "27 Ekim 2026",
+  "durum": "UYGULANDI (benzetim): 12/12 katman altın çıkışla bit-birebir.",
+  "amac": "Tile denetleyici (TR04), 8×8 dizi (TR03) ve yeniden ölçekleme (TR05) birimlerini tek modülde birleştirip L0 ve L1'in 12 doğrusal katmanını (Q, K, V, attn_out, ffn1, ffn2) aynı donanımla altın model çıkışına karşı doğrulamak.",
+  "kararlar": [
+    [
+      "Tek modül",
+      "Aynı dogrusal_katman, katmana özgü (K, np, n) konfigürasyonla",
+      "Katman başına ayrı modül",
+      "Kaynak kullanımı sabit kalır; katmanlar ardışık çalışır."
+    ],
+    [
+      "Çıkış düzeni",
+      "Çıkış BRAM sözcüğü = 8 token baytı, adres blk·C + kanal",
+      "Satır-öncelikli INT8",
+      "Sonraki katmanın aktivasyon düzeniyle aynıdır (blok düzeni); yeniden düzenleme gerekmez."
+    ],
+    [
+      "Doğrulama kapsamı",
+      "Her katman kendi altın girdisiyle",
+      "Zincirli (FPGA çıktısı → sonraki girdi)",
+      "Katmanlar arasında host'ta kalan birimler (Softmax, LayerNorm, artık toplam) var; zincirleme bu rapor kapsamı dışındadır."
+    ]
+  ],
+  "literatur": [
+    {
+      "konu": "INT8 girdi, INT32 birikeç, ardından yeniden ölçekleme",
+      "alintilar": [
+        "SW-01"
+      ],
+      "bizde": "Her katmanın veri yolu INT8×INT8→INT32 (+bias) → yeniden ölçekleme → INT8 şeklindedir (Şekil 1).",
+      "fark": "Kaynak yalnızca düzeni belirtir; bizim katmanlar arası taşıma host'ta kalan birimler nedeniyle henüz tamsayı zincir değildir (tamsayı taşıma yazılım modelinde ölçüldü: 718/872, TR02/G2).",
+      "sekil": [
+        "S1"
+      ]
+    },
+    {
+      "konu": "Kalibrasyonun önemi",
+      "alintilar": [
+        "KV-04"
+      ],
+      "bizde": "Yeniden ölçekleme çarpanları kalibre edilmiş ara ölçeklerden (ara_olcekler.json) türetilir; altın model bunu kullanır.",
+      "fark": "Ara ölçekler 128 cümle ve tek tohumla kalibre edilmiştir; 512 cümle × 3 tohum çalışması (G3) bu çalışmada yapılmadı. Kaynağın ‘dikkatli kalibrasyon’ vurgusu bu eksiği haklı kılmaz, açık nokta olarak kalır."
+    }
+  ],
+  "dogrulama": {
+    "arac": "Icarus Verilog; altın = 02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/<ad>_cikis.mem",
+    "kaynak_dosyalar": [
+      "03-RTL/sim/g7_sonuc.json",
+      "03-RTL/scripts/kos_g7.py"
+    ],
+    "tablo": [
+      [
+        "Katman (K×C, n)",
+        "Çevrim/cümle (ölçülen / teorik)",
+        "Sonuç"
+      ],
+      [
+        "l0_q (128×128, n=37)",
+        "18392 / 18176",
+        "PASS — 32768 kontrol, 0 hata"
+      ],
+      [
+        "l0_k (128×128, n=37)",
+        "18392 / 18176",
+        "PASS — 32768 kontrol, 0 hata"
+      ],
+      [
+        "l0_v (128×128, n=37)",
+        "18392 / 18176",
+        "PASS — 32768 kontrol, 0 hata"
+      ],
+      [
+        "l0_attn_out (128×128, n=38)",
+        "18392 / 18176",
+        "PASS — 32768 kontrol, 0 hata"
+      ],
+      [
+        "l0_ffn1 (128×512, n=37)",
+        "73352 / 72704",
+        "PASS — 131072 kontrol, 0 hata"
+      ],
+      [
+        "l0_ffn2 (512×128, n=37)",
+        "67544 / 67328",
+        "PASS — 32768 kontrol, 0 hata"
+      ],
+      [
+        "l1_q (128×128, n=38)",
+        "18392 / 18176",
+        "PASS — 32768 kontrol, 0 hata"
+      ],
+      [
+        "l1_k (128×128, n=38)",
+        "18392 / 18176",
+        "PASS — 32768 kontrol, 0 hata"
+      ],
+      [
+        "l1_v (128×128, n=38)",
+        "18392 / 18176",
+        "PASS — 32768 kontrol, 0 hata"
+      ],
+      [
+        "l1_attn_out (128×128, n=37)",
+        "18392 / 18176",
+        "PASS — 32768 kontrol, 0 hata"
+      ],
+      [
+        "l1_ffn1 (128×512, n=38)",
+        "73352 / 72704",
+        "PASS — 131072 kontrol, 0 hata"
+      ],
+      [
+        "l1_ffn2 (512×128, n=36)",
+        "67544 / 67328",
+        "PASS — 32768 kontrol, 0 hata"
+      ]
+    ],
+    "sekil": [
+      "S2",
+      "S3"
+    ]
+  },
+  "sinirlar": [
+    "L0 doğrusal katmanları toplam 214464 çevrim = 2.14 ms @100 MHz (yalnız hesap, tek cümle, tam dolu 64 token dizisi). Aktarım ve host işlemleri dahil değildir.",
+    "pooler ve classifier (tek CLS token) bu raporda doğrulanmadı; blok düzeni için sıfır dolgulu tek blok gerekir (vektörler üretildi, RTL testi yapılmadı).",
+    "Katmanlar altın girdileriyle ayrı ayrı doğrulandı; zincirli (FPGA çıktısı → sonraki girdi) akış doğrulanmadı.",
+    "Tüm sonuçlar benzetimdir."
+  ],
+  "sekiller": {
+    "S1": {
+      "dosya": "sekiller/tr06_s1_katman.png",
+      "baslik": "dogrusal_katman veri yolu.",
+      "aciklama": "Aktivasyon BRAM'i ve panel tamponu tile denetleyiciyi besler; gölge acc'den bias eklenip yeniden ölçeklenir, isteğe bağlı GELU LUT'tan geçer, paketleyici sonucu çıkış BRAM'ine yazar.",
+      "genislik_cm": 14
+    },
+    "S2": {
+      "dosya": "sekiller/tr06_s2_dogrulama.png",
+      "baslik": "12 katmanın doğrulama sonucu.",
+      "aciklama": "Çubuk yüksekliği karşılaştırılan INT8 çıktı sayısı (4 cümle × 64 token × C), yeşil = altın modelle bit-birebir (0 hata).",
+      "genislik_cm": 12
+    },
+    "S3": {
+      "dosya": "sekiller/tr06_s3_cevrim.png",
+      "baslik": "Katman başına çevrim (bir cümle).",
+      "aciklama": "kos darbesinden layer_done'a ölçülen çevrim; ffn1 (C=512) ve ffn2 (K=512) en pahalı katmanlardır.",
+      "genislik_cm": 12
+    }
+  },
+  "mimari_sekilleri": []
+}

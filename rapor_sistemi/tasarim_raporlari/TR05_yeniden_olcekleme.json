@@ -1,0 +1,133 @@
+{
+  "rapor_no": "TR05",
+  "baslik": "Yeniden Ölçekleme Birimi (M0, kaydırma, kırpma)",
+  "alt_baslik": "yeniden_olcekle.v: INT32 birikeç → INT8, altın modelle bit-birebir",
+  "gorev": "G6 — yeniden ölçekleme",
+  "tarih": "27 Ekim 2026",
+  "durum": "UYGULANDI (benzetim). Birim testi 7792 vektör 0 hata; 12 katmanda uçtan uca bit-birebir.",
+  "amac": "Her doğrusal katmanın INT32 birikecini (bias dahil) kanal başına M0 ve katman başına n ile ölçekleyip yarım-yukarı yuvarlayarak INT8'e indiren biriminin tasarım kararlarını ve doğrulamasını kaydetmek.",
+  "kararlar": [
+    [
+      "Formül",
+      "y = kirp((acc·M0 + 2^(n−1)) >>> n)",
+      "Float çarpma",
+      "Altın modelin sabit_nokta_carp + kirp işlemiyle bire bir; float yok."
+    ],
+    [
+      "Yuvarlama",
+      "Yarım-yukarı (sabit eklenip kaydırma)",
+      "Bankacı yuvarlaması",
+      "Donanımda tek toplayıcı + kaydırma; altın modeldeki yuvarla_yukari_tamsayi ile aynı."
+    ],
+    [
+      "Genişlikler",
+      "acc 32b × M0 31b → 64b",
+      "Daha dar M0",
+      "M0_BIT=31 parametre paketi; ara çarpım int64'e sığar. DSP maliyeti tahmindir (TR12)."
+    ],
+    [
+      "Boru hattı",
+      "3 çevrim: çarp / yuvarla / kaydır+kırp",
+      "Tek çevrim kombinasyonel",
+      "Çevrim başına 1 eleman; tile hesabıyla örtüşür (64 eleman < K+15)."
+    ],
+    [
+      "Parametreler",
+      "M0 kanal başına, n katman başına",
+      "Kanal başına n",
+      "KAYDIRMA_<AD> (parametreler.vh); n paylaşımlı olduğundan kaydırıcı sabit/katman başına."
+    ]
+  ],
+  "literatur": [
+    {
+      "konu": "Tek tamsayı çarpma ve kaydırmayla yeniden ölçekleme",
+      "alintilar": [
+        "SW-03",
+        "IV-01"
+      ],
+      "bizde": "yeniden_olcekle.v çarpma (A1), yuvarlama sabiti ekleme (A2) ve aritmetik kaydırma+kırpma (A3) aşamalarıdır; işlem yolunda float yoktur.",
+      "fark": "SwiftTron'daki birim çarpmayı ‘bir bitlik kaydırma’ ile tarif eder; bizde çarpan 31 bit M0, kaydırma ise 36–42 bitlik değişken n'dir ve ayrıca yarım-yukarı yuvarlama ve doyumlu kırpma vardır. Kaynakların donanım ayrıntıları (ör. kırpma, yuvarlama) bu alıntılardan çıkarılamaz.",
+      "sekil": [
+        "S1"
+      ]
+    },
+    {
+      "konu": "M ≈ M0·2^−n biçiminde yaklaşıklama (ApproxMul)",
+      "alintilar": [
+        "IO-01",
+        "IO-02"
+      ],
+      "bizde": "carpani_ayristir: M gerçel çarpanı (M0, n) tamsayı çiftine ayrılır; 14 katman için n = 36…42, M0 < 2^30 (Şekil 2).",
+      "fark": "IntOnlyFPGA formülü tek M ve n bildirir; bizde M0 kanal başınadır, n katman başınadır. Yaklaşıklığın doğruluk maliyeti TR06'daki uçtan uca (718/872) sonuçla ölçülmüştür.",
+      "sekil": [
+        "S2"
+      ]
+    }
+  ],
+  "dogrulama": {
+    "arac": "Icarus Verilog; altın = saf Python tamsayı (tb/gen_vektor_rq.py) ve altın model .mem'leri",
+    "kaynak_dosyalar": [
+      "03-RTL/tb/tb_requant.v",
+      "03-RTL/sim/g7_sonuc.json"
+    ],
+    "tablo": [
+      [
+        "Test",
+        "Kapsam",
+        "Sonuç"
+      ],
+      [
+        "tb_requant (birim)",
+        "uç değerler, yarım-yukarı tie, gerçekçi n=36–42, tam aralık rastgele, kırpma sınırı; rastgele boşluklu akış",
+        "PASS — 7792 vektör, 0 hata"
+      ],
+      [
+        "dogrusal_katman (12 katman)",
+        "altın <ad>_cikis.mem ile INT8 çıktı karşılaştırması, 4 cümle",
+        "PASS — 12/12 katman, 0 hata"
+      ],
+      [
+        "Kırpma",
+        "12 katmanda kırpılan INT8 eleman sayısı (4 cümle)",
+        "toplam 46"
+      ]
+    ],
+    "sekil": [
+      "S4",
+      "S3"
+    ]
+  },
+  "sinirlar": [
+    "Birimin işlem hattı çevrim başına bir elemandır; bir hat 64 elemanı 64 çevrimde işler, bu K+15'ten kısadır (K ≥ 49).",
+    "DSP kullanımı (32×31 çarpım) bu raporda ölçülmedi; Vivado sonucu TR12'dedir.",
+    "m0_bit=31 (RTL) ile 05_karsilastir.py'deki varsayılan 16 farklıdır; G2 ölçümü m0_bit=31 ile yapılmıştır.",
+    "Tüm sonuçlar benzetimdir."
+  ],
+  "sekiller": {
+    "S1": {
+      "dosya": "sekiller/tr05_s1_boru.png",
+      "baslik": "Yeniden ölçekleme boru hattı.",
+      "aciklama": "birikeç+bias (INT32) → A1 çarpma (64 bit) → A2 yuvarlama sabiti → A3 aritmetik kaydırma ve [−128,127] kırpma → INT8; M0 ve n parametre paketinden gelir.",
+      "genislik_cm": 14
+    },
+    "S2": {
+      "dosya": "sekiller/tr05_s2_sabitler.png",
+      "baslik": "14 katmanın kaydırma (n) ve M0 aralığı.",
+      "aciklama": "Üst grafik katman başına n, alt grafik katmandaki kanalların log2(M0) aralığıdır; kırmızı çizgi M0'ın 2^30 üst sınırıdır. Tüm M0 değerleri sınırın altındadır.",
+      "genislik_cm": 13
+    },
+    "S3": {
+      "dosya": "sekiller/tr05_s3_kirpma.png",
+      "baslik": "Katman başına kırpılan INT8 çıktı sayısı.",
+      "aciklama": "Benzetimde yeniden ölçekleme biriminin kırpma sayacından alınmıştır (4 cümle). 0, hiçbir elemanın [−128,127] dışına çıkmadığı anlamına gelir.",
+      "genislik_cm": 12
+    },
+    "S4": {
+      "dosya": "sekiller/tr05_s4_birim.png",
+      "baslik": "Birim testinin vektör grupları.",
+      "aciklama": "Her çubuk bir vektör grubudur (toplam 7792, tamamı 0 hata). Altın, tb/gen_vektor_rq.py içindeki saf Python tamsayı hesabıdır.",
+      "genislik_cm": 12
+    }
+  },
+  "mimari_sekilleri": []
+}
