@@ -8,9 +8,10 @@
 - 12 doğrusal katman (L0+L1) 4 cümlede altın çıktıyla 0 hata; dikkat çekirdeği (Q·Kᵀ, P·V) 8 koşu 0 hata.
 - PC→FPGA→PC döngüsü: 6 L0 katmanı, 602 paket, 0 fark; bozuk CRC → HATA döndü.
 
-**3. Sentez (Vivado post-synth, yerleştirme yok)**
+**3. Sentez ve implementasyon (Vivado, place+route, bitstream yok)**
 - İlk sentez: 10 110 LUT, **4 DSP** (tahmin ≈72). PE'ye `use_dsp` ipucu eklenince: 3 816 LUT (%18,4), 4 216 FF, 15 BRAM, **68 DSP** (%75,6).
-- 100 MHz'de WNS: ilk sentezde −0,456 ns, DSP'li sentezde **+1,648 ns** (yalnızca sentez, yerleştirme yok; kesin değil). Sentezlenmiş 8×8 dizi ağ listesi xsim'de 0 hata.
+- 100 MHz'de WNS: ilk sentezde −0,456 ns, DSP'li sentezde +1,648 ns (post-synth), **implementasyon sonrası +0,721 ns** (hold +0,026 ns, dar). Implementasyon: 3 702 LUT, 4 219 FF, 15 BRAM, 68 DSP, güç tahmini 0,170 W. Sentezlenmiş 8×8 dizi ağ listesi xsim'de 0 hata.
+- Kartta denenmedi; rx/rst/tx için I/O gecikmesi kısıtlanmadı.
 
 **4. Dürüst performans**
 - Hesap ms düzeyi; ama ağırlıklar UART'tan her çıkarımda akar: ≈420 KB → ≈4,6 sn @921 600 baud (hesap). CPU 2,49 ms. **Hız kazancı beklenmiyor.**

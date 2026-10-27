@@ -1,10 +1,10 @@
 {
   "rapor_no": "TR12",
   "baslik": "Sentez Sonucu: Kaynak Kullanımı ve Zamanlama",
-  "alt_baslik": "Vivado 2025.1, xc7a35tcpg236-1, yalnızca synth_design (yerleştirme/yönlendirme yok), üst modül hizlandirici_uart_ust",
+  "alt_baslik": "Vivado 2025.1, xc7a35tcpg236-1, synth_design ve ardından place/route (bitstream yok), üst modül hizlandirici_uart_ust",
   "gorev": "G12 — sentez ve kart hazırlık paketi",
   "tarih": "27 Ekim 2026",
-  "durum": "SENTEZ YAPILDI (post-synth). 100 MHz kısıtı kaba tahminde SAĞLANDI: WNS 1.648 ns (ilk sentezde −0,456 ns idi). Kart yok.",
+  "durum": "SENTEZ VE İMPLEMENTASYON YAPILDI. 100 MHz kısıtı yerleştirme-yönlendirme sonrası SAĞLANDI: setup WNS +0,721 ns, hold WHS +0,026 ns (post-synth WNS 1.648 ns; ilk sentezde −0,456 ns). Kart yok.",
   "amac": "RTL'in Basys3 (XC7A35T) üzerindeki kaynak kullanımını ve kaba zamanlamasını Vivado ile ölçmek, plandaki tahminlerle karşılaştırmak ve farkları nedenleriyle kaydetmek.",
   "kararlar": [
     [
@@ -82,8 +82,26 @@
         "≈72"
       ],
       [
-        "WNS (10 ns)",
+        "WNS (10 ns), post-synth",
         "1.648 ns",
+        "—",
+        "—"
+      ],
+      [
+        "Implementasyon sonrası (place+route)",
+        "3 702 LUT, 4 219 FF, 15 BRAM, 68 DSP",
+        "—",
+        "—"
+      ],
+      [
+        "WNS / WHS (10 ns), implementasyon",
+        "+0,721 ns / +0,026 ns",
+        "—",
+        "—"
+      ],
+      [
+        "Güç tahmini (güven: orta)",
+        "0,170 W (dinamik 0,097)",
         "—",
         "—"
       ]
@@ -94,10 +112,11 @@
     ]
   },
   "sinirlar": [
-    "Zamanlama sentez sonrası, yerleştirme ve yönlendirme olmadan; en kötü yol 4.45 ns (kritik yol kcnt'den PE DSP girişine, 5 mantık seviyesi). Sentez sonrası 100 MHz karşılanıyor; yönlendirme gecikmesi eklenince değişebilir, gerçek frekans implementasyon sonrası belirlenmelidir.",
-    "Yalnızca sentez yapıldı: implementasyon, bitstream, güç ve kartta çalıştırma yok.",
+    "Sentez sonrası (yerleştirme öncesi) zamanlama; en kötü yol 4.45 ns (kritik yol kcnt'den PE DSP girişine, 5 mantık seviyesi). Sentez sonrası 100 MHz karşılanıyordu; implementasyon sonrası da karşılanıyor (WNS +0,721 ns, kritik yol k_reg → PE DSP girişi).",
+    "Implementasyon (place+route) yapıldı: 100 MHz setup WNS +0,721 ns (en yüksek frekans kabaca ≈108 MHz, tahmin), hold WHS +0,026 ns (dar marj; yönlendirmeden yönlendirmeye değişebilir). Bitstream üretilmedi, kartta çalıştırılmadı; güç değeri aracın tahminidir.",
+    "rx, rst girişleri ve tx çıkışı için giriş/çıkış gecikmesi kısıtlanmadı; bu uçlar zamanlama sonucuna girmiyor. Softmax/LayerNorm birimleri bu implementasyonda yok (yalnızca ayrı sentezlendi).",
     "BRAM sayısı hedefte tahminin altındadır (15 ≤ 50); LUT %18,4 ve DSP %75,6 kullanımda; DSP en kısıtlı kaynaktır.",
-    "DSP ipucu etkisi: ilk sentez 4 DSP / 10 110 LUT / WNS −0,456 ns; use_dsp ile 68 DSP / 3 816 LUT / WNS +1,648 ns. İkisi de yerleştirme öncesi sentez ölçümüdür.",
+    "DSP ipucu etkisi: ilk sentez 4 DSP / 10 110 LUT / WNS −0,456 ns; use_dsp ile 68 DSP / 3 816 LUT / WNS +1,648 ns. İkisi de yerleştirme öncesi sentez ölçümüdür; implementasyon sonucu tabloda ayrıca verilmiştir.",
     "Sentezlenmiş 8×8 dizi ağ listesi (64 DSP) xsim ile K=64 ve K=128 vektörlerinde 198 test, 25 344 kontrol, 0 hata verdi; tam üst modül ağ listesi benzetimi yapılmadı."
   ],
   "sekiller": {
@@ -122,7 +141,7 @@
     "S4": {
       "dosya": "sekiller/tr12_s4_zamanlama.png",
       "baslik": "100 MHz hedefi ve sentez sonrası kritik yol.",
-      "aciklama": "Kritik yol 10 ns hedefinin altında (WNS pozitif); bu kaba bir tahmindir, yönlendirme gecikmeleri eklenmemiştir.",
+      "aciklama": "Kritik yol 10 ns hedefinin altında (WNS pozitif); bu post-synth değerdir; place+route sonrası WNS +0,721 ns olarak ölçüldü (şekilde gösterilmedi).",
       "genislik_cm": 11
     }
   },

@@ -81,7 +81,7 @@ def main():
                 ["G9 host↔FPGA arabirimi", "Tamam (benzetim)", f"6 L0 katmanı PC→FPGA→PC bit-birebir; hata enjeksiyonu HATA döndü"],
                 ["G10 dikkat çekirdeği", "Tamam", f"{sum(1 for s in g10 if s['pass'])}/{len(g10)} koşu bit-birebir"],
                 ["G11 Softmax/LayerNorm RTL", "Tamam (bağımsız birimler, benzetim)", "Softmax 325 satır, LayerNorm 485 satır altın modelle bit-birebir, 0 hata; sistem içine BAĞLANMADI (host'ta kalıyor)"],
-                ["G12 sentez", "Vivado sentez sonrası (yerleştirme yok)", "bkz. Bölüm 6"]]
+                ["G12 sentez", "Vivado sentez + yerleştirme-yönlendirme (bitstream yok)", "bkz. Bölüm 6"]]
     tablo(d, gorevler, [5.0, 3.5, 7.5])
 
     d.add_heading("2. Tam tamsayı hat doğruluğu (G2)", 1)
@@ -127,8 +127,8 @@ def main():
     if o:
         tablo(d, [["Kaynak", "Kullanılan", "Mevcut (XC7A35T)"], ["Slice LUT", o["LUT"], "20 800"], ["Slice FF", o["FF"], "41 600"],
                   ["BRAM36", o["BRAM36"], "50"], ["DSP48E1", o["DSP"], "90"]], [5, 4, 5])
-        d.add_paragraph(f"Sentez sonrası zamanlama özeti (100 MHz kısıtı, yerleştirme-yönlendirme YOK, bu yüzden yalnızca kaba tahmin): WNS = {o['WNS']} ns. Kesin zamanlama için implementasyon gerekir. "
-                        "Plan tahmini 64 PE için ≈72 DSP idi. İlk sentezde PE çarpıcıları LUT'a eşlendi (4 DSP, 10 110 LUT, WNS −0,456 ns); PE modülüne use_dsp ipucu eklenince 64 PE çarpıcısı DSP48E1'e eşlendi (68 DSP, 3 816 LUT, WNS pozitif). RTL mantığı değişmedi; benzetim regresyonu ve sentezlenmiş dizi ağ listesi (xsim, 64 DSP) 0 hata ile geçti. Zamanlama yerleştirme-yönlendirme öncesi kaba tahmindir.")
+        d.add_paragraph(f"Sentez sonrası zamanlama (100 MHz kısıtı): WNS = {o['WNS']} ns. Yerleştirme-yönlendirme sonrası (impl.tcl): 3 702 LUT, 4 219 FF, 15 BRAM, 68 DSP; setup WNS +0,721 ns, hold WHS +0,026 ns, 0 hatalı uç nokta, güç tahmini 0,170 W. Bitstream üretilmedi, kartta denenmedi; giriş/çıkış gecikmeleri kısıtlanmadı. "
+                        "Plan tahmini 64 PE için ≈72 DSP idi. İlk sentezde PE çarpıcıları LUT'a eşlendi (4 DSP, 10 110 LUT, WNS −0,456 ns); PE modülüne use_dsp ipucu eklenince 64 PE çarpıcısı DSP48E1'e eşlendi (68 DSP, 3 816 LUT, WNS pozitif). RTL mantığı değişmedi; benzetim regresyonu ve sentezlenmiş dizi ağ listesi (xsim, 64 DSP) 0 hata ile geçti. Implementasyon sonrası 100 MHz karşılandı (WNS +0,721 ns).")
     else:
         d.add_paragraph("Sentez çıktıları bulunamadı (03-RTL/sentez/cikti).")
 
@@ -141,7 +141,7 @@ def main():
     sekil("tr04_s2_zaman.png", 13, "Şekil 10.", "Bir panel için hesap ve UART aktarım süresi (log ölçek, hesap).")
 
     d.add_heading("8. Sınırlar ve açık noktalar", 1)
-    for s in ["Tüm sonuçlar benzetimdir; kartta çalıştırma, zamanlama kapanışı ve güç ölçümü yoktur.",
+    for s in ["Mantıksal sonuçlar benzetimdir; zamanlama Vivado implementasyonuyla (place+route) ölçüldü, kartta çalıştırma ve ölçülmüş güç yoktur.",
               "G3 (512 cümle × 3 tohum kalibrasyon) yapılmadı; ara ölçekler 128 cümle/tek tohumlu.",
               "Softmax, LayerNorm ve artık toplam FPGA'da değil, host'ta çalışır; Softmax ve LayerNorm RTL birimleri yazıldı ve altın modelle bit-birebir doğrulandı (TR10, TR11) ancak üst modüle bağlanmadı. Katmanlar altın girdileriyle ayrı doğrulandı; zincirli FPGA→host→FPGA akışı doğrulanmadı.",
               "pooler/classifier RTL'de doğrulanmadı (tek CLS token düzeni).",
