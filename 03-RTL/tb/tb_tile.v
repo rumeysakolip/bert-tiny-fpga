@@ -11,6 +11,10 @@ module tb_tile;
     parameter PER_S = 0;      // 1: B operandi (panel) cumle basina farkli (dikkat: K ve V aktivasyonlari)
     parameter AISGZ = 0;      // 1: A baytlari isaretsiz (UINT8 olasilik)
     parameter KMAX = 512;
+    // plusarg verilmezse (Vivado GUI) l0_q katmani kullanilir (K=128, C=128, NS=4). Baska bilgisayarda yollari degistirin.
+    parameter VDIR_V = "C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri";
+    parameter PDIR_V = "C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/parametreler";
+    parameter AD_V   = "l0_q";
     parameter KW = 11, PW = 7, AW = 12;
     localparam P  = C / 8;
     localparam NB = 8;
@@ -105,10 +109,10 @@ module tb_tile;
 
     initial begin
         cyc = 0; errors = 0; nchk = 0; tile_say = 0; s = 0; next_p = 0;
-        if (!$value$plusargs("vdir=%s", vdir) || !$value$plusargs("pdir=%s", pdir) ||
-            !$value$plusargs("ad=%s", ad)) begin
-            $display("HATA: +vdir= +pdir= +ad= gerekli"); $display("TILE DENETLEYICI TEST: FAIL"); $finish;
-        end
+        if (!$value$plusargs("vdir=%s", vdir)) vdir = VDIR_V;
+        if (!$value$plusargs("pdir=%s", pdir)) pdir = PDIR_V;
+        if (!$value$plusargs("ad=%s", ad))     ad   = AD_V;
+        $display("BILGI: katman=%0s  vdir=%0s", ad, vdir);
         vcd_on = $value$plusargs("vcd=%s", vcdfile);
         if (vcd_on) begin $dumpfile(vcdfile); $dumpvars(0, tb_tile); end
         $sformat(yol, "%0s/%0s_girdi_blok.mem", vdir, ad);  $readmemh(yol, memAct);
