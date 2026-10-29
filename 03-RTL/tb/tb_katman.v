@@ -5,6 +5,10 @@
 module tb_katman;
     parameter K = 128, C = 128, NS = 4, SH = 37, GELU = 0;
     parameter KMAX = 512, KW = 11, PW = 7, AW = 12;
+    // plusarg verilmezse (Vivado GUI) l0_q katmani kullanilir (K=128, C=128, SH=37). Baska bilgisayarda yollari degistirin.
+    parameter VDIR_V = "C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri";
+    parameter PDIR_V = "C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/parametreler";
+    parameter AD_V   = "l0_q";
     localparam P = C / 8;
     localparam NB = 8;
 
@@ -78,10 +82,10 @@ module tb_katman;
 
     initial begin
         cyc = 0; errors = 0; nchk = 0; next_p = 0; kirp_top = 0;
-        if (!$value$plusargs("vdir=%s", vdir) || !$value$plusargs("pdir=%s", pdir) ||
-            !$value$plusargs("ad=%s", ad)) begin
-            $display("HATA: +vdir= +pdir= +ad= gerekli"); $display("DOGRUSAL KATMAN TEST: FAIL"); $finish;
-        end
+        if (!$value$plusargs("vdir=%s", vdir)) vdir = VDIR_V;
+        if (!$value$plusargs("pdir=%s", pdir)) pdir = PDIR_V;
+        if (!$value$plusargs("ad=%s", ad))     ad   = AD_V;
+        $display("BILGI: katman=%0s", ad);
         vcd_var = $value$plusargs("vcd=%s", vcdfile);
         if (vcd_var) begin $dumpfile(vcdfile); $dumpvars(0, dut.u_tile.u_dizi, dut.u_tile); end
         $sformat(yol, "%0s/%0s_girdi_blok.mem", vdir, ad);  $readmemh(yol, memAct);
