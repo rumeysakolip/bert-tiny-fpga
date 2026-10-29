@@ -132,6 +132,25 @@ def main():
     else:
         d.add_paragraph("Sentez çıktıları bulunamadı (03-RTL/sentez/cikti).")
 
+    d.add_heading("6b. Dizi boyutu deneyi (4×4, 8×8, 16×16)", 1)
+    g20 = json.load(open(os.path.join(RTL, "sim", "g20_ozet.json"), encoding="utf-8"))
+    satir = [["Ölçü", "4×4", "8×8", "16×16"]]
+    satir.append(["PE sayısı", "16", "64", "256"])
+    satir.append(["Tile süresi (K=64), benzetim", *[f"{g20[str(n)]['tile_cevrim']} çevrim (K+2N−2)" for n in (4, 8, 16)]])
+    satir.append(["Bit-birebir doğrulama (198 test)", *[f"PASS, {g20[str(n)]['kontrol']} kontrol, 0 hata" for n in (4, 8, 16)]])
+    satir.append(["LUT / FF / DSP (sentez, yalnız dizi)", *[f"{g20[str(n)]['sentez']['LUT']} / {g20[str(n)]['sentez']['FF']} / {g20[str(n)]['sentez']['DSP']}" for n in (4, 8, 16)]])
+    satir.append(["WNS @100 MHz, sentez", *[f"{g20[str(n)]['sentez']['WNS']:.2f} ns" for n in (4, 8, 16)]])
+    satir.append(["WNS @100 MHz, yerleştirme+yönlendirme", f"{g20['4']['impl']['WNS']:.2f} ns", f"{g20['8']['impl']['WNS']:.2f} ns", "yapılamadı: 256 DSP > 90"])
+    satir.append(["Tahmini en yüksek frekans (yer.+yönl.)", f"≈{g20['4']['impl']['fmax_tahmin']:.0f} MHz", f"≈{g20['8']['impl']['fmax_tahmin']:.0f} MHz", "—"])
+    satir.append(["l0_q katmanı, cümle başına çevrim", f"{g20['4']['l0_q_cevrim_hesap']} (hesap)", f"{g20['8']['l0_q_cevrim_olculen']} (ölçüldü)", f"{g20['16']['l0_q_cevrim_hesap']} (hesap)"])
+    tablo(d, satir, [5.2, 3.6, 3.6, 3.6])
+    d.add_paragraph("Kapsam: dizi (PE'ler + skew) tek başına, bağlam dışı sentezlendi; kontrol birimi, bellekler ve UART dahil değildir (tam sistem yalnız 8×8 için sentezlendi). "
+                    "4×4 ve 16×16 için tam sistem (tile denetleyici, 64 bitlik 8-token sözcükleri) kurulmadı; bu iki boyutun katman çevrimi tile formülünden hesaplanmıştır (tile sayısı × (K+2N−1)), 8×8 için ölçülen 18 392 değeri hesaptan (18 304) yalnızca 88 çevrim farklıdır. "
+                    "16×16 dizi 256 DSP48E1 gerektirir; XC7A35T'de 90 vardır, bu yüzden yerleştirme DRC hatasıyla durmuştur (sentez tamamlandı). Çarpıcıların LUT'a eşlenmesi denenmedi.")
+    sekil("g20_s1_kaynak.png", 14, "Şekil G20-1.", "Dizi boyutuna göre LUT, FF ve DSP (sentez sonrası); 16×16 DSP sınırını aşar.")
+    sekil("g20_s2_cevrim.png", 14, "Şekil G20-2.", "Tile süresi (benzetim) ve l0_q katmanı çevrimi (8×8 ölçüldü, diğerleri hesap).")
+    sekil("g20_s3_zamanlama.png", 12, "Şekil G20-3.", "100 MHz zamanlama payı: yalnızca dizi, bağlam dışı.")
+
     d.add_heading("7. Performans — dürüst değerlendirme", 1)
     byte = g9["gonderilen_bayt"]
     d.add_paragraph("Hesap tarafı (benzetim çevrimi, 100 MHz varsayımıyla) milisaniye düzeyindedir; ancak ağırlıklar her çıkarımda PC'den akıtıldığından toplam süre UART'a bağlıdır: "

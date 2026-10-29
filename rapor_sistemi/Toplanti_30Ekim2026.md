@@ -26,3 +26,8 @@
 - Ağırlığı kartta kalıcı saklama (UART trafiğini kaldırmak) araştırılsın mı?
 
 *FPGA/kart soruları (Basys3+Vivado erişimi, bitstream, USB-UART, DSP çıkarımı, 100 MHz kapanışı) danışmana değil FPGA'dan anlayan hocaya.*
+
+**Ek: dizi boyutu deneyi (4×4, 8×8, 16×16)**
+- Üçü de benzetimde bit-birebir (198 test, 0 hata); tile süresi K+2N−2 (70/78/94 çevrim, K=64).
+- Yalnızca dizi, sentez: 114/311/695 LUT, 16/64/256 DSP. 16×16 XC7A35T'de (90 DSP) yerleşemiyor; 4×4 ve 8×8 yer.+yönl. WNS +1,42/+1,08 ns @100 MHz.
+- Kapsam sınırı: tam sistem yalnız 8×8; 4×4 ve 16×16 katman çevrimi hesap.

@@ -1,0 +1,29 @@
+{
+ "4": {
+  "pass": true,
+  "test": 198,
+  "kontrol": 6336,
+  "hata": 0,
+  "tile_cevrim": 70,
+  "tile_cevrim_maks": 70,
+  "beklenen": 70
+ },
+ "8": {
+  "pass": true,
+  "test": 198,
+  "kontrol": 25344,
+  "hata": 0,
+  "tile_cevrim": 78,
+  "tile_cevrim_maks": 78,
+  "beklenen": 78
+ },
+ "16": {
+  "pass": true,
+  "test": 198,
+  "kontrol": 101376,
+  "hata": 0,
+  "tile_cevrim": 94,
+  "tile_cevrim_maks": 94,
+  "beklenen": 94
+ }
+}
