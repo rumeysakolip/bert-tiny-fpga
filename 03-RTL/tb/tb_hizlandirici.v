@@ -7,6 +7,10 @@
 `timescale 1ns/1ps
 module tb_hizlandirici;
     parameter SCR_N = 1048576;
+    // +scr/+out/+gold verilmezse (Vivado GUI) varsayilan: l0_q katmani, 70 paket (2 kasitli hatali). Yollari bu bilgisayara gore yazildi.
+    parameter SCR_V  = "C:/Users/rumey/Documents/biitirme-projem/03-RTL/sim/g9_q_komut.hex";
+    parameter OUT_V  = "C:/Users/rumey/Documents/biitirme-projem/03-RTL/sim/vivado_g9_q_yanit.hex";
+    parameter GOLD_V = "C:/Users/rumey/Documents/biitirme-projem/03-RTL/sim/g9_q_yanit.hex";   // Icarus kosusunun yaniti; Python bunu altin modelle 0 fark dogruladi
     reg clk = 0, rst = 1;
     always #5 clk = ~clk;
 
@@ -21,17 +25,26 @@ module tb_hizlandirici;
         .paket_sayisi(paket_sayisi), .hata_sayisi(hata_sayisi));
 
     reg [11:0] scr [0:SCR_N-1];
-    reg [255*8:1] yol_scr, yol_out;
+    reg [255*8:1] yol_scr, yol_out, yol_gold;
+    reg [7:0] gold [0:65535];
+    integer gold_hata, gold_var;
     integer fo, i, n, cyc, bayt_say, yanit_say, tip, val, bekle_say;
 
     always @(posedge clk) cyc <= cyc + 1;
-    always @(posedge clk) if (tx_valid) begin $fdisplay(fo, "%02x", tx_data); yanit_say = yanit_say + 1; end
+    always @(posedge clk) if (tx_valid) begin
+        $fdisplay(fo, "%02x", tx_data);
+        if (gold_var && tx_data !== gold[yanit_say]) begin gold_hata = gold_hata + 1; if (gold_hata < 6) $display("  FARK yanit bayti %0d: rtl=%02x beklenen=%02x", yanit_say, tx_data, gold[yanit_say]); end
+        yanit_say = yanit_say + 1;
+    end
 
     initial begin
         cyc = 0; bayt_say = 0; yanit_say = 0;
-        if (!$value$plusargs("scr=%s", yol_scr) || !$value$plusargs("out=%s", yol_out)) begin
-            $display("HATA: +scr= +out= gerekli"); $finish;
-        end
+        if (!$value$plusargs("scr=%s", yol_scr))  yol_scr  = SCR_V;
+        if (!$value$plusargs("out=%s", yol_out))  yol_out  = OUT_V;
+        gold_var = 0; gold_hata = 0;
+        if (!$value$plusargs("gold=%s", yol_gold)) yol_gold = GOLD_V;
+        if (yol_gold != "none") begin $readmemh(yol_gold, gold); gold_var = 1; end
+        $display("BILGI: komut dosyasi=%0s", yol_scr);
         for (i = 0; i < SCR_N; i = i + 1) scr[i] = 12'h400;
         $readmemh(yol_scr, scr);
         fo = $fopen(yol_out, "w");
@@ -62,6 +75,10 @@ module tb_hizlandirici;
         $fclose(fo);
         $display("HIZLANDIRICI TB BITTI: cevrim=%0d gonderilen_bayt=%0d yanit_bayt=%0d paket=%0d hata=%0d",
                  cyc, bayt_say, yanit_say, paket_sayisi, hata_sayisi);
+        if (gold_var) begin
+            if (gold_hata == 0 && yanit_say == 8337) $display("HIZLANDIRICI YANIT KARSILASTIRMA: PASS  (%0d yanit bayti beklenenle ayni, 0 fark)", yanit_say);
+            else $display("HIZLANDIRICI YANIT KARSILASTIRMA: FAIL  (%0d fark, yanit_bayt=%0d)", gold_hata, yanit_say);
+        end
         $finish;
     end
 endmodule
