@@ -3,6 +3,8 @@
 `timescale 1ns/1ps
 module tb_requant;
     localparam MAXT = 16384;
+    // +vdir verilmezse (Vivado GUI) bu klasor kullanilir. Baska bilgisayarda yolu degistirin.
+    parameter VDIR_VARSAYILAN = "C:/Users/rumey/Documents/biitirme-projem/03-RTL/tb/vektor_rq";
     reg clk = 0, rst = 1;
     always #5 clk = ~clk;
 
@@ -40,7 +42,7 @@ module tb_requant;
 
     initial begin
         errors = 0; sirasiz = 0; alinan = 0; kirp_say = 0; lat = 0; lat_min = 1000;
-        if (!$value$plusargs("vdir=%s", vdir)) begin $display("HATA: +vdir"); $finish; end
+        if (!$value$plusargs("vdir=%s", vdir)) begin vdir = VDIR_VARSAYILAN; $display("BILGI: +vdir verilmedi, varsayilan klasor: %0s", vdir); end
         $sformat(yol, "%0s/meta.mem", vdir); $readmemh(yol, memMeta); ntest = memMeta[0];
         $sformat(yol, "%0s/ACC.mem", vdir); $readmemh(yol, memA, 0, ntest-1);
         $sformat(yol, "%0s/M0.mem", vdir);  $readmemh(yol, memM, 0, ntest-1);
