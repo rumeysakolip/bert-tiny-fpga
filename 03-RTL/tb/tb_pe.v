@@ -47,8 +47,10 @@ module tb_pe;
     endtask
 
     integer i, a, b;
+    reg [255*8:1] vcdf;
     initial begin
-        $dumpfile("sim/tb_pe.vcd"); $dumpvars(0, tb_pe);
+        // VCD yalnizca +vcd=<dosya> verilirse yazilir (Vivado'da gerek yok; orada dalga penceresi var)
+        if ($value$plusargs("vcd=%s", vcdf)) begin $dumpfile(vcdf); $dumpvars(0, tb_pe); end
         for (i = 1; i <= 5; i = i + 1) bolum_hata[i] = 0;
 
         // (1) reset / enable / duraklatma
