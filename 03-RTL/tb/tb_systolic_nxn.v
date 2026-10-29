@@ -10,6 +10,8 @@ module tb_systolic_nxn;
     parameter KT = 64;
     parameter A_W = 9, B_W = 8, ACC_W = 32, K_W = 11;
     parameter MAXT = 256;
+    // +vdir verilmezse (Vivado GUI) bu klasor kullanilir; K=64, N=8 vektorleri. Baska bilgisayarda yolu degistirin.
+    parameter VDIR_VARSAYILAN = "C:/Users/rumey/Documents/biitirme-projem/03-RTL/tb/vektor_nxn/n8_k64";
 
     reg                  clk = 0;
     reg                  rst = 1;
@@ -147,7 +149,8 @@ module tb_systolic_nxn;
     initial begin
         cyc = 0; errors = 0; bad_tests = 0; lat_min = 1000000; lat_max = 0; nchk = 0; yeniden = 0;
         if (!$value$plusargs("vdir=%s", vdir)) begin
-            $display("HATA: +vdir=<klasor> verilmedi"); $display("SYSTOLIC NxN TEST: FAIL"); $finish;
+            vdir = VDIR_VARSAYILAN;
+            $display("BILGI: +vdir verilmedi, varsayilan klasor: %0s", vdir);
         end
         if ($value$plusargs("vcd=%s", vcdfile)) begin
             $dumpfile(vcdfile); $dumpvars(0, tb_systolic_nxn); vcd_var = 1;
