@@ -3,6 +3,8 @@
 `timescale 1ns/1ps
 module tb_layernorm;
     parameter N = 128;
+    // +vdir verilmezse (Vivado GUI) bu klasor kullanilir. Baska bilgisayarda yolu degistirin.
+    parameter VDIR_VARSAYILAN = "C:/Users/rumey/Documents/biitirme-projem/03-RTL/tb/vektor_g11";
     parameter MAXR = 600;
     reg clk = 0, rst = 1;
     always #5 clk = ~clk;
@@ -49,7 +51,7 @@ module tb_layernorm;
 
     initial begin
         hata = 0; kontrol = 0; bad_rows = 0; cyc_min = 1000000; cyc_max = 0; cnt_out = 0; onceki = -1;
-        if (!$value$plusargs("vdir=%s", vdir)) begin $display("HATA: +vdir yok"); $finish; end
+        if (!$value$plusargs("vdir=%s", vdir)) begin vdir = VDIR_VARSAYILAN; $display("BILGI: +vdir verilmedi, varsayilan klasor: %0s", vdir); end
         $sformat(yol, "%0s/ln_meta.mem", vdir);  $readmemh(yol, mMeta); nrow = mMeta[0]; nornek = mMeta[2];
         $sformat(yol, "%0s/ln_q.mem", vdir);     $readmemh(yol, mQ);
         $sformat(yol, "%0s/ln_cikis.mem", vdir); $readmemh(yol, mCik);
