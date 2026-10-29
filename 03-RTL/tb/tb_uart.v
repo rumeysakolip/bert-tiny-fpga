@@ -5,7 +5,8 @@ module tb_uart;
     parameter CPB = 16;
     reg clk = 0, rst = 1;
     always #5 clk = ~clk;
-    initial begin $dumpfile("sim/tb_uart.vcd"); $dumpvars(1, tb_uart); end
+    reg [255*8:1] vcdf;
+    initial if ($value$plusargs("vcd=%s", vcdf)) begin $dumpfile(vcdf); $dumpvars(1, tb_uart); end   // yalnizca +vcd verilirse
     reg  rx_pin = 1;
     wire tx_pin;
     hizlandirici_uart_ust #(.CLKS_PER_BIT(CPB)) dut (.clk(clk), .rst(rst), .uart_rx_pin(rx_pin), .uart_tx_pin(tx_pin));
