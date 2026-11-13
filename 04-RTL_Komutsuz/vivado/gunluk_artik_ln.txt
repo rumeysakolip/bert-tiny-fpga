@@ -1,0 +1,24 @@
+
+****** xsim v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Thu Nov 12 06:35:30 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/artik_ln/xsim_script.tcl
+# xsim {artik_ln} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+==== ARTIK TOPLAMA + LAYERNORM SINAMASI: 4 LayerNorm x 1 cumle, altin modelin tam tamsayi hattiyla bit-birebir ====
+Akis: x ve a, LayerNorm giris olcegine tasinip toplanir -> LayerNorm -> sonraki katmanin girdi olcegine tasinir (tek carpma devresi).
+[LayerNorm 1/4, cumle 0] BASARILI (8192 kontrol, 0 hata) | cevrim: 45764
+[LayerNorm 2/4, cumle 0] BASARILI (8192 kontrol, 0 hata) | cevrim: 45764
+[LayerNorm 3/4, cumle 0] BASARILI (8192 kontrol, 0 hata) | cevrim: 45764
+[LayerNorm 4/4, cumle 0] BASARILI (128 kontrol, yalniz ilk token, 0 hata) | cevrim: 43076
+----------------------------------------------
+ARTIK TOPLAMA + LAYERNORM TEST: BASARILI  (4 LayerNorm, 1 cumle, 24704 kontrol, 0 hata)
+$finish called at time : 1885740 ns : File "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_artik_ln.v" Line 88
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Nov 12 06:35:41 2026...

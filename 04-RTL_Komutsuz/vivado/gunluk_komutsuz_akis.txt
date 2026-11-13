@@ -1,0 +1,29 @@
+
+****** xsim v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Thu Nov 12 01:43:00 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/komutsuz_akis/xsim_script.tcl
+# xsim {komutsuz_akis} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+==== KOMUTSUZ AKIS SINAMASI: bayt akisi -> denetim kodu -> cizelge -> dogrusal katman (Q, K, V), cumle uzunlugu akistan okunur ====
+   cumle 0: akistan okunan cumle uzunlugu = 4 (denetim koduyla dogrulanmis)
+BILGI cumle 0: 79656 cevrim (akis 60515 bayt, aralik=1), hata=0
+   cumle 1: akistan okunan cumle uzunlugu = 4 (denetim koduyla dogrulanmis)
+BILGI cumle 1: 79652 cevrim (akis 60515 bayt, aralik=1), hata=0
+   cumle 2: akistan okunan cumle uzunlugu = 5 (denetim koduyla dogrulanmis)
+BILGI cumle 2: 79652 cevrim (akis 60515 bayt, aralik=1), hata=0
+   cumle 3: akistan okunan cumle uzunlugu = 6 (denetim koduyla dogrulanmis)
+BILGI cumle 3: 79652 cevrim (akis 60515 bayt, aralik=1), hata=0
+----------------------------------------------
+TOPLAM 318612 cevrim, 242060 bayt kabul, 98304 kontrol
+KOMUTSUZ PROTOTIP TEST (ns=4 aralik=1): PASS  (98304 kontrol, 0 hata)
+$finish called at time : 3186160 ns : File "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_komutsuz_ust.v" Line 145
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:10 . Memory (MB): peak = 198.574 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Nov 12 01:43:12 2026...

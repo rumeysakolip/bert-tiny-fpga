@@ -1,0 +1,20 @@
+# ortak_ust (hizlandirici cekirdegi) baglamsiz kipte sentez+yerlestirme+yonlendirme, kontrol noktasi yazar (guc cozumlemesi icin)
+# Kullanim (cwd: 04-RTL_Komutsuz):  vivado -mode batch -source sentez/guc_ust_kur.tcl
+set part xc7a35tcpg236-1
+set kok [pwd]
+set rtl3 $kok/../03-RTL/rtl
+foreach f {ters_bolucu seri_bolucu cift_kapili_bellek cikis_sozcuk_toplayici panel_tamponu tile_denetleyici gelu_tablosu sistolik_dizi islem_elemani} { read_verilog $rtl3/$f.v }
+foreach f {ortak_ust cizelge_ortak akis_ayristirici ortak_cekirdek birlesik_bellek_2o artik_ln_ortak yeniden_olcekle_ortak layernorm_birim_dz panel_kopyalayici panel_parametre_yukleyici parametre_rom gelu_yukleyici cikis_sozcuk_toplayici_devrik softmax_birim_gomulu} { read_verilog $kok/rtl/$f.v }
+set xdc $kok/sentez/saat_100mhz.xdc
+set fp [open $xdc w]; puts $fp "create_clock -period 10.000 -name clk \[get_ports clk\]"; close $fp
+read_xdc $xdc
+file mkdir $kok/sentez/cikti_guc
+cd $kok/rtl
+synth_design -top ortak_ust -part $part -mode out_of_context -flatten_hierarchy rebuilt
+opt_design
+place_design
+route_design
+write_checkpoint -force $kok/sentez/cikti_guc/ortak_ust_yerlesik.dcp
+report_timing_summary -delay_type min_max -max_paths 3 -file $kok/sentez/cikti_guc/zamanlama.txt
+report_power -file $kok/sentez/cikti_guc/guc_vektorsuz.txt
+puts "GUC_KUR_BITTI"

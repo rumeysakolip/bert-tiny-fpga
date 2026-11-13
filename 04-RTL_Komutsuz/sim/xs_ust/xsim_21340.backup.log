@@ -1,0 +1,75 @@
+#-----------------------------------------------------------
+# xsim v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Thu Nov 12 11:46:35 2026
+# Process ID         : 21340
+# Current directory  : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/sim/xs_ust
+# Command line       : xsim.exe -mode tcl -source {xsim.dir/ortak_ust/xsim_script.tcl}
+# Log file           : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/sim/xs_ust/xsim.log
+# Journal file       : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/sim/xs_ust\xsim.jou
+# Running On         : pc
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i7-12650H
+# CPU Frequency      : 2688 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 16
+# Host memory        : 16908 MB
+# Swap memory        : 14495 MB
+# Total Virtual      : 31403 MB
+# Available Virtual  : 6516 MB
+#-----------------------------------------------------------
+source xsim.dir/ortak_ust/xsim_script.tcl
+# xsim {ortak_ust} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+==== UCTAN UCA SINAMA: bayt akisi -> CRC-16 ayristirici -> sabit cizelge -> ortak cekirdek; 2 katman, 1 cumle; altin modelle bit-birebir ====
+Cizelge katman basina 14 satir: Q(2 bas) K(2 bas) V | Q.K^T+Softmax ve P.V (2 bas) | cikis dogrusali | LayerNorm 1 | ileri besleme 1, 2 | LayerNorm 2
+[cumle 0 katman 0 satir 0] bitti (cevrim 19634, okunan bayt 16403)
+[cumle 0 katman 0 satir 1] bitti (cevrim 31069, okunan bayt 24611)
+   [katman 0, satir 1] Q (sorgu): BASARILI (0 hata)
+   [katman 0, satir 1] Q (sorgu): BASARILI (0 hata)
+[cumle 0 katman 0 satir 2] bitti (cevrim 45576, okunan bayt 32819)
+[cumle 0 katman 0 satir 3] bitti (cevrim 57011, okunan bayt 41027)
+   [katman 0, satir 3] K (anahtar): BASARILI (0 hata)
+   [katman 0, satir 3] K (anahtar): BASARILI (0 hata)
+[cumle 0 katman 0 satir 4] bitti (cevrim 80752, okunan bayt 57443)
+   [katman 0, satir 4] V (devrik panel duzeni): BASARILI (0 hata)
+   [katman 0, satir 4] V (devrik panel duzeni): BASARILI (0 hata)
+[cumle 0 katman 0 satir 5] bitti (cevrim 105220, okunan bayt 57443)
+[cumle 0 katman 0 satir 6] bitti (cevrim 110616, okunan bayt 57443)
+[cumle 0 katman 0 satir 7] bitti (cevrim 132012, okunan bayt 57443)
+[cumle 0 katman 0 satir 8] bitti (cevrim 137408, okunan bayt 57443)
+   [katman 0, satir 8] baglam (P.V): BASARILI (0 hata)
+[cumle 0 katman 0 satir 9] bitti (cevrim 161139, okunan bayt 73859)
+   [katman 0, satir 9] dikkat cikis dogrusali: BASARILI (0 hata)
+[cumle 0 katman 0 satir 10] bitti (cevrim 207938, okunan bayt 73859)
+   [katman 0, satir 10] LayerNorm 1 (yeniden olcekli): BASARILI (0 hata)
+   [katman 0, satir 10] LayerNorm 1 (ham cikis): BASARILI (0 hata)
+[cumle 0 katman 0 satir 11] bitti (cevrim 290344, okunan bayt 139523)
+   [katman 0, satir 11] ara sonuc: altin modelin ara vektor dosyasi bu satir icin zincirleme girdiyle uretilmedi; dogruluk sonraki LayerNorm ile denetlenir
+[cumle 0 katman 0 satir 12] bitti (cevrim 366299, okunan bayt 205091)
+   [katman 0, satir 12] ara sonuc: altin modelin ara vektor dosyasi bu satir icin zincirleme girdiyle uretilmedi; dogruluk sonraki LayerNorm ile denetlenir
+[cumle 0 katman 0 satir 13] bitti (cevrim 409002, okunan bayt 205091)
+   [katman 0, satir 13] LayerNorm 2 (katman cikisi): BASARILI (0 hata)
+[cumle 0 katman 1 satir 0] bitti (cevrim 423509, okunan bayt 213299)
+[cumle 0 katman 1 satir 1] bitti (cevrim 434944, okunan bayt 221507)
+[cumle 0 katman 1 satir 2] bitti (cevrim 446379, okunan bayt 229715)
+[cumle 0 katman 1 satir 3] bitti (cevrim 457814, okunan bayt 237923)
+[cumle 0 katman 1 satir 4] bitti (cevrim 478483, okunan bayt 254339)
+[cumle 0 katman 1 satir 5] bitti (cevrim 499879, okunan bayt 254339)
+[cumle 0 katman 1 satir 6] bitti (cevrim 505275, okunan bayt 254339)
+[cumle 0 katman 1 satir 7] bitti (cevrim 526671, okunan bayt 254339)
+[cumle 0 katman 1 satir 8] bitti (cevrim 532067, okunan bayt 254339)
+[cumle 0 katman 1 satir 9] bitti (cevrim 552726, okunan bayt 270755)
+[cumle 0 katman 1 satir 10] bitti (cevrim 596453, okunan bayt 270755)
+   [katman 1, satir 10] LayerNorm 1 (yeniden olcekli): BASARILI (0 hata)
+   [katman 1, satir 10] LayerNorm 1 (ham cikis): BASARILI (0 hata)
+[cumle 0 katman 1 satir 11] bitti (cevrim 678859, okunan bayt 336419)
+[cumle 0 katman 1 satir 12] bitti (cevrim 754814, okunan bayt 401987)
+[cumle 0 katman 1 satir 13] bitti (cevrim 797517, okunan bayt 401987)
+   [katman 1, satir 13] LayerNorm 2 (katman cikisi): BASARILI (0 hata)
+[cumle 0 katman 1 satir 14] bitti (cevrim 815608, okunan bayt 418403)
+   [katman 1, satir 14] pooler (tanh, yalniz ilk token): BASARILI (0 hata)

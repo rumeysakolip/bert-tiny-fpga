@@ -1,7 +1,7 @@
 // tb_hizlandirici.v -- host-in-the-loop (benzetim arka ucu): komut dosyasini bayt bayt surer, yanitlari dosyaya yazar.
 // Komut dosyasi (+scr=komut.hex): her satir 3 hane hex = {tip[11:8], deger[7:0]}
 //   tip 0: bayt gonder (rx)      tip 1: paket sonu -> yanit tamamlanana kadar bekle (dur-ve-bekle)
-//   tip 2: pan_bos[deger]=1 olana kadar bekle    tip 3: layer_done (kilitli) olana kadar bekle
+//   tip 2: panel_bos[deger]=1 olana kadar bekle    tip 3: katman_bitti (kilitli) olana kadar bekle
 //   tip 4: betik sonu
 // Yanit (+out=yanit.hex): tx baytlari, satir basina 2 hane hex.  Gercek kartta tip 2/3, DURUM sorgusu (0x06) ile yapilir.
 `timescale 1ns/1ps
@@ -20,7 +20,11 @@ module tb_hizlandirici;
     wire [7:0] tx_data;
     wire [15:0] paket_sayisi, hata_sayisi;
 
-    hizlandirici_ust dut (.clk(clk), .rst(rst), .rx_valid(rx_valid), .rx_data(rx_data),
+`ifdef YENI_TOP                       // iverilog -DYENI_TOP: ayni host dongusunu bert_tiny_ust uzerinden kos (G13)
+    bert_tiny_ust dut (.clk(clk), .rst(rst), .rx_valid(rx_valid), .rx_data(rx_data),
+`else
+    bert_tiny_ust dut (.clk(clk), .rst(rst), .rx_valid(rx_valid), .rx_data(rx_data),
+`endif
         .tx_valid(tx_valid), .tx_data(tx_data), .tx_ready(1'b1), .tx_bos(tx_bos),
         .paket_sayisi(paket_sayisi), .hata_sayisi(hata_sayisi));
 
@@ -61,11 +65,11 @@ module tb_hizlandirici;
                          repeat (2) @(posedge clk);
                          if (bekle_say >= 200000) begin $display("ZAMAN ASIMI: yanit gelmedi (satir %0d)", i); tip = 4; end
                    end
-                2: begin bekle_say = 0; while (!dut.u_cd.pan_bos[val] && bekle_say < 5000000) begin @(posedge clk); bekle_say = bekle_say + 1; end
-                         if (bekle_say >= 5000000) begin $display("ZAMAN ASIMI: pan_bos[%0d]", val); tip = 4; end
+                2: begin bekle_say = 0; while (!dut.u_veri_yolu.panel_bos[val] && bekle_say < 5000000) begin @(posedge clk); bekle_say = bekle_say + 1; end
+                         if (bekle_say >= 5000000) begin $display("ZAMAN ASIMI: panel_bos[%0d]", val); tip = 4; end
                    end
-                3: begin bekle_say = 0; while (!dut.u_cd.layer_done_lat && bekle_say < 20000000) begin @(posedge clk); bekle_say = bekle_say + 1; end
-                         if (bekle_say >= 20000000) begin $display("ZAMAN ASIMI: layer_done"); tip = 4; end
+                3: begin bekle_say = 0; while (!dut.u_veri_yolu.katman_bitti_tutucu && bekle_say < 20000000) begin @(posedge clk); bekle_say = bekle_say + 1; end
+                         if (bekle_say >= 20000000) begin $display("ZAMAN ASIMI: katman_bitti"); tip = 4; end
                    end
                 default: ;
             endcase

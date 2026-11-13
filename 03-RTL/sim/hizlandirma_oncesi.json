@@ -1,0 +1,360 @@
+{
+ "etiket": "Konu 1 taban olcumu (hizlandirma oncesi)",
+ "tarih": "2026-11-02",
+ "cevrim_modeli": {
+  "dogrusal_katmanlar_12": 428928,
+  "dikkat_carpimlari": 41048,
+  "softmax_satir_cevrimi": 2049,
+  "softmax_satir_sayisi": 256,
+  "softmax_toplam": 524544,
+  "layernorm_satir_cevrimi": 5274,
+  "layernorm_satir_sayisi": 320,
+  "layernorm_toplam": 1687680,
+  "toplam": 2682200,
+  "ms_100mhz": 26.822,
+  "softmax_bolme_asamasi": 1664,
+  "layernorm_bolme_asamasi": 4352,
+  "softmax_bolme_orani": 0.8121,
+  "layernorm_bolme_orani": 0.8252,
+  "etiket": "Softmax ve LayerNorm satir cevrimi: benzetim (bu kosuda yeniden olculdu); toplamlar: hesap; dogrusal ve dikkat cevrimleri g19_ozet.json'dan alindi (bu kosuda yeniden olculmedi, onceki benzetim)",
+  "kaynak": [
+   "sim/g11_sonuc.json",
+   "sim/g19_ozet.json"
+  ]
+ },
+ "test_sonuclari": {
+  "softmax": {
+   "sonuc": "PASS",
+   "satir": 325,
+   "kontrol": 20800,
+   "hata": 0
+  },
+  "layernorm": {
+   "sonuc": "PASS",
+   "satir": 485,
+   "kontrol": 62080,
+   "hata": 0
+  },
+  "mutantlar": [
+   {
+    "ad": "sm1",
+    "tanim": "bolme oncesi yuvarlama yarimi silindi",
+    "sonuc": "FAIL",
+    "yakalandi": true
+   },
+   {
+    "ad": "sm2",
+    "tanim": "LUT doyum indisi 511 yerine 510",
+    "sonuc": "PASS",
+    "yakalandi": false
+   },
+   {
+    "ad": "ln1",
+    "tanim": "negatif bolmede taban (floor) duzeltmesi silindi",
+    "sonuc": "FAIL",
+    "yakalandi": true
+   },
+   {
+    "ad": "ln2",
+    "tanim": "yeniden olceklemede yuvarlama sabiti silindi",
+    "sonuc": "FAIL",
+    "yakalandi": true
+   },
+   {
+    "ad": "ln3",
+    "tanim": "std >= 1 kirpmasi kaldirildi",
+    "sonuc": "PASS",
+    "yakalandi": false
+   }
+  ],
+  "etiket": "benzetim (Icarus)",
+  "tb_bert_tiny_ust": {
+   "sonuc": "PASS",
+   "kontrol": 175390,
+   "hata": 0,
+   "kaynak": "sim/tb_bert_tiny_ust_konu1_log.txt",
+   "etiket": "benzetim (Icarus)"
+  },
+  "host_dongusu": {
+   "sonuc": "PASS",
+   "katman": 6,
+   "hata": 0,
+   "kaynak": "sim/host_dongusu_konu1_log.txt",
+   "etiket": "benzetim (Icarus)"
+  }
+ },
+ "vivado": {
+  "etiket": "Vivado 2025.1, xc7a35tcpg236-1, 100 MHz kisiti",
+  "tam_sistem_bert_tiny_uart_ust": {
+   "yerlestirme_yonlendirme": {
+    "LUT": 5540,
+    "LUT_mantik": 3603,
+    "LUT_bellek": 1937,
+    "FF": 5390,
+    "BRAM_tile": 15.5,
+    "DSP": 77,
+    "CARRY4": 320,
+    "kaynak": "sentez/cikti/bert_tiny_uart_ust_impl_kullanim.txt"
+   },
+   "zamanlama_yerlestirme_yonlendirme": {
+    "WNS_ns": 0.587,
+    "WHS_ns": 0.024,
+    "en_kotu_yollar": [
+     {
+      "payi_ns": 0.587,
+      "kaynak": "u_ust/u_ln/p2_reg__0/CLK",
+      "hedef": "u_ust/u_ln/p2s_reg[48]/D",
+      "yol_gecikmesi_ns": 9.31,
+      "mantik_seviyesi": 20
+     },
+     {
+      "payi_ns": 0.649,
+      "kaynak": "u_ust/u_ln/p2_reg__0/CLK",
+      "hedef": "u_ust/u_ln/p2s_reg[37]/D",
+      "yol_gecikmesi_ns": 9.255,
+      "mantik_seviyesi": 20
+     },
+     {
+      "payi_ns": 0.705,
+      "kaynak": "u_ust/u_kat/u_tile/u_dizi/kcnt_reg[2]/C",
+      "hedef": "u_ust/u_kat/u_tile/u_dizi/g_row[0].g_col[0].u_pe/acc_reg/B[1]",
+      "yol_gecikmesi_ns": 5.51,
+      "mantik_seviyesi": 5
+     },
+     {
+      "payi_ns": 0.759,
+      "kaynak": "u_ust/u_ln/p2_reg__0/CLK",
+      "hedef": "u_ust/u_ln/p2s_reg[14]/D",
+      "yol_gecikmesi_ns": 9.1,
+      "mantik_seviyesi": 19
+     },
+     {
+      "payi_ns": 0.765,
+      "kaynak": "u_ust/u_cd/cmd_reg[6]/C",
+      "hedef": "u_ust/u_cd/ln_m0_reg[12]/CE",
+      "yol_gecikmesi_ns": 8.928,
+      "mantik_seviyesi": 9
+     },
+     {
+      "payi_ns": 0.024,
+      "kaynak": "u_ust/u_cd/ln_par_adr_reg[0]/C",
+      "hedef": "u_ust/u_ln/bet_reg_0_63_12_14/RAMA/WADR0",
+      "yol_gecikmesi_ns": 0.347,
+      "mantik_seviyesi": 0
+     },
+     {
+      "payi_ns": 0.024,
+      "kaynak": "u_ust/u_cd/ln_par_adr_reg[0]/C",
+      "hedef": "u_ust/u_ln/bet_reg_0_63_12_14/RAMB/WADR0",
+      "yol_gecikmesi_ns": 0.347,
+      "mantik_seviyesi": 0
+     },
+     {
+      "payi_ns": 0.024,
+      "kaynak": "u_ust/u_cd/ln_par_adr_reg[0]/C",
+      "hedef": "u_ust/u_ln/bet_reg_0_63_12_14/RAMC/WADR0",
+      "yol_gecikmesi_ns": 0.347,
+      "mantik_seviyesi": 0
+     },
+     {
+      "payi_ns": 0.024,
+      "kaynak": "u_ust/u_cd/ln_par_adr_reg[0]/C",
+      "hedef": "u_ust/u_ln/bet_reg_0_63_12_14/RAMD/WADR0",
+      "yol_gecikmesi_ns": 0.347,
+      "mantik_seviyesi": 0
+     },
+     {
+      "payi_ns": 0.034,
+      "kaynak": "u_ust/u_kat/u_tile/u_dizi/g_skew_a[3].g_dn.sr_reg[25]/C",
+      "hedef": "u_ust/u_kat/u_tile/u_dizi/g_row[3].g_col[0].u_pe/a_out_reg[7]/D",
+      "yol_gecikmesi_ns": 0.315,
+      "mantik_seviyesi": 0
+     }
+    ],
+    "kaynak": "sentez/cikti/bert_tiny_uart_ust_impl_zamanlama.txt"
+   },
+   "yalniz_sentez": {
+    "LUT": 5714,
+    "LUT_mantik": 3769,
+    "LUT_bellek": 1945,
+    "FF": 5386,
+    "BRAM_tile": 15.5,
+    "DSP": 77,
+    "CARRY4": 320,
+    "kaynak": "sentez/cikti/bert_tiny_uart_ust_kullanim.txt"
+   },
+   "zamanlama_yalniz_sentez": {
+    "WNS_ns": 1.287,
+    "en_kotu_yollar": [
+     {
+      "payi_ns": 1.287,
+      "kaynak": "u_ust/u_ln/res_reg[3]/C",
+      "hedef": "u_ust/u_ln/res_reg[39]/D",
+      "yol_gecikmesi_ns": 8.562,
+      "mantik_seviyesi": 23
+     },
+     {
+      "payi_ns": 1.307,
+      "kaynak": "u_ust/u_ln/res_reg[3]/C",
+      "hedef": "u_ust/u_ln/res_reg[35]/D",
+      "yol_gecikmesi_ns": 8.542,
+      "mantik_seviyesi": 22
+     },
+     {
+      "payi_ns": 1.416,
+      "kaynak": "u_ust/u_ln/res_reg[3]/C",
+      "hedef": "u_ust/u_ln/res_reg[31]/D",
+      "yol_gecikmesi_ns": 8.433,
+      "mantik_seviyesi": 21
+     }
+    ],
+    "kaynak": "sentez/cikti/bert_tiny_uart_ust_zamanlama.txt"
+   },
+   "rapor_zaman_damgasi": "2026-10-29T21:15",
+   "rtl_son_duzenleme": "2026-10-29T20:57"
+  },
+  "dogrusal_katman_sistemi_hizlandirici_uart_ust": {
+   "yerlestirme_yonlendirme": {
+    "LUT": 3702,
+    "LUT_mantik": 2126,
+    "LUT_bellek": 1576,
+    "FF": 4219,
+    "BRAM_tile": 15.0,
+    "DSP": 68,
+    "CARRY4": 106,
+    "kaynak": "sentez/cikti/impl_kullanim.txt"
+   },
+   "zamanlama": {
+    "WNS_ns": 0.721,
+    "WHS_ns": 0.026,
+    "en_kotu_yollar": [
+     {
+      "payi_ns": 0.721,
+      "kaynak": "u_ust/u_kat/u_tile/u_dizi/k_reg_reg[0]/C",
+      "hedef": "u_ust/u_kat/u_tile/u_dizi/g_row[0].g_col[0].u_pe/acc_reg/A[5]",
+      "yol_gecikmesi_ns": 5.371,
+      "mantik_seviyesi": 5
+     },
+     {
+      "payi_ns": 0.747,
+      "kaynak": "u_ust/u_kat/u_tile/o_idx_reg[4]/C",
+      "hedef": "u_ust/u_kat/u_rq/p_reg/A[14]",
+      "yol_gecikmesi_ns": 8.623,
+      "mantik_seviyesi": 11
+     },
+     {
+      "payi_ns": 0.747,
+      "kaynak": "u_ust/u_kat/u_tile/o_idx_reg[4]/C",
+      "hedef": "u_ust/u_kat/u_rq/p_reg/A[15]",
+      "yol_gecikmesi_ns": 8.623,
+      "mantik_seviyesi": 11
+     },
+     {
+      "payi_ns": 0.748,
+      "kaynak": "u_ust/u_kat/u_tile/o_idx_reg[4]/C",
+      "hedef": "u_ust/u_kat/u_rq/p_reg/A[18]",
+      "yol_gecikmesi_ns": 8.622,
+      "mantik_seviyesi": 11
+     },
+     {
+      "payi_ns": 0.748,
+      "kaynak": "u_ust/u_kat/u_tile/o_idx_reg[4]/C",
+      "hedef": "u_ust/u_kat/u_rq/p_reg/A[19]",
+      "yol_gecikmesi_ns": 8.622,
+      "mantik_seviyesi": 11
+     },
+     {
+      "payi_ns": 0.026,
+      "kaynak": "u_ust/u_kat/u_panel/pr_data_reg[37]/C",
+      "hedef": "u_ust/u_kat/u_tile/u_dizi/g_skew_b[4].g_dn.sr_reg[5]/D",
+      "yol_gecikmesi_ns": 0.38,
+      "mantik_seviyesi": 1
+     },
+     {
+      "payi_ns": 0.032,
+      "kaynak": "u_ust/u_kat/u_pk/wdata_reg[47]/C",
+      "hedef": "u_ust/u_kat/u_cikis/mem_reg_5/DIADI[2]",
+      "yol_gecikmesi_ns": 0.248,
+      "mantik_seviyesi": 0
+     },
+     {
+      "payi_ns": 0.035,
+      "kaynak": "u_ust/u_kat/u_pk/wdata_reg[56]/C",
+      "hedef": "u_ust/u_kat/u_cikis/mem_reg_6/DIADI[2]",
+      "yol_gecikmesi_ns": 0.247,
+      "mantik_seviyesi": 0
+     },
+     {
+      "payi_ns": 0.05,
+      "kaynak": "u_ust/u_cd/pw_addr_reg[0]_rep/C",
+      "hedef": "u_ust/u_kat/u_panel/w1_reg_256_319_36_38/RAMA/WADR0",
+      "yol_gecikmesi_ns": 0.373,
+      "mantik_seviyesi": 0
+     },
+     {
+      "payi_ns": 0.05,
+      "kaynak": "u_ust/u_cd/pw_addr_reg[0]_rep/C",
+      "hedef": "u_ust/u_kat/u_panel/w1_reg_256_319_36_38/RAMB/WADR0",
+      "yol_gecikmesi_ns": 0.373,
+      "mantik_seviyesi": 0
+     }
+    ],
+    "kaynak": "sentez/cikti/impl_zamanlama.txt"
+   },
+   "rapor_zaman_damgasi": "2026-10-27T11:38",
+   "not": "komut_cozucu.v'nin Softmax/LayerNorm komutlarindan ONCEKI surumu; tam sistemle ayni RTL degil"
+  },
+  "softmax_birim_baglamsiz_sentez": {
+   "kullanim": {
+    "LUT": 561,
+    "LUT_mantik": 336,
+    "LUT_bellek": 225,
+    "FF": 198,
+    "BRAM_tile": 0.0,
+    "DSP": 3,
+    "CARRY4": 30,
+    "kaynak": "sentez/cikti/softmax_birim_kullanim.txt"
+   },
+   "zamanlama_yalniz_sentez": {
+    "WNS_ns": 3.186,
+    "en_kotu_yollar": [
+     {
+      "payi_ns": 3.186,
+      "kaynak": "carp_reg/CLK",
+      "hedef": "e_r_reg[0]/D",
+      "yol_gecikmesi_ns": 6.759,
+      "mantik_seviyesi": 7
+     }
+    ],
+    "kaynak": "sentez/cikti/softmax_birim_zamanlama.txt"
+   },
+   "not": "yalniz sentez (yerlestirme yok); WNS sentez tahmini, yonlendirmeli degil; hold raporu yok"
+  },
+  "layernorm_birim_baglamsiz_sentez": {
+   "kullanim": {
+    "LUT": 1129,
+    "LUT_mantik": 1005,
+    "LUT_bellek": 124,
+    "FF": 604,
+    "BRAM_tile": 0.0,
+    "DSP": 6,
+    "CARRY4": 179,
+    "kaynak": "sentez/cikti/layernorm_birim_kullanim.txt"
+   },
+   "zamanlama_yalniz_sentez": {
+    "WNS_ns": 1.383,
+    "en_kotu_yollar": [
+     {
+      "payi_ns": 1.383,
+      "kaynak": "res_reg[3]/C",
+      "hedef": "res_reg[39]/D",
+      "yol_gecikmesi_ns": 8.562,
+      "mantik_seviyesi": 23
+     }
+    ],
+    "kaynak": "sentez/cikti/layernorm_birim_zamanlama.txt"
+   },
+   "not": "yalniz sentez (yerlestirme yok); WNS sentez tahmini, yonlendirmeli degil; hold raporu yok"
+  }
+ }
+}

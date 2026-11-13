@@ -1,0 +1,11 @@
+===================================
+Configuration Memory information
+===================================
+File Format        MCS
+Interface          SPIX4
+Size               4M
+Start Address      0x00000000
+End Address        0x003FFFFF
+
+Addr1         Addr2         Date                    File(s)
+0x00240000    0x003D9993    Nov 12 22:15:56 2026    C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vektor_akis/akis_katman2.bin

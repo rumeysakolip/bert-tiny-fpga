@@ -1,0 +1,1723 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Thu Nov 12 23:52:29 2026
+# Process ID         : 9188
+# Current directory  : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz
+# Command line       : vivado.exe -mode batch -source sentez/kart_netlist.tcl -log sentez/cikti_net.log -journal sentez/cikti_net.jou -notrace
+# Log file           : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/sentez/cikti_net.log
+# Journal file       : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz\sentez/cikti_net.jou
+# Running On         : pc
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i7-12650H
+# CPU Frequency      : 2688 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 16
+# Host memory        : 16908 MB
+# Swap memory        : 14495 MB
+# Total Virtual      : 31403 MB
+# Available Virtual  : 7159 MB
+#-----------------------------------------------------------
+source sentez/kart_netlist.tcl -notrace
+read_verilog: Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 495.152 ; gain = 214.445
+Command: synth_design -top kart_mantik -part xc7a35tcpg236-1 -flatten_hierarchy rebuilt -mode out_of_context -generic BOL=1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 16224
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 999.582 ; gain = 500.461
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'kart_mantik' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/kart_mantik.v:11]
+	Parameter BOL bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'qspi_okuyucu' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/qspi_okuyucu.v:10]
+	Parameter BOL bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'qspi_okuyucu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/qspi_okuyucu.v:10]
+INFO: [Synth 8-6157] synthesizing module 'ortak_ust' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/ortak_ust.v:6]
+	Parameter KATMAN_ISLEM bound to: 2 - type: integer 
+	Parameter SINIFLANDIR bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'akis_ayristirici' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/akis_ayristirici.v:20]
+	Parameter GOMULU bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'akis_ayristirici' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/akis_ayristirici.v:20]
+INFO: [Synth 8-6157] synthesizing module 'cizelge_ortak' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/cizelge_ortak.v:16]
+	Parameter KATMAN_ISLEM bound to: 2 - type: integer 
+	Parameter SINIFLANDIR bound to: 1 - type: integer 
+INFO: [Synth 8-226] default block is never used [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/cizelge_ortak.v:281]
+INFO: [Synth 8-6155] done synthesizing module 'cizelge_ortak' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/cizelge_ortak.v:16]
+INFO: [Synth 8-6157] synthesizing module 'ortak_cekirdek' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/ortak_cekirdek.v:12]
+INFO: [Synth 8-6157] synthesizing module 'parametre_rom' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/parametre_rom.v:9]
+INFO: [Synth 8-3876] $readmem data file 'param_birlesik.mem' is read successfully [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/parametre_rom.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'parametre_rom' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/parametre_rom.v:9]
+INFO: [Synth 8-6157] synthesizing module 'panel_parametre_yukleyici' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/panel_parametre_yukleyici.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'panel_parametre_yukleyici' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/panel_parametre_yukleyici.v:8]
+INFO: [Synth 8-6157] synthesizing module 'gelu_yukleyici' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/gelu_yukleyici.v:7]
+INFO: [Synth 8-3876] $readmem data file 'gelu_l0.mem' is read successfully [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/gelu_yukleyici.v:30]
+INFO: [Synth 8-3876] $readmem data file 'gelu_l1.mem' is read successfully [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/gelu_yukleyici.v:31]
+INFO: [Synth 8-3876] $readmem data file 'tanh.mem' is read successfully [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/gelu_yukleyici.v:32]
+INFO: [Synth 8-3876] $readmem data file 'gelu_ffn2_l0.mem' is read successfully [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/gelu_yukleyici.v:33]
+INFO: [Synth 8-3876] $readmem data file 'gelu_ffn2_l1.mem' is read successfully [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/gelu_yukleyici.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'gelu_yukleyici' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/gelu_yukleyici.v:7]
+INFO: [Synth 8-6157] synthesizing module 'panel_kopyalayici' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/panel_kopyalayici.v:10]
+	Parameter K_UZUNLUK bound to: 64 - type: integer 
+	Parameter KAYNAK_AW bound to: 13 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'panel_kopyalayici' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/panel_kopyalayici.v:10]
+INFO: [Synth 8-6157] synthesizing module 'panel_tamponu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/panel_tamponu.v:11]
+	Parameter K_ENFAZLA bound to: 512 - type: integer 
+	Parameter K_GENISLIGI bound to: 11 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'panel_tamponu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/panel_tamponu.v:11]
+INFO: [Synth 8-6157] synthesizing module 'birlesik_bellek_2o' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/birlesik_bellek_2o.v:10]
+	Parameter BIRIM_SAYISI bound to: 6 - type: integer 
+	Parameter AW bound to: 13 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'cift_kapili_bellek' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cift_kapili_bellek.v:7]
+	Parameter ADRES_GENISLIGI bound to: 10 - type: integer 
+	Parameter VERI_GENISLIGI bound to: 64 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cift_kapili_bellek' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cift_kapili_bellek.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'birlesik_bellek_2o' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/birlesik_bellek_2o.v:10]
+INFO: [Synth 8-6157] synthesizing module 'tile_denetleyici' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/tile_denetleyici.v:26]
+	Parameter DIZI_BOYUTU bound to: 8 - type: integer 
+	Parameter BLOK_SAYISI bound to: 8 - type: integer 
+	Parameter K_GENISLIGI bound to: 11 - type: integer 
+	Parameter PANEL_GENISLIGI bound to: 7 - type: integer 
+	Parameter ADRES_GENISLIGI bound to: 12 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'sistolik_dizi' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/sistolik_dizi.v:22]
+	Parameter DIZI_BOYUTU bound to: 8 - type: integer 
+	Parameter A_GENISLIGI bound to: 9 - type: integer 
+	Parameter B_GENISLIGI bound to: 8 - type: integer 
+	Parameter BIRIKEC_GENISLIGI bound to: 32 - type: integer 
+	Parameter K_GENISLIGI bound to: 11 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'islem_elemani' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/islem_elemani.v:19]
+	Parameter A_GENISLIGI bound to: 9 - type: integer 
+	Parameter B_GENISLIGI bound to: 8 - type: integer 
+	Parameter BIRIKEC_GENISLIGI bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'islem_elemani' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/islem_elemani.v:19]
+INFO: [Synth 8-6155] done synthesizing module 'sistolik_dizi' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/sistolik_dizi.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'tile_denetleyici' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/tile_denetleyici.v:26]
+INFO: [Synth 8-6157] synthesizing module 'yeniden_olcekle_ortak' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/yeniden_olcekle_ortak.v:10]
+	Parameter META_W bound to: 18 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'yeniden_olcekle_ortak' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/yeniden_olcekle_ortak.v:10]
+INFO: [Synth 8-6157] synthesizing module 'gelu_tablosu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/gelu_tablosu.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'gelu_tablosu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/gelu_tablosu.v:7]
+INFO: [Synth 8-6157] synthesizing module 'cikis_sozcuk_toplayici' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cikis_sozcuk_toplayici.v:8]
+	Parameter ADRES_GENISLIGI bound to: 12 - type: integer 
+	Parameter PANEL_GENISLIGI bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cikis_sozcuk_toplayici' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cikis_sozcuk_toplayici.v:8]
+INFO: [Synth 8-6157] synthesizing module 'cikis_sozcuk_toplayici_devrik' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/cikis_sozcuk_toplayici_devrik.v:9]
+	Parameter ADRES_GENISLIGI bound to: 12 - type: integer 
+	Parameter PANEL_GENISLIGI bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cikis_sozcuk_toplayici_devrik' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/cikis_sozcuk_toplayici_devrik.v:9]
+INFO: [Synth 8-6157] synthesizing module 'softmax_birim_gomulu' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/softmax_birim_gomulu.v:14]
+	Parameter SATIR_UZUNLUGU bound to: 64 - type: integer 
+	Parameter TABLO_DOSYASI bound to: exp_l0.mem - type: string 
+INFO: [Synth 8-3876] $readmem data file 'exp_l0.mem' is read successfully [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/softmax_birim_gomulu.v:42]
+INFO: [Synth 8-6157] synthesizing module 'ters_bolucu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:18]
+	Parameter PAY_GENISLIGI bound to: 24 - type: integer 
+	Parameter BOLEN_GENISLIGI bound to: 22 - type: integer 
+	Parameter BOLUM_GENISLIGI bound to: 8 - type: integer 
+	Parameter YAN_GENISLIGI bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'seri_bolucu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v:7]
+	Parameter GENISLIK bound to: 25 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'seri_bolucu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ters_bolucu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'softmax_birim_gomulu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/softmax_birim_gomulu.v:14]
+INFO: [Synth 8-6157] synthesizing module 'artik_ln_ortak' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/artik_ln_ortak.v:13]
+INFO: [Synth 8-3876] $readmem data file 'ln_gamma.mem' is read successfully [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/artik_ln_ortak.v:111]
+INFO: [Synth 8-3876] $readmem data file 'ln_beta.mem' is read successfully [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/artik_ln_ortak.v:111]
+INFO: [Synth 8-6157] synthesizing module 'layernorm_birim_dz' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/layernorm_birim_dz.v:16]
+	Parameter KANAL_SAYISI bound to: 128 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'ters_bolucu__parameterized0' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:18]
+	Parameter PAY_GENISLIGI bound to: 31 - type: integer 
+	Parameter BOLEN_GENISLIGI bound to: 20 - type: integer 
+	Parameter BOLUM_GENISLIGI bound to: 17 - type: integer 
+	Parameter YAN_GENISLIGI bound to: 9 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'seri_bolucu__parameterized0' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v:7]
+	Parameter GENISLIK bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'seri_bolucu__parameterized0' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ters_bolucu__parameterized0' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'layernorm_birim_dz' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/layernorm_birim_dz.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'artik_ln_ortak' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/artik_ln_ortak.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'ortak_cekirdek' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/ortak_cekirdek.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'ortak_ust' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/ortak_ust.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ikili_bcd' [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/ikili_bcd.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ikili_bcd' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/ikili_bcd.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'kart_mantik' (0#1) [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/kart_mantik.v:11]
+WARNING: [Synth 8-6014] Unused sequential element alinan_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/cizelge_ortak.v:271]
+WARNING: [Synth 8-6014] Unused sequential element ph_sonraki_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/cizelge_ortak.v:275]
+WARNING: [Synth 8-6014] Unused sequential element cumle_bitti_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/cizelge_ortak.v:269]
+WARNING: [Synth 8-6014] Unused sequential element kaydirma_indeks_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/layernorm_birim_dz.v:148]
+WARNING: [Synth 8-6014] Unused sequential element ph_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/ortak_cekirdek.v:262]
+WARNING: [Synth 8-7129] Port panel_yaz_adres[10] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port panel_yaz_adres[9] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port agirlik_oku_adres[10] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port agirlik_oku_adres[9] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[63] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[62] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[61] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[60] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[59] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[58] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[57] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[56] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[55] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[54] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[53] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[52] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[51] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[50] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[49] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[48] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[47] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[46] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[45] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[44] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[43] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[42] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[41] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[40] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[39] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[38] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[37] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[36] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[35] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[34] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[33] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[32] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[31] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[30] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[29] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[28] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[27] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[26] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[25] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[24] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[23] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[22] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[21] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[20] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[19] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[18] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[17] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[16] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[15] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[14] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[13] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[12] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[11] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[10] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[9] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[8] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[13] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[12] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[11] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[10] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[9] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[8] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[7] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[6] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[5] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[4] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[3] in module kart_mantik is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[2] in module kart_mantik is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1172.785 ; gain = 673.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 1172.785 ; gain = 673.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 1172.785 ; gain = 673.664
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-802] inferred FSM for state register 'durum_reg' in module 'qspi_okuyucu'
+INFO: [Synth 8-802] inferred FSM for state register 'durum_reg' in module 'akis_ayristirici'
+INFO: [Synth 8-802] inferred FSM for state register 'durum_reg' in module 'panel_parametre_yukleyici'
+INFO: [Synth 8-802] inferred FSM for state register 'durum_reg' in module 'panel_kopyalayici'
+INFO: [Synth 8-802] inferred FSM for state register 'durum_reg' in module 'tile_denetleyici'
+INFO: [Synth 8-802] inferred FSM for state register 'durum_reg' in module 'softmax_birim_gomulu'
+INFO: [Synth 8-802] inferred FSM for state register 'kd_reg' in module 'kart_mantik'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   S_BOS |                           000001 |                              000
+                S_BASLAT |                           000010 |                              001
+                 S_KOMUT |                           000100 |                              010
+                 S_DUMMY |                           001000 |                              011
+                  S_VERI |                           010000 |                              100
+                   S_SON |                           100000 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'durum_reg' using encoding 'one-hot' in module 'qspi_okuyucu'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   D_BOS |                               00 |                               00
+                  D_VERI |                               01 |                               01
+                D_CRC_HI |                               10 |                               10
+                D_CRC_LO |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'durum_reg' using encoding 'sequential' in module 'akis_ayristirici'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   S_BOS |                            00001 |                              000
+                 S_ADRES |                            00010 |                              001
+                 S_BEKLE |                            00100 |                              010
+                  S_BIAS |                            01000 |                              011
+                    S_M0 |                            10000 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'durum_reg' using encoding 'one-hot' in module 'panel_parametre_yukleyici'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   S_BOS |                              001 |                               00
+                   S_OKU |                              010 |                               01
+                 S_SIFIR |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'durum_reg' using encoding 'one-hot' in module 'panel_kopyalayici'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+             DURUM_BOSTA |                            00001 |                              000
+       DURUM_PANEL_BEKLE |                            10000 |                              001
+             DURUM_BESLE |                            01000 |                              010
+        DURUM_TILE_BEKLE |                            00100 |                              011
+             DURUM_BITIR |                            00010 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'durum_reg' using encoding 'one-hot' in module 'tile_denetleyici'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+             DURUM_BOSTA |                              000 |                             0000
+             DURUM_YUKLE |                              110 |                             0001
+              DURUM_FARK |                              101 |                             0010
+       DURUM_TERS_BASLAT |                              100 |                             0101
+        DURUM_TERS_BEKLE |                              011 |                             0110
+             DURUM_CIKTI |                              001 |                             0111
+            DURUM_BOSALT |                              010 |                             1001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'durum_reg' using encoding 'sequential' in module 'softmax_birim_gomulu'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  K_ISIT |                              001 |                               00
+                   K_OKU |                              010 |                               01
+                  iSTATE |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'kd_reg' using encoding 'one-hot' in module 'kart_mantik'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1172.785 ; gain = 673.664
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   67 Bit       Adders := 1     
+	   2 Input   66 Bit       Adders := 2     
+	   2 Input   64 Bit       Adders := 1     
+	   2 Input   45 Bit       Adders := 2     
+	   2 Input   40 Bit       Adders := 2     
+	   3 Input   40 Bit       Adders := 1     
+	   3 Input   39 Bit       Adders := 1     
+	   3 Input   34 Bit       Adders := 1     
+	   3 Input   33 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 5     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input   31 Bit       Adders := 1     
+	   3 Input   26 Bit       Adders := 1     
+	   2 Input   26 Bit       Adders := 1     
+	   2 Input   25 Bit       Adders := 1     
+	   2 Input   22 Bit       Adders := 1     
+	   2 Input   21 Bit       Adders := 1     
+	   3 Input   19 Bit       Adders := 2     
+	   2 Input   18 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 3     
+	   2 Input   14 Bit       Adders := 1     
+	   2 Input   13 Bit       Adders := 6     
+	   3 Input   13 Bit       Adders := 2     
+	   2 Input   12 Bit       Adders := 4     
+	   2 Input   11 Bit       Adders := 3     
+	   2 Input   10 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 6     
+	   2 Input    8 Bit       Adders := 10    
+	   2 Input    7 Bit       Adders := 12    
+	   2 Input    6 Bit       Adders := 6     
+	   2 Input    4 Bit       Adders := 13    
+	   2 Input    3 Bit       Adders := 4     
++---XORs : 
+	   2 Input     16 Bit         XORs := 9     
++---Registers : 
+	             2048 Bit    Registers := 1     
+	               72 Bit    Registers := 1     
+	               67 Bit    Registers := 1     
+	               66 Bit    Registers := 3     
+	               64 Bit    Registers := 18    
+	               63 Bit    Registers := 3     
+	               58 Bit    Registers := 2     
+	               56 Bit    Registers := 2     
+	               54 Bit    Registers := 1     
+	               50 Bit    Registers := 2     
+	               49 Bit    Registers := 2     
+	               48 Bit    Registers := 2     
+	               46 Bit    Registers := 1     
+	               45 Bit    Registers := 2     
+	               40 Bit    Registers := 7     
+	               36 Bit    Registers := 1     
+	               34 Bit    Registers := 2     
+	               33 Bit    Registers := 2     
+	               32 Bit    Registers := 80    
+	               31 Bit    Registers := 11    
+	               27 Bit    Registers := 1     
+	               26 Bit    Registers := 1     
+	               25 Bit    Registers := 6     
+	               24 Bit    Registers := 9     
+	               22 Bit    Registers := 2     
+	               21 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
+	               19 Bit    Registers := 3     
+	               18 Bit    Registers := 9     
+	               17 Bit    Registers := 5     
+	               16 Bit    Registers := 15    
+	               14 Bit    Registers := 2     
+	               13 Bit    Registers := 19    
+	               12 Bit    Registers := 5     
+	               11 Bit    Registers := 7     
+	               10 Bit    Registers := 5     
+	                9 Bit    Registers := 87    
+	                8 Bit    Registers := 103   
+	                7 Bit    Registers := 34    
+	                6 Bit    Registers := 13    
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 19    
+	                3 Bit    Registers := 14    
+	                2 Bit    Registers := 16    
+	                1 Bit    Registers := 195   
++---Multipliers : 
+	              32x32  Multipliers := 1     
+	              31x32  Multipliers := 1     
+	              24x34  Multipliers := 1     
+	              17x33  Multipliers := 1     
+	              16x33  Multipliers := 1     
++---RAMs : 
+	              64K Bit	(1024 X 64 bit)          RAMs := 7     
+	              64K Bit	(4096 X 16 bit)          RAMs := 1     
+	               8K Bit	(1024 X 8 bit)          RAMs := 2     
+	               4K Bit	(512 X 8 bit)          RAMs := 1     
+	               2K Bit	(64 X 32 bit)          RAMs := 1     
+	               2K Bit	(128 X 16 bit)          RAMs := 2     
+	               2K Bit	(128 X 18 bit)          RAMs := 1     
+	             1024 Bit	(64 X 16 bit)          RAMs := 1     
+	              512 Bit	(64 X 8 bit)          RAMs := 1     
+	              256 Bit	(8 X 32 bit)          RAMs := 2     
+	              248 Bit	(8 X 31 bit)          RAMs := 2     
+	               64 Bit	(64 X 1 bit)          RAMs := 1     
++---ROMs : 
+	                    ROMs := 4     
++---Muxes : 
+	   2 Input   64 Bit        Muxes := 11    
+	   4 Input   64 Bit        Muxes := 1     
+	   5 Input   64 Bit        Muxes := 1     
+	   3 Input   64 Bit        Muxes := 1     
+	   8 Input   64 Bit        Muxes := 1     
+	   2 Input   56 Bit        Muxes := 2     
+	  12 Input   45 Bit        Muxes := 1     
+	  12 Input   40 Bit        Muxes := 4     
+	   2 Input   40 Bit        Muxes := 1     
+	   2 Input   39 Bit        Muxes := 1     
+	   7 Input   34 Bit        Muxes := 1     
+	   2 Input   33 Bit        Muxes := 1     
+	   6 Input   32 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 8     
+	   4 Input   31 Bit        Muxes := 2     
+	   2 Input   31 Bit        Muxes := 4     
+	   4 Input   30 Bit        Muxes := 2     
+	   2 Input   30 Bit        Muxes := 1     
+	   2 Input   26 Bit        Muxes := 1     
+	   2 Input   25 Bit        Muxes := 1     
+	  12 Input   25 Bit        Muxes := 1     
+	   2 Input   22 Bit        Muxes := 1     
+	   7 Input   22 Bit        Muxes := 1     
+	   4 Input   22 Bit        Muxes := 1     
+	  12 Input   21 Bit        Muxes := 1     
+	   2 Input   18 Bit        Muxes := 1     
+	   2 Input   17 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 11    
+	   4 Input   16 Bit        Muxes := 1     
+	   2 Input   14 Bit        Muxes := 1     
+	   3 Input   14 Bit        Muxes := 1     
+	   2 Input   13 Bit        Muxes := 12    
+	   4 Input   13 Bit        Muxes := 1     
+	   9 Input   13 Bit        Muxes := 1     
+	  13 Input   13 Bit        Muxes := 1     
+	   8 Input   13 Bit        Muxes := 1     
+	   7 Input   12 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 4     
+	   5 Input   12 Bit        Muxes := 1     
+	   5 Input   11 Bit        Muxes := 1     
+	   2 Input   11 Bit        Muxes := 3     
+	  14 Input   11 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 9     
+	  15 Input   10 Bit        Muxes := 1     
+	   3 Input   10 Bit        Muxes := 2     
+	   2 Input    9 Bit        Muxes := 21    
+	   8 Input    9 Bit        Muxes := 3     
+	   5 Input    8 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 17    
+	   8 Input    8 Bit        Muxes := 2     
+	   4 Input    8 Bit        Muxes := 2     
+	   4 Input    7 Bit        Muxes := 1     
+	  16 Input    7 Bit        Muxes := 1     
+	   5 Input    7 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 3     
+	   7 Input    7 Bit        Muxes := 1     
+	  14 Input    7 Bit        Muxes := 3     
+	   6 Input    6 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 3     
+	   8 Input    6 Bit        Muxes := 1     
+	   4 Input    6 Bit        Muxes := 2     
+	   5 Input    5 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 3     
+	   2 Input    4 Bit        Muxes := 13    
+	  16 Input    4 Bit        Muxes := 3     
+	   3 Input    4 Bit        Muxes := 2     
+	   5 Input    4 Bit        Muxes := 2     
+	   7 Input    4 Bit        Muxes := 1     
+	  14 Input    4 Bit        Muxes := 2     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 14    
+	   4 Input    3 Bit        Muxes := 2     
+	   6 Input    3 Bit        Muxes := 1     
+	   7 Input    3 Bit        Muxes := 1     
+	   8 Input    3 Bit        Muxes := 1     
+	  14 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 4     
+	   2 Input    2 Bit        Muxes := 30    
+	  16 Input    2 Bit        Muxes := 2     
+	   3 Input    2 Bit        Muxes := 2     
+	  12 Input    2 Bit        Muxes := 1     
+	  14 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 137   
+	   6 Input    1 Bit        Muxes := 16    
+	   4 Input    1 Bit        Muxes := 22    
+	  17 Input    1 Bit        Muxes := 1     
+	  16 Input    1 Bit        Muxes := 22    
+	  19 Input    1 Bit        Muxes := 4     
+	   5 Input    1 Bit        Muxes := 15    
+	   3 Input    1 Bit        Muxes := 11    
+	   7 Input    1 Bit        Muxes := 7     
+	  12 Input    1 Bit        Muxes := 15    
+	   8 Input    1 Bit        Muxes := 19    
+	  14 Input    1 Bit        Muxes := 14    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP carpim, operation Mode is: A*B.
+DSP Report: operator carpim is absorbed into DSP carpim.
+DSP Report: operator carpim is absorbed into DSP carpim.
+DSP Report: Generating DSP carpim_kayit_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register carpim_kayit_reg is absorbed into DSP carpim_kayit_reg.
+DSP Report: operator carpim is absorbed into DSP carpim_kayit_reg.
+DSP Report: operator carpim is absorbed into DSP carpim_kayit_reg.
+DSP Report: Generating DSP carpim, operation Mode is: A*B.
+DSP Report: operator carpim is absorbed into DSP carpim.
+DSP Report: operator carpim is absorbed into DSP carpim.
+DSP Report: Generating DSP carpim_kayit_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register carpim_kayit_reg is absorbed into DSP carpim_kayit_reg.
+DSP Report: operator carpim is absorbed into DSP carpim_kayit_reg.
+DSP Report: operator carpim is absorbed into DSP carpim_kayit_reg.
+WARNING: [Synth 8-6014] Unused sequential element pay_carpim2_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:75]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pay_carpim2_reg' and it is trimmed from '48' to '32' bits. [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:75]
+DSP Report: Generating DSP pay_carpim1_reg, operation Mode is: (A2*B2)'.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: Generating DSP pay_carpim2_reg, operation Mode is: (PCIN>>17)+(A2*B2)'.
+DSP Report: register ters_deger_reg is absorbed into DSP pay_carpim2_reg.
+DSP Report: register pay_carpim2_reg is absorbed into DSP pay_carpim2_reg.
+DSP Report: register pay_carpim2_reg is absorbed into DSP pay_carpim2_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim2_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim2_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim2_reg.
+DSP Report: Generating DSP taslak_carpim4_reg, operation Mode is: (A*B2)'.
+DSP Report: register taslak_bolum3_reg is absorbed into DSP taslak_carpim4_reg.
+DSP Report: register taslak_carpim4_reg is absorbed into DSP taslak_carpim4_reg.
+DSP Report: operator taslak_carpim40 is absorbed into DSP taslak_carpim4_reg.
+DSP Report: Generating DSP kalan5_reg, operation Mode is: (C'-A:B)'.
+DSP Report: register kalan5_reg is absorbed into DSP kalan5_reg.
+DSP Report: register kalan5_reg is absorbed into DSP kalan5_reg.
+DSP Report: operator kalan_yeni is absorbed into DSP kalan5_reg.
+DSP Report: Generating DSP carpim1_reg, operation Mode is: (A2*B2)'.
+DSP Report: register carpim1_reg is absorbed into DSP carpim1_reg.
+DSP Report: register carpim1_reg is absorbed into DSP carpim1_reg.
+DSP Report: register carpim1_reg is absorbed into DSP carpim1_reg.
+DSP Report: operator carpim10 is absorbed into DSP carpim1_reg.
+DSP Report: operator carpim10 is absorbed into DSP carpim1_reg.
+DSP Report: Generating DSP carpim2_reg, operation Mode is: (PCIN>>17)+(A2*B2)'.
+DSP Report: register skor_farki_reg is absorbed into DSP carpim2_reg.
+DSP Report: register carpim2_reg is absorbed into DSP carpim2_reg.
+DSP Report: register carpim2_reg is absorbed into DSP carpim2_reg.
+DSP Report: register carpim1_reg is absorbed into DSP carpim2_reg.
+DSP Report: operator carpim10 is absorbed into DSP carpim2_reg.
+DSP Report: operator carpim10 is absorbed into DSP carpim2_reg.
+DSP Report: Generating DSP pay_kayit_reg, operation Mode is: C+A*(B:0xff).
+DSP Report: register pay_kayit_reg is absorbed into DSP pay_kayit_reg.
+DSP Report: operator pay_hesap is absorbed into DSP pay_kayit_reg.
+DSP Report: operator pay_hesap0 is absorbed into DSP pay_kayit_reg.
+WARNING: [Synth 8-6014] Unused sequential element pay_carpim10 was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:91]
+WARNING: [Synth 8-6014] Unused sequential element u_ters_bolucu/bolum_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v:31]
+DSP Report: Generating DSP pay_carpim10, operation Mode is: A2*B.
+DSP Report: register pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: Generating DSP pay_carpim1_reg, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register ters_deger_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: Generating DSP pay_carpim10, operation Mode is: A2*B2.
+DSP Report: register pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: register pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: Generating DSP pay_carpim1_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register ters_deger_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: Generating DSP taslak_carpim4_reg, operation Mode is: (A*B'')'.
+DSP Report: register taslak_carpim4_reg is absorbed into DSP taslak_carpim4_reg.
+DSP Report: register taslak_bolum3_reg is absorbed into DSP taslak_carpim4_reg.
+DSP Report: register taslak_carpim4_reg is absorbed into DSP taslak_carpim4_reg.
+DSP Report: operator taslak_carpim40 is absorbed into DSP taslak_carpim4_reg.
+DSP Report: Generating DSP kalan5_reg, operation Mode is: (C'-A:B)'.
+DSP Report: register kalan5_reg is absorbed into DSP kalan5_reg.
+DSP Report: register kalan5_reg is absorbed into DSP kalan5_reg.
+DSP Report: operator kalan_yeni is absorbed into DSP kalan5_reg.
+DSP Report: Generating DSP gamma_carpim_reg, operation Mode is: (A''*B2)'.
+DSP Report: register gamma_gecikmis_reg is absorbed into DSP gamma_carpim_reg.
+DSP Report: register bolum_a_reg is absorbed into DSP gamma_carpim_reg.
+DSP Report: register bolum_b_reg is absorbed into DSP gamma_carpim_reg.
+DSP Report: register gamma_carpim_reg is absorbed into DSP gamma_carpim_reg.
+DSP Report: operator gamma_carpim0 is absorbed into DSP gamma_carpim_reg.
+DSP Report: Generating DSP olcek_carpim_ust_reg, operation Mode is: (A*B2)'.
+DSP Report: register olcek_carpim_ust_reg is absorbed into DSP olcek_carpim_ust_reg.
+DSP Report: register olcek_carpim_ust_reg is absorbed into DSP olcek_carpim_ust_reg.
+DSP Report: operator olcek_carpim_ust0 is absorbed into DSP olcek_carpim_ust_reg.
+DSP Report: operator olcek_carpim_ust0 is absorbed into DSP olcek_carpim_ust_reg.
+DSP Report: Generating DSP olcek_carpim_ust_kayit_reg, operation Mode is: (PCIN>>17)+(A*B2)'.
+DSP Report: register olcek_carpim_ust_kayit_reg is absorbed into DSP olcek_carpim_ust_kayit_reg.
+DSP Report: register olcek_carpim_ust_kayit_reg is absorbed into DSP olcek_carpim_ust_kayit_reg.
+DSP Report: register olcek_carpim_ust_reg is absorbed into DSP olcek_carpim_ust_kayit_reg.
+DSP Report: operator olcek_carpim_ust0 is absorbed into DSP olcek_carpim_ust_kayit_reg.
+DSP Report: operator olcek_carpim_ust0 is absorbed into DSP olcek_carpim_ust_kayit_reg.
+DSP Report: Generating DSP olcek_carpim_alt_reg, operation Mode is: (A*B2)'.
+DSP Report: register olcek_carpim_alt_reg is absorbed into DSP olcek_carpim_alt_reg.
+DSP Report: register olcek_carpim_alt_reg is absorbed into DSP olcek_carpim_alt_reg.
+DSP Report: operator olcek_carpim_alt0 is absorbed into DSP olcek_carpim_alt_reg.
+DSP Report: operator olcek_carpim_alt0 is absorbed into DSP olcek_carpim_alt_reg.
+DSP Report: Generating DSP olcek_carpim_alt_kayit_reg, operation Mode is: (PCIN>>17)+(A2*B)'.
+DSP Report: register olcek_carpim_alt_kayit_reg is absorbed into DSP olcek_carpim_alt_kayit_reg.
+DSP Report: register olcek_carpim_alt_kayit_reg is absorbed into DSP olcek_carpim_alt_kayit_reg.
+DSP Report: register olcek_carpim_alt_reg is absorbed into DSP olcek_carpim_alt_kayit_reg.
+DSP Report: operator olcek_carpim_alt0 is absorbed into DSP olcek_carpim_alt_kayit_reg.
+DSP Report: operator olcek_carpim_alt0 is absorbed into DSP olcek_carpim_alt_kayit_reg.
+DSP Report: Generating DSP fark_karesi_kayit_reg, operation Mode is: (C' or 0)+A2*B2.
+DSP Report: register fark_karesi_kayit_reg is absorbed into DSP fark_karesi_kayit_reg.
+DSP Report: register fark_karesi_kayit_reg is absorbed into DSP fark_karesi_kayit_reg.
+DSP Report: register fark_karesi_kayit_reg is absorbed into DSP fark_karesi_kayit_reg.
+DSP Report: operator fark_karesi_kayit0 is absorbed into DSP fark_karesi_kayit_reg.
+DSP Report: operator fark_karesi_kayit0 is absorbed into DSP fark_karesi_kayit_reg.
+WARNING: [Synth 8-7129] Port panel_yaz_adres[10] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port panel_yaz_adres[9] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port agirlik_oku_adres[10] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port agirlik_oku_adres[9] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[63] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[62] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[61] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[60] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[59] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[58] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[57] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[56] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[55] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[54] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[53] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[52] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[51] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[50] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[49] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[48] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[47] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[46] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[45] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[44] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[43] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[42] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[41] in module cizelge_ortak is either unconnected or has no load
+WARNING: [Synth 8-7129] Port oku_veri_ic[40] in module cizelge_ortak is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[47]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[46]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[45]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[44]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[43]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[42]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[41]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[40]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[39]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[38]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[37]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[36]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[35]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[34]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[33]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[32]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[31]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[30]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[29]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[28]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[27]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[26]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[25]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[24]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[23]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[22]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[21]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[20]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[19]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[18]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[17]) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[47]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[46]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[45]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[44]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[43]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[42]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[41]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[40]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[39]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[38]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[37]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[36]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[35]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[34]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[33]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[32]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[31]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[30]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[29]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[28]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[27]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[26]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[25]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[24]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[23]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[22]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[21]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[20]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[19]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[18]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (carpim_kayit_reg[17]__0) is unused and will be removed from module yeniden_olcekle_ortak.
+WARNING: [Synth 8-3332] Sequential element (u_ters_bolucu/u_ters_bolucu/bolum_reg) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[47]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[46]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[45]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[44]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[43]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[42]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[41]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[40]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[39]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[38]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[37]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[36]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[35]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[34]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[33]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[32]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[31]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[30]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[29]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[28]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[27]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[26]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[25]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[24]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[23]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[22]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[21]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[20]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[19]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[18]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[17]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[15]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[14]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[13]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[12]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[11]) is unused and will be removed from module softmax_birim_gomulu.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[10]) is unused and will be removed from module softmax_birim_gomulu.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:29 ; elapsed = 00:01:36 . Memory (MB): peak = 1494.730 ; gain = 995.609
+---------------------------------------------------------------------------------
+ Sort Area is  carpim1_reg_4e : 0 0 : 3537 7135 : Used 1 time 100
+ Sort Area is  carpim1_reg_4e : 0 1 : 3598 7135 : Used 1 time 100
+ Sort Area is  olcek_carpim_alt_reg_5e : 0 0 : 3082 5916 : Used 1 time 100
+ Sort Area is  olcek_carpim_alt_reg_5e : 0 1 : 2834 5916 : Used 1 time 100
+ Sort Area is  pay_carpim1_reg_47 : 0 0 : 3537 5204 : Used 1 time 100
+ Sort Area is  pay_carpim1_reg_47 : 0 1 : 1667 5204 : Used 1 time 100
+ Sort Area is  pay_carpim10_52 : 0 0 : 2737 5165 : Used 1 time 100
+ Sort Area is  pay_carpim10_52 : 0 1 : 2428 5165 : Used 1 time 100
+ Sort Area is  olcek_carpim_ust_reg_61 : 0 0 : 2368 4547 : Used 1 time 100
+ Sort Area is  olcek_carpim_ust_reg_61 : 0 1 : 2179 4547 : Used 1 time 100
+ Sort Area is  pay_carpim10_55 : 0 0 : 2210 4292 : Used 1 time 100
+ Sort Area is  pay_carpim10_55 : 0 1 : 2082 4292 : Used 1 time 100
+ Sort Area is  fark_karesi_kayit_reg_64 : 0 0 : 2827 2827 : Used 1 time 100
+ Sort Area is  taslak_carpim4_reg_58 : 0 0 : 2552 2552 : Used 1 time 100
+ Sort Area is  taslak_carpim4_reg_4a : 0 0 : 1234 1234 : Used 1 time 100
+ Sort Area is  birikec_reg_0 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_10 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_11 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_12 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_13 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_14 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_15 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_16 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_17 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_18 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_19 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1a : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1b : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1c : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1d : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1e : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1f : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_20 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_21 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_22 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_23 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_24 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_25 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_26 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_27 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_28 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_29 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2a : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2b : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2c : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2d : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2e : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2f : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_30 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_31 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_32 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_33 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_34 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_35 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_36 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_37 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_38 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_39 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3a : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3b : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3c : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3d : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3e : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3f : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_4 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_40 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_5 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_6 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_7 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_8 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_9 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_a : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_b : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_c : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_d : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_e : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_f : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  kalan5_reg_5a : 0 0 : 334 334 : Used 1 time 100
+ Sort Area is  kalan5_reg_4c : 0 0 : 271 271 : Used 1 time 100
+ Sort Area is  carpim_41 : 0 0 : 3101 5802 : Used 1 time 0
+ Sort Area is  carpim_41 : 0 1 : 2701 5802 : Used 1 time 0
+ Sort Area is  carpim_44 : 0 0 : 2634 5167 : Used 1 time 0
+ Sort Area is  carpim_44 : 0 1 : 2533 5167 : Used 1 time 0
+ Sort Area is  gamma_carpim_reg_5c : 0 0 : 2117 2117 : Used 1 time 0
+ Sort Area is  pay_kayit_reg_50 : 0 0 : 556 556 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++---------------+-------------------+---------------+----------------+
+|Module Name    | RTL Object        | Depth x Width | Implemented As | 
++---------------+-------------------+---------------+----------------+
+|gelu_yukleyici | t4                | 256x8         | LUT            | 
+|gelu_yukleyici | t3                | 256x8         | LUT            | 
+|gelu_yukleyici | t2                | 256x8         | LUT            | 
+|gelu_yukleyici | t1                | 256x8         | LUT            | 
+|gelu_yukleyici | t0                | 256x8         | LUT            | 
+|gelu_yukleyici | p_0_out           | 256x8         | LUT            | 
+|gelu_yukleyici | p_0_out           | 256x8         | LUT            | 
+|gelu_yukleyici | p_0_out           | 256x8         | LUT            | 
+|gelu_yukleyici | p_0_out           | 256x8         | LUT            | 
+|gelu_yukleyici | p_0_out           | 256x8         | LUT            | 
+|artik_ln_ortak | rom_adres_reg     | 512x16        | Block RAM      | 
+|artik_ln_ortak | rom_adres_reg_rep | 512x16        | Block RAM      | 
++---------------+-------------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping Report (see note below)
++-----------------------------------+-----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                        | RTL Object                  | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++-----------------------------------+-----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|\u_ust/u_cekirdek /u_panel_tamponu | agirlik_reg                 | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[0].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[1].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[2].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[3].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[4].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[5].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_sm            | skor_tamponu_reg            | 64 x 32(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
+|\u_ust/u_cekirdek /u_ln/u_ln       | beta_tablosu_reg            | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|\u_ust/u_cekirdek /u_ln/u_ln       | gamma_tablosu_reg           | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|\u_ust/u_cekirdek                  | skor_ram_reg                | 4 K x 16(READ_FIRST)   | W |   | 4 K x 16(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
++-----------------------------------+-----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++-----------------------------------+--------------------------+-----------+----------------------+-----------------+
+|Module Name                        | RTL Object               | Inference | Size (Depth x Width) | Primitives      | 
++-----------------------------------+--------------------------+-----------+----------------------+-----------------+
+|\u_ust/u_cekirdek /u_panel_tamponu | bias_tampon0_reg         | Implied   | 8 x 32               | RAM32M x 6      | 
+|\u_ust/u_cekirdek /u_panel_tamponu | bias_tampon1_reg         | Implied   | 8 x 32               | RAM32M x 6      | 
+|\u_ust/u_cekirdek /u_panel_tamponu | m0_tampon0_reg           | Implied   | 8 x 31               | RAM32M x 6      | 
+|\u_ust/u_cekirdek /u_panel_tamponu | m0_tampon1_reg           | Implied   | 8 x 31               | RAM32M x 6      | 
+|\u_ust/u_cekirdek /u_devrik        | tampon_reg               | Implied   | 64 x 8               | RAM64M x 24     | 
+|\u_ust/u_cekirdek /u_sm            | maske_tamponu_reg        | Implied   | 64 x 1               | RAM64X1S x 1    | 
+|\u_ust/u_cekirdek /u_sm            | us_tamponu_reg           | Implied   | 64 x 16              | RAM64M x 6      | 
+|\u_ust/u_cekirdek /u_ln/u_ln       | giris_tamponu_reg        | Implied   | 128 x 18             | RAM128X1S x 18  | 
+|\u_ust/u_cekirdek /u_ln            | ybuf_reg                 | Implied   | 1 K x 8              | RAM64M x 384    | 
+|\u_ust/u_cekirdek /u_ln            | obuf_reg                 | Implied   | 1 K x 8              | RAM64M x 384    | 
+|\u_ust/u_cekirdek                  | pbuf_reg                 | Implied   | 512 x 8              | RAM64M x 192    | 
+|\u_ust/u_cekirdek                  | u_gelu_tablosu/tablo_reg | Implied   | 256 x 8              | RAM64M x 12     | 
++-----------------------------------+--------------------------+-----------+----------------------+-----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++----------------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name           | DSP Mapping         | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|yeniden_olcekle_ortak | A*B                 | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|yeniden_olcekle_ortak | (PCIN>>17)+A*B      | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|yeniden_olcekle_ortak | A*B                 | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|yeniden_olcekle_ortak | (PCIN>>17)+A*B      | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu           | (A2*B2)'            | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|ters_bolucu           | (PCIN>>17)+(A2*B2)' | 25     | 9      | -      | -      | 32     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|ters_bolucu           | (A*B2)'             | 22     | 8      | -      | -      | 30     | 0    | 1    | -    | -    | -     | 1    | 0    | 
+|ters_bolucu           | (C'-A:B)'           | 13     | 18     | 25     | -      | 31     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
+|softmax_birim_gomulu  | (A2*B2)'            | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|softmax_birim_gomulu  | (PCIN>>17)+(A2*B2)' | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|softmax_birim_gomulu  | C+A*(B:0xff)        | 16     | 8      | 21     | -      | 24     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|ters_bolucu           | A2*B                | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|ters_bolucu           | (PCIN>>17)+A2*B     | 16     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu           | A2*B2               | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|ters_bolucu           | (PCIN>>17)+A2*B2    | 18     | 16     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu           | (A*B'')'            | 20     | 17     | -      | -      | 37     | 0    | 2    | -    | -    | -     | 1    | 0    | 
+|ters_bolucu           | (C'-A:B)'           | 20     | 18     | 32     | -      | 38     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
+|layernorm_birim_dz    | (A''*B2)'           | 17     | 16     | -      | -      | 33     | 2    | 1    | -    | -    | -     | 1    | 0    | 
+|layernorm_birim_dz    | (A*B2)'             | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 1    | 0    | 
+|layernorm_birim_dz    | (PCIN>>17)+(A*B2)'  | 16     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 1    | 1    | 
+|layernorm_birim_dz    | (A*B2)'             | 18     | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 1    | 0    | 
+|layernorm_birim_dz    | (PCIN>>17)+(A2*B)'  | 17     | 16     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 1    | 1    | 
+|layernorm_birim_dz    | (C' or 0)+A2*B2     | 19     | 18     | 18     | -      | 37     | 1    | 1    | 1    | -    | -     | 0    | 1    | 
++----------------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:32 ; elapsed = 00:01:39 . Memory (MB): peak = 1494.730 ; gain = 995.609
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++-----------------------------------+-----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                        | RTL Object                  | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++-----------------------------------+-----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|\u_ust/u_cekirdek /u_panel_tamponu | agirlik_reg                 | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[0].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[1].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[2].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[3].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[4].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_bellek        | birim[5].u_birim/bellek_reg | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_ust/u_cekirdek /u_sm            | skor_tamponu_reg            | 64 x 32(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
+|\u_ust/u_cekirdek /u_ln/u_ln       | beta_tablosu_reg            | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|\u_ust/u_cekirdek /u_ln/u_ln       | gamma_tablosu_reg           | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|\u_ust/u_cekirdek                  | skor_ram_reg                | 4 K x 16(READ_FIRST)   | W |   | 4 K x 16(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
++-----------------------------------+-----------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++-----------------------------------+--------------------------+-----------+----------------------+-----------------+
+|Module Name                        | RTL Object               | Inference | Size (Depth x Width) | Primitives      | 
++-----------------------------------+--------------------------+-----------+----------------------+-----------------+
+|\u_ust/u_cekirdek /u_panel_tamponu | bias_tampon0_reg         | Implied   | 8 x 32               | RAM32M x 6      | 
+|\u_ust/u_cekirdek /u_panel_tamponu | bias_tampon1_reg         | Implied   | 8 x 32               | RAM32M x 6      | 
+|\u_ust/u_cekirdek /u_panel_tamponu | m0_tampon0_reg           | Implied   | 8 x 31               | RAM32M x 6      | 
+|\u_ust/u_cekirdek /u_panel_tamponu | m0_tampon1_reg           | Implied   | 8 x 31               | RAM32M x 6      | 
+|\u_ust/u_cekirdek /u_devrik        | tampon_reg               | Implied   | 64 x 8               | RAM64M x 24     | 
+|\u_ust/u_cekirdek /u_sm            | maske_tamponu_reg        | Implied   | 64 x 1               | RAM64X1S x 1    | 
+|\u_ust/u_cekirdek /u_sm            | us_tamponu_reg           | Implied   | 64 x 16              | RAM64M x 6      | 
+|\u_ust/u_cekirdek /u_ln/u_ln       | giris_tamponu_reg        | Implied   | 128 x 18             | RAM128X1S x 18  | 
+|\u_ust/u_cekirdek /u_ln            | ybuf_reg                 | Implied   | 1 K x 8              | RAM64M x 384    | 
+|\u_ust/u_cekirdek /u_ln            | obuf_reg                 | Implied   | 1 K x 8              | RAM64M x 384    | 
+|\u_ust/u_cekirdek                  | pbuf_reg                 | Implied   | 512 x 8              | RAM64M x 192    | 
+|\u_ust/u_cekirdek                  | u_gelu_tablosu/tablo_reg | Implied   | 256 x 8              | RAM64M x 12     | 
++-----------------------------------+--------------------------+-----------+----------------------+-----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_rom/okunan_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_rom/okunan_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_rom/okunan_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_rom/okunan_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_rom/okunan_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_rom/okunan_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_panel_tamponu/agirlik_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_panel_tamponu/agirlik_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[0].u_birim/bellek_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[0].u_birim/bellek_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[1].u_birim/bellek_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[1].u_birim/bellek_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[4].u_birim/bellek_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[4].u_birim/bellek_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[5].u_birim/bellek_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_bellek/birim[5].u_birim/bellek_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_sm/skor_tamponu_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_sm/skor_tamponu_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_sm/us_tablo_okunan_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_ln/u_ln/beta_tablosu_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_ust/u_cekirdek/u_ln/u_ln/gamma_tablosu_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:37 ; elapsed = 00:01:44 . Memory (MB): peak = 1494.730 ; gain = 995.609
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:44 ; elapsed = 00:01:53 . Memory (MB): peak = 1600.324 ; gain = 1101.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:44 ; elapsed = 00:01:53 . Memory (MB): peak = 1600.324 ; gain = 1101.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:46 ; elapsed = 00:01:54 . Memory (MB): peak = 1600.324 ; gain = 1101.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:46 ; elapsed = 00:01:54 . Memory (MB): peak = 1600.324 ; gain = 1101.203
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:46 ; elapsed = 00:01:54 . Memory (MB): peak = 1608.082 ; gain = 1108.961
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:46 ; elapsed = 00:01:55 . Memory (MB): peak = 1608.082 ; gain = 1108.961
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+----------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                                                         | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+----------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|kart_mantik | u_ust/u_cekirdek/u_rs/asama3_genis_reg                                           | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_rs/yan_bilgi_cikis_reg[16]                                    | 3      | 9     | NO           | NO                 | YES               | 9      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_rs/yan_bilgi_cikis_reg[7]                                     | 4      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_sm/u_ters_bolucu/doygun5_reg                                  | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_sm/u_ters_bolucu/taslak_bolum5_reg[7]                         | 3      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_sm/u_ters_bolucu/pay3_reg[23]                                 | 4      | 24    | NO           | NO                 | YES               | 24     | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/doygun5_reg                             | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/taslak_bolum5_reg[16]                   | 4      | 17    | NO           | NO                 | YES               | 17     | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay3_reg[30]                            | 4      | 31    | NO           | NO                 | YES               | 31     | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/yan5_reg[8]                             | 6      | 9     | NO           | NO                 | NO                | 9      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_rs/cikis_gecerli_reg                                          | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_sm/u_ters_bolucu/bolum_gecerli_reg                            | 8      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_sm/asama5_indeks_reg[5]                                       | 5      | 6     | YES          | NO                 | YES               | 6      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_sm/asama5_gecerli_reg                                         | 5      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_sm/asama5_maske_reg                                           | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_ln/u_ln/yuvarlama_indeks_reg[6]                               | 7      | 7     | YES          | NO                 | YES               | 7      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_ln/u_ln/beta_son_reg                                          | 10     | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_ln/u_ln/beta_gecerli_reg                                      | 20     | 1     | YES          | NO                 | YES               | 0      | 1       | 
+|kart_mantik | u_ust/u_cekirdek/u_ln/u_ln/hazirlik3_indeks_reg[6]                               | 4      | 7     | YES          | NO                 | YES               | 7      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_ln/u_ln/hazirlik3_son_reg                                     | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/bg_reg[15]                                                      | 10     | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/bg_reg[5]                                                       | 6      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_b_kaydirma[4].kaydirma_yazmaci_reg[31] | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_b_kaydirma[5].kaydirma_yazmaci_reg[39] | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_b_kaydirma[6].kaydirma_yazmaci_reg[47] | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_b_kaydirma[7].kaydirma_yazmaci_reg[55] | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_a_kaydirma[4].kaydirma_yazmaci_reg[35] | 4      | 9     | YES          | NO                 | YES               | 9      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_a_kaydirma[5].kaydirma_yazmaci_reg[44] | 5      | 9     | YES          | NO                 | YES               | 9      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_a_kaydirma[6].kaydirma_yazmaci_reg[53] | 6      | 9     | YES          | NO                 | YES               | 9      | 0       | 
+|kart_mantik | u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_a_kaydirma[7].kaydirma_yazmaci_reg[62] | 7      | 9     | YES          | NO                 | YES               | 9      | 0       | 
++------------+----------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++----------------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name           | DSP Mapping          | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|layernorm_birim_dz    | (A''*B')'            | 30     | 18     | -      | -      | 33     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim_dz    | (A*B')'              | 17     | 14     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim_dz    | (PCIN>>17+(A*B')')'  | 30     | 14     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 1    | 1    | 
+|layernorm_birim_dz    | (A*B')'              | 17     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim_dz    | (PCIN>>17+(A'*B)')'  | 16     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 1    | 1    | 
+|layernorm_birim_dz    | Dynamic              | -      | -      | -      | -      | 37     | -    | -    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu           | A'*B'                | 17     | 14     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|ters_bolucu           | (PCIN>>17+A'*B')'    | 15     | 14     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu           | A'*B'                | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|ters_bolucu           | (PCIN>>17+A'*B')'    | 17     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu           | (A*B'')'             | 20     | 17     | -      | -      | 37     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu           | (C'-(A:B))'          | 19     | 18     | 31     | -      | 38     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
+|yeniden_olcekle_ortak | A*B                  | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|yeniden_olcekle_ortak | (PCIN>>17+A*B)'      | 30     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|yeniden_olcekle_ortak | A*B                  | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|yeniden_olcekle_ortak | (PCIN>>17+A*B)'      | 0      | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|softmax_birim_gomulu  | (A'*B')'             | 15     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|softmax_birim_gomulu  | (PCIN>>17+(A'*B')')' | 15     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|softmax_birim_gomulu  | (C'+A*B)'            | 16     | 8      | 21     | -      | 24     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
+|ters_bolucu           | (A'*B')'             | 24     | 17     | -      | -      | 0      | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu           | (PCIN>>17+(A'*B')')' | 24     | 8      | -      | -      | 32     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|ters_bolucu           | (A*B')'              | 22     | 8      | -      | -      | 30     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu           | (C'-(A:B))'          | 12     | 18     | 24     | -      | 31     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A'*B')'           | 30     | 18     | -      | -      | 32     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani         | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
++----------------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |CARRY4    |   404|
+|2     |DSP48E1   |    87|
+|3     |LUT1      |   142|
+|4     |LUT2      |  1510|
+|5     |LUT3      |   600|
+|6     |LUT4      |   718|
+|7     |LUT5      |   557|
+|8     |LUT6      |  1772|
+|9     |MUXF7     |   334|
+|10    |MUXF8     |   128|
+|11    |RAM128X1S |    18|
+|12    |RAM32M    |    20|
+|13    |RAM32X1D  |     6|
+|14    |RAM64M    |   161|
+|15    |RAM64X1D  |     1|
+|16    |RAM64X1S  |     1|
+|17    |RAMB18E1  |     6|
+|18    |RAMB36E1  |    22|
+|19    |SRL16E    |   205|
+|20    |SRLC32E   |     1|
+|21    |FDRE      |  6512|
+|22    |FDSE      |    92|
++------+----------+------+
+
+Report Instance Areas: 
++------+--------------------------------------------------+------------------------------+------+
+|      |Instance                                          |Module                        |Cells |
++------+--------------------------------------------------+------------------------------+------+
+|1     |top                                               |                              | 13297|
+|2     |  u_bcd                                           |ikili_bcd                     |   122|
+|3     |  u_qspi                                          |qspi_okuyucu                  |   238|
+|4     |  u_ust                                           |ortak_ust                     | 12682|
+|5     |    u_ayristirici                                 |akis_ayristirici              |   462|
+|6     |    u_cekirdek                                    |ortak_cekirdek                | 11907|
+|7     |      u_gelu_tablosu                              |gelu_tablosu                  |    20|
+|8     |      u_bellek                                    |birlesik_bellek_2o            |   355|
+|9     |        \birim[0].u_birim                         |cift_kapili_bellek            |     2|
+|10    |        \birim[1].u_birim                         |cift_kapili_bellek_63         |     2|
+|11    |        \birim[2].u_birim                         |cift_kapili_bellek_64         |     2|
+|12    |        \birim[3].u_birim                         |cift_kapili_bellek_65         |   210|
+|13    |        \birim[4].u_birim                         |cift_kapili_bellek_66         |     3|
+|14    |        \birim[5].u_birim                         |cift_kapili_bellek_67         |   129|
+|15    |      u_devrik                                    |cikis_sozcuk_toplayici_devrik |   204|
+|16    |      u_kop                                       |panel_kopyalayici             |   276|
+|17    |      u_ln                                        |artik_ln_ortak                |  3562|
+|18    |        u_ln                                      |layernorm_birim_dz            |  2636|
+|19    |          u_ters_bolucu                           |ters_bolucu__parameterized0   |   669|
+|20    |            u_ters_bolucu                         |seri_bolucu__parameterized0   |   203|
+|21    |      u_panel_tamponu                             |panel_tamponu                 |    91|
+|22    |      u_param                                     |panel_parametre_yukleyici     |   118|
+|23    |      u_rom                                       |parametre_rom                 |     6|
+|24    |      u_rs                                        |yeniden_olcekle_ortak         |   893|
+|25    |      u_sm                                        |softmax_birim_gomulu          |   694|
+|26    |        u_ters_bolucu                             |ters_bolucu                   |   358|
+|27    |          u_ters_bolucu                           |seri_bolucu                   |   170|
+|28    |      u_tablo                                     |gelu_yukleyici                |   215|
+|29    |      u_tile                                      |tile_denetleyici              |  4942|
+|30    |        u_sistolik_dizi                           |sistolik_dizi                 |  1595|
+|31    |          \g_satir[0].g_sutun[0].u_islem_elemani  |islem_elemani                 |    18|
+|32    |          \g_satir[0].g_sutun[1].u_islem_elemani  |islem_elemani_0               |    42|
+|33    |          \g_satir[0].g_sutun[2].u_islem_elemani  |islem_elemani_1               |    18|
+|34    |          \g_satir[0].g_sutun[3].u_islem_elemani  |islem_elemani_2               |    18|
+|35    |          \g_satir[0].g_sutun[4].u_islem_elemani  |islem_elemani_3               |    18|
+|36    |          \g_satir[0].g_sutun[5].u_islem_elemani  |islem_elemani_4               |     9|
+|37    |          \g_satir[0].g_sutun[6].u_islem_elemani  |islem_elemani_5               |     9|
+|38    |          \g_satir[0].g_sutun[7].u_islem_elemani  |islem_elemani_6               |     9|
+|39    |          \g_satir[1].g_sutun[0].u_islem_elemani  |islem_elemani_7               |    35|
+|40    |          \g_satir[1].g_sutun[1].u_islem_elemani  |islem_elemani_8               |    19|
+|41    |          \g_satir[1].g_sutun[2].u_islem_elemani  |islem_elemani_9               |    18|
+|42    |          \g_satir[1].g_sutun[3].u_islem_elemani  |islem_elemani_10              |    18|
+|43    |          \g_satir[1].g_sutun[4].u_islem_elemani  |islem_elemani_11              |    18|
+|44    |          \g_satir[1].g_sutun[5].u_islem_elemani  |islem_elemani_12              |     9|
+|45    |          \g_satir[1].g_sutun[6].u_islem_elemani  |islem_elemani_13              |    10|
+|46    |          \g_satir[1].g_sutun[7].u_islem_elemani  |islem_elemani_14              |     9|
+|47    |          \g_satir[2].g_sutun[0].u_islem_elemani  |islem_elemani_15              |    18|
+|48    |          \g_satir[2].g_sutun[1].u_islem_elemani  |islem_elemani_16              |    18|
+|49    |          \g_satir[2].g_sutun[2].u_islem_elemani  |islem_elemani_17              |    20|
+|50    |          \g_satir[2].g_sutun[3].u_islem_elemani  |islem_elemani_18              |    19|
+|51    |          \g_satir[2].g_sutun[4].u_islem_elemani  |islem_elemani_19              |    19|
+|52    |          \g_satir[2].g_sutun[5].u_islem_elemani  |islem_elemani_20              |    10|
+|53    |          \g_satir[2].g_sutun[6].u_islem_elemani  |islem_elemani_21              |     9|
+|54    |          \g_satir[2].g_sutun[7].u_islem_elemani  |islem_elemani_22              |     9|
+|55    |          \g_satir[3].g_sutun[0].u_islem_elemani  |islem_elemani_23              |    18|
+|56    |          \g_satir[3].g_sutun[1].u_islem_elemani  |islem_elemani_24              |    19|
+|57    |          \g_satir[3].g_sutun[2].u_islem_elemani  |islem_elemani_25              |    19|
+|58    |          \g_satir[3].g_sutun[3].u_islem_elemani  |islem_elemani_26              |    18|
+|59    |          \g_satir[3].g_sutun[4].u_islem_elemani  |islem_elemani_27              |    18|
+|60    |          \g_satir[3].g_sutun[5].u_islem_elemani  |islem_elemani_28              |     9|
+|61    |          \g_satir[3].g_sutun[6].u_islem_elemani  |islem_elemani_29              |    11|
+|62    |          \g_satir[3].g_sutun[7].u_islem_elemani  |islem_elemani_30              |     9|
+|63    |          \g_satir[4].g_sutun[0].u_islem_elemani  |islem_elemani_31              |    18|
+|64    |          \g_satir[4].g_sutun[1].u_islem_elemani  |islem_elemani_32              |    18|
+|65    |          \g_satir[4].g_sutun[2].u_islem_elemani  |islem_elemani_33              |    18|
+|66    |          \g_satir[4].g_sutun[3].u_islem_elemani  |islem_elemani_34              |    19|
+|67    |          \g_satir[4].g_sutun[4].u_islem_elemani  |islem_elemani_35              |    21|
+|68    |          \g_satir[4].g_sutun[5].u_islem_elemani  |islem_elemani_36              |     9|
+|69    |          \g_satir[4].g_sutun[6].u_islem_elemani  |islem_elemani_37              |    10|
+|70    |          \g_satir[4].g_sutun[7].u_islem_elemani  |islem_elemani_38              |     9|
+|71    |          \g_satir[5].g_sutun[0].u_islem_elemani  |islem_elemani_39              |    10|
+|72    |          \g_satir[5].g_sutun[1].u_islem_elemani  |islem_elemani_40              |    12|
+|73    |          \g_satir[5].g_sutun[2].u_islem_elemani  |islem_elemani_41              |    11|
+|74    |          \g_satir[5].g_sutun[3].u_islem_elemani  |islem_elemani_42              |    10|
+|75    |          \g_satir[5].g_sutun[4].u_islem_elemani  |islem_elemani_43              |    10|
+|76    |          \g_satir[5].g_sutun[5].u_islem_elemani  |islem_elemani_44              |     1|
+|77    |          \g_satir[5].g_sutun[6].u_islem_elemani  |islem_elemani_45              |     2|
+|78    |          \g_satir[5].g_sutun[7].u_islem_elemani  |islem_elemani_46              |     2|
+|79    |          \g_satir[6].g_sutun[0].u_islem_elemani  |islem_elemani_47              |    10|
+|80    |          \g_satir[6].g_sutun[1].u_islem_elemani  |islem_elemani_48              |    10|
+|81    |          \g_satir[6].g_sutun[2].u_islem_elemani  |islem_elemani_49              |    10|
+|82    |          \g_satir[6].g_sutun[3].u_islem_elemani  |islem_elemani_50              |    10|
+|83    |          \g_satir[6].g_sutun[4].u_islem_elemani  |islem_elemani_51              |    11|
+|84    |          \g_satir[6].g_sutun[5].u_islem_elemani  |islem_elemani_52              |     2|
+|85    |          \g_satir[6].g_sutun[6].u_islem_elemani  |islem_elemani_53              |     1|
+|86    |          \g_satir[6].g_sutun[7].u_islem_elemani  |islem_elemani_54              |     1|
+|87    |          \g_satir[7].g_sutun[0].u_islem_elemani  |islem_elemani_55              |    10|
+|88    |          \g_satir[7].g_sutun[1].u_islem_elemani  |islem_elemani_56              |    11|
+|89    |          \g_satir[7].g_sutun[2].u_islem_elemani  |islem_elemani_57              |    11|
+|90    |          \g_satir[7].g_sutun[3].u_islem_elemani  |islem_elemani_58              |    11|
+|91    |          \g_satir[7].g_sutun[4].u_islem_elemani  |islem_elemani_59              |    10|
+|92    |          \g_satir[7].g_sutun[5].u_islem_elemani  |islem_elemani_60              |     2|
+|93    |          \g_satir[7].g_sutun[6].u_islem_elemani  |islem_elemani_61              |     3|
+|94    |          \g_satir[7].g_sutun[7].u_islem_elemani  |islem_elemani_62              |     1|
+|95    |      u_toplayici                                 |cikis_sozcuk_toplayici        |   150|
+|96    |    u_cizelge                                     |cizelge_ortak                 |   305|
++------+--------------------------------------------------+------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:46 ; elapsed = 00:01:55 . Memory (MB): peak = 1608.082 ; gain = 1108.961
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 405 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:46 ; elapsed = 00:01:55 . Memory (MB): peak = 1608.082 ; gain = 1108.961
+Synthesis Optimization Complete : Time (s): cpu = 00:01:46 ; elapsed = 00:01:55 . Memory (MB): peak = 1608.082 ; gain = 1108.961
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.260 . Memory (MB): peak = 1620.168 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1188 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1743.023 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 207 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 18 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 20 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 6 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 161 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 1 instance 
+  RAM64X1S => RAM64X1S (RAMS64E): 1 instance 
+
+Synth Design complete | Checksum: 755ac27c
+INFO: [Common 17-83] Releasing license: Synthesis
+119 Infos, 210 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:53 ; elapsed = 00:02:04 . Memory (MB): peak = 1743.023 ; gain = 1247.871
+NETLIST_BITTI
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 12 23:54:48 2026...

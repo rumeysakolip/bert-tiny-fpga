@@ -1,0 +1,2 @@
+cd /c/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz
+iverilog -g2005 -I rtl -P tb_ortak_ust.KATMAN=${KAT:-1} -o sim/ust.vvp tb/tb_ortak_ust.v rtl/{ortak_ust,cizelge_ortak,akis_ayristirici,ortak_cekirdek,birlesik_bellek_2o,artik_ln_ortak,yeniden_olcekle_ortak,layernorm_birim_dz,panel_kopyalayici,panel_parametre_yukleyici,parametre_rom,gelu_yukleyici,cikis_sozcuk_toplayici_devrik,softmax_birim_gomulu}.v ../03-RTL/rtl/{ters_bolucu,seri_bolucu,cift_kapili_bellek,cikis_sozcuk_toplayici,panel_tamponu,tile_denetleyici,gelu_tablosu,sistolik_dizi,islem_elemani}.v

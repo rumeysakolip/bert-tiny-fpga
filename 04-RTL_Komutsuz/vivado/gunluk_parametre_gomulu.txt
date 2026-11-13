@@ -1,0 +1,72 @@
+
+****** xsim v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Thu Nov 12 00:32:28 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/param_gomulu/xsim_script.tcl
+# xsim {param_gomulu} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+==== GOMULU SABIT PARAMETRE SINAMASI: 12 dogrusal katman, altin modelle bit-birebir ====
+Sapma ve olcek carpani gomulu bellekten, GELU tablosu gomulu bellekten yuklenir; disaridan verilmez. Cumle sayisi: 1
+[katman 1/12] l0_q  giris=128 cikis=128 panel=16 kaydirma=37 gelu=0
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_q_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_q_cikis.mem
+   sonuc: BASARILI  kontrol=8192 hata=0 hesap_cevrimi=18522
+[katman 2/12] l0_k  giris=128 cikis=128 panel=16 kaydirma=37 gelu=0
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_k_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_k_cikis.mem
+   sonuc: BASARILI  kontrol=8192 hata=0 hesap_cevrimi=18522
+[katman 3/12] l0_v  giris=128 cikis=128 panel=16 kaydirma=37 gelu=0
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_v_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_v_cikis.mem
+   sonuc: BASARILI  kontrol=8192 hata=0 hesap_cevrimi=18522
+[katman 4/12] l0_attn_out  giris=128 cikis=128 panel=16 kaydirma=38 gelu=0
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_attn_out_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_attn_out_cikis.mem
+   sonuc: BASARILI  kontrol=8192 hata=0 hesap_cevrimi=18522
+[katman 5/12] l0_ffn1  giris=128 cikis=512 panel=64 kaydirma=37 gelu=1
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_ffn1_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_ffn1_gelu_cikis.mem
+   GELU tablosu gomulu bellekten yuklendi (256 giris)
+   sonuc: BASARILI  kontrol=32768 hata=0 hesap_cevrimi=73866
+[katman 6/12] l0_ffn2  giris=512 cikis=128 panel=16 kaydirma=37 gelu=0
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_ffn2_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_ffn2_cikis.mem
+   sonuc: BASARILI  kontrol=8192 hata=0 hesap_cevrimi=67674
+[katman 7/12] l1_q  giris=128 cikis=128 panel=16 kaydirma=38 gelu=0
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_q_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_q_cikis.mem
+   sonuc: BASARILI  kontrol=8192 hata=0 hesap_cevrimi=18522
+[katman 8/12] l1_k  giris=128 cikis=128 panel=16 kaydirma=38 gelu=0
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_k_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_k_cikis.mem
+   sonuc: BASARILI  kontrol=8192 hata=0 hesap_cevrimi=18522
+[katman 9/12] l1_v  giris=128 cikis=128 panel=16 kaydirma=38 gelu=0
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_v_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_v_cikis.mem
+   sonuc: BASARILI  kontrol=8192 hata=0 hesap_cevrimi=18522
+[katman 10/12] l1_attn_out  giris=128 cikis=128 panel=16 kaydirma=37 gelu=0
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_attn_out_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_attn_out_cikis.mem
+   sonuc: BASARILI  kontrol=8192 hata=0 hesap_cevrimi=18522
+[katman 11/12] l1_ffn1  giris=128 cikis=512 panel=64 kaydirma=38 gelu=2
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_ffn1_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_ffn1_gelu_cikis.mem
+   GELU tablosu gomulu bellekten yuklendi (256 giris)
+   sonuc: BASARILI  kontrol=32768 hata=0 hesap_cevrimi=73866
+[katman 12/12] l1_ffn2  giris=512 cikis=128 panel=16 kaydirma=36 gelu=0
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_ffn2_girdi_blok.mem
+WARNING: Too many words specified in data file C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l1_ffn2_cikis.mem
+   sonuc: BASARILI  kontrol=8192 hata=0 hesap_cevrimi=67674
+----------------------------------------------
+GOMULU PARAMETRE TEST: BASARILI  (12 katman, 147456 kontrol, 0 hata, toplam 431256 cevrim)
+$finish called at time : 5109900 ns : File "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_parametre_gomulu.v" Line 160
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:56 . Memory (MB): peak = 198.574 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 13008 KB (Peak: 13008 KB), Simulation CPU Usage: 51327 ms
+INFO: [Common 17-206] Exiting xsim at Thu Nov 12 00:33:26 2026...

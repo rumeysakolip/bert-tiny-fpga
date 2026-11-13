@@ -40,14 +40,15 @@ def kaydirma():
     return d
 
 
-def katman_ekle(h, sim, ad, K, C, n, s):
+def katman_ekle(h, sim, ad, K, C, n, s, nb=8):
     """Bir katmanın tüm adımlarını betiğe ekler; (okuma_paket_no, beklenen INT8 [64][C]) döndürür."""
     P, NB = C // 8, 8
-    akt = mem(os.path.join(VEK, f"{ad}_girdi_blok.mem"), 64)[s * NB * K:(s + 1) * NB * K]
+    # nb < 8: yalniz ilk nb token blogu (nb*8 token) gonderilir/okunur; kalan bloklar (dolgu) karsilastirmaya DAHIL DEGILDIR
+    akt = mem(os.path.join(VEK, f"{ad}_girdi_blok.mem"), 64)[s * NB * K:s * NB * K + nb * K]
     W = mem(os.path.join(VEK, f"{ad}_w_panel.mem"), 64)
     b = mem(os.path.join(PAR, f"{ad}_b.mem"), 32)
     m0 = mem(os.path.join(PAR, f"{ad}_m0.mem"), 32, imzali=False)
-    beklenen = mem(os.path.join(VEK, f"{ad}_cikis.mem"), 8)[s * 64 * C:(s + 1) * 64 * C].reshape(64, C)
+    beklenen = mem(os.path.join(VEK, f"{ad}_cikis.mem"), 8)[s * 64 * C:(s + 1) * 64 * C].reshape(64, C)[:nb * 8]
 
     def panel_yukle(p):
         buf = p % 2
@@ -56,7 +57,7 @@ def katman_ekle(h, sim, ad, K, C, n, s):
         h.yukle_panel(buf, 2, 0, b"".join(int(v).to_bytes(4, "little") for v in m0[p * 8:(p + 1) * 8]))
         h.panel_hazir(buf)
 
-    h.cfg(K, P, n)
+    h.cfg(K, P, n, nb=0 if nb == 8 else nb)
     # aktivasyon tek paket (K=512: 32 KB < 64 KB)
     h.yukle_akt(0, akt)
     panel_yukle(0)
@@ -67,7 +68,7 @@ def katman_ekle(h, sim, ad, K, C, n, s):
         sim.bekle_panel_bos(p % 2)
         panel_yukle(p)
     sim.bekle_bitti()
-    h.oku_akt(0, NB * C)
+    h.oku_akt(0, nb * C)
     return len(sim.paketler) - 1, beklenen
 
 
@@ -76,6 +77,7 @@ def main():
     ap.add_argument("--katman", nargs="*", default=["l0_q", "l0_k", "l0_v", "l0_attn_out", "l0_ffn1", "l0_ffn2"])
     ap.add_argument("--cumle", type=int, default=0)
     ap.add_argument("--ad", default="g9_" + "dongu")
+    ap.add_argument("--nb", type=int, default=8, help="islenecek token blogu sayisi (1..8); varsayilan 8 = 64 token")
     a = ap.parse_args()
 
     kay = kaydirma()
@@ -92,7 +94,7 @@ def main():
     okuma, bekle = {}, {}
     for ad in a.katman:
         K, C = harita[ad]["girdi"], harita[ad]["cikis_kanali"]
-        okuma[ad], bekle[ad] = katman_ekle(h, sim, ad, K, C, kay[ad], a.cumle)
+        okuma[ad], bekle[ad] = katman_ekle(h, sim, ad, K, C, kay[ad], a.cumle, a.nb)
 
     yanit = sim.calistir()
     print(sim.log.strip().splitlines()[-1])
@@ -115,20 +117,20 @@ def main():
     for ad in a.katman:
         y = yanit[okuma[ad]]
         K, C = harita[ad]["girdi"], harita[ad]["cikis_kanali"]
-        ok = y["tur"] == "VERI" and y["crc_ok"] and len(y["veri"]) == 8 * 8 * C
+        ok = y["tur"] == "VERI" and y["crc_ok"] and len(y["veri"]) == 8 * a.nb * C
         fark = -1
         if ok:
-            w = np.frombuffer(y["veri"], dtype=np.int8).reshape(8, C, 8)           # [blk][c][bayt i]
-            cikis = w.transpose(0, 2, 1).reshape(64, C)                             # [token][c]
+            w = np.frombuffer(y["veri"], dtype=np.int8).reshape(a.nb, C, 8)        # [blk][c][bayt i]
+            cikis = w.transpose(0, 2, 1).reshape(a.nb * 8, C)                       # [token][c]
             fark = int(np.count_nonzero(cikis != bekle[ad]))
         sonuc = ok and fark == 0
         hata += (not sonuc)
         top_bayt = sum(len(p) for p in sim.paketler)
-        rapor["katmanlar"][ad] = {"K": K, "C": C, "eleman": 64 * C, "uyusmayan": fark, "pass": bool(sonuc)}
-        print(f"  {'PASS' if sonuc else 'FAIL'} {ad:12s} K={K} C={C}: {64 * C} eleman, uyuşmayan={fark}")
+        rapor["katmanlar"][ad] = {"K": K, "C": C, "eleman": a.nb * 8 * C, "nb": a.nb, "uyusmayan": fark, "pass": bool(sonuc)}
+        print(f"  {'PASS' if sonuc else 'FAIL'} {ad:12s} K={K} C={C}: {a.nb * 8 * C} eleman, uyuşmayan={fark}")
 
     top_gonderilen = sum(len(p) for p in sim.paketler)
-    top_alinan = 8 * sum(8 * harita[k]["cikis_kanali"] for k in a.katman) + 5 * len(a.katman)
+    top_alinan = a.nb * sum(8 * harita[k]["cikis_kanali"] for k in a.katman) + 5 * len(a.katman)
     rapor.update({"gonderilen_bayt": top_gonderilen, "paket_sayisi": len(sim.paketler),
                   "uart_921600_sn_tahmin": round((top_gonderilen + top_alinan) * 10 / 921600, 2),
                   "uart_3M_sn_tahmin": round((top_gonderilen + top_alinan) * 10 / 3_000_000, 2)})

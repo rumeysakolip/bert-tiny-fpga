@@ -1,0 +1,17 @@
+  PASS l0_ffn1  nb=1 4096 kontrol, 0 hata  cevrim=11369
+  PASS l0_ffn1  nb=2 8192 kontrol, 0 hata  cevrim=18570
+  PASS l0_ffn1  nb=4 16384 kontrol, 0 hata  cevrim=37002
+  PASS l0_ffn1  nb=7 28672 kontrol, 0 hata  cevrim=64650
+  PASS l0_ffn1  nb=8 32768 kontrol, 0 hata  cevrim=73866
+  PASS l0_ffn2  nb=1 1024 kontrol, 0 hata  cevrim=8993
+  PASS l0_ffn2  nb=2 2048 kontrol, 0 hata  cevrim=16986
+  PASS l0_ffn2  nb=4 4096 kontrol, 0 hata  cevrim=33882
+  PASS l0_ffn2  nb=7 7168 kontrol, 0 hata  cevrim=59226
+  PASS l0_ffn2  nb=8 8192 kontrol, 0 hata  cevrim=67674
+  PASS l0_q     nb=1 1024 kontrol, 0 hata  cevrim=2849
+  PASS l0_q     nb=2 2048 kontrol, 0 hata  cevrim=4698
+  PASS l0_q     nb=4 4096 kontrol, 0 hata  cevrim=9306
+  PASS l0_q     nb=7 7168 kontrol, 0 hata  cevrim=16218
+  PASS l0_q     nb=8 8192 kontrol, 0 hata  cevrim=18522
+12 katman toplam cevrim (nb -> cevrim): {'1': 63516, '2': 108696, '4': 216216, '7': 377496, '8': 431256}
+KONU3 NB: PASS (15 kosu, 0 basarisiz)

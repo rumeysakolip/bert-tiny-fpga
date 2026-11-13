@@ -1,0 +1,554 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Thu Nov 12 22:46:29 2026
+| Host         : pc running 64-bit major release  (build 9200)
+| Command      : report_drc -file C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/sentez/cikti_kart/impl_drc.txt
+| Design       : kart_ust
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: kart_ust
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 103
++--------+----------+---------------------------------+--------+
+| Rule   | Severity | Description                     | Checks |
++--------+----------+---------------------------------+--------+
+| DPIP-1 | Warning  | Input pipelining                | 18     |
+| DPOP-1 | Warning  | PREG Output pipelining          | 4      |
+| DPOP-2 | Warning  | MREG Output pipelining          | 80     |
+| RPBF-3 | Warning  | IO port buffering is incomplete | 1      |
++--------+----------+---------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+DPIP-1#1 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_alt_kayit_reg input u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_alt_kayit_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#2 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_alt_reg input u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_alt_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#3 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_ust_kayit_reg input u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_ust_kayit_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#4 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_ust_reg input u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_ust_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#5 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/kalan5_reg input u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/kalan5_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#6 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/kalan5_reg input u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/kalan5_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#7 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/taslak_carpim4_reg input u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/taslak_carpim4_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#8 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim input u_kart/u_ust/u_cekirdek/u_rs/carpim/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#9 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim input u_kart/u_ust/u_cekirdek/u_rs/carpim/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#10 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim__0 input u_kart/u_ust/u_cekirdek/u_rs/carpim__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#11 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim__0 input u_kart/u_ust/u_cekirdek/u_rs/carpim__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#12 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim_kayit_reg input u_kart/u_ust/u_cekirdek/u_rs/carpim_kayit_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#13 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim_kayit_reg input u_kart/u_ust/u_cekirdek/u_rs/carpim_kayit_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#14 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim_kayit_reg__0 input u_kart/u_ust/u_cekirdek/u_rs/carpim_kayit_reg__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#15 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_sm/pay_kayit_reg input u_kart/u_ust/u_cekirdek/u_sm/pay_kayit_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#16 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_sm/u_ters_bolucu/kalan5_reg input u_kart/u_ust/u_cekirdek/u_sm/u_ters_bolucu/kalan5_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#17 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_sm/u_ters_bolucu/kalan5_reg input u_kart/u_ust/u_cekirdek/u_sm/u_ters_bolucu/kalan5_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#18 Warning
+Input pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_sm/u_ters_bolucu/taslak_carpim4_reg input u_kart/u_ust/u_cekirdek/u_sm/u_ters_bolucu/taslak_carpim4_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPOP-1#1 Warning
+PREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim10 output u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim10/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#2 Warning
+PREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim10__0 output u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim10__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#3 Warning
+PREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim output u_kart/u_ust/u_cekirdek/u_rs/carpim/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-1#4 Warning
+PREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim__0 output u_kart/u_ust/u_cekirdek/u_rs/carpim__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-2#1 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/fark_karesi_kayit_reg__0 multiplier stage u_kart/u_ust/u_cekirdek/u_ln/u_ln/fark_karesi_kayit_reg__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#2 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/gamma_carpim_reg multiplier stage u_kart/u_ust/u_cekirdek/u_ln/u_ln/gamma_carpim_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#3 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_alt_reg multiplier stage u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_alt_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#4 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_ust_reg multiplier stage u_kart/u_ust/u_cekirdek/u_ln/u_ln/olcek_carpim_ust_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#5 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim10 multiplier stage u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim10/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#6 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim10__0 multiplier stage u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim10__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#7 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim1_reg multiplier stage u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim1_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#8 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim1_reg__0 multiplier stage u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim1_reg__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#9 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/taslak_carpim4_reg multiplier stage u_kart/u_ust/u_cekirdek/u_ln/u_ln/u_ters_bolucu/taslak_carpim4_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#10 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim multiplier stage u_kart/u_ust/u_cekirdek/u_rs/carpim/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#11 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim__0 multiplier stage u_kart/u_ust/u_cekirdek/u_rs/carpim__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#12 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim_kayit_reg multiplier stage u_kart/u_ust/u_cekirdek/u_rs/carpim_kayit_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#13 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_rs/carpim_kayit_reg__0 multiplier stage u_kart/u_ust/u_cekirdek/u_rs/carpim_kayit_reg__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#14 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_sm/carpim1_reg multiplier stage u_kart/u_ust/u_cekirdek/u_sm/carpim1_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#15 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_sm/pay_kayit_reg multiplier stage u_kart/u_ust/u_cekirdek/u_sm/pay_kayit_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#16 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_sm/u_ters_bolucu/taslak_carpim4_reg multiplier stage u_kart/u_ust/u_cekirdek/u_sm/u_ters_bolucu/taslak_carpim4_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#17 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[0].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[0].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#18 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[1].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[1].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#19 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[2].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[2].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#20 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[3].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[3].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#21 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[4].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[4].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#22 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[5].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[5].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#23 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[6].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[6].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#24 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[7].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[0].g_sutun[7].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#25 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[0].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[0].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#26 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[1].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[1].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#27 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[2].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[2].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#28 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[3].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[3].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#29 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[4].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[4].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#30 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[5].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[5].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#31 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[6].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[6].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#32 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[7].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[1].g_sutun[7].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#33 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[0].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[0].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#34 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[1].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[1].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#35 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#36 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[3].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[3].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#37 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[4].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[4].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#38 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[5].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[5].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#39 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[6].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[6].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#40 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[7].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[2].g_sutun[7].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#41 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[0].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[0].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#42 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#43 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#44 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[3].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[3].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#45 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[4].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[4].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#46 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[5].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[5].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#47 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[6].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[6].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#48 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[7].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[3].g_sutun[7].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#49 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[0].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[0].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#50 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[1].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[1].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#51 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[2].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[2].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#52 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#53 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#54 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[5].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[5].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#55 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[6].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[6].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#56 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[7].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[4].g_sutun[7].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#57 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[0].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[0].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#58 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[1].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[1].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#59 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[2].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[2].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#60 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[3].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[3].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#61 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[4].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[4].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#62 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[5].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[5].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#63 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[6].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[6].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#64 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[7].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[5].g_sutun[7].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#65 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[0].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[0].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#66 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[1].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[1].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#67 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[2].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[2].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#68 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[3].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[3].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#69 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[4].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[4].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#70 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[5].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[5].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#71 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[6].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[6].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#72 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[7].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[6].g_sutun[7].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#73 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[0].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[0].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#74 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[1].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[1].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#75 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[2].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[2].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#76 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[3].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[3].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#77 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[4].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[4].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#78 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[5].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[5].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#79 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[6].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[6].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+DPOP-2#80 Warning
+MREG Output pipelining  
+DSP u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[7].u_islem_elemani/birikec_reg multiplier stage u_kart/u_ust/u_cekirdek/u_tile/u_sistolik_dizi/g_satir[7].g_sutun[7].u_islem_elemani/birikec_reg/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+RPBF-3#1 Warning
+IO port buffering is incomplete  
+Device port QspiDB[1] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+

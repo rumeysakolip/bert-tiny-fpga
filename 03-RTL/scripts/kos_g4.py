@@ -54,13 +54,13 @@ def main():
     sonuc.append({"ad": "eski systolic_4x4", "pass": ok, "ayrinti": ayr}); toplam_hata += (not ok)
 
     # 2) yeni PE
-    r = derle_kos("tb_pe", ["rtl/pe.v", "tb/tb_pe.v"])
+    r = derle_kos("tb_islem_elemani", ["rtl/islem_elemani.v", "tb/tb_islem_elemani.v"])
     ok, ayr = pass_mu(r["cikti"], r"PE \(9b x 8b -> 32b\) TEST:")
-    sonuc.append({"ad": "pe 9b x 8b", "pass": ok, "ayrinti": ayr, "cikti": r["cikti"].strip().splitlines()[-2:]}); toplam_hata += (not ok)
+    sonuc.append({"ad": "islem_elemani 9b x 8b", "pass": ok, "ayrinti": ayr, "cikti": r["cikti"].strip().splitlines()[-2:]}); toplam_hata += (not ok)
 
     # 3) N=4 regresyon (yeni == eski)
-    r = derle_kos("tb_regresyon_n4", ["legacy/rtl/pe_eski.v", "legacy/rtl/systolic_4x4_eski.v", "rtl/pe.v",
-                                      "rtl/systolic_nxn.v", "tb/tb_regresyon_n4.v"])
+    r = derle_kos("tb_regresyon_n4", ["legacy/rtl/pe_eski.v", "legacy/rtl/systolic_4x4_eski.v", "rtl/islem_elemani.v",
+                                      "rtl/sistolik_dizi.v", "tb/tb_regresyon_n4.v"])
     ok, ayr = pass_mu(r["cikti"], "REGRESYON N=4 TEST:")
     sonuc.append({"ad": "N=4 regresyon (yeni==eski)", "pass": ok, "ayrinti": ayr}); toplam_hata += (not ok)
 
@@ -74,21 +74,21 @@ def main():
         pa = [f"+vdir={vd}"]
         if (n, k) in ((4, 4), (8, 64)):
             pa.append(f"+vcd=sim/tb_systolic_nxn_n{n}_k{k}.vcd")
-        r = derle_kos(f"tb_nxn_n{n}_k{k}", ["rtl/pe.v", "rtl/systolic_nxn.v", "tb/tb_systolic_nxn.v"],
-                      params=(f"tb_systolic_nxn.N={n}", f"tb_systolic_nxn.KT={k}"), plusargs=pa)
+        r = derle_kos(f"tb_nxn_n{n}_k{k}", ["rtl/islem_elemani.v", "rtl/sistolik_dizi.v", "tb/tb_sistolik_dizi.v"],
+                      params=(f"tb_sistolik_dizi.N={n}", f"tb_sistolik_dizi.KT={k}"), plusargs=pa)
         ok, ayr = pass_mu(r["cikti"], r"SYSTOLIC NxN TEST \(N=\d+,K=\d+\):")
         m = re.search(r"olculen (\d+)\.\.(\d+)", r["cikti"])
         sonuc.append({"ad": f"nxn N={n} K={k}", "N": n, "K": k, "pass": ok, "ayrinti": ayr,
                       "tile_cevrim_min": int(m.group(1)) if m else None,
                       "tile_cevrim_max": int(m.group(2)) if m else None,
-                      "beklenen_cevrim": k + 2 * n - 2, "sure_sn": r.get("sure_sn")})
+                      "beklenen_cevrim": k + 2 * n - 1, "sure_sn": r.get("sure_sn")})
         toplam_hata += (not ok)
 
     with open("sim/g4_sonuc.json", "w", encoding="utf-8") as f:
         json.dump({"sonuclar": sonuc, "toplam_hata": toplam_hata}, f, ensure_ascii=False, indent=1)
     for s in sonuc:
         print(("  PASS " if s["pass"] else "  FAIL ") + s["ad"] + "  " + str(s.get("ayrinti", "")) +
-              (f"  tile={s['tile_cevrim_min']}..{s['tile_cevrim_max']} (K+2N-2={s['beklenen_cevrim']})" if "N" in s else ""))
+              (f"  tile={s['tile_cevrim_min']}..{s['tile_cevrim_max']} (K+2N-1={s['beklenen_cevrim']})" if "N" in s else ""))
     print(f"G4 TOPLAM: {'PASS' if toplam_hata == 0 else 'FAIL'} ({len(sonuc)} koşu, {toplam_hata} başarısız)")
     return 0 if toplam_hata == 0 else 1
 

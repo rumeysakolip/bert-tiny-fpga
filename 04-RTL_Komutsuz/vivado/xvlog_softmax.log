@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_softmax_gomulu.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_softmax_gomulu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/softmax_birim_gomulu.v" into library work
+INFO: [VRFC 10-311] analyzing module softmax_birim_gomulu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v" into library work
+INFO: [VRFC 10-311] analyzing module ters_bolucu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v" into library work
+INFO: [VRFC 10-311] analyzing module seri_bolucu

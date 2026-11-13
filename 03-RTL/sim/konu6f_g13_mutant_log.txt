@@ -1,0 +1,43 @@
+temel (mutantsiz): DERLEME (rtl/softmax_birim.v:57: error: Unknown module type: bolucu_ters
+rtl/layernorm_birim.v:122: error: Unknown module type: bolucu_ters
+2 error(s) during elaboration.
+*** These modules were missing:
+        bolucu_ters referenced 2 times.
+***
+ hata)
+mutant m1: DERLEME (rtl/softmax_birim.v:57: error: Unknown module type: bolucu_ters
+rtl/layernorm_birim.v:122: error: Unknown module type: bolucu_ters
+2 error(s) during elaboration.
+*** These modules were missing:
+        bolucu_ters referenced 2 times.
+***
+ hata)  -- Softmax maske bayti yok sayildi
+mutant m2: DERLEME (rtl/softmax_birim.v:57: error: Unknown module type: bolucu_ters
+rtl/layernorm_birim.v:122: error: Unknown module type: bolucu_ters
+2 error(s) during elaboration.
+*** These modules were missing:
+        bolucu_ters referenced 2 times.
+***
+ hata)  -- SM_BASLAT abort vermiyor (kurtarma testi yakalamali)
+mutant m3: DERLEME (rtl/softmax_birim.v:57: error: Unknown module type: bolucu_ters
+rtl/layernorm_birim.v:122: error: Unknown module type: bolucu_ters
+2 error(s) during elaboration.
+*** These modules were missing:
+        bolucu_ters referenced 2 times.
+***
+ hata)  -- LN_CFG nsh alani bir bit eksik
+mutant m4: DERLEME (rtl/softmax_birim.v:57: error: Unknown module type: bolucu_ters
+rtl/layernorm_birim.v:122: error: Unknown module type: bolucu_ters
+2 error(s) during elaboration.
+*** These modules were missing:
+        bolucu_ters referenced 2 times.
+***
+ hata)  -- SM_CFG m0 alani bir bit eksik
+mutant m5: DERLEME (rtl/softmax_birim.v:57: error: Unknown module type: bolucu_ters
+rtl/layernorm_birim.v:122: error: Unknown module type: bolucu_ters
+2 error(s) during elaboration.
+*** These modules were missing:
+        bolucu_ters referenced 2 times.
+***
+ hata)  -- LN_OKU yanlis tampondan okuyor
+G13 MUTANT TOPLAM: FAIL | kacan mutant: ['m1', 'm2', 'm3', 'm4', 'm5']

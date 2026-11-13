@@ -4,8 +4,8 @@
   "test": 198,
   "kontrol": 6336,
   "hata": 0,
-  "tile_cevrim": 70,
-  "tile_cevrim_maks": 70,
+  "tile_cevrim": 71,
+  "tile_cevrim_maks": 71,
   "beklenen": 70
  },
  "8": {
@@ -13,8 +13,8 @@
   "test": 198,
   "kontrol": 25344,
   "hata": 0,
-  "tile_cevrim": 78,
-  "tile_cevrim_maks": 78,
+  "tile_cevrim": 79,
+  "tile_cevrim_maks": 79,
   "beklenen": 78
  },
  "16": {
@@ -22,8 +22,8 @@
   "test": 198,
   "kontrol": 101376,
   "hata": 0,
-  "tile_cevrim": 94,
-  "tile_cevrim_maks": 94,
+  "tile_cevrim": 95,
+  "tile_cevrim_maks": 95,
   "beklenen": 94
  }
 }

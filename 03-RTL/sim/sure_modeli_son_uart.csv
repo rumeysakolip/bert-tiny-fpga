@@ -1,0 +1,13 @@
+f_mhz,baud_istenen,clks_per_bit,baud_gercek,hata_pct,degerlendirme,etiket,benzetim_tb_uart_baud,benzetim_tb_uart_eski,benzetim_etiket
+100.0,921600,109,917431.2,-0.452,guvenli,hesap,PASS,PASS,benzetim (Icarus)
+100.0,3000000,33,3030303.0,1.01,guvenli,hesap,PASS,PASS,benzetim (Icarus)
+100.0,12000000,8,12500000.0,4.167,calismaz,hesap,PASS,PASS,benzetim (Icarus)
+96.0,921600,104,923076.9,0.16,guvenli,hesap,PASS,PASS,benzetim (Icarus)
+96.0,3000000,32,3000000.0,0.0,guvenli,hesap,PASS,PASS,benzetim (Icarus)
+96.0,12000000,8,12000000.0,0.0,guvenli,hesap,PASS,PASS,benzetim (Icarus)
+125.0,921600,136,919117.6,-0.269,guvenli,hesap,PASS,PASS,benzetim (Icarus)
+125.0,3000000,42,2976190.5,-0.794,guvenli,hesap,PASS,PASS,benzetim (Icarus)
+125.0,12000000,10,12500000.0,4.167,calismaz,hesap,PASS,PASS,benzetim (Icarus)
+150.0,921600,163,920245.4,-0.147,guvenli,hesap,PASS,PASS,benzetim (Icarus)
+150.0,3000000,50,3000000.0,0.0,guvenli,hesap,PASS,PASS,benzetim (Icarus)
+150.0,12000000,13,11538461.5,-3.846,sinirda,hesap,PASS,PASS,benzetim (Icarus)

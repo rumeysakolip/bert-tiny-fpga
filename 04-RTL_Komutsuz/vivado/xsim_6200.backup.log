@@ -1,0 +1,41 @@
+#-----------------------------------------------------------
+# xsim v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Thu Nov 12 02:09:06 2026
+# Process ID         : 6200
+# Current directory  : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vivado
+# Command line       : xsim.exe -mode tcl -source {xsim.dir/dikkat_pv/xsim_script.tcl}
+# Log file           : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vivado/xsim.log
+# Journal file       : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vivado\xsim.jou
+# Running On         : pc
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i7-12650H
+# CPU Frequency      : 2688 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 16
+# Host memory        : 16908 MB
+# Swap memory        : 14495 MB
+# Total Virtual      : 31403 MB
+# Available Virtual  : 12313 MB
+#-----------------------------------------------------------
+source xsim.dir/dikkat_pv/xsim_script.tcl
+# xsim {dikkat_pv} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+==== TAM DIKKAT BASI SINAMASI: Q.K^T -> Softmax -> P.V (olasiliklar cip icinde uretilir), 2 katman x 2 bas x 2 cumle, altin modelle bit-birebir ====
+[katman 0, cumle 0, bas 0] uzunluk=4 : Q.K^T+Softmax tamamlandi, P.V baglam BASARILI (4096 kontrol, 0 hata) | cevrim: P.V=5386
+[katman 0, cumle 0, bas 1] uzunluk=4 : Q.K^T+Softmax tamamlandi, P.V baglam BASARILI (4096 kontrol, 0 hata) | cevrim: P.V=5386
+[katman 0, cumle 1, bas 0] uzunluk=4 : Q.K^T+Softmax tamamlandi, P.V baglam BASARILI (4096 kontrol, 0 hata) | cevrim: P.V=5386
+[katman 0, cumle 1, bas 1] uzunluk=4 : Q.K^T+Softmax tamamlandi, P.V baglam BASARILI (4096 kontrol, 0 hata) | cevrim: P.V=5386
+[katman 1, cumle 0, bas 0] uzunluk=4 : Q.K^T+Softmax tamamlandi, P.V baglam BASARILI (4096 kontrol, 0 hata) | cevrim: P.V=5386
+[katman 1, cumle 0, bas 1] uzunluk=4 : Q.K^T+Softmax tamamlandi, P.V baglam BASARILI (4096 kontrol, 0 hata) | cevrim: P.V=5386
+[katman 1, cumle 1, bas 0] uzunluk=4 : Q.K^T+Softmax tamamlandi, P.V baglam BASARILI (4096 kontrol, 0 hata) | cevrim: P.V=5386
+[katman 1, cumle 1, bas 1] uzunluk=4 : Q.K^T+Softmax tamamlandi, P.V baglam BASARILI (4096 kontrol, 0 hata) | cevrim: P.V=5386
+----------------------------------------------
+TAM DIKKAT BASI TEST: BASARILI  (8 is, 32768 kontrol, 0 hata)
+$finish called at time : 2346780 ns : File "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_dikkat_pv.v" Line 117
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Nov 12 02:09:12 2026...

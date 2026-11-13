@@ -11,7 +11,7 @@
    "ayrinti": "264 test, 0 hata"
   },
   {
-   "ad": "pe 9b x 8b",
+   "ad": "islem_elemani 9b x 8b",
    "pass": true,
    "ayrinti": "10333 kontrol, 0 hata",
    "cikti": [
@@ -30,10 +30,10 @@
    "K": 4,
    "pass": true,
    "ayrinti": "198 test, 6336 kontrol, 0 hata",
-   "tile_cevrim_min": 10,
-   "tile_cevrim_max": 10,
-   "beklenen_cevrim": 10,
-   "sure_sn": 0.2
+   "tile_cevrim_min": 11,
+   "tile_cevrim_max": 11,
+   "beklenen_cevrim": 11,
+   "sure_sn": 0.3
   },
   {
    "ad": "nxn N=4 K=16",
@@ -41,10 +41,10 @@
    "K": 16,
    "pass": true,
    "ayrinti": "198 test, 6336 kontrol, 0 hata",
-   "tile_cevrim_min": 22,
-   "tile_cevrim_max": 22,
-   "beklenen_cevrim": 22,
-   "sure_sn": 0.4
+   "tile_cevrim_min": 23,
+   "tile_cevrim_max": 23,
+   "beklenen_cevrim": 23,
+   "sure_sn": 0.5
   },
   {
    "ad": "nxn N=4 K=64",
@@ -52,9 +52,9 @@
    "K": 64,
    "pass": true,
    "ayrinti": "198 test, 6336 kontrol, 0 hata",
-   "tile_cevrim_min": 70,
-   "tile_cevrim_max": 70,
-   "beklenen_cevrim": 70,
+   "tile_cevrim_min": 71,
+   "tile_cevrim_max": 71,
+   "beklenen_cevrim": 71,
    "sure_sn": 1.1
   },
   {
@@ -63,10 +63,10 @@
    "K": 8,
    "pass": true,
    "ayrinti": "198 test, 25344 kontrol, 0 hata",
-   "tile_cevrim_min": 22,
-   "tile_cevrim_max": 22,
-   "beklenen_cevrim": 22,
-   "sure_sn": 1.4
+   "tile_cevrim_min": 23,
+   "tile_cevrim_max": 23,
+   "beklenen_cevrim": 23,
+   "sure_sn": 1.5
   },
   {
    "ad": "nxn N=8 K=64",
@@ -74,10 +74,10 @@
    "K": 64,
    "pass": true,
    "ayrinti": "198 test, 25344 kontrol, 0 hata",
-   "tile_cevrim_min": 78,
-   "tile_cevrim_max": 78,
-   "beklenen_cevrim": 78,
-   "sure_sn": 26.8
+   "tile_cevrim_min": 79,
+   "tile_cevrim_max": 79,
+   "beklenen_cevrim": 79,
+   "sure_sn": 57.9
   },
   {
    "ad": "nxn N=8 K=128",
@@ -85,10 +85,10 @@
    "K": 128,
    "pass": true,
    "ayrinti": "198 test, 25344 kontrol, 0 hata",
-   "tile_cevrim_min": 142,
-   "tile_cevrim_max": 142,
-   "beklenen_cevrim": 142,
-   "sure_sn": 61.7
+   "tile_cevrim_min": 143,
+   "tile_cevrim_max": 143,
+   "beklenen_cevrim": 143,
+   "sure_sn": 134.1
   },
   {
    "ad": "nxn N=8 K=512",
@@ -96,10 +96,10 @@
    "K": 512,
    "pass": true,
    "ayrinti": "198 test, 25344 kontrol, 0 hata",
-   "tile_cevrim_min": 526,
-   "tile_cevrim_max": 526,
-   "beklenen_cevrim": 526,
-   "sure_sn": 212.9
+   "tile_cevrim_min": 527,
+   "tile_cevrim_max": 527,
+   "beklenen_cevrim": 527,
+   "sure_sn": 433.2
   }
  ],
  "toplam_hata": 0

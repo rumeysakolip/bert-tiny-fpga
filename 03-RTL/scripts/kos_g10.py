@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(KOK)
 VEK = os.path.join("..", "02-RTL_Altin_Model", "03_Sonuclar", "test_vektorleri")
-SRC = ["rtl/pe.v", "rtl/systolic_nxn.v", "rtl/bram_sdp.v", "rtl/panel_tamponu.v", "rtl/tile_denetleyici.v", "tb/tb_tile.v"]
+SRC = ["rtl/islem_elemani.v", "rtl/sistolik_dizi.v", "rtl/cift_kapili_bellek.v", "rtl/panel_tamponu.v", "rtl/tile_denetleyici.v", "tb/tb_tile.v"]
 
 
 def kos(ad, aisgz):

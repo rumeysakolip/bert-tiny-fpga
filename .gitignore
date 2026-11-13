@@ -4,3 +4,65 @@ __pycache__/
 .ipynb_checkpoints/
 _kontrol/
 03-RTL/sim/tb_pe.vcd
+
+# Vivado / xsim uretilmis dosyalari
+03-RTL/xsim.dir/
+03-RTL/.Xil/
+03-RTL/vivado*.jou
+03-RTL/vivado*.log
+03-RTL/*.pb
+03-RTL/xelab.log
+03-RTL/xvlog.log
+03-RTL/clockInfo.txt
+03-RTL/dfx_runtime.txt
+03-RTL/tight_setup_hold_pins.txt
+
+# gecici
+arsiv/rtl_kopya_5Kasim_tgz/
+
+# komutsuz prototip uretilmis dosyalar
+04-RTL_Komutsuz/sim/*.vvp
+04-RTL_Komutsuz/sim/*.hex
+04-RTL_Komutsuz/sentez/*.dcp
+04-RTL_Komutsuz/sentez/vivado*
+04-RTL_Komutsuz/sentez/cikti_vivado.log
+04-RTL_Komutsuz/sentez/.Xil/
+
+# --- GitHub yayini icin eklenenler: uretilmis / yeniden uretilebilir / buyuk dosyalar ---
+*.vcd
+*.saif
+*.sdf
+*.wdb
+*.dcp
+*.jou
+*.pb
+*.exe
+*.mp4
+*.tgz
+**/xsim.dir/
+**/.Xil/
+**/xsim.reloc
+03-RTL/sim/ters_vek_125000/
+03-RTL/sim/postsynth_ust/
+04-RTL_Komutsuz/sim/net/
+04-RTL_Komutsuz/sim/xs_saif/
+04-RTL_Komutsuz/sentez/cikti_guc/saif_okuma.txt
+04-RTL_Komutsuz/sentez/cikti_kart_tek_katman_onceki/
+rapor_sistemi/bert_tiny_sst2_fp32.onnx
+# okul belgeleri ve ucuncu taraf makaleler (telif) depoya konmaz
+belgeler/kaynakca/
+belgeler/kurallar/
+raporlar/ara_rapor/ilgili_belgeler/
+raporlar/ilerleme_2/*.mp4
+arsiv/
+# kisisel bilgi iceren teslim belgeleri (ogrenci no, ad) ve gecici Vivado dosyalari
+raporlar/ilerleme_2/
+raporlar/ara_rapor/*.docx
+raporlar/ara_rapor/*.pdf
+**/clockInfo.txt
+**/dfx_runtime.txt
+**/vivado.log
+
+# raporlar depoya konmaz
+raporlar/
+rapor_sistemi/

@@ -1,0 +1,15 @@
+konu,degisen_kalem,once,sonra,olcum_yontemi,etiket
+Konu 2,UART baud/saat tablosu,"921 600 baud: CLKS_PER_BIT=109, 4,565 sn (420,7 KB)","12 Mbaud @96 MHz: CLKS_PER_BIT=8 hata %0; 0,351 sn","tb_uart_baud (benzetim), sure_modeli (hesap)",benzetim / hesap
+Konu 3,"Doğrusal çevrim, 25 token (4 blok)",428928,216216,"tb_katman +NBE (cfg_nb), kos_konu3_nb",benzetim
+Konu 4a,Softmax çevrim/satır,2049,171,tb_softmax (son girişten son çıkışa),benzetim
+Konu 4a,LayerNorm çevrim/satır,5274,377,tb_layernorm,benzetim
+Konu 4a,Tam sistem DSP,77,87,Vivado yerleştirme+yönlendirme,Vivado
+Konu 4b+6,Tam sistem LUT (100 MHz),5540,3774,Vivado (4b: tablolar BRAM; 6: panel tamponu BRAM; ayrı ayrı notlarda),Vivado
+Konu 4b+6,Tam sistem LUT-bellek,1937,356,Vivado,Vivado
+Konu 4b+6,Tam sistem BRAM (karo),15.5,19.0,Vivado,Vivado
+Konu 6,Tam sistem WNS/hold @100 MHz,0.587 / 0.024 ns,0.716 / 0.031 ns,Vivado (1. grup düzeltmeler),Vivado
+Konu 6,125 MHz (8 ns),kapanmıyordu (denenmedi),"WNS 0.033 / hold 0.025 ns, kısıtlar sağlandı",Vivado,Vivado
+Konu 6,"150 MHz (6,67 ns)",kapanmıyordu (denenmedi),"WNS 0.012 / hold 0.051 ns, kısıtlar sağlandı",Vivado,Vivado
+Konu 8,"Toplam çevrim, 64 token",2682200,637240,"doğrusal+dikkat ölçüldü, Softmax/LN satır ölçüldü × satır sayısı",hesap
+Konu 8,Toplam süre @100 MHz,26.822 ms,6.372 ms,çevrim ÷ frekans,hesap
+Konu 8,Toplam süre @150 MHz,-,4.248 ms,çevrim ÷ frekans (150 MHz yalnız Vivado'da kapandı),hesap

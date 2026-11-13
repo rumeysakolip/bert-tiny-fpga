@@ -1,0 +1,3 @@
+sm: PASS 3000 bolen, 24000 cift, 0 hata | {'cift': 24000, 'doyan_cift': 2836, 'kalansiz_cift': 7291, 'bolen_min': 1, 'bolen_maks': 4194303, 'n_maks': 16777215}
+ln: PASS 3000 bolen, 24000 cift, 0 hata | {'cift': 24000, 'doyan_cift': 2737, 'kalansiz_cift': 7036, 'bolen_min': 1, 'bolen_maks': 1048575, 'n_maks': 2147483647}
+BOLUCU_TERS TOPLAM: PASS | kacan mutant: [] | 4 sn

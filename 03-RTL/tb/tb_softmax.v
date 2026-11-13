@@ -9,18 +9,18 @@ module tb_softmax;
     reg clk = 0, rst = 1;
     always #5 clk = ~clk;
 
-    reg         lut_we = 0;
-    reg  [8:0]  lut_adr = 0;
-    reg  [15:0] lut_data = 0;
-    reg  [23:0] m0 = 0;
-    reg         start = 0, in_valid = 0, in_mask = 0;
-    reg  signed [31:0] in_data = 0;
-    wire        in_ready, out_valid, out_last, busy;
-    wire [7:0]  out_data;
+    reg         tablo_yaz_etkin = 0;
+    reg  [8:0]  tablo_yaz_adres = 0;
+    reg  [15:0] tablo_yaz_veri = 0;
+    reg  [23:0] olcek_m0 = 0;
+    reg         baslat = 0, giris_gecerli = 0, giris_maske = 0;
+    reg  signed [31:0] giris_veri = 0;
+    wire        giris_hazir, cikis_gecerli, cikis_son, mesgul;
+    wire [7:0]  cikis_veri;
 
-    softmax_birim #(.L(L)) dut (.clk(clk), .rst(rst), .lut_we(lut_we), .lut_adr(lut_adr), .lut_data(lut_data),
-        .m0(m0), .start(start), .in_ready(in_ready), .in_valid(in_valid), .in_data(in_data), .in_mask(in_mask),
-        .out_valid(out_valid), .out_data(out_data), .out_last(out_last), .busy(busy));
+    softmax_birim #(.SATIR_UZUNLUGU(L)) dut (.clk(clk), .rst(rst), .tablo_yaz_etkin(tablo_yaz_etkin), .tablo_yaz_adres(tablo_yaz_adres), .tablo_yaz_veri(tablo_yaz_veri),
+        .olcek_m0(olcek_m0), .baslat(baslat), .giris_hazir(giris_hazir), .giris_gecerli(giris_gecerli), .giris_veri(giris_veri), .giris_maske(giris_maske),
+        .cikis_gecerli(cikis_gecerli), .cikis_veri(cikis_veri), .cikis_son(cikis_son), .mesgul(mesgul));
 
     reg [31:0] mSkor [0:MAXR*L-1];
     reg [31:0] mMask [0:MAXR*L-1];
@@ -37,12 +37,12 @@ module tb_softmax;
     integer stsay [0:15]; integer k_;
     initial for (k_ = 0; k_ < 16; k_ = k_ + 1) stsay[k_] = 0;
     reg say_ac = 0;
-    always @(posedge clk) if (say_ac && dut.st != 0) stsay[dut.st] = stsay[dut.st] + 1;
+    always @(posedge clk) if (say_ac && dut.durum != 0) stsay[dut.durum] = stsay[dut.durum] + 1;
 
-    always @(posedge clk) if (out_valid) begin
-        if (out_data !== mCik[r*L + cnt_out][7:0]) begin
+    always @(posedge clk) if (cikis_gecerli) begin
+        if (cikis_veri !== mCik[r*L + cnt_out][7:0]) begin
             hata = hata + 1;
-            if (hata < 10) $display("  HATA satir %0d eleman %0d: rtl=%0d beklenen=%0d", r, cnt_out, out_data, mCik[r*L+cnt_out][7:0]);
+            if (hata < 10) $display("  HATA satir %0d eleman %0d: rtl=%0d beklenen=%0d", r, cnt_out, cikis_veri, mCik[r*L+cnt_out][7:0]);
         end
         kontrol = kontrol + 1; cnt_out = cnt_out + 1;
     end
@@ -60,17 +60,17 @@ module tb_softmax;
         repeat (4) @(posedge clk); @(negedge clk); rst = 0;
         // LUT yukle
         for (i = 0; i < 512; i = i + 1) begin
-            @(negedge clk); lut_we = 1; lut_adr = i; lut_data = mLut[i][15:0];
+            @(negedge clk); tablo_yaz_etkin = 1; tablo_yaz_adres = i; tablo_yaz_veri = mLut[i][15:0];
         end
-        @(negedge clk); lut_we = 0;
+        @(negedge clk); tablo_yaz_etkin = 0;
         for (r = 0; r < nrow; r = r + 1) begin
             h0 = hata; cnt_out = 0; cyc = 0; say_ac = (r == 0);
-            @(negedge clk); m0 = mM0[r][23:0]; start = 1;
-            @(negedge clk); start = 0;
+            @(negedge clk); olcek_m0 = mM0[r][23:0]; baslat = 1;
+            @(negedge clk); baslat = 0;
             for (i = 0; i < L; i = i + 1) begin
-                @(negedge clk); in_valid = 1; in_data = mSkor[r*L+i]; in_mask = mMask[r*L+i][0];
+                @(negedge clk); giris_gecerli = 1; giris_veri = mSkor[r*L+i]; giris_maske = mMask[r*L+i][0];
             end
-            @(negedge clk); in_valid = 0;
+            @(negedge clk); giris_gecerli = 0;
             while (cnt_out < L && cyc < 200000) begin @(negedge clk); cyc = cyc + 1; end
             if (cnt_out != L) begin hata = hata + 1; $display("  HATA satir %0d: cikis sayisi %0d", r, cnt_out); end
             if (r == 0) begin say_ac = 0; for (k_ = 1; k_ < 16; k_ = k_ + 1) if (stsay[k_] != 0) $display("FAZ %0d %0d", k_, stsay[k_]); end

@@ -1,0 +1,2160 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Tue Nov  3 08:24:19 2026
+# Process ID         : 25752
+# Current directory  : C:/Users/rumey/Documents/biitirme-projem/03-RTL
+# Command line       : vivado.exe -mode batch -notrace -nojournal -log sentez/cikti/yenimimari_p6_67_vivado.log -source sentez/impl_periyot.tcl -tclargs bert_tiny_uart_ust 6.67 yenimimari_p6_67 0
+# Log file           : C:/Users/rumey/Documents/biitirme-projem/03-RTL/sentez/cikti/yenimimari_p6_67_vivado.log
+# Journal file       : 
+# Running On         : pc
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i7-12650H
+# CPU Frequency      : 2688 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 16
+# Host memory        : 16908 MB
+# Swap memory        : 20401 MB
+# Total Virtual      : 37309 MB
+# Available Virtual  : 14839 MB
+#-----------------------------------------------------------
+source sentez/impl_periyot.tcl -notrace
+read_verilog: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 494.098 ; gain = 213.688
+Command: synth_design -top bert_tiny_uart_ust -part xc7a35tcpg236-1 -flatten_hierarchy rebuilt
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 26020
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1175.129 ; gain = 491.535
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6901] identifier 'GAMMA_GENISLIGI' is used before its declaration [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:26]
+WARNING: [Synth 8-6901] identifier 'tablo_adresi' is used before its declaration [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/softmax_birim.v:73]
+INFO: [Synth 8-6157] synthesizing module 'bert_tiny_uart_ust' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bert_tiny_uart_ust.v:4]
+INFO: [Synth 8-6157] synthesizing module 'uart_alici' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/uart_alici.v:3]
+	Parameter CLKS_PER_BIT bound to: 109 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_alici' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/uart_alici.v:3]
+INFO: [Synth 8-6157] synthesizing module 'uart_verici' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/uart_verici.v:3]
+	Parameter CLKS_PER_BIT bound to: 109 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'uart_verici' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/uart_verici.v:3]
+INFO: [Synth 8-6157] synthesizing module 'bert_tiny_ust' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bert_tiny_ust.v:12]
+INFO: [Synth 8-6157] synthesizing module 'veri_yolu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/veri_yolu.v:12]
+INFO: [Synth 8-6157] synthesizing module 'dogrusal_katman' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/dogrusal_katman.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cift_kapili_bellek' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cift_kapili_bellek.v:7]
+	Parameter ADRES_GENISLIGI bound to: 12 - type: integer 
+	Parameter VERI_GENISLIGI bound to: 64 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cift_kapili_bellek' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cift_kapili_bellek.v:7]
+INFO: [Synth 8-6157] synthesizing module 'panel_tamponu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/panel_tamponu.v:11]
+	Parameter K_ENFAZLA bound to: 512 - type: integer 
+	Parameter K_GENISLIGI bound to: 11 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'panel_tamponu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/panel_tamponu.v:11]
+INFO: [Synth 8-6157] synthesizing module 'tile_denetleyici' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/tile_denetleyici.v:26]
+	Parameter DIZI_BOYUTU bound to: 8 - type: integer 
+	Parameter BLOK_SAYISI bound to: 8 - type: integer 
+	Parameter K_GENISLIGI bound to: 11 - type: integer 
+	Parameter PANEL_GENISLIGI bound to: 7 - type: integer 
+	Parameter ADRES_GENISLIGI bound to: 12 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'sistolik_dizi' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/sistolik_dizi.v:22]
+	Parameter DIZI_BOYUTU bound to: 8 - type: integer 
+	Parameter A_GENISLIGI bound to: 9 - type: integer 
+	Parameter B_GENISLIGI bound to: 8 - type: integer 
+	Parameter BIRIKEC_GENISLIGI bound to: 32 - type: integer 
+	Parameter K_GENISLIGI bound to: 11 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'islem_elemani' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/islem_elemani.v:19]
+	Parameter A_GENISLIGI bound to: 9 - type: integer 
+	Parameter B_GENISLIGI bound to: 8 - type: integer 
+	Parameter BIRIKEC_GENISLIGI bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'islem_elemani' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/islem_elemani.v:19]
+INFO: [Synth 8-6155] done synthesizing module 'sistolik_dizi' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/sistolik_dizi.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'tile_denetleyici' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/tile_denetleyici.v:26]
+INFO: [Synth 8-6157] synthesizing module 'yeniden_olcekle' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/yeniden_olcekle.v:14]
+	Parameter META_W bound to: 18 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'yeniden_olcekle' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/yeniden_olcekle.v:14]
+INFO: [Synth 8-6157] synthesizing module 'gelu_tablosu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/gelu_tablosu.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'gelu_tablosu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/gelu_tablosu.v:7]
+INFO: [Synth 8-6157] synthesizing module 'cikis_sozcuk_toplayici' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cikis_sozcuk_toplayici.v:8]
+	Parameter ADRES_GENISLIGI bound to: 12 - type: integer 
+	Parameter PANEL_GENISLIGI bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cikis_sozcuk_toplayici' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cikis_sozcuk_toplayici.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'dogrusal_katman' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/dogrusal_katman.v:11]
+INFO: [Synth 8-6157] synthesizing module 'softmax_birim' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/softmax_birim.v:13]
+	Parameter SATIR_UZUNLUGU bound to: 64 - type: integer 
+	Parameter SATIR_UZUNLUGU_LOG2 bound to: 6 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'ters_bolucu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:18]
+	Parameter PAY_GENISLIGI bound to: 24 - type: integer 
+	Parameter BOLEN_GENISLIGI bound to: 22 - type: integer 
+	Parameter BOLUM_GENISLIGI bound to: 8 - type: integer 
+	Parameter YAN_GENISLIGI bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'seri_bolucu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v:7]
+	Parameter GENISLIK bound to: 25 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'seri_bolucu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ters_bolucu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'softmax_birim' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/softmax_birim.v:13]
+INFO: [Synth 8-6157] synthesizing module 'sonuc_tamponu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/sonuc_tamponu.v:8]
+	Parameter DERINLIK bound to: 64 - type: integer 
+	Parameter ADRES_GENISLIGI bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sonuc_tamponu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/sonuc_tamponu.v:8]
+INFO: [Synth 8-6157] synthesizing module 'layernorm_birim' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:15]
+	Parameter KANAL_SAYISI bound to: 128 - type: integer 
+	Parameter KANAL_SAYISI_LOG2 bound to: 7 - type: integer 
+	Parameter GIRIS_GENISLIGI bound to: 18 - type: integer 
+	Parameter KESIR_BITI bound to: 12 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'ters_bolucu__parameterized0' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:18]
+	Parameter PAY_GENISLIGI bound to: 31 - type: integer 
+	Parameter BOLEN_GENISLIGI bound to: 20 - type: integer 
+	Parameter BOLUM_GENISLIGI bound to: 17 - type: integer 
+	Parameter YAN_GENISLIGI bound to: 9 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'seri_bolucu__parameterized0' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v:7]
+	Parameter GENISLIK bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'seri_bolucu__parameterized0' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ters_bolucu__parameterized0' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'layernorm_birim' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:15]
+INFO: [Synth 8-6157] synthesizing module 'sonuc_tamponu__parameterized0' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/sonuc_tamponu.v:8]
+	Parameter DERINLIK bound to: 128 - type: integer 
+	Parameter ADRES_GENISLIGI bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sonuc_tamponu__parameterized0' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/sonuc_tamponu.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'veri_yolu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/veri_yolu.v:12]
+INFO: [Synth 8-6157] synthesizing module 'komut_cozucu' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/komut_cozucu.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'komut_cozucu' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/komut_cozucu.v:23]
+INFO: [Synth 8-6157] synthesizing module 'kontrol_birimi' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/kontrol_birimi.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'kontrol_birimi' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/kontrol_birimi.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'bert_tiny_ust' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bert_tiny_ust.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'bert_tiny_uart_ust' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bert_tiny_uart_ust.v:4]
+WARNING: [Synth 8-6014] Unused sequential element kaydirma_indeks_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:143]
+WARNING: [Synth 8-6014] Unused sequential element softmax_gecikme_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/kontrol_birimi.v:156]
+WARNING: [Synth 8-6014] Unused sequential element layernorm_gecikme_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/kontrol_birimi.v:157]
+WARNING: [Synth 8-7129] Port baslik_yazmaci[79] in module komut_cozucu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port baslik_yazmaci[78] in module komut_cozucu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port baslik_yazmaci[71] in module komut_cozucu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port panel_yaz_adres[10] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port panel_yaz_adres[9] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port agirlik_oku_adres[10] in module panel_tamponu is either unconnected or has no load
+WARNING: [Synth 8-7129] Port agirlik_oku_adres[9] in module panel_tamponu is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1324.746 ; gain = 641.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1324.746 ; gain = 641.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1324.746 ; gain = 641.152
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.302 . Memory (MB): peak = 1324.746 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/rumey/Documents/biitirme-projem/03-RTL/sentez/cikti/yenimimari_p6_67.xdc]
+Finished Parsing XDC File [C:/Users/rumey/Documents/biitirme-projem/03-RTL/sentez/cikti/yenimimari_p6_67.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/rumey/Documents/biitirme-projem/03-RTL/sentez/cikti/yenimimari_p6_67.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/bert_tiny_uart_ust_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/bert_tiny_uart_ust_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1396.441 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.098 . Memory (MB): peak = 1396.441 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 1396.441 ; gain = 712.848
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 1396.441 ; gain = 712.848
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 1396.441 ; gain = 712.848
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'durum_reg' in module 'uart_alici'
+INFO: [Synth 8-802] inferred FSM for state register 'durum_reg' in module 'tile_denetleyici'
+INFO: [Synth 8-802] inferred FSM for state register 'durum_reg' in module 'softmax_birim'
+INFO: [Synth 8-802] inferred FSM for state register 'istek_durumu_reg' in module 'kontrol_birimi'
+INFO: [Synth 8-802] inferred FSM for state register 'yanit_durumu_reg' in module 'kontrol_birimi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE1 |                               00 |                               00
+                  iSTATE |                               01 |                               01
+                 iSTATE2 |                               10 |                               10
+                 iSTATE0 |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'durum_reg' using encoding 'sequential' in module 'uart_alici'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+             DURUM_BOSTA |                            00001 |                              000
+       DURUM_PANEL_BEKLE |                            10000 |                              001
+             DURUM_BESLE |                            01000 |                              010
+        DURUM_TILE_BEKLE |                            00100 |                              011
+             DURUM_BITIR |                            00010 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'durum_reg' using encoding 'one-hot' in module 'tile_denetleyici'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+             DURUM_BOSTA |                              000 |                             0000
+             DURUM_YUKLE |                              110 |                             0001
+              DURUM_FARK |                              101 |                             0010
+       DURUM_TERS_BASLAT |                              100 |                             0101
+        DURUM_TERS_BEKLE |                              011 |                             0110
+             DURUM_CIKTI |                              001 |                             0111
+            DURUM_BOSALT |                              010 |                             1001
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'durum_reg' using encoding 'sequential' in module 'softmax_birim'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 P_KOMUT |                            00001 |                              000
+           P_UZUNLUK_ALT |                            00010 |                              001
+           P_UZUNLUK_UST |                            00100 |                              010
+                   P_YUK |                            01000 |                              011
+                   P_CRC |                            10000 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'istek_durumu_reg' using encoding 'one-hot' in module 'kontrol_birimi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 Y_BOSTA |                             0000 |                             0000
+                   Y_TUR |                             0001 |                             0001
+                 Y_KOMUT |                             0010 |                             0010
+            Y_KOD_UZ_ALT |                             0011 |                             0011
+                Y_UZ_UST |                             0100 |                             0100
+            Y_DURUM_BAYT |                             0101 |                             0101
+            Y_OKU_BEKLE1 |                             0110 |                             0111
+            Y_OKU_BEKLE2 |                             0111 |                             1000
+                Y_SOZCUK |                             1000 |                             1001
+                   Y_CRC |                             1001 |                             0110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'yanit_durumu_reg' using encoding 'sequential' in module 'kontrol_birimi'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 1396.441 ; gain = 712.848
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   67 Bit       Adders := 1     
+	   2 Input   66 Bit       Adders := 2     
+	   2 Input   64 Bit       Adders := 1     
+	   2 Input   45 Bit       Adders := 2     
+	   2 Input   40 Bit       Adders := 2     
+	   3 Input   40 Bit       Adders := 1     
+	   3 Input   39 Bit       Adders := 1     
+	   3 Input   34 Bit       Adders := 1     
+	   3 Input   33 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 2     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input   31 Bit       Adders := 1     
+	   3 Input   26 Bit       Adders := 1     
+	   2 Input   26 Bit       Adders := 1     
+	   2 Input   25 Bit       Adders := 1     
+	   2 Input   22 Bit       Adders := 1     
+	   2 Input   21 Bit       Adders := 1     
+	   3 Input   19 Bit       Adders := 2     
+	   2 Input   17 Bit       Adders := 4     
+	   2 Input   16 Bit       Adders := 6     
+	   2 Input   12 Bit       Adders := 2     
+	   3 Input   12 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 6     
+	   2 Input    7 Bit       Adders := 5     
+	   2 Input    6 Bit       Adders := 5     
+	   2 Input    4 Bit       Adders := 7     
+	   2 Input    3 Bit       Adders := 1     
++---XORs : 
+	   2 Input      8 Bit         XORs := 34    
++---Registers : 
+	             2048 Bit    Registers := 1     
+	               80 Bit    Registers := 1     
+	               72 Bit    Registers := 1     
+	               67 Bit    Registers := 1     
+	               66 Bit    Registers := 3     
+	               64 Bit    Registers := 12    
+	               63 Bit    Registers := 3     
+	               58 Bit    Registers := 2     
+	               56 Bit    Registers := 2     
+	               54 Bit    Registers := 1     
+	               50 Bit    Registers := 1     
+	               49 Bit    Registers := 1     
+	               48 Bit    Registers := 2     
+	               45 Bit    Registers := 2     
+	               40 Bit    Registers := 7     
+	               36 Bit    Registers := 1     
+	               34 Bit    Registers := 2     
+	               33 Bit    Registers := 2     
+	               32 Bit    Registers := 77    
+	               31 Bit    Registers := 9     
+	               27 Bit    Registers := 1     
+	               26 Bit    Registers := 1     
+	               25 Bit    Registers := 6     
+	               24 Bit    Registers := 8     
+	               22 Bit    Registers := 2     
+	               21 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
+	               19 Bit    Registers := 3     
+	               18 Bit    Registers := 9     
+	               17 Bit    Registers := 5     
+	               16 Bit    Registers := 16    
+	               12 Bit    Registers := 5     
+	               11 Bit    Registers := 6     
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 74    
+	                8 Bit    Registers := 95    
+	                7 Bit    Registers := 18    
+	                6 Bit    Registers := 12    
+	                4 Bit    Registers := 10    
+	                3 Bit    Registers := 5     
+	                2 Bit    Registers := 10    
+	                1 Bit    Registers := 135   
++---Multipliers : 
+	              32x32  Multipliers := 1     
+	              31x32  Multipliers := 1     
+	              24x34  Multipliers := 1     
+	              17x33  Multipliers := 1     
+	              16x33  Multipliers := 1     
++---RAMs : 
+	             256K Bit	(4096 X 64 bit)          RAMs := 2     
+	              64K Bit	(1024 X 64 bit)          RAMs := 1     
+	               8K Bit	(512 X 16 bit)          RAMs := 1     
+	               2K Bit	(64 X 32 bit)          RAMs := 1     
+	               2K Bit	(128 X 16 bit)          RAMs := 2     
+	               2K Bit	(128 X 18 bit)          RAMs := 1     
+	             1024 Bit	(64 X 16 bit)          RAMs := 1     
+	             1024 Bit	(128 X 8 bit)          RAMs := 1     
+	              512 Bit	(64 X 8 bit)          RAMs := 1     
+	              256 Bit	(8 X 32 bit)          RAMs := 2     
+	              248 Bit	(8 X 31 bit)          RAMs := 2     
+	               64 Bit	(64 X 1 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   80 Bit        Muxes := 1     
+	   2 Input   64 Bit        Muxes := 3     
+	   2 Input   56 Bit        Muxes := 2     
+	  12 Input   45 Bit        Muxes := 1     
+	  12 Input   40 Bit        Muxes := 4     
+	   2 Input   40 Bit        Muxes := 1     
+	   2 Input   39 Bit        Muxes := 1     
+	   7 Input   34 Bit        Muxes := 1     
+	   2 Input   33 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 3     
+	   2 Input   31 Bit        Muxes := 2     
+	   2 Input   26 Bit        Muxes := 1     
+	   2 Input   25 Bit        Muxes := 1     
+	  12 Input   25 Bit        Muxes := 1     
+	   2 Input   22 Bit        Muxes := 1     
+	   7 Input   22 Bit        Muxes := 1     
+	  12 Input   21 Bit        Muxes := 1     
+	   2 Input   17 Bit        Muxes := 1     
+	   4 Input   16 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 9     
+	   2 Input   12 Bit        Muxes := 3     
+	   5 Input   12 Bit        Muxes := 1     
+	   5 Input   11 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 17    
+	   2 Input    8 Bit        Muxes := 49    
+	   5 Input    8 Bit        Muxes := 1     
+	   5 Input    7 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 1     
+	   7 Input    7 Bit        Muxes := 1     
+	   5 Input    5 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 5     
+	   2 Input    4 Bit        Muxes := 10    
+	   5 Input    4 Bit        Muxes := 1     
+	   7 Input    4 Bit        Muxes := 2     
+	  12 Input    4 Bit        Muxes := 1     
+	   3 Input    4 Bit        Muxes := 1     
+	  10 Input    4 Bit        Muxes := 1     
+	   4 Input    3 Bit        Muxes := 1     
+	   7 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 1     
+	  10 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 9     
+	   3 Input    2 Bit        Muxes := 3     
+	  12 Input    2 Bit        Muxes := 1     
+	   6 Input    2 Bit        Muxes := 1     
+	   5 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 92    
+	   4 Input    1 Bit        Muxes := 6     
+	   3 Input    1 Bit        Muxes := 1     
+	   5 Input    1 Bit        Muxes := 24    
+	   7 Input    1 Bit        Muxes := 7     
+	  12 Input    1 Bit        Muxes := 15    
+	  10 Input    1 Bit        Muxes := 13    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+DSP Report: Generating DSP birikec_reg, operation Mode is: (P+A*B)'.
+DSP Report: register birikec_reg is absorbed into DSP birikec_reg.
+DSP Report: operator birikec0 is absorbed into DSP birikec_reg.
+DSP Report: operator carpim is absorbed into DSP birikec_reg.
+WARNING: [Synth 8-3936] Found unconnected internal register 'u_yeniden_olcekle/yan_bilgi_cikis_reg' and it is trimmed from '18' to '17' bits. [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/yeniden_olcekle.v:48]
+WARNING: [Synth 8-3936] Found unconnected internal register 'u_yeniden_olcekle/asama3_yan_bilgi_reg' and it is trimmed from '18' to '17' bits. [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/yeniden_olcekle.v:46]
+WARNING: [Synth 8-3936] Found unconnected internal register 'u_yeniden_olcekle/asama2_yan_bilgi_reg' and it is trimmed from '18' to '17' bits. [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/yeniden_olcekle.v:44]
+WARNING: [Synth 8-3936] Found unconnected internal register 'u_yeniden_olcekle/asama1_yan_bilgi_reg' and it is trimmed from '18' to '17' bits. [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/yeniden_olcekle.v:42]
+DSP Report: Generating DSP u_yeniden_olcekle/carpim, operation Mode is: A''*B.
+DSP Report: register u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim.
+DSP Report: register u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim.
+DSP Report: operator u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim.
+DSP Report: operator u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim.
+DSP Report: Generating DSP u_yeniden_olcekle/carpim_kayit_reg, operation Mode is: (PCIN>>17)+A*B''.
+DSP Report: register olcek_m0_gecikmis1_reg is absorbed into DSP u_yeniden_olcekle/carpim_kayit_reg.
+DSP Report: register olcek_m0_gecikmis2_reg is absorbed into DSP u_yeniden_olcekle/carpim_kayit_reg.
+DSP Report: register u_yeniden_olcekle/carpim_kayit_reg is absorbed into DSP u_yeniden_olcekle/carpim_kayit_reg.
+DSP Report: operator u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim_kayit_reg.
+DSP Report: operator u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim_kayit_reg.
+DSP Report: Generating DSP u_yeniden_olcekle/carpim, operation Mode is: A*B''.
+DSP Report: register u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim.
+DSP Report: register u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim.
+DSP Report: operator u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim.
+DSP Report: operator u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim.
+DSP Report: Generating DSP u_yeniden_olcekle/carpim_kayit_reg, operation Mode is: (PCIN>>17)+A*B''.
+DSP Report: register olcek_m0_gecikmis1_reg is absorbed into DSP u_yeniden_olcekle/carpim_kayit_reg.
+DSP Report: register olcek_m0_gecikmis2_reg is absorbed into DSP u_yeniden_olcekle/carpim_kayit_reg.
+DSP Report: register u_yeniden_olcekle/carpim_kayit_reg is absorbed into DSP u_yeniden_olcekle/carpim_kayit_reg.
+DSP Report: operator u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim_kayit_reg.
+DSP Report: operator u_yeniden_olcekle/carpim is absorbed into DSP u_yeniden_olcekle/carpim_kayit_reg.
+WARNING: [Synth 8-6014] Unused sequential element pay_carpim2_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:75]
+WARNING: [Synth 8-3936] Found unconnected internal register 'pay_carpim2_reg' and it is trimmed from '48' to '32' bits. [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:75]
+DSP Report: Generating DSP pay_carpim1_reg, operation Mode is: (A2*B2)'.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: Generating DSP pay_carpim2_reg, operation Mode is: (PCIN>>17)+(A2*B2)'.
+DSP Report: register ters_deger_reg is absorbed into DSP pay_carpim2_reg.
+DSP Report: register pay_carpim2_reg is absorbed into DSP pay_carpim2_reg.
+DSP Report: register pay_carpim2_reg is absorbed into DSP pay_carpim2_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim2_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim2_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim2_reg.
+DSP Report: Generating DSP taslak_carpim4_reg, operation Mode is: (A*B2)'.
+DSP Report: register taslak_bolum3_reg is absorbed into DSP taslak_carpim4_reg.
+DSP Report: register taslak_carpim4_reg is absorbed into DSP taslak_carpim4_reg.
+DSP Report: operator taslak_carpim40 is absorbed into DSP taslak_carpim4_reg.
+DSP Report: Generating DSP kalan5_reg, operation Mode is: (C'-A:B)'.
+DSP Report: register kalan5_reg is absorbed into DSP kalan5_reg.
+DSP Report: register kalan5_reg is absorbed into DSP kalan5_reg.
+DSP Report: operator kalan_yeni is absorbed into DSP kalan5_reg.
+DSP Report: Generating DSP carpim1_reg, operation Mode is: (A2*B2)'.
+DSP Report: register carpim1_reg is absorbed into DSP carpim1_reg.
+DSP Report: register carpim1_reg is absorbed into DSP carpim1_reg.
+DSP Report: register carpim1_reg is absorbed into DSP carpim1_reg.
+DSP Report: operator carpim10 is absorbed into DSP carpim1_reg.
+DSP Report: operator carpim10 is absorbed into DSP carpim1_reg.
+DSP Report: Generating DSP carpim2_reg, operation Mode is: (PCIN>>17)+(A2*B2)'.
+DSP Report: register skor_farki_reg is absorbed into DSP carpim2_reg.
+DSP Report: register carpim2_reg is absorbed into DSP carpim2_reg.
+DSP Report: register carpim2_reg is absorbed into DSP carpim2_reg.
+DSP Report: register carpim1_reg is absorbed into DSP carpim2_reg.
+DSP Report: operator carpim10 is absorbed into DSP carpim2_reg.
+DSP Report: operator carpim10 is absorbed into DSP carpim2_reg.
+DSP Report: Generating DSP pay_kayit_reg, operation Mode is: C+A*(B:0xff).
+DSP Report: register pay_kayit_reg is absorbed into DSP pay_kayit_reg.
+DSP Report: operator pay_hesap is absorbed into DSP pay_kayit_reg.
+DSP Report: operator pay_hesap0 is absorbed into DSP pay_kayit_reg.
+WARNING: [Synth 8-6014] Unused sequential element pay_carpim10 was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v:91]
+WARNING: [Synth 8-6014] Unused sequential element u_ters_bolucu/bolum_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v:31]
+DSP Report: Generating DSP pay_carpim10, operation Mode is: A2*B.
+DSP Report: register pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: Generating DSP pay_carpim1_reg, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register ters_deger_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: Generating DSP pay_carpim10, operation Mode is: A2*B2.
+DSP Report: register pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: register pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim10.
+DSP Report: Generating DSP pay_carpim1_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register ters_deger_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: register pay_carpim1_reg is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: operator pay_carpim10 is absorbed into DSP pay_carpim1_reg.
+DSP Report: Generating DSP taslak_carpim4_reg, operation Mode is: (A*B'')'.
+DSP Report: register taslak_carpim4_reg is absorbed into DSP taslak_carpim4_reg.
+DSP Report: register taslak_bolum3_reg is absorbed into DSP taslak_carpim4_reg.
+DSP Report: register taslak_carpim4_reg is absorbed into DSP taslak_carpim4_reg.
+DSP Report: operator taslak_carpim40 is absorbed into DSP taslak_carpim4_reg.
+DSP Report: Generating DSP kalan5_reg, operation Mode is: (C'-A:B)'.
+DSP Report: register kalan5_reg is absorbed into DSP kalan5_reg.
+DSP Report: register kalan5_reg is absorbed into DSP kalan5_reg.
+DSP Report: operator kalan_yeni is absorbed into DSP kalan5_reg.
+DSP Report: Generating DSP gamma_carpim_reg, operation Mode is: (A''*B2)'.
+DSP Report: register gamma_gecikmis_reg is absorbed into DSP gamma_carpim_reg.
+DSP Report: register bolum_a_reg is absorbed into DSP gamma_carpim_reg.
+DSP Report: register bolum_b_reg is absorbed into DSP gamma_carpim_reg.
+DSP Report: register gamma_carpim_reg is absorbed into DSP gamma_carpim_reg.
+DSP Report: operator gamma_carpim0 is absorbed into DSP gamma_carpim_reg.
+DSP Report: Generating DSP olcek_carpim_ust0, operation Mode is: A*B2.
+DSP Report: register olcek_carpim_ust0 is absorbed into DSP olcek_carpim_ust0.
+DSP Report: operator olcek_carpim_ust0 is absorbed into DSP olcek_carpim_ust0.
+DSP Report: operator olcek_carpim_ust0 is absorbed into DSP olcek_carpim_ust0.
+DSP Report: Generating DSP olcek_carpim_ust_reg, operation Mode is: (PCIN>>17)+A*B2.
+DSP Report: register olcek_carpim_ust_reg is absorbed into DSP olcek_carpim_ust_reg.
+DSP Report: register olcek_carpim_ust_reg is absorbed into DSP olcek_carpim_ust_reg.
+DSP Report: operator olcek_carpim_ust0 is absorbed into DSP olcek_carpim_ust_reg.
+DSP Report: operator olcek_carpim_ust0 is absorbed into DSP olcek_carpim_ust_reg.
+DSP Report: Generating DSP olcek_carpim_alt0, operation Mode is: A*B2.
+DSP Report: register olcek_carpim_alt0 is absorbed into DSP olcek_carpim_alt0.
+DSP Report: operator olcek_carpim_alt0 is absorbed into DSP olcek_carpim_alt0.
+DSP Report: operator olcek_carpim_alt0 is absorbed into DSP olcek_carpim_alt0.
+DSP Report: Generating DSP olcek_carpim_alt_reg, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register olcek_carpim_alt_reg is absorbed into DSP olcek_carpim_alt_reg.
+DSP Report: register olcek_carpim_alt_reg is absorbed into DSP olcek_carpim_alt_reg.
+DSP Report: operator olcek_carpim_alt0 is absorbed into DSP olcek_carpim_alt_reg.
+DSP Report: operator olcek_carpim_alt0 is absorbed into DSP olcek_carpim_alt_reg.
+DSP Report: Generating DSP fark_karesi_kayit_reg, operation Mode is: (C' or 0)+A2*B2.
+DSP Report: register fark_karesi_kayit_reg is absorbed into DSP fark_karesi_kayit_reg.
+DSP Report: register fark_karesi_kayit_reg is absorbed into DSP fark_karesi_kayit_reg.
+DSP Report: register fark_karesi_kayit_reg is absorbed into DSP fark_karesi_kayit_reg.
+DSP Report: operator fark_karesi_kayit0 is absorbed into DSP fark_karesi_kayit_reg.
+DSP Report: operator fark_karesi_kayit0 is absorbed into DSP fark_karesi_kayit_reg.
+WARNING: [Synth 8-7129] Port panel_yaz_adres[10] in module dogrusal_katman is either unconnected or has no load
+WARNING: [Synth 8-7129] Port panel_yaz_adres[9] in module dogrusal_katman is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[47]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[46]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[45]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[44]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[43]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[42]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[41]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[40]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[39]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[38]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[37]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[36]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[35]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[34]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[33]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[32]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[31]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[30]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[29]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[28]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[27]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[26]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[25]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[24]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[23]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[22]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[21]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[20]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[19]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[18]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[17]) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[47]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[46]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[45]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[44]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[43]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[42]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[41]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[40]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[39]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[38]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[37]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[36]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[35]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[34]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[33]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[32]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[31]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[30]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[29]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[28]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[27]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[26]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[25]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[24]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[23]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[22]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[21]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[20]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[19]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[18]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_yeniden_olcekle/carpim_kayit_reg[17]__0) is unused and will be removed from module dogrusal_katman.
+WARNING: [Synth 8-3332] Sequential element (u_ters_bolucu/u_ters_bolucu/bolum_reg) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[47]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[46]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[45]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[44]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[43]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[42]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[41]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[40]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[39]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[38]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[37]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[36]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[35]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[34]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[33]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[32]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[31]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[30]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[29]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[28]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[27]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[26]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[25]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[24]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[23]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[22]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[21]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[20]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[19]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[18]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[17]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[15]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[14]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[13]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[12]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[11]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carpim2_reg[10]) is unused and will be removed from module softmax_birim.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:36 . Memory (MB): peak = 1506.465 ; gain = 822.871
+---------------------------------------------------------------------------------
+ Sort Area is  carpim1_reg_4e : 0 0 : 3537 7135 : Used 1 time 100
+ Sort Area is  carpim1_reg_4e : 0 1 : 3598 7135 : Used 1 time 100
+ Sort Area is  pay_carpim1_reg_47 : 0 0 : 3537 5204 : Used 1 time 100
+ Sort Area is  pay_carpim1_reg_47 : 0 1 : 1667 5204 : Used 1 time 100
+ Sort Area is  pay_carpim10_52 : 0 0 : 2737 5165 : Used 1 time 100
+ Sort Area is  pay_carpim10_52 : 0 1 : 2428 5165 : Used 1 time 100
+ Sort Area is  pay_carpim10_55 : 0 0 : 2210 4292 : Used 1 time 100
+ Sort Area is  pay_carpim10_55 : 0 1 : 2082 4292 : Used 1 time 100
+ Sort Area is  fark_karesi_kayit_reg_64 : 0 0 : 2827 2827 : Used 1 time 100
+ Sort Area is  taslak_carpim4_reg_58 : 0 0 : 2552 2552 : Used 1 time 100
+ Sort Area is  taslak_carpim4_reg_4a : 0 0 : 1234 1234 : Used 1 time 100
+ Sort Area is  birikec_reg_0 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_10 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_11 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_12 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_13 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_14 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_15 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_16 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_17 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_18 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_19 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1a : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1b : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1c : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1d : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1e : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_1f : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_20 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_21 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_22 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_23 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_24 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_25 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_26 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_27 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_28 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_29 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2a : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2b : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2c : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2d : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2e : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_2f : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_30 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_31 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_32 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_33 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_34 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_35 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_36 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_37 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_38 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_39 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3a : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3b : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3c : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3d : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3e : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_3f : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_4 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_40 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_5 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_6 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_7 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_8 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_9 : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_a : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_b : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_c : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_d : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_e : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  birikec_reg_f : 0 0 : 645 645 : Used 1 time 100
+ Sort Area is  kalan5_reg_5a : 0 0 : 334 334 : Used 1 time 100
+ Sort Area is  kalan5_reg_4c : 0 0 : 271 271 : Used 1 time 100
+ Sort Area is  u_yeniden_olcekle/carpim_41 : 0 0 : 3137 5868 : Used 1 time 0
+ Sort Area is  u_yeniden_olcekle/carpim_41 : 0 1 : 2731 5868 : Used 1 time 0
+ Sort Area is  olcek_carpim_alt0_5e : 0 0 : 3034 5820 : Used 1 time 0
+ Sort Area is  olcek_carpim_alt0_5e : 0 1 : 2786 5820 : Used 1 time 0
+ Sort Area is  u_yeniden_olcekle/carpim_44 : 0 0 : 2670 5233 : Used 1 time 0
+ Sort Area is  u_yeniden_olcekle/carpim_44 : 0 1 : 2563 5233 : Used 1 time 0
+ Sort Area is  olcek_carpim_ust0_61 : 0 0 : 2320 4467 : Used 1 time 0
+ Sort Area is  olcek_carpim_ust0_61 : 0 1 : 2147 4467 : Used 1 time 0
+ Sort Area is  gamma_carpim_reg_5c : 0 0 : 2117 2117 : Used 1 time 0
+ Sort Area is  pay_kayit_reg_50 : 0 0 : 556 556 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++--------------------------------------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                                 | RTL Object                           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++--------------------------------------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_aktivasyon_bellegi/bellek_reg      | 4 K x 64(READ_FIRST)   | W |   | 4 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 1      | 7      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_cikis_bellegi/bellek_reg           | 4 K x 64(READ_FIRST)   | W |   | 4 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 1      | 7      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_panel_tamponu/agirlik_reg          | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_bert_tiny/u_veri_yolu /u_softmax         | skor_tamponu_reg                     | 64 x 32(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
+|\u_bert_tiny/u_veri_yolu /u_softmax         | us_tablosu_reg                       | 512 x 16(READ_FIRST)   | W |   | 512 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|\u_bert_tiny/u_veri_yolu /u_layernorm       | beta_tablosu_reg                     | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|\u_bert_tiny/u_veri_yolu /u_layernorm       | gamma_tablosu_reg                    | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|\u_bert_tiny/u_veri_yolu                    | u_layernorm_sonuc_tamponu/bellek_reg | 128 x 8(READ_FIRST)    | W |   | 128 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
++--------------------------------------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++--------------------------------------------+------------------------------------+-----------+----------------------+-----------------+
+|Module Name                                 | RTL Object                         | Inference | Size (Depth x Width) | Primitives      | 
++--------------------------------------------+------------------------------------+-----------+----------------------+-----------------+
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_panel_tamponu/bias_tampon0_reg   | Implied   | 8 x 32               | RAM32M x 6      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_panel_tamponu/bias_tampon1_reg   | Implied   | 8 x 32               | RAM32M x 6      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_panel_tamponu/m0_tampon0_reg     | Implied   | 8 x 31               | RAM32M x 6      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_panel_tamponu/m0_tampon1_reg     | Implied   | 8 x 31               | RAM32M x 6      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_gelu_tablosu/tablo_reg           | Implied   | 256 x 8              | RAM64M x 12     | 
+|\u_bert_tiny/u_veri_yolu /u_softmax         | maske_tamponu_reg                  | Implied   | 64 x 1               | RAM64X1S x 1    | 
+|\u_bert_tiny/u_veri_yolu /u_softmax         | us_tamponu_reg                     | Implied   | 64 x 16              | RAM64M x 6      | 
+|\u_bert_tiny/u_veri_yolu /u_layernorm       | giris_tamponu_reg                  | Implied   | 128 x 18             | RAM128X1S x 18  | 
+|\u_bert_tiny/u_veri_yolu                    | u_softmax_sonuc_tamponu/bellek_reg | Implied   | 64 x 8               | RAM64M x 3      | 
++--------------------------------------------+------------------------------------+-----------+----------------------+-----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++----------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping         | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A*B)'            | 9      | 8      | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|dogrusal_katman | A''*B               | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|dogrusal_katman | (PCIN>>17)+A*B''    | 15     | 15     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|dogrusal_katman | A*B''               | 18     | 18     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 0    | 
+|dogrusal_katman | (PCIN>>17)+A*B''    | 18     | 15     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu     | (A2*B2)'            | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|ters_bolucu     | (PCIN>>17)+(A2*B2)' | 25     | 9      | -      | -      | 32     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|ters_bolucu     | (A*B2)'             | 22     | 8      | -      | -      | 30     | 0    | 1    | -    | -    | -     | 1    | 0    | 
+|ters_bolucu     | (C'-A:B)'           | 13     | 18     | 25     | -      | 31     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
+|softmax_birim   | (A2*B2)'            | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|softmax_birim   | (PCIN>>17)+(A2*B2)' | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|softmax_birim   | C+A*(B:0xff)        | 16     | 8      | 21     | -      | 24     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
+|ters_bolucu     | A2*B                | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|ters_bolucu     | (PCIN>>17)+A2*B     | 16     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu     | A2*B2               | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|ters_bolucu     | (PCIN>>17)+A2*B2    | 18     | 16     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu     | (A*B'')'            | 20     | 17     | -      | -      | 37     | 0    | 2    | -    | -    | -     | 1    | 0    | 
+|ters_bolucu     | (C'-A:B)'           | 20     | 18     | 32     | -      | 38     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
+|layernorm_birim | (A''*B2)'           | 17     | 16     | -      | -      | 33     | 2    | 1    | -    | -    | -     | 1    | 0    | 
+|layernorm_birim | A*B2                | 18     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17)+A*B2     | 16     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | A*B2                | 18     | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17)+A2*B     | 17     | 16     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | (C' or 0)+A2*B2     | 19     | 18     | 18     | -      | 37     | 1    | 1    | 1    | -    | -     | 0    | 1    | 
++----------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:48 ; elapsed = 00:01:55 . Memory (MB): peak = 1660.277 ; gain = 976.684
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:54 ; elapsed = 00:02:02 . Memory (MB): peak = 1706.512 ; gain = 1022.918
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++--------------------------------------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                                 | RTL Object                           | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++--------------------------------------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_aktivasyon_bellegi/bellek_reg      | 4 K x 64(READ_FIRST)   | W |   | 4 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 1      | 7      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_cikis_bellegi/bellek_reg           | 4 K x 64(READ_FIRST)   | W |   | 4 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 1      | 7      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_panel_tamponu/agirlik_reg          | 1 K x 64(READ_FIRST)   | W |   | 1 K x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|\u_bert_tiny/u_veri_yolu /u_softmax         | skor_tamponu_reg                     | 64 x 32(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
+|\u_bert_tiny/u_veri_yolu /u_softmax         | us_tablosu_reg                       | 512 x 16(READ_FIRST)   | W |   | 512 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|\u_bert_tiny/u_veri_yolu /u_layernorm       | beta_tablosu_reg                     | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|\u_bert_tiny/u_veri_yolu /u_layernorm       | gamma_tablosu_reg                    | 128 x 16(READ_FIRST)   | W |   | 128 x 16(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|\u_bert_tiny/u_veri_yolu                    | u_layernorm_sonuc_tamponu/bellek_reg | 128 x 8(READ_FIRST)    | W |   | 128 x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
++--------------------------------------------+--------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++--------------------------------------------+------------------------------------+-----------+----------------------+-----------------+
+|Module Name                                 | RTL Object                         | Inference | Size (Depth x Width) | Primitives      | 
++--------------------------------------------+------------------------------------+-----------+----------------------+-----------------+
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_panel_tamponu/bias_tampon0_reg   | Implied   | 8 x 32               | RAM32M x 6      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_panel_tamponu/bias_tampon1_reg   | Implied   | 8 x 32               | RAM32M x 6      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_panel_tamponu/m0_tampon0_reg     | Implied   | 8 x 31               | RAM32M x 6      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_panel_tamponu/m0_tampon1_reg     | Implied   | 8 x 31               | RAM32M x 6      | 
+|\u_bert_tiny/u_veri_yolu /u_dogrusal_katman | u_gelu_tablosu/tablo_reg           | Implied   | 256 x 8              | RAM64M x 12     | 
+|\u_bert_tiny/u_veri_yolu /u_softmax         | maske_tamponu_reg                  | Implied   | 64 x 1               | RAM64X1S x 1    | 
+|\u_bert_tiny/u_veri_yolu /u_softmax         | us_tamponu_reg                     | Implied   | 64 x 16              | RAM64M x 6      | 
+|\u_bert_tiny/u_veri_yolu /u_layernorm       | giris_tamponu_reg                  | Implied   | 128 x 18             | RAM128X1S x 18  | 
+|\u_bert_tiny/u_veri_yolu                    | u_softmax_sonuc_tamponu/bellek_reg | Implied   | 64 x 8               | RAM64M x 3      | 
++--------------------------------------------+------------------------------------+-----------+----------------------+-----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_aktivasyon_bellegi/bellek_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_aktivasyon_bellegi/bellek_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_aktivasyon_bellegi/bellek_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_aktivasyon_bellegi/bellek_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_aktivasyon_bellegi/bellek_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_aktivasyon_bellegi/bellek_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_aktivasyon_bellegi/bellek_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_aktivasyon_bellegi/bellek_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_cikis_bellegi/bellek_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_cikis_bellegi/bellek_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_cikis_bellegi/bellek_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_cikis_bellegi/bellek_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_cikis_bellegi/bellek_reg_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_cikis_bellegi/bellek_reg_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_cikis_bellegi/bellek_reg_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_cikis_bellegi/bellek_reg_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_panel_tamponu/agirlik_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_panel_tamponu/agirlik_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_softmax/skor_tamponu_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_softmax/skor_tamponu_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_softmax/us_tablosu_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_layernorm/beta_tablosu_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_layernorm/gamma_tablosu_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance u_bert_tiny/u_veri_yolu/u_layernorm_sonuc_tamponu/bellek_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:03 ; elapsed = 00:02:11 . Memory (MB): peak = 1753.793 ; gain = 1070.199
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:11 ; elapsed = 00:02:20 . Memory (MB): peak = 1947.469 ; gain = 1263.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:11 ; elapsed = 00:02:20 . Memory (MB): peak = 1947.469 ; gain = 1263.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:15 ; elapsed = 00:02:24 . Memory (MB): peak = 1947.469 ; gain = 1263.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:15 ; elapsed = 00:02:24 . Memory (MB): peak = 1947.469 ; gain = 1263.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:15 ; elapsed = 00:02:24 . Memory (MB): peak = 1963.730 ; gain = 1280.137
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:15 ; elapsed = 00:02:24 . Memory (MB): peak = 1963.730 ; gain = 1280.137
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++-------------------+-----------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name        | RTL Name                                                                                                              | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++-------------------+-----------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_yeniden_olcekle/yan_bilgi_cikis_reg[16]                                   | 4      | 14    | NO           | NO                 | YES               | 14     | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_yeniden_olcekle/yan_bilgi_cikis_reg[13]                                   | 4      | 3     | NO           | NO                 | NO                | 3      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_softmax/u_ters_bolucu/doygun5_reg                                                           | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_softmax/u_ters_bolucu/taslak_bolum5_reg[7]                                                  | 3      | 8     | NO           | NO                 | YES               | 8      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_softmax/u_ters_bolucu/pay3_reg[23]                                                          | 4      | 24    | NO           | NO                 | YES               | 24     | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/doygun5_reg                                                         | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/taslak_bolum5_reg[16]                                               | 4      | 17    | NO           | NO                 | YES               | 17     | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/pay3_reg[30]                                                        | 4      | 31    | NO           | NO                 | YES               | 31     | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/yan5_reg[8]                                                         | 6      | 9     | NO           | NO                 | NO                | 9      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_b_kaydirma[4].kaydirma_yazmaci_reg[31] | 4      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_b_kaydirma[5].kaydirma_yazmaci_reg[39] | 5      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_b_kaydirma[6].kaydirma_yazmaci_reg[47] | 6      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_b_kaydirma[7].kaydirma_yazmaci_reg[55] | 7      | 8     | YES          | NO                 | YES               | 8      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_a_kaydirma[4].kaydirma_yazmaci_reg[35] | 4      | 9     | YES          | NO                 | YES               | 9      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_a_kaydirma[5].kaydirma_yazmaci_reg[44] | 5      | 9     | YES          | NO                 | YES               | 9      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_a_kaydirma[6].kaydirma_yazmaci_reg[53] | 6      | 9     | YES          | NO                 | YES               | 9      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_a_kaydirma[7].kaydirma_yazmaci_reg[62] | 7      | 9     | YES          | NO                 | YES               | 9      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_yeniden_olcekle/cikis_gecerli_reg                                         | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_dogrusal_katman/bitis_gecikme_kaydirici_reg[5]                                              | 7      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_softmax/u_ters_bolucu/bolum_gecerli_reg                                                     | 8      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_softmax/asama5_indeks_reg[5]                                                                | 5      | 6     | YES          | NO                 | YES               | 6      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_softmax/asama5_gecerli_reg                                                                  | 5      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_softmax/asama5_maske_reg                                                                    | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_layernorm/yuvarlama_indeks_reg[6]                                                           | 6      | 7     | YES          | NO                 | YES               | 7      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_layernorm/beta_son_reg                                                                      | 9      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_layernorm/beta_gecerli_reg                                                                  | 19     | 1     | YES          | NO                 | YES               | 0      | 1       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_layernorm/hazirlik3_indeks_reg[6]                                                           | 4      | 7     | YES          | NO                 | YES               | 7      | 0       | 
+|bert_tiny_uart_ust | u_bert_tiny/u_veri_yolu/u_layernorm/hazirlik3_son_reg                                                                 | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
++-------------------+-----------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++----------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping          | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|islem_elemani   | (P+A'*B')'           | 30     | 18     | -      | -      | 32     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|islem_elemani   | (P+A''*B'')'         | 30     | 18     | -      | -      | 32     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|dogrusal_katman | A''*B'               | 17     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 0    | 
+|dogrusal_katman | (PCIN>>17+A'*B'')'   | 30     | 14     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 1    | 
+|dogrusal_katman | A'*B''               | 17     | 17     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 0    | 
+|dogrusal_katman | (PCIN>>17+A*B'')'    | 0      | 14     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | (A''*B')'            | 30     | 18     | -      | -      | 33     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | A*B'                 | 17     | 15     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17+A*B)'      | 30     | 0      | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | A*B'                 | 17     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17+A'*B)'     | 16     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | Dynamic              | -      | -      | -      | -      | 37     | -    | -    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu     | A'*B'                | 17     | 14     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|ters_bolucu     | (PCIN>>17+A'*B')'    | 15     | 14     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu     | A'*B'                | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|ters_bolucu     | (PCIN>>17+A'*B')'    | 17     | 15     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu     | (A*B'')'             | 20     | 17     | -      | -      | 37     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu     | (C'-(A:B))'          | 19     | 18     | 31     | -      | 38     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
+|softmax_birim   | (A'*B')'             | 24     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|softmax_birim   | (PCIN>>17+(A*B')')'  | 0      | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 1    | 1    | 
+|softmax_birim   | (C'+A*B)'            | 16     | 8      | 21     | -      | 24     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
+|ters_bolucu     | (A'*B')'             | 24     | 17     | -      | -      | 0      | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu     | (PCIN>>17+(A'*B')')' | 24     | 8      | -      | -      | 32     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|ters_bolucu     | (A*B')'              | 22     | 8      | -      | -      | 30     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|ters_bolucu     | (C'-(A:B))'          | 12     | 18     | 24     | -      | 31     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
++----------------+----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |BUFG      |     1|
+|2     |CARRY4    |   374|
+|3     |DSP48E1   |    87|
+|21    |LUT1      |    81|
+|22    |LUT2      |  1363|
+|23    |LUT3      |   563|
+|24    |LUT4      |   343|
+|25    |LUT5      |   405|
+|26    |LUT6      |  1244|
+|27    |MUXF7     |   257|
+|28    |MUXF8     |   128|
+|29    |RAM128X1S |    18|
+|30    |RAM32M    |    20|
+|31    |RAM32X1D  |     6|
+|32    |RAM64M    |    20|
+|33    |RAM64X1D  |     1|
+|34    |RAM64X1S  |     1|
+|35    |RAMB18E1  |     7|
+|38    |RAMB36E1  |    16|
+|40    |SRL16E    |   203|
+|41    |SRLC32E   |     1|
+|42    |FDRE      |  5964|
+|43    |FDSE      |    29|
+|44    |IBUF      |     3|
+|45    |OBUF      |     1|
++------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:15 ; elapsed = 00:02:24 . Memory (MB): peak = 1963.730 ; gain = 1280.137
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 262 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:53 ; elapsed = 00:02:17 . Memory (MB): peak = 1963.730 ; gain = 1208.441
+Synthesis Optimization Complete : Time (s): cpu = 00:02:15 ; elapsed = 00:02:24 . Memory (MB): peak = 1963.730 ; gain = 1280.137
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.220 . Memory (MB): peak = 1972.891 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 935 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/rumey/Documents/biitirme-projem/03-RTL/sentez/cikti/yenimimari_p6_67.xdc]
+Finished Parsing XDC File [C:/Users/rumey/Documents/biitirme-projem/03-RTL/sentez/cikti/yenimimari_p6_67.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1976.566 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 66 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 18 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 20 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 6 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 20 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 1 instance 
+  RAM64X1S => RAM64X1S (RAMS64E): 1 instance 
+
+Synth Design complete | Checksum: c5850018
+INFO: [Common 17-83] Releasing license: Synthesis
+98 Infos, 123 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:26 ; elapsed = 00:02:39 . Memory (MB): peak = 1976.566 ; gain = 1482.469
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1976.566 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 2eeb61727
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2040.914 ; gain = 64.348
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: 2eeb61727
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2434.055 ; gain = 0.000
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 2eeb61727
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Phase 1 Initialization | Checksum: 2eeb61727
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 2434.055 ; gain = 0.000
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: 2eeb61727
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.487 . Memory (MB): peak = 2434.055 ; gain = 0.000
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: 2eeb61727
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.521 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Phase 2 Timer Update And Timing Data Collection | Checksum: 2eeb61727
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.523 . Memory (MB): peak = 2434.055 ; gain = 0.000
+
+Phase 3 Retarget
+INFO: [Opt 31-1851] Number of loadless carry chains removed were: 0
+INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 25f609e74
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.909 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Retarget | Checksum: 25f609e74
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 1 cells
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Constant propagation | Checksum: 1f20de19a
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Constant propagation | Checksum: 1f20de19a
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 5 Sweep
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Phase 5 Sweep | Checksum: 1f6984cbf
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Sweep | Checksum: 1f6984cbf
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 6 BUFG optimization
+Phase 6 BUFG optimization | Checksum: 1f6984cbf
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2434.055 ; gain = 0.000
+BUFG optimization | Checksum: 1f6984cbf
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 1f6984cbf
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Shift Register Optimization | Checksum: 1f6984cbf
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: 1f6984cbf
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Post Processing Netlist | Checksum: 1f6984cbf
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 3357deb66
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2434.055 ; gain = 0.000
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 3357deb66
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Phase 9 Finalization | Checksum: 3357deb66
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2434.055 ; gain = 0.000
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               1  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 3357deb66
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2434.055 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 23 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 9 Total Ports: 46
+Number of Flops added for Enable Generation: 4
+
+Ending PowerOpt Patch Enables Task | Checksum: 2775b4008
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.190 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 2775b4008
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 2547.176 ; gain = 113.121
+
+Starting Final Cleanup Task
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Logic Optimization Task | Checksum: 29d2831c4
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Ending Final Cleanup Task | Checksum: 29d2831c4
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 29d2831c4
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2547.176 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+124 Infos, 123 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:42 . Memory (MB): peak = 2547.176 ; gain = 570.609
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1c563cd01
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1764af93c
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 1d5ac5ba0
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1d5ac5ba0
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 1d5ac5ba0
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 216fbdd59
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 262f08a02
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 262f08a02
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 2.4 Global Place Phase1
+Phase 2.4 Global Place Phase1 | Checksum: 1efa10f05
+
+Time (s): cpu = 00:00:27 ; elapsed = 00:00:21 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 2.5 Global Place Phase2
+
+Phase 2.5.1 UpdateTiming Before Physical Synthesis
+Phase 2.5.1 UpdateTiming Before Physical Synthesis | Checksum: 1cff3c89f
+
+Time (s): cpu = 00:00:29 ; elapsed = 00:00:22 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 2.5.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 7 LUTNM shape to break, 295 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 6, two critical 1, total 7, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 133 nets or LUTs. Breaked 7 LUTs, combined 126 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-457] Pass 1. Identified 3 candidate cells for DSP register optimization.
+INFO: [Physopt 32-665] Processed cell u_bert_tiny/u_veri_yolu/u_layernorm/gamma_carpim_reg. 33 registers were pushed out.
+INFO: [Physopt 32-665] Processed cell u_bert_tiny/u_veri_yolu/u_layernorm/gamma_carpim_reg. 17 registers were pushed out.
+INFO: [Physopt 32-665] Processed cell u_bert_tiny/u_veri_yolu/u_softmax/pay_kayit_reg. 21 registers were pushed out.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 3 nets or cells. Created 71 new cells, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 2547.176 ; gain = 0.000
+INFO: [Physopt 32-1123] No candidate cells found for Shift Register to Pipeline optimization
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1401] No candidate cells found for Shift Register optimization.
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            7  |            126  |                   133  |           0  |           1  |  00:00:00  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |           71  |              0  |                     3  |           0  |           1  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |           78  |            126  |                   136  |           0  |           9  |  00:00:01  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.5.2 Physical Synthesis In Placer | Checksum: 2014a0403
+
+Time (s): cpu = 00:00:32 ; elapsed = 00:00:25 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 2.5 Global Place Phase2 | Checksum: 210f6c77b
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:26 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 210f6c77b
+
+Time (s): cpu = 00:00:33 ; elapsed = 00:00:26 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 22d07ea20
+
+Time (s): cpu = 00:00:36 ; elapsed = 00:00:27 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 11dd39c18
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:30 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 122c6a058
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:30 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 17fb805f5
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:30 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 1ef236b5e
+
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:34 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: 1ec4645e3
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:38 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: 26ea44f5b
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:39 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 1b19fba6e
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:39 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 3.9 Fast Optimization
+Phase 3.9 Fast Optimization | Checksum: 28455b94b
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:44 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 28455b94b
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:44 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 2d104cbc5
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.108 | TNS=-8.868 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1fadcdae1
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.386 . Memory (MB): peak = 2547.176 ; gain = 0.000
+INFO: [Place 46-33] Processed net u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/bitti_reg_0[0], BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-33] Processed net u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/durum_reg[0], BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-56] BUFG insertion identified 2 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 2, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 300795d58
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.785 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 4.1.1.1 BUFG Insertion | Checksum: 2d104cbc5
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:50 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.140. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 20aee13ee
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:29 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:29 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 4.1 Post Commit Optimization | Checksum: 20aee13ee
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:30 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 20aee13ee
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:30 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                1x1|                2x2|
+|___________|___________________|___________________|
+|      South|                1x1|                2x2|
+|___________|___________________|___________________|
+|       East|                1x1|                1x1|
+|___________|___________________|___________________|
+|       West|                1x1|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 20aee13ee
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:30 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 4.3 Placer Reporting | Checksum: 20aee13ee
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:30 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:01:30 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 156511ddf
+
+Time (s): cpu = 00:01:42 ; elapsed = 00:01:30 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Ending Placer Task | Checksum: ea56d118
+
+Time (s): cpu = 00:01:42 ; elapsed = 00:01:30 . Memory (MB): peak = 2547.176 ; gain = 0.000
+166 Infos, 123 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:01:47 ; elapsed = 00:01:34 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 2547.176 ; gain = 0.000
+INFO: [Vivado_Tcl 4-2279] Estimated Timing Summary | WNS= 0.140 | TNS= 0.000 | 
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. All physical synthesis setup optimizations will be skipped.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+171 Infos, 123 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 2d533efc ConstDB: 0 ShapeSum: 1c8235c5 RouteDB: a0815c57
+Post Restoration Checksum: NetGraph: 72a76c75 | NumContArr: aa8208fe | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 2a27b6aad
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:45 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 2a27b6aad
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:46 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 2a27b6aad
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:46 . Memory (MB): peak = 2547.176 ; gain = 0.000
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 2c2a7098a
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:50 . Memory (MB): peak = 2547.176 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.071  | TNS=0.000  | WHS=-0.218 | THS=-110.393|
+
+
+Phase 2.4 Soft Constraint Pins - Fast Budgeting
+Phase 2.4 Soft Constraint Pins - Fast Budgeting | Checksum: 26cfe75af
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:52 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 11952
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 11952
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 23730c322
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:53 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 3 Global Routing
+Phase 3 Global Routing | Checksum: 23730c322
+
+Time (s): cpu = 00:00:59 ; elapsed = 00:00:53 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 4 Initial Routing
+
+Phase 4.1 Initial Net Routing Pass
+Phase 4.1 Initial Net Routing Pass | Checksum: 25082241b
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:59 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 4 Initial Routing | Checksum: 25082241b
+
+Time (s): cpu = 00:01:10 ; elapsed = 00:00:59 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 5 Rip-up And Reroute
+
+Phase 5.1 Global Iteration 0
+ Number of Nodes with overlaps = 1132
+ Number of Nodes with overlaps = 320
+ Number of Nodes with overlaps = 91
+ Number of Nodes with overlaps = 20
+ Number of Nodes with overlaps = 9
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.097 | TNS=-4.649 | WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Global Iteration 0 | Checksum: 2a45debde
+
+Time (s): cpu = 00:01:32 ; elapsed = 00:01:17 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 5.2 Global Iteration 1
+ Number of Nodes with overlaps = 85
+ Number of Nodes with overlaps = 12
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.097 | TNS=-4.649 | WHS=N/A    | THS=N/A    |
+
+Phase 5.2 Global Iteration 1 | Checksum: 257065964
+
+Time (s): cpu = 00:01:35 ; elapsed = 00:01:19 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 5 Rip-up And Reroute | Checksum: 257065964
+
+Time (s): cpu = 00:01:35 ; elapsed = 00:01:19 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 6 Delay and Skew Optimization
+
+Phase 6.1 Delay CleanUp
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 2128085ae
+
+Time (s): cpu = 00:01:36 ; elapsed = 00:01:20 . Memory (MB): peak = 2547.176 ; gain = 0.000
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.018 | TNS=-0.857 | WHS=N/A    | THS=N/A    |
+
+ Number of Nodes with overlaps = 0
+Phase 6.1 Delay CleanUp | Checksum: 2e9a2b30f
+
+Time (s): cpu = 00:01:36 ; elapsed = 00:01:20 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 6.2 Clock Skew Optimization
+Phase 6.2 Clock Skew Optimization | Checksum: 2e9a2b30f
+
+Time (s): cpu = 00:01:36 ; elapsed = 00:01:20 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 6 Delay and Skew Optimization | Checksum: 2e9a2b30f
+
+Time (s): cpu = 00:01:36 ; elapsed = 00:01:20 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 7 Post Hold Fix
+
+Phase 7.1 Hold Fix Iter
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.018 | TNS=-0.857 | WHS=0.013  | THS=0.000  |
+
+Phase 7.1 Hold Fix Iter | Checksum: 2082e37ce
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:21 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Phase 7 Post Hold Fix | Checksum: 2082e37ce
+
+Time (s): cpu = 00:01:37 ; elapsed = 00:01:21 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 8 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 7.8836 %
+  Global Horizontal Routing Utilization  = 7.20927 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+
+--GLOBAL Congestion:
+Utilization threshold used for congestion level computation: 0.85
+Congestion Report
+North Dir 1x1 Area, Max Cong = 84.6847%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 70.2703%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 94.1176%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_R_X9Y67 -> INT_R_X9Y67
+   INT_R_X9Y66 -> INT_R_X9Y66
+   INT_R_X9Y65 -> INT_R_X9Y65
+   INT_R_X9Y62 -> INT_R_X9Y62
+   INT_R_X9Y61 -> INT_R_X9Y61
+West Dir 1x1 Area, Max Cong = 66.1765%, No Congested Regions.
+
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 1 Aspect Ratio: 0.333333 Sparse Ratio: 0.75
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+
+Phase 8 Route finalize | Checksum: 2082e37ce
+
+Time (s): cpu = 00:01:38 ; elapsed = 00:01:21 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 9 Verifying routed nets
+
+ Verification completed successfully
+Phase 9 Verifying routed nets | Checksum: 2082e37ce
+
+Time (s): cpu = 00:01:38 ; elapsed = 00:01:21 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 10 Depositing Routes
+Phase 10 Depositing Routes | Checksum: 1a735968f
+
+Time (s): cpu = 00:01:39 ; elapsed = 00:01:22 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 11 Post Process Routing
+Phase 11 Post Process Routing | Checksum: 1a735968f
+
+Time (s): cpu = 00:01:39 ; elapsed = 00:01:22 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Phase 12 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-0.018 | TNS=-0.857 | WHS=0.013  | THS=0.000  |
+
+WARNING: [Route 35-328] Router estimated timing not met.
+Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
+Phase 12 Post Router Timing | Checksum: 1a735968f
+
+Time (s): cpu = 00:01:39 ; elapsed = 00:01:22 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Total Elapsed time in route_design: 82.138 secs
+
+Phase 13 Post-Route Event Processing
+Phase 13 Post-Route Event Processing | Checksum: c6d6eb1d
+
+Time (s): cpu = 00:01:39 ; elapsed = 00:01:22 . Memory (MB): peak = 2547.176 ; gain = 0.000
+INFO: [Route 35-16] Router Completed Successfully
+Ending Routing Task | Checksum: c6d6eb1d
+
+Time (s): cpu = 00:01:40 ; elapsed = 00:01:22 . Memory (MB): peak = 2547.176 ; gain = 0.000
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+181 Infos, 124 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:40 ; elapsed = 00:01:23 . Memory (MB): peak = 2547.176 ; gain = 0.000
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 20 -nworst 1 -delay_type max -sort_by slack.
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.054 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Wrote PlaceDB: Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.348 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 2547.176 ; gain = 0.000
+Write Physdb Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 2547.176 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/rumey/Documents/biitirme-projem/03-RTL/sentez/cikti/yenimimari_p6_67_routed.dcp' has been generated.
+IMPL PERIYOT BITTI: bert_tiny_uart_ust 6.67 ns yenimimari_p6_67
+INFO: [Common 17-206] Exiting Vivado at Tue Nov  3 08:31:01 2026...

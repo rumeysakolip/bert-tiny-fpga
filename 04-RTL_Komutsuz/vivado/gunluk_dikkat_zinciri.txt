@@ -1,0 +1,27 @@
+
+****** xsim v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Thu Nov 12 01:29:26 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/dikkat/xsim_script.tcl
+# xsim {dikkat} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+==== DIKKAT ZINCIRI SINAMASI: Q.K^T -> olcekleme -> Softmax, 2 katman x 2 bas x 2 cumle, altin modelle bit-birebir ====
+[katman 0, cumle 0, bas 0] uzunluk=4 : skorlar BASARILI (4096 kontrol, 0 hata) | olasiliklar BASARILI (4096 kontrol, 0 hata) | cevrim: Q.K^T=5384 Softmax=16000
+[katman 0, cumle 0, bas 1] uzunluk=4 : skorlar BASARILI (4096 kontrol, 0 hata) | olasiliklar BASARILI (4096 kontrol, 0 hata) | cevrim: Q.K^T=5384 Softmax=16000
+[katman 0, cumle 1, bas 0] uzunluk=4 : skorlar BASARILI (4096 kontrol, 0 hata) | olasiliklar BASARILI (4096 kontrol, 0 hata) | cevrim: Q.K^T=5384 Softmax=16000
+[katman 0, cumle 1, bas 1] uzunluk=4 : skorlar BASARILI (4096 kontrol, 0 hata) | olasiliklar BASARILI (4096 kontrol, 0 hata) | cevrim: Q.K^T=5384 Softmax=16000
+[katman 1, cumle 0, bas 0] uzunluk=4 : skorlar BASARILI (4096 kontrol, 0 hata) | olasiliklar BASARILI (4096 kontrol, 0 hata) | cevrim: Q.K^T=5384 Softmax=16000
+[katman 1, cumle 0, bas 1] uzunluk=4 : skorlar BASARILI (4096 kontrol, 0 hata) | olasiliklar BASARILI (4096 kontrol, 0 hata) | cevrim: Q.K^T=5384 Softmax=16000
+[katman 1, cumle 1, bas 0] uzunluk=4 : skorlar BASARILI (4096 kontrol, 0 hata) | olasiliklar BASARILI (4096 kontrol, 0 hata) | cevrim: Q.K^T=5384 Softmax=16000
+[katman 1, cumle 1, bas 1] uzunluk=4 : skorlar BASARILI (4096 kontrol, 0 hata) | olasiliklar BASARILI (4096 kontrol, 0 hata) | cevrim: Q.K^T=5384 Softmax=16000
+----------------------------------------------
+DIKKAT ZINCIRI TEST: BASARILI  (8 is, 65536 kontrol, 0 hata, toplam 171072 cevrim)
+$finish called at time : 1874860 ns : File "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_dikkat_zinciri.v" Line 116
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Nov 12 01:29:30 2026...

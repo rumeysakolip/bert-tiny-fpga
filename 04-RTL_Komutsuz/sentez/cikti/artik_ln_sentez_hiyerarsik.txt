@@ -1,0 +1,35 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Thu Nov 12 02:31:38 2026
+| Host         : pc running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/sentez/cikti/artik_ln_sentez_hiyerarsik.txt
+| Design       : artik_ln_blogu
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Synthesized
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------+-----------------------+------------+------------+---------+------+------+--------+--------+------------+
+|        Instance       |         Module        | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------+-----------------------+------------+------------+---------+------+------+--------+--------+------------+
+| artik_ln_blogu        |                 (top) |       1563 |       1442 |      36 |   85 | 1407 |      0 |     12 |         16 |
+|   (artik_ln_blogu)    |                 (top) |        111 |        111 |       0 |    0 |  267 |      0 |     10 |          0 |
+|   u_ln                |    layernorm_birim_dz |       1140 |       1029 |      36 |   75 |  993 |      0 |      2 |         12 |
+|     (u_ln)            |    layernorm_birim_dz |        825 |        772 |      36 |   17 |  761 |      0 |      2 |          6 |
+|     u_ters_bolucu     |           ters_bolucu |        315 |        257 |       0 |   58 |  232 |      0 |      0 |          6 |
+|       (u_ters_bolucu) |           ters_bolucu |        239 |        181 |       0 |   58 |  154 |      0 |      0 |          6 |
+|       u_ters_bolucu   |           seri_bolucu |         76 |         76 |       0 |    0 |   78 |      0 |      0 |          0 |
+|   u_rs                | yeniden_olcekle_ortak |        312 |        302 |       0 |   10 |  147 |      0 |      0 |          4 |
++-----------------------+-----------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

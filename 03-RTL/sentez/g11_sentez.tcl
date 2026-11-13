@@ -2,7 +2,7 @@
 set part xc7a35tcpg236-1
 file mkdir sentez/cikti
 foreach {ust dosya} {softmax_birim softmax_birim layernorm_birim layernorm_birim} {
-    read_verilog rtl/bolucu_seri.v
+    read_verilog rtl/seri_bolucu.v
     read_verilog rtl/$dosya.v
     synth_design -top $ust -part $part -mode out_of_context -flatten_hierarchy rebuilt
     create_clock -period 10.0 [get_ports clk]

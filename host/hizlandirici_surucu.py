@@ -17,6 +17,20 @@ import time
 CMD = dict(CFG=1, YUKLE_AKT=2, YUKLE_PANEL=3, CALISTIR=4, OKU_AKT=5, DURUM=6, PANEL_HAZIR=7)
 HATA_KODU = {1: "CRC", 2: "bilinmeyen komut", 3: "uzunluk"}
 
+VARSAYILAN_BAUD = 921600            # FPGA tarafi: CLKS_PER_BIT = f_clk / baud (100 MHz -> 109)
+BAUD_GUVENLI_PCT, BAUD_SINIR_PCT = 2.0, 4.0     # |baud hatasi| esikleri (sim/sure_modeli.json: uart)
+
+
+def uart_ayari(f_clk_hz, baud):
+    """FPGA'nin kullanacagi CLKS_PER_BIT ve baud hatasi (yuzde). Donus: (clks_per_bit, gercek_baud, hata_pct, durum).
+    durum: 'guvenli' (<=%2) | 'sinirda' (<=%4) | 'calismaz' (>%4). Kural ve esikler: 03-RTL/scripts/sure_modeli.py."""
+    oran = f_clk_hz / baud
+    cpb = min((int(oran), int(oran) + 1), key=lambda c: abs(f_clk_hz / c - baud))
+    gercek = f_clk_hz / cpb
+    hata = 100.0 * (gercek - baud) / baud
+    durum = "guvenli" if abs(hata) <= BAUD_GUVENLI_PCT else ("sinirda" if abs(hata) <= BAUD_SINIR_PCT else "calismaz")
+    return cpb, gercek, hata, durum
+
 
 def crc8(veri, c=0):
     for b in veri:
@@ -61,8 +75,9 @@ class SimArkaUc:
         self.log = ""
 
     def derle(self):
-        rtl = ["pe", "systolic_nxn", "bram_sdp", "panel_tamponu", "tile_denetleyici", "yeniden_olcekle", "gelu_lut",
-               "cikis_paketle", "dogrusal_katman", "komut_cozucu", "hizlandirici_ust"]
+        rtl = ["islem_elemani", "sistolik_dizi", "cift_kapili_bellek", "panel_tamponu", "tile_denetleyici", "yeniden_olcekle", "gelu_tablosu",
+               "cikis_sozcuk_toplayici", "dogrusal_katman", "seri_bolucu", "ters_bolucu", "softmax_birim", "layernorm_birim", "sonuc_tamponu",
+               "komut_cozucu", "kontrol_birimi", "veri_yolu", "bert_tiny_ust"]
         kaynak = [os.path.join(self.kok, "rtl", f + ".v") for f in rtl] + [os.path.join(self.kok, "tb", "tb_hizlandirici.v")]
         r = subprocess.run(["iverilog", "-g2001", "-o", self.vvp] + kaynak, capture_output=True, text=True)
         if r.returncode:
@@ -99,7 +114,16 @@ class SimArkaUc:
 class SeriArkaUc:
     """pyserial arka ucu (kart gelince). Dur-ve-bekle; bekleme adımları DURUM sorgusuyla."""
 
-    def __init__(self, port, baud=921600, zaman_asimi=5.0):
+    def __init__(self, port, baud=VARSAYILAN_BAUD, zaman_asimi=5.0, f_clk_hz=None):
+        """baud: PC tarafi hizi; FPGA'daki CLKS_PER_BIT ile eslesmeli. f_clk_hz verilirse hata hesaplanir:
+        'calismaz' ise ValueError, 'sinirda' ise uyari. 12 Mbaud'un Windows/pyserial'de gercekten verilip verilmedigi DOGRULANMADI."""
+        if f_clk_hz is not None:
+            cpb, gercek, hata, durum = uart_ayari(f_clk_hz, baud)
+            if durum == "calismaz":
+                raise ValueError(f"{f_clk_hz / 1e6:g} MHz saatte {baud} baud icin CLKS_PER_BIT={cpb} ({gercek:.0f} baud, hata %{hata:.2f}) calismaz")
+            if durum == "sinirda":
+                import warnings  # noqa: PLC0415
+                warnings.warn(f"baud hatasi %{hata:.2f}: sinirda (CLKS_PER_BIT={cpb}); kartta denenmeli")
         import serial  # noqa: PLC0415
         self.s = serial.Serial(port, baud, timeout=zaman_asimi)
 
@@ -138,8 +162,10 @@ class Hizlandirici:
     def __init__(self, arka):
         self.a = arka
 
-    def cfg(self, K, np_, n, a_isaretsiz=False, gelu_en=False):
-        self.a.gonder(paket(CMD["CFG"], K.to_bytes(2, "little") + bytes([np_, n, int(a_isaretsiz) | (int(gelu_en) << 1)])))
+    def cfg(self, K, np_, n, a_isaretsiz=False, gelu_en=False, nb=0):
+        """nb: islenecek token blogu sayisi (1..8; her blok 8 token). 0 = 8 (eski davranis). Bayrak baytinin bit 5:2 alanina yazilir."""
+        assert 0 <= nb <= 8, "nb 0..8 olmali"
+        self.a.gonder(paket(CMD["CFG"], K.to_bytes(2, "little") + bytes([np_, n, int(a_isaretsiz) | (int(gelu_en) << 1) | (nb << 2)])))
 
     def yukle_akt(self, adres, sozcukler):
         self.a.gonder(paket(CMD["YUKLE_AKT"], adres.to_bytes(2, "little") + b"".join(int(w).to_bytes(8, "little") for w in sozcukler)))

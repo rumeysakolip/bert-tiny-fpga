@@ -1,0 +1,15 @@
+BILGI: vektor klasoru=tb/vektor_g11  mod=BAYT
+WARNING: tb/tb_bert_tiny_ust.v:342: $readmemh(tb/vektor_g11/sm_skor.mem): Not enough words in the file for the requested range [0:32767].
+WARNING: tb/tb_bert_tiny_ust.v:343: $readmemh(tb/vektor_g11/sm_mask.mem): Not enough words in the file for the requested range [0:32767].
+WARNING: tb/tb_bert_tiny_ust.v:344: $readmemh(tb/vektor_g11/sm_cikis.mem): Not enough words in the file for the requested range [0:32767].
+WARNING: tb/tb_bert_tiny_ust.v:345: $readmemh(tb/vektor_g11/sm_m0.mem): Not enough words in the file for the requested range [0:511].
+WARNING: tb/tb_bert_tiny_ust.v:348: $readmemh(tb/vektor_g11/ln_q.mem): Not enough words in the file for the requested range [0:76799].
+WARNING: tb/tb_bert_tiny_ust.v:349: $readmemh(tb/vektor_g11/ln_cikis.mem): Not enough words in the file for the requested range [0:76799].
+WARNING: tb/tb_bert_tiny_ust.v:350: $readmemh(tb/vektor_g11/ln_ornek.mem): Not enough words in the file for the requested range [0:599].
+WARNING: tb/tb_bert_tiny_ust.v:351: $readmemh(tb/vektor_g11/ln_gamma.mem): Not enough words in the file for the requested range [0:2047].
+WARNING: tb/tb_bert_tiny_ust.v:352: $readmemh(tb/vektor_g11/ln_beta.mem): Not enough words in the file for the requested range [0:2047].
+WARNING: tb/tb_bert_tiny_ust.v:353: $readmemh(tb/vektor_g11/ln_par.mem): Not enough words in the file for the requested range [0:47].
+SOFTMAX: 325 satir, 20820 cikis bayt karsilastirildi
+LAYERNORM: 485 satir, 62108 cikis bayt karsilastirildi
+BILGI: cevrim=1218531 gonderilen_bayt=344616 alinan_bayt=140683
+BERT_TINY_UST TEST: PASS (94795 kontrol, 0 hata)

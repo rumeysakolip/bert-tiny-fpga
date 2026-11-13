@@ -18,8 +18,8 @@ SON = os.path.join("..", "02-RTL_Altin_Model", "03_Sonuclar")
 VEK, PAR = os.path.join(SON, "test_vektorleri"), os.path.join(SON, "parametreler")
 
 # (ad, K, C): bellek_haritasi.json'dan okunur
-SRC = ["rtl/pe.v", "rtl/systolic_nxn.v", "rtl/bram_sdp.v", "rtl/panel_tamponu.v", "rtl/tile_denetleyici.v",
-       "rtl/yeniden_olcekle.v", "rtl/gelu_lut.v", "rtl/cikis_paketle.v", "rtl/dogrusal_katman.v", "tb/tb_katman.v"]
+SRC = ["rtl/islem_elemani.v", "rtl/sistolik_dizi.v", "rtl/cift_kapili_bellek.v", "rtl/panel_tamponu.v", "rtl/tile_denetleyici.v",
+       "rtl/yeniden_olcekle.v", "rtl/gelu_tablosu.v", "rtl/cikis_sozcuk_toplayici.v", "rtl/dogrusal_katman.v", "tb/tb_katman.v"]
 
 
 def kaydirmalar():

@@ -1,0 +1,30 @@
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_bert_tiny_ust -s tb_x -debug off 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.komut_cozucu
+Compiling module work.bram_sdp
+Compiling module work.panel_tamponu
+Compiling module work.pe
+Compiling module work.systolic_nxn_default
+Compiling module work.tile_denetleyici_default
+Compiling module work.yeniden_olcekle
+Compiling module work.gelu_lut
+Compiling module work.cikis_paketle
+Compiling module work.dogrusal_katman
+Compiling module work.bolucu_seri(W=24)
+Compiling module work.softmax_birim
+Compiling module work.cikis_tamponu
+Compiling module work.bolucu_seri
+Compiling module work.layernorm_birim_default
+Compiling module work.cikis_tamponu(DERIN=128,AW=7)
+Compiling module work.bert_tiny_ust
+Compiling module work.tb_bert_tiny_ust
+Built simulation snapshot tb_x

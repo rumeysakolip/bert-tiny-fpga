@@ -1,0 +1,23 @@
+Bu adımın girdileri 01-INT8_Nicemleme adımının çıktılarıdır ve kopyalanmaz;
+betikler doğrudan oradan okur (bkz. 01_Kod/ortak.py -> VARSAYILAN).
+
+Kullanılanlar:
+  ../../01-INT8_Nicemleme/02_Girdiler/model/model.safetensors   FP32 agirliklar,
+                                                                gomme tablolari,
+                                                                LayerNorm gamma/beta
+  ../../01-INT8_Nicemleme/02_Girdiler/model/tokenizer.json       token'laştırıcı
+  ../../01-INT8_Nicemleme/02_Girdiler/veri/dev.tsv               872 dogrulama cumlesi
+  ../../01-INT8_Nicemleme/02_Girdiler/veri/train.tsv             kalibrasyon cumleleri
+  ../../01-INT8_Nicemleme/02_Girdiler/kriterler.json             basari esikleri
+  ../../01-INT8_Nicemleme/03_Sonuclar/int8_ptq/minmax_sim_n128/
+        int8_agirliklar.npz    INT8 agirlik + bias + olcekler
+        olcekler.json          aktivasyon/agirlik olcekleri + kalibrasyon istatistigi
+        int8_tahminleri.csv    PTQ'nun 872 cumledeki tahminleri (dogrulama olcutu)
+
+Neden minmax_sim_n128?
+  ozet_tablo.csv'deki alti kosu icinde en iyi iki sonuctan biri (718/872, 0.11 puan
+  kayip) ve SIMETRIK oldugu icin donanimda sifir-noktasi (zero-point) aritmetigi
+  gerektirmiyor: birikec yolunda fazladan cikarma ve duzeltme terimi yok.
+  Diger 718'lik kosu (percentile99.99_asim_n512) asimetrik oldugu icin elendi.
+
+Baska bir kosuyu denemek icin:  python 01_altin_kos.py --kosu minmax_sim_n512

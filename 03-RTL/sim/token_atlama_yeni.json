@@ -1,0 +1,60 @@
+{
+ "etiket": "yeni (Konu 4a): softmax 357 cevrim/satir, layernorm 329 cevrim/satir (benzetim, olculdu); toplamlar hesap",
+ "tablo": [
+  {
+   "token": 4,
+   "nb": 1,
+   "dogrusal": 63336,
+   "dikkat": 5656,
+   "softmax": 5712,
+   "layernorm": 6580,
+   "toplam": 81284,
+   "dogrusal_etiket": "olculdu"
+  },
+  {
+   "token": 6,
+   "nb": 1,
+   "dogrusal": 63336,
+   "dikkat": 5656,
+   "softmax": 8568,
+   "layernorm": 9870,
+   "toplam": 87430,
+   "dogrusal_etiket": "olculdu"
+  },
+  {
+   "token": 25,
+   "nb": 4,
+   "dogrusal": 215040,
+   "dikkat": 20824,
+   "softmax": 35700,
+   "layernorm": 41125,
+   "toplam": 312689,
+   "dogrusal_etiket": "olculdu"
+  },
+  {
+   "token": 64,
+   "nb": 8,
+   "dogrusal": 428928,
+   "dikkat": 41048,
+   "softmax": 91392,
+   "layernorm": 105280,
+   "toplam": 666648,
+   "dogrusal_etiket": "olculdu"
+  }
+ ],
+ "dagilim_ortalamasi": {
+  "cumle": 872,
+  "ortalama_cevrim": 289538,
+  "ms_100mhz_hesap": 2.895,
+  "oran_64_token": 0.4343,
+  "kat_azalma_64e_gore": 2.302
+ },
+ "doğrusal_olcumleri": {
+  "1": 63336,
+  "2": 108096,
+  "4": 215040,
+  "7": 375456,
+  "8": 428928
+ },
+ "not": "nb=1 doğrusal ölçümü testbench panel yükleme hızıyla sınırlı (formül 54 624; ölçülen 63 336). Dikkat çarpımlarında nb ölçeklemesi ölçülmedi (hesap)."
+}

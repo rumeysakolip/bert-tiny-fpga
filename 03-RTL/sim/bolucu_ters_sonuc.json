@@ -1,0 +1,141 @@
+{
+ "etiket": "benzetim (Icarus); referans: Python tam tamsayi bolme",
+ "yapilandirma": {
+  "sm": {
+   "NW": 24,
+   "DW": 22,
+   "QB": 8
+  },
+  "ln": {
+   "NW": 31,
+   "DW": 20,
+   "QB": 17
+  }
+ },
+ "birim": {
+  "sm": {
+   "sonuc": "PASS",
+   "bolen": 125000,
+   "kontrol": 1000000,
+   "hata": 0,
+   "cevrim": 6124543,
+   "vektor": {
+    "cift": 1000000,
+    "doyan_cift": 119135,
+    "kalansiz_cift": 303420,
+    "bolen_min": 1,
+    "bolen_maks": 4194303,
+    "n_maks": 16777215
+   }
+  },
+  "ln": {
+   "sonuc": "PASS",
+   "bolen": 125000,
+   "kontrol": 1000000,
+   "hata": 0,
+   "cevrim": 6999543,
+   "vektor": {
+    "cift": 1000000,
+    "doyan_cift": 113851,
+    "kalansiz_cift": 292184,
+    "bolen_min": 1,
+    "bolen_maks": 1048575,
+    "n_maks": 2147483647
+   }
+  }
+ },
+ "mutant": [
+  {
+   "ad": "t1",
+   "tanim": "tek duzeltme (q0+1) silindi",
+   "sonuclar": {
+    "sm": [
+     "FAIL",
+     19960
+    ],
+    "ln": [
+     "FAIL",
+     20042
+    ]
+   },
+   "yakalandi": true
+  },
+  {
+   "ad": "t2",
+   "tanim": "ters degerin en dusuk biti silindi (R bir bit kisaldi)",
+   "sonuclar": {
+    "sm": [
+     "FAIL",
+     6489
+    ],
+    "ln": [
+     "FAIL",
+     7100
+    ]
+   },
+   "yakalandi": true
+  },
+  {
+   "ad": "t3",
+   "tanim": "kalan bayragi duzeltme oncesi kalandan alindi",
+   "sonuclar": {
+    "sm": [
+     "FAIL",
+     6023
+    ],
+    "ln": [
+     "FAIL",
+     6391
+    ]
+   },
+   "yakalandi": true
+  },
+  {
+   "ad": "t4",
+   "tanim": "duzeltmeden sonra doyma kontrolu silindi (q QB bitte sarar)",
+   "sonuclar": {
+    "sm": [
+     "FAIL",
+     2196
+    ],
+    "ln": [
+     "FAIL",
+     2098
+    ]
+   },
+   "yakalandi": true
+  },
+  {
+   "ad": "t5",
+   "tanim": "duzeltme kosulu >= yerine >",
+   "sonuclar": {
+    "sm": [
+     "FAIL",
+     8219
+    ],
+    "ln": [
+     "FAIL",
+     8489
+    ]
+   },
+   "yakalandi": true
+  },
+  {
+   "ad": "t6",
+   "tanim": "taslak bolumde tasma bayragi silindi (doyma yok)",
+   "sonuclar": {
+    "sm": [
+     "FAIL",
+     3466
+    ],
+    "ln": [
+     "FAIL",
+     3372
+    ]
+   },
+   "yakalandi": true
+  }
+ ],
+ "sure_sn": 134,
+ "gecti": true
+}

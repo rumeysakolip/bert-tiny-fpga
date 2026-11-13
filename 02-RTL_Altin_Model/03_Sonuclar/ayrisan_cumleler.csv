@@ -1,0 +1,9 @@
+idx,cumle,etiket,fp32,int8_ptq,altin_A,altin_B,fp32_logit_farki,B_logit_farki
+142,what better message than ` love thyself ' could young women of any size receive ? ,1,1,0,0,1,0.0476,0.1876
+501,"harrison 's flowers puts its heart in the right place , but its brains are in no particular place at all . ",1,0,0,0,1,0.6214,0.0235
+509,a movie that successfully crushes a best selling novel into a timeframe that mandates that you avoid the godzilla sized soda . ,1,0,1,1,0,0.0328,0.1407
+558,"although german cooking does not come readily to mind when considering the world 's best cuisine , mostly martha could make deutchland a popular destination for hungry tourists . ",1,0,0,0,1,0.2124,0.0235
+734,this is n't even madonna 's swept away . ,0,0,0,0,1,0.1039,0.0704
+793,"... an otherwise intense , twist-and-turn thriller that certainly should n't hurt talented young gaghan 's resume . ",1,1,0,0,1,0.2675,0.4456
+830,"woody allen 's latest is an ambling , broad comedy about all there is to love -- and hate -- about the movie biz . ",1,0,0,0,1,0.4739,0.0235
+865,"mcconaughey 's fun to watch , the dragons are okay , not much fire in the script . ",1,1,1,1,0,0.2309,0.1407

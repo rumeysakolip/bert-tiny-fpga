@@ -1,0 +1,7 @@
+temel (mutantsiz): PASS (0 hata)
+mutant m1: FAIL (274 hata)  -- Softmax maske bayti yok sayildi
+mutant m2: FAIL (38 hata)  -- SM_BASLAT abort vermiyor (kurtarma testi yakalamali)
+mutant m3: FAIL (793 hata)  -- LN_CFG nsh alani bir bit eksik
+mutant m4: FAIL (1 hata)  -- SM_CFG m0 alani bir bit eksik
+mutant m5: FAIL (770 hata)  -- LN_OKU yanlis tampondan okuyor
+G13 MUTANT TOPLAM: PASS | kacan mutant: []

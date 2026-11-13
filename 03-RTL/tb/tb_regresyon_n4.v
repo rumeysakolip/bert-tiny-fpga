@@ -1,5 +1,5 @@
 // tb_regresyon_n4.v -- N=4 yeni akisli dizi == eski systolic_4x4_eski (G4 regresyon)
-// Ayni A (INT8) ve B ile iki modul surulur; c_flat 512 bit birebir ve altin C.mem ile karsilastirilir.
+// Ayni A (INT8) ve B ile iki modul surulur; c_matrisi 512 bit birebir ve altin C.mem ile karsilastirilir.
 // Eski vektorler: tb/vektor/{A,B,C,meta}.mem (259 test, K=4). Calistirma kok: 03-RTL
 `timescale 1ns/1ps
 module tb_regresyon_n4;
@@ -11,7 +11,7 @@ module tb_regresyon_n4;
     wire [511:0] o_c;
     wire         o_busy, o_done;
     // yeni
-    reg          n_start = 0, n_valid = 0;
+    reg          n_start = 0, pay_gecerli = 0;
     reg  [10:0]  n_k = 4;
     reg  [35:0]  n_a = 0;
     reg  [31:0]  n_b = 0;
@@ -20,8 +20,8 @@ module tb_regresyon_n4;
 
     systolic_4x4_eski eski (.clk(clk), .rst(rst), .start(o_start), .a_flat(o_a), .b_flat(o_b),
                             .c_flat(o_c), .busy(o_busy), .done(o_done));
-    systolic_nxn #(.N(4)) yeni (.clk(clk), .rst(rst), .start(n_start), .k_len(n_k), .in_valid(n_valid),
-                                .a_col(n_a), .b_row(n_b), .c_flat(n_c), .busy(n_busy), .done(n_done));
+    sistolik_dizi #(.DIZI_BOYUTU(4)) yeni (.clk(clk), .rst(rst), .baslat(n_start), .k_uzunlugu(n_k), .giris_gecerli(pay_gecerli),
+                                .a_sutunu(n_a), .b_satiri(n_b), .c_matrisi(n_c), .mesgul(n_busy), .bitti(n_done));
 
     always #5 clk = ~clk;
 
@@ -45,7 +45,7 @@ module tb_regresyon_n4;
         for (t = 0; t < ntest; t = t + 1) begin
             for (q = 0; q < 16; q = q + 1) begin a_t[q*8 +: 8] = memA[t*16+q]; b_t[q*8 +: 8] = memB[t*16+q]; end
             // eski: tek darbe, her sey start'ta yakalanir; yeni: start + 4 cevrimde sutun/satir akisi
-            @(negedge clk); o_start = 1; o_a = a_t; o_b = b_t; n_start = 1; n_valid = 0;
+            @(negedge clk); o_start = 1; o_a = a_t; o_b = b_t; n_start = 1; pay_gecerli = 0;
             @(negedge clk); o_start = 0; n_start = 0;
             for (k = 0; k < 4; k = k + 1) begin
                 // A sutunu k: A[i][k] (INT8 -> 9 bit isaret genisletme); B satiri k: B[k][j]
@@ -53,10 +53,10 @@ module tb_regresyon_n4;
                     n_a[q*9 +: 9] = {a_t[(q*4+k)*8+7], a_t[(q*4+k)*8 +: 8]};
                     n_b[q*8 +: 8] = b_t[(k*4+q)*8 +: 8];
                 end
-                n_valid = 1;
+                pay_gecerli = 1;
                 @(negedge clk);
             end
-            n_valid = 0;
+            pay_gecerli = 0;
             lat_o = 0; lat_n = 0;
             while (!o_done || !n_done) begin
                 @(posedge clk); #1;

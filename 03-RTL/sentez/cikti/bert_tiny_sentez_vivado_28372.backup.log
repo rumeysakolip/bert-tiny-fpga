@@ -1,0 +1,49 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Thu Oct 29 21:02:54 2026
+# Process ID         : 28372
+# Current directory  : C:/Users/rumey/Documents/biitirme-projem/03-RTL
+# Command line       : vivado.exe -mode batch -log sentez/cikti/bert_tiny_sentez_vivado.log -journal sentez/cikti/bert_tiny_sentez_vivado.jou -source sentez/sentez.tcl -tclargs bert_tiny_uart_ust
+# Log file           : C:/Users/rumey/Documents/biitirme-projem/03-RTL/sentez/cikti/bert_tiny_sentez_vivado.log
+# Journal file       : C:/Users/rumey/Documents/biitirme-projem/03-RTL\sentez/cikti/bert_tiny_sentez_vivado.jou
+# Running On         : pc
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i7-12650H
+# CPU Frequency      : 2688 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 16
+# Host memory        : 16908 MB
+# Swap memory        : 32926 MB
+# Total Virtual      : 49834 MB
+# Available Virtual  : 16830 MB
+#-----------------------------------------------------------
+source sentez/sentez.tcl
+# set ust [lindex $argv 0]
+# if {$ust eq ""} { set ust bert_tiny_uart_ust }
+# set part xc7a35tcpg236-1
+# set dosyalar {pe systolic_nxn bram_sdp panel_tamponu tile_denetleyici yeniden_olcekle gelu_lut cikis_paketle dogrusal_katman
+#               bolucu_seri softmax_birim layernorm_birim cikis_tamponu
+#               komut_cozucu uart_rx uart_tx hizlandirici_ust hizlandirici_uart_ust bert_tiny_ust bert_tiny_uart_ust}
+# foreach f $dosyalar { read_verilog rtl/$f.v }
+read_verilog: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 492.996 ; gain = 211.504
+# read_xdc sentez/basys3.xdc
+# file mkdir sentez/cikti
+# synth_design -top $ust -part $part -flatten_hierarchy rebuilt
+Command: synth_design -top bert_tiny_uart_ust -part xc7a35tcpg236-1 -flatten_hierarchy rebuilt
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 22096
+couldn't read file "C:/Xilinx/2025.1/Vivado/scripts/rt/data/unimacro/unimacro_verilog.tcl": No error
+INFO: [Common 17-83] Releasing license: Synthesis
+6 Infos, 0 Warnings, 0 Critical Warnings and 1 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 29 21:03:12 2026...

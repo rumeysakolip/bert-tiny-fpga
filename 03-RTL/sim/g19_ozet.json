@@ -25,16 +25,25 @@
  },
  "cpu_gecikme_ms": 2.49,
  "rtl_cevrim": {
+  "Doğrusal katmanlar (12, ölçüldü)": 431256,
+  "Dikkat çarpımları (Q·Kᵀ, P·V, ölçüldü)": 41568,
+  "Softmax birimi (hesap)": 43776,
+  "LayerNorm birimi (hesap)": 120640
+ },
+ "rtl_toplam_cevrim": 637240,
+ "rtl_ms_100mhz": 6.372400000000001,
+ "satir_sayilari": {
+  "softmax": 256,
+  "layernorm": 320
+ },
+ "not": "rtl_cevrim: dogrusal ve dikkat OLCULDU (benzetim), Softmax/LayerNorm = olculen satir cevrimi x satir sayisi (HESAP, bu birimler sisteme bagli degil). pooler/classifier ve GELU ek cevrimi dahil degil.",
+ "rtl_cevrim_onceki": {
   "Doğrusal katmanlar (12, ölçüldü)": 428928,
   "Dikkat çarpımları (Q·Kᵀ, P·V, ölçüldü)": 41048,
   "Softmax birimi (hesap)": 524544,
   "LayerNorm birimi (hesap)": 1687680
  },
- "rtl_toplam_cevrim": 2682200,
- "rtl_ms_100mhz": 26.822,
- "satir_sayilari": {
-  "softmax": 256,
-  "layernorm": 320
- },
- "not": "rtl_cevrim: dogrusal ve dikkat OLCULDU (benzetim), Softmax/LayerNorm = olculen satir cevrimi x satir sayisi (HESAP, bu birimler sisteme bagli degil). pooler/classifier ve GELU ek cevrimi dahil degil."
+ "rtl_toplam_cevrim_onceki": 2682200,
+ "rtl_ms_100mhz_onceki": 26.822,
+ "onceki_not": "onceki: Konu 1 tabani (2 Kasim 2026, hizlandirma oncesi), sim/g19_ozet_onceki.json"
 }

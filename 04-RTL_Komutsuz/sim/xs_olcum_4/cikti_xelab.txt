@@ -1,0 +1,38 @@
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_ortak_ust -s olcum -debug typical 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.akis_ayristirici(GOMULU=1)
+Compiling module work.cizelge_ortak(KATMAN_ISLEM=2)
+Compiling module work.parametre_rom
+Compiling module work.panel_parametre_yukleyici
+Compiling module work.gelu_yukleyici
+Compiling module work.panel_kopyalayici(KAYNAK_AW=13)
+Compiling module work.panel_tamponu
+Compiling module work.cift_kapili_bellek(ADRES_GENISLI...
+Compiling module work.birlesik_bellek_2o_default
+Compiling module work.islem_elemani
+Compiling module work.sistolik_dizi_default
+Compiling module work.tile_denetleyici_default
+Compiling module work.yeniden_olcekle_ortak
+Compiling module work.gelu_tablosu
+Compiling module work.cikis_sozcuk_toplayici
+Compiling module work.cikis_sozcuk_toplayici_devrik
+Compiling module work.seri_bolucu(GENISLIK=25)
+Compiling module work.ters_bolucu_default
+Compiling module work.softmax_birim_gomulu(TABLO_DOSYA...
+Compiling module work.seri_bolucu
+Compiling module work.ters_bolucu(PAY_GENISLIGI=31,BOL...
+Compiling module work.layernorm_birim_dz_default
+Compiling module work.artik_ln_ortak
+Compiling module work.ortak_cekirdek
+Compiling module work.ortak_ust(KATMAN_ISLEM=2)
+Compiling module work.tb_ortak_ust
+Built simulation snapshot olcum

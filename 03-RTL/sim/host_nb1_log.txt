@@ -1,0 +1,9 @@
+HIZLANDIRICI YANIT KARSILASTIRMA: FAIL  (9156 fark, yanit_bayt=10440)
+  hata enjeksiyonu: bozuk CRC -> HATA(CRC), bilinmeyen komut -> HATA(bilinmeyen komut) : OK
+  PASS l0_q         K=128 C=128: 1024 eleman, uyuşmayan=0
+  PASS l0_k         K=128 C=128: 1024 eleman, uyuşmayan=0
+  PASS l0_v         K=128 C=128: 1024 eleman, uyuşmayan=0
+  PASS l0_attn_out  K=128 C=128: 1024 eleman, uyuşmayan=0
+  PASS l0_ffn1      K=128 C=512: 4096 eleman, uyuşmayan=0
+  PASS l0_ffn2      K=512 C=128: 1024 eleman, uyuşmayan=0
+G9 HOST-IN-THE-LOOP: PASS (6 katman, cümle 0, 602 paket, 219393 bayt gönderildi, 0 hata)

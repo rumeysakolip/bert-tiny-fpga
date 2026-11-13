@@ -1,0 +1,62 @@
+{
+ "etiket": "dogruluk: altin model (NumPy); alan ve WNS: Vivado bagimsiz SENTEZ (yerlestirme yok), 100 MHz. G=16 RTL surumu benzetimde dogrulanmadi.",
+ "karar_sahibi": "Rumeysa Kolip",
+ "tablo": [
+  {
+   "secenek": "g_bit=12 (RTL varsayilani, G=12)",
+   "dogru_872": 718,
+   "varsayilandan_ayrisan_cumle": 0,
+   "alan": {
+    "LUT": 1205,
+    "LUT_bellek": 96,
+    "FF": 676,
+    "DSP": 12,
+    "BRAM_tile": 1.0,
+    "CARRY4": 211,
+    "WNS_ns": 0.372,
+    "kaynak": "sentez/cikti/konu5_g12_layernorm_birim_kullanim.txt"
+   }
+  },
+  {
+   "secenek": "g_bit=16 (G=16)",
+   "dogru_872": 718,
+   "varsayilandan_ayrisan_cumle": 2,
+   "dogruyken_yanlis_yanlisken_dogru": {
+    "dogruyken_yanlis": 1,
+    "yanlisken_dogru": 1
+   },
+   "alan": {
+    "LUT": 1508,
+    "LUT_bellek": 160,
+    "FF": 785,
+    "DSP": 13,
+    "BRAM_tile": 0.5,
+    "CARRY4": 251,
+    "WNS_ns": 0.138,
+    "kaynak": "sentez/cikti/konu5_g16_layernorm_birim_kullanim.txt"
+   }
+  }
+ ],
+ "g16_eksi_g12_alan": {
+  "LUT": 303,
+  "LUT_bellek": 64,
+  "FF": 109,
+  "DSP": 1,
+  "BRAM_tile": -0.5,
+  "CARRY4": 40,
+  "WNS_ns": -0.234
+ },
+ "ek_ln_bit_dogruluk": {
+  "g12_ln16": {
+   "dogru": 717,
+   "ayrisan_cumle": 5
+  },
+  "g16_ln16": {
+   "dogru": 718,
+   "ayrisan_cumle": 4
+  }
+ },
+ "gecersiz_koşu_uyarisi": "g16_ln12_int64: altin modelin int64 ara carpimi tasar (y*gamma_q*M0 ~ 2^63..2^67) ve sonuc GECERSIZDIR; g_bit=16 sonuclari buyuk tamsayi (object) carpimi ile hesaplandi, 12 bit sonucu ayni (yama denetimi)",
+ "gurultu_kurali": "1 puan ~ 8,72 cumle; 1-2 cumle farki gurultu",
+ "oneri": "g_bit=12'de kal. Doğruluk 718/872 ile 718/872 (iki cümle fark, bir cümle doğrudan yanlışa, biri yanlıştan doğruya: gürültü), yani 16 bitin doğruluk kazancı yok. 16 bit, gamma 20 bit ve çarpma zinciri 74 bit olduğundan sentezde LUT, FF ve DSP artar, zamanlama payı düşer; ayrıca altın modelin int64 ara çarpımı g_bit=16'da taşar (35 çağrıda), yani 16 bit seçilirse altın modelin de geniş tamsayıya geçmesi gerekir. Karar Rümeysa'nındır."
+}

@@ -1,0 +1,38 @@
+{
+ "etiket": "benzetim degil; altin model (NumPy) uzerinde olculdu",
+ "yapilandirma": "Ayarlar.B_kipi(m0_bit=31, tasima_adim=TASIMA_ADIMLARI) = tam tamsayi hat",
+ "cumle_sayisi": 872,
+ "kisaltma": {
+  "blok_dagilimi_cumle_sayisi": {
+   "1": 24,
+   "2": 173,
+   "3": 239,
+   "4": 228,
+   "5": 132,
+   "6": 59,
+   "7": 17
+  },
+  "logit_farkli_cumle": 0,
+  "gecerli_token_gizli_durum_farkli_cumle": 0,
+  "dogru_tam": 718,
+  "dogru_kisaltilmis": 718,
+  "tahmin_farkli_cumle": 0,
+  "maks_logit_farki": 0.0
+ },
+ "dolgu_icerigi": {
+  "dolgu_konumu_sayisi": 33865,
+  "logit_farkli_cumle": 0,
+  "gecerli_token_gizli_durum_farkli_cumle": 0,
+  "tohum": 7
+ },
+ "pooler_yalniz_ilk_token": {
+  "yontem": "kod incelemesi",
+  "satir": [
+   327,
+   "havuz_ham = self._lineer(p.pooler, h[:, 0, :], \"pooler\","
+  ],
+  "sonuc": "havuzlama yalniz h[:, 0, :] (CLS) satirini kullanir; dikkat anahtar maskesi korunur"
+ },
+ "gecti": true,
+ "sure_sn": 177
+}

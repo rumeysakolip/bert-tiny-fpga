@@ -1,0 +1,33 @@
+{
+ "etiket": "benzetim (Icarus), flas modeli",
+ "tarih": "2026-11-12 01:36",
+ "kosular": [
+  {
+   "ad": "flas_sck25MHz",
+   "gecti": true,
+   "satirlar": [
+    "BILGI cumle 0: 500794 cevrim (BOL=2, akis 60515 bayt -> 8.28 cevrim/bayt), hata=0",
+    "TOPLAM 500794 cevrim, 60515 bayt flastan okundu, SCK=25 MHz (100 MHz sistem saatinde), 24576 kontrol",
+    "FLAS KAYNAKLI KOMUTSUZ TEST (BOL=2 ns=1): PASS  (24576 kontrol, 0 hata)"
+   ]
+  },
+  {
+   "ad": "flas_sck50MHz",
+   "gecti": true,
+   "satirlar": [
+    "BILGI cumle 0: 258694 cevrim (BOL=1, akis 60515 bayt -> 4.27 cevrim/bayt), hata=0",
+    "TOPLAM 258694 cevrim, 60515 bayt flastan okundu, SCK=50 MHz (100 MHz sistem saatinde), 24576 kontrol",
+    "FLAS KAYNAKLI KOMUTSUZ TEST (BOL=1 ns=1): PASS  (24576 kontrol, 0 hata)"
+   ]
+  },
+  {
+   "ad": "flas_hatali_icerik",
+   "gecti": true,
+   "satirlar": [
+    "HATALI FLAS ICERIGI: hata=1 hata_sayisi=1 kabul_edilen_bayt=31085 satir_no=1",
+    "FLAS CRC HATA ENJEKSIYONU TEST: PASS  (hata yakalandi, cizelge durdu)"
+   ]
+  }
+ ],
+ "genel": "PASS"
+}

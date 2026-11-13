@@ -15,8 +15,8 @@ for n in (4, 8, 16):
     if not os.path.exists(os.path.join(vd, "C.mem")):
         subprocess.run([sys.executable, "tb/gen_vektor_nxn.py", "--N", str(n), "--K", "64"], check=True)
     vvp = f"sim/g20_n{n}.vvp"
-    d = subprocess.run(["iverilog", "-g2001", f"-Ptb_systolic_nxn.N={n}", "-Ptb_systolic_nxn.KT=64", "-o", vvp,
-                        "tb/tb_systolic_nxn.v", "rtl/pe.v", "rtl/systolic_nxn.v"], capture_output=True, text=True)
+    d = subprocess.run(["iverilog", "-g2001", f"-Ptb_sistolik_dizi.N={n}", "-Ptb_sistolik_dizi.KT=64", "-o", vvp,
+                        "tb/tb_sistolik_dizi.v", "rtl/islem_elemani.v", "rtl/sistolik_dizi.v"], capture_output=True, text=True)
     assert d.returncode == 0, d.stderr
     o = subprocess.run(["vvp", vvp, f"+vdir={vd}"], capture_output=True, text=True).stdout
     m = re.search(r"SYSTOLIC NxN TEST \(N=\d+,K=\d+\): (PASS|FAIL)\s+\((\d+) test, (\d+) kontrol, (\d+) hata\)", o)

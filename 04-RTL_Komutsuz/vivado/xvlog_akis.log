@@ -1,0 +1,26 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_komutsuz_ust.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_komutsuz_ust
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/akis_ayristirici.v" into library work
+INFO: [VRFC 10-311] analyzing module akis_ayristirici
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/cizelge_siralayici.v" into library work
+INFO: [VRFC 10-311] analyzing module cizelge_siralayici
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/komutsuz_ust.v" into library work
+INFO: [VRFC 10-311] analyzing module komutsuz_ust
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/islem_elemani.v" into library work
+INFO: [VRFC 10-311] analyzing module islem_elemani
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/sistolik_dizi.v" into library work
+INFO: [VRFC 10-311] analyzing module sistolik_dizi
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cift_kapili_bellek.v" into library work
+INFO: [VRFC 10-311] analyzing module cift_kapili_bellek
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/panel_tamponu.v" into library work
+INFO: [VRFC 10-311] analyzing module panel_tamponu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/tile_denetleyici.v" into library work
+INFO: [VRFC 10-311] analyzing module tile_denetleyici
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/yeniden_olcekle.v" into library work
+INFO: [VRFC 10-311] analyzing module yeniden_olcekle
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/gelu_tablosu.v" into library work
+INFO: [VRFC 10-311] analyzing module gelu_tablosu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cikis_sozcuk_toplayici.v" into library work
+INFO: [VRFC 10-311] analyzing module cikis_sozcuk_toplayici
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/dogrusal_katman.v" into library work
+INFO: [VRFC 10-311] analyzing module dogrusal_katman

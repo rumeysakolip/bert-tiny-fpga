@@ -9,20 +9,20 @@ module tb_layernorm;
     reg clk = 0, rst = 1;
     always #5 clk = ~clk;
 
-    reg         par_we = 0;
-    reg  [6:0]  par_adr = 0;
-    reg  signed [15:0] par_gamma = 0, par_beta = 0;
-    reg  [39:0] eps_q = 0;
-    reg  [30:0] m0 = 0;
-    reg  [5:0]  nsh = 0;
-    reg         start = 0, in_valid = 0;
-    reg  signed [17:0] in_data = 0;
-    wire        in_ready, out_valid, out_last, busy;
-    wire signed [7:0] out_data;
+    reg         parametre_yaz_etkin = 0;
+    reg  [6:0]  parametre_yaz_adres = 0;
+    reg  signed [15:0] parametre_gamma = 0, parametre_beta = 0;
+    reg  [39:0] epsilon_q = 0;
+    reg  [30:0] olcek_m0 = 0;
+    reg  [5:0]  olcek_kaydirma = 0;
+    reg         baslat = 0, giris_gecerli = 0;
+    reg  signed [17:0] giris_veri = 0;
+    wire        giris_hazir, cikis_gecerli, cikis_son, mesgul;
+    wire signed [7:0] cikis_veri;
 
-    layernorm_birim #(.N(N)) dut (.clk(clk), .rst(rst), .par_we(par_we), .par_adr(par_adr), .par_gamma(par_gamma),
-        .par_beta(par_beta), .eps_q(eps_q), .m0(m0), .nsh(nsh), .start(start), .in_ready(in_ready),
-        .in_valid(in_valid), .in_data(in_data), .out_valid(out_valid), .out_data(out_data), .out_last(out_last), .busy(busy));
+    layernorm_birim #(.KANAL_SAYISI(N)) dut (.clk(clk), .rst(rst), .parametre_yaz_etkin(parametre_yaz_etkin), .parametre_yaz_adres(parametre_yaz_adres), .parametre_gamma(parametre_gamma),
+        .parametre_beta(parametre_beta), .epsilon_q(epsilon_q), .olcek_m0(olcek_m0), .olcek_kaydirma(olcek_kaydirma), .baslat(baslat), .giris_hazir(giris_hazir),
+        .giris_gecerli(giris_gecerli), .giris_veri(giris_veri), .cikis_gecerli(cikis_gecerli), .cikis_veri(cikis_veri), .cikis_son(cikis_son), .mesgul(mesgul));
 
     reg [31:0] mQ    [0:MAXR*N-1];
     reg [31:0] mCik  [0:MAXR*N-1];
@@ -39,12 +39,12 @@ module tb_layernorm;
     integer stsay [0:15]; integer k_;
     initial for (k_ = 0; k_ < 16; k_ = k_ + 1) stsay[k_] = 0;
     reg say_ac = 0;
-    always @(posedge clk) if (say_ac && dut.st != 0) stsay[dut.st] = stsay[dut.st] + 1;
+    always @(posedge clk) if (say_ac && dut.durum != 0) stsay[dut.durum] = stsay[dut.durum] + 1;
 
-    always @(posedge clk) if (out_valid) begin
-        if ($signed(out_data) !== $signed(mCik[r*N + cnt_out][7:0])) begin
+    always @(posedge clk) if (cikis_gecerli) begin
+        if ($signed(cikis_veri) !== $signed(mCik[r*N + cnt_out][7:0])) begin
             hata = hata + 1;
-            if (hata < 10) $display("  HATA satir %0d eleman %0d: rtl=%0d beklenen=%0d", r, cnt_out, out_data, $signed(mCik[r*N+cnt_out][7:0]));
+            if (hata < 10) $display("  HATA satir %0d eleman %0d: rtl=%0d beklenen=%0d", r, cnt_out, cikis_veri, $signed(mCik[r*N+cnt_out][7:0]));
         end
         kontrol = kontrol + 1; cnt_out = cnt_out + 1;
     end
@@ -65,17 +65,17 @@ module tb_layernorm;
             ornek = mOrn[r];
             if (ornek != onceki) begin                         // gamma/beta tablolarini yukle
                 for (i = 0; i < N; i = i + 1) begin
-                    @(negedge clk); par_we = 1; par_adr = i; par_gamma = mGam[ornek*N+i][15:0]; par_beta = mBet[ornek*N+i][15:0];
+                    @(negedge clk); parametre_yaz_etkin = 1; parametre_yaz_adres = i; parametre_gamma = mGam[ornek*N+i][15:0]; parametre_beta = mBet[ornek*N+i][15:0];
                 end
-                @(negedge clk); par_we = 0; onceki = ornek;
+                @(negedge clk); parametre_yaz_etkin = 0; onceki = ornek;
             end
             h0 = hata; cnt_out = 0; cyc = 0; say_ac = (r == 0);
-            @(negedge clk); eps_q = mPar[ornek*3]; m0 = mPar[ornek*3+1][30:0]; nsh = mPar[ornek*3+2][5:0]; start = 1;
-            @(negedge clk); start = 0;
+            @(negedge clk); epsilon_q = mPar[ornek*3]; olcek_m0 = mPar[ornek*3+1][30:0]; olcek_kaydirma = mPar[ornek*3+2][5:0]; baslat = 1;
+            @(negedge clk); baslat = 0;
             for (i = 0; i < N; i = i + 1) begin
-                @(negedge clk); in_valid = 1; in_data = mQ[r*N+i][17:0];
+                @(negedge clk); giris_gecerli = 1; giris_veri = mQ[r*N+i][17:0];
             end
-            @(negedge clk); in_valid = 0;
+            @(negedge clk); giris_gecerli = 0;
             while (cnt_out < N && cyc < 2000000) begin @(negedge clk); cyc = cyc + 1; end
             if (cnt_out != N) begin hata = hata + 1; $display("  HATA satir %0d: cikis sayisi %0d", r, cnt_out); end
             if (r == 0) begin say_ac = 0; for (k_ = 1; k_ < 16; k_ = k_ + 1) if (stsay[k_] != 0) $display("FAZ %0d %0d", k_, stsay[k_]); end

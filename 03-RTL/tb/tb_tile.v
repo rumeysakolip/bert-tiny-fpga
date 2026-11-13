@@ -2,7 +2,7 @@
 // (bias dahil) altin test vektoru ile BIT-BIREBIR karsilastirilir (G5 kabul).
 // -P parametreleri: K, C, NS (cumle sayisi).  vvp argumanlari: +vdir= +pdir= +ad=<kisa_ad> [+vcd=...]
 //   vdir : 02-RTL_Altin_Model/03_Sonuclar/test_vektorleri   pdir : .../parametreler
-// Panel yukleme host davranisidir: baslangicta panel 0,1; pan_bitti darbesinde bosalan tampona sonraki panel.
+// Panel yukleme host davranisidir: baslangicta panel 0,1; panel_bitti darbesinde bosalan tampona sonraki panel.
 `timescale 1ns/1ps
 module tb_tile;
     parameter K  = 128;
@@ -10,12 +10,12 @@ module tb_tile;
     parameter NS = 4;
     parameter PER_S = 0;      // 1: B operandi (panel) cumle basina farkli (dikkat: K ve V aktivasyonlari)
     parameter AISGZ = 0;      // 1: A baytlari isaretsiz (UINT8 olasilik)
-    parameter KMAX = 512;
+    parameter K_ENFAZLA = 512;
     // plusarg verilmezse (Vivado GUI) l0_q katmani kullanilir (K=128, C=128, NS=4). Baska bilgisayarda yollari degistirin.
     parameter VDIR_V = "C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri";
     parameter PDIR_V = "C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/parametreler";
     parameter AD_V   = "l0_q";
-    parameter KW = 11, PW = 7, AW = 12;
+    parameter K_GENISLIGI = 11, PANEL_GENISLIGI = 7, ADRES_GENISLIGI = 12;
     localparam P  = C / 8;
     localparam NB = 8;
 
@@ -23,46 +23,46 @@ module tb_tile;
     always #5 clk = ~clk;
 
     // aktivasyon BRAM yazma
-    reg              aw_en = 0;
-    reg  [AW-1:0]    aw_addr = 0;
-    reg  [63:0]      aw_data = 0;
-    wire [AW-1:0]    act_raddr;
-    wire [63:0]      act_rdata;
-    bram_sdp #(.AW(AW), .DW(64)) u_act (.clk(clk), .we(aw_en), .waddr(aw_addr), .wdata(aw_data),
-                                        .raddr(act_raddr), .rdata(act_rdata));
+    reg              aktivasyon_yaz_etkin = 0;
+    reg  [ADRES_GENISLIGI-1:0]    aktivasyon_yaz_adres = 0;
+    reg  [63:0]      aktivasyon_yaz_veri = 0;
+    wire [ADRES_GENISLIGI-1:0]    aktivasyon_oku_adres;
+    wire [63:0]      aktivasyon_oku_veri;
+    cift_kapili_bellek #(.ADRES_GENISLIGI(ADRES_GENISLIGI), .VERI_GENISLIGI(64)) u_act (.clk(clk), .yaz_etkin(aktivasyon_yaz_etkin), .yaz_adres(aktivasyon_yaz_adres), .yaz_veri(aktivasyon_yaz_veri),
+                                        .oku_adres(aktivasyon_oku_adres), .oku_veri(aktivasyon_oku_veri));
     // panel tamponu
-    reg              pw_en = 0, pw_buf = 0;
-    reg  [1:0]       pw_sel = 0;
-    reg  [KW-1:0]    pw_addr = 0;
-    reg  [63:0]      pw_data = 0;
-    wire             pan_rbuf;
-    wire [KW-1:0]    pan_raddr;
-    wire [63:0]      pan_rdata;
-    wire             out_pbuf;
-    wire [2:0]       out_rj;
-    wire [31:0]      rbias;
-    wire [30:0]      rm0;
-    panel_tamponu #(.KMAX(KMAX), .KW(KW)) u_pan (.clk(clk), .pw_en(pw_en), .pw_buf(pw_buf), .pw_sel(pw_sel),
-        .pw_addr(pw_addr), .pw_data(pw_data), .pr_buf(pan_rbuf), .pr_addr(pan_raddr), .pr_data(pan_rdata),
-        .rbuf(out_pbuf), .rj(out_rj), .rbias(rbias), .rm0(rm0));
+    reg              panel_yaz_etkin = 0, panel_yaz_tampon = 0;
+    reg  [1:0]       panel_yaz_secici = 0;
+    reg  [K_GENISLIGI-1:0]    panel_yaz_adres = 0;
+    reg  [63:0]      panel_yaz_veri = 0;
+    wire             panel_oku_tampon;
+    wire [K_GENISLIGI-1:0]    panel_oku_adres;
+    wire [63:0]      panel_oku_veri;
+    wire             sorgu_tampon;
+    wire [2:0]       sorgu_kanal;
+    wire [31:0]      sorgu_bias;
+    wire [30:0]      sorgu_m0;
+    panel_tamponu #(.K_ENFAZLA(K_ENFAZLA), .K_GENISLIGI(K_GENISLIGI)) u_pan (.clk(clk), .panel_yaz_etkin(panel_yaz_etkin), .panel_yaz_tampon(panel_yaz_tampon), .panel_yaz_secici(panel_yaz_secici),
+        .panel_yaz_adres(panel_yaz_adres), .panel_yaz_veri(panel_yaz_veri), .agirlik_oku_tampon(panel_oku_tampon), .agirlik_oku_adres(panel_oku_adres), .agirlik_oku_veri(panel_oku_veri),
+        .sorgu_tampon(sorgu_tampon), .sorgu_kanal(sorgu_kanal), .sorgu_bias(sorgu_bias), .sorgu_m0(sorgu_m0));
 
-    reg              kos = 0;
-    reg  [1:0]       pan_hazir = 0;
-    wire             busy, layer_done, pan_bitti, pan_bitti_buf;
-    wire             out_valid, out_son, out_tasma;
-    wire [2:0]       out_i, out_j;
-    wire [3:0]       out_blk;
-    wire [PW-1:0]    out_panel;
-    wire signed [31:0] out_acc;
+    reg              calistir = 0;
+    reg  [1:0]       panel_hazir = 0;
+    wire             mesgul, katman_bitti, panel_bitti, panel_bitti_tampon;
+    wire             cikis_gecerli, cikis_tile_son, cikis_tasma;
+    wire [2:0]       cikis_token, cikis_kanal;
+    wire [3:0]       cikis_blok;
+    wire [PANEL_GENISLIGI-1:0]    cikis_panel;
+    wire signed [31:0] cikis_birikec;
 
-    tile_denetleyici #(.N(8), .NB(NB), .KW(KW), .PW(PW), .AW(AW)) dut (
-        .clk(clk), .rst(rst), .kos(kos), .cfg_k(K[KW-1:0]), .cfg_np(P[PW-1:0]), .a_isaretsiz(AISGZ[0]),
-        .busy(busy), .layer_done(layer_done), .pan_hazir(pan_hazir), .pan_bitti(pan_bitti),
-        .pan_bitti_buf(pan_bitti_buf), .act_raddr(act_raddr), .act_rdata(act_rdata),
-        .pan_rbuf(pan_rbuf), .pan_raddr(pan_raddr), .pan_rdata(pan_rdata),
-        .out_pbuf(out_pbuf), .out_rj(out_rj), .rbias(rbias),
-        .out_valid(out_valid), .out_i(out_i), .out_j(out_j), .out_blk(out_blk), .out_panel(out_panel),
-        .out_son(out_son), .out_acc(out_acc), .out_tasma(out_tasma));
+    tile_denetleyici #(.DIZI_BOYUTU(8), .BLOK_SAYISI(NB), .K_GENISLIGI(K_GENISLIGI), .PANEL_GENISLIGI(PANEL_GENISLIGI), .ADRES_GENISLIGI(ADRES_GENISLIGI)) dut (
+        .clk(clk), .rst(rst), .calistir(calistir), .ayar_k(K[K_GENISLIGI-1:0]), .ayar_panel_sayisi(P[PANEL_GENISLIGI-1:0]), .ayar_blok_sayisi(4'd0), .a_isaretsiz(AISGZ[0]),
+        .mesgul(mesgul), .katman_bitti(katman_bitti), .panel_hazir(panel_hazir), .panel_bitti(panel_bitti),
+        .panel_bitti_tampon(panel_bitti_tampon), .aktivasyon_oku_adres(aktivasyon_oku_adres), .aktivasyon_oku_veri(aktivasyon_oku_veri),
+        .panel_oku_tampon(panel_oku_tampon), .panel_oku_adres(panel_oku_adres), .panel_oku_veri(panel_oku_veri),
+        .sorgu_tampon(sorgu_tampon), .sorgu_kanal(sorgu_kanal), .sorgu_bias(sorgu_bias),
+        .cikis_gecerli(cikis_gecerli), .cikis_token(cikis_token), .cikis_kanal(cikis_kanal), .cikis_blok(cikis_blok), .cikis_panel(cikis_panel),
+        .cikis_tile_son(cikis_tile_son), .cikis_birikec(cikis_birikec), .cikis_tasma(cikis_tasma));
 
     reg [63:0] memAct [0:NS*NB*K-1];
     reg [63:0] memW   [0:(PER_S ? NS : 1)*P*K-1];
@@ -75,12 +75,12 @@ module tb_tile;
     integer cyc_layer [0:NS-1];
     integer dolu_sayac;
     reg     bitti_goruldu, vcd_on;
-    always @(posedge kos) if (vcd_on) begin #33000; $dumpoff; end       // VCD'yi ilk ~3300 cevrimle sinirla
+    always @(posedge calistir) if (vcd_on) begin #33000; $dumpoff; end       // VCD'yi ilk ~3300 cevrimle sinirla
 
     always @(posedge clk) cyc <= cyc + 1;
-    always @(posedge clk) if (out_valid)
-        got[(s*64 + out_blk*8 + out_i)*C + out_panel*8 + out_j] <= out_acc;
-    always @(posedge clk) if (out_son) tile_say <= tile_say + 1;
+    always @(posedge clk) if (cikis_gecerli)
+        got[(s*64 + cikis_blok*8 + cikis_token)*C + cikis_panel*8 + cikis_kanal] <= cikis_birikec;
+    always @(posedge clk) if (cikis_tile_son) tile_say <= tile_say + 1;
 
     task yukle_panel;
         input integer p;
@@ -88,22 +88,22 @@ module tb_tile;
         integer q;
         begin
             for (q = 0; q < K; q = q + 1) begin
-                @(negedge clk); pw_en = 1; pw_buf = b; pw_sel = 0; pw_addr = q; pw_data = memW[(PER_S ? s*P*K : 0) + p*K + q];
+                @(negedge clk); panel_yaz_etkin = 1; panel_yaz_tampon = b; panel_yaz_secici = 0; panel_yaz_adres = q; panel_yaz_veri = memW[(PER_S ? s*P*K : 0) + p*K + q];
             end
             for (q = 0; q < 8; q = q + 1) begin
-                @(negedge clk); pw_en = 1; pw_buf = b; pw_sel = 1; pw_addr = q; pw_data = memB[p*8 + q];
+                @(negedge clk); panel_yaz_etkin = 1; panel_yaz_tampon = b; panel_yaz_secici = 1; panel_yaz_adres = q; panel_yaz_veri = memB[p*8 + q];
             end
-            @(negedge clk); pw_en = 0;
-            pan_hazir[b] = 1'b1;
+            @(negedge clk); panel_yaz_etkin = 0;
+            panel_hazir[b] = 1'b1;
         end
     endtask
 
-    // pan_bitti: bosalan tamponu yeniden doldur
-    always @(posedge clk) if (pan_bitti) begin
-        pan_hazir[pan_bitti_buf] = 1'b0;
+    // panel_bitti: bosalan tamponu yeniden doldur
+    always @(posedge clk) if (panel_bitti) begin
+        panel_hazir[panel_bitti_tampon] = 1'b0;
         if (next_p < P) begin
             next_p = next_p + 1;
-            yukle_panel(next_p - 1, pan_bitti_buf);
+            yukle_panel(next_p - 1, panel_bitti_tampon);
         end
     end
 
@@ -127,20 +127,20 @@ module tb_tile;
         for (s = 0; s < NS; s = s + 1) begin
             // 1) aktivasyonlari BRAM'e yukle (cumle s)
             for (w = 0; w < NB*K; w = w + 1) begin
-                @(negedge clk); aw_en = 1; aw_addr = w; aw_data = memAct[s*NB*K + w];
+                @(negedge clk); aktivasyon_yaz_etkin = 1; aktivasyon_yaz_adres = w; aktivasyon_yaz_veri = memAct[s*NB*K + w];
             end
-            @(negedge clk); aw_en = 0;
-            // 2) ilk iki paneli yukle, sonrasini pan_bitti ile (host modeli)
-            pan_hazir = 2'b00; next_p = 0;
+            @(negedge clk); aktivasyon_yaz_etkin = 0;
+            // 2) ilk iki paneli yukle, sonrasini panel_bitti ile (host modeli)
+            panel_hazir = 2'b00; next_p = 0;
             next_p = 1; yukle_panel(0, 0);
             if (P > 1) begin next_p = 2; yukle_panel(1, 1); end
             // 3) katmani baslat
-            @(negedge clk); kos = 1; cyc0 = cyc;
-            @(negedge clk); kos = 0;
+            @(negedge clk); calistir = 1; cyc0 = cyc;
+            @(negedge clk); calistir = 0;
             bitti_goruldu = 0;
             while (!bitti_goruldu && (cyc - cyc0) < 40*P*NB*(K+20)) begin
                 @(posedge clk); #1;
-                if (layer_done) bitti_goruldu = 1;
+                if (katman_bitti) bitti_goruldu = 1;
             end
             cyc_layer[s] = cyc - cyc0;
             if (!bitti_goruldu) begin
@@ -156,7 +156,7 @@ module tb_tile;
                         s, i, i / C, i % C, $signed(got[s*64*C + i]), $signed(memExp[s*64*C + i]));
                 end
             end
-            if (out_tasma) begin errors = errors + 1; $display("  FAIL: golge ustune yazildi (out_tasma)"); end
+            if (cikis_tasma) begin errors = errors + 1; $display("  FAIL: golge ustune yazildi (cikis_tasma)"); end
         end
 
         $display("----------------------------------------------");
