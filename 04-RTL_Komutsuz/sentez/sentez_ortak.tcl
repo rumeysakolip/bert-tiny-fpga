@@ -1,4 +1,4 @@
-# ortak_cekirdek sentezi (tek dizi + tek yeniden olcekleme + 48 KB bellek + Softmax + LayerNorm), 100 MHz, baglamsiz kip
+# ortak_cekirdek ek_hat yaz_fifo agirlik_rom_banka sentezi (tek dizi + tek yeniden olcekleme + 48 KB bellek + Softmax + LayerNorm), 100 MHz, baglamsiz kip
 # Kullanim (cwd: 04-RTL_Komutsuz):  vivado -mode batch -source sentez/sentez_ortak.tcl
 set part xc7a35tcpg236-1
 set kok [pwd]

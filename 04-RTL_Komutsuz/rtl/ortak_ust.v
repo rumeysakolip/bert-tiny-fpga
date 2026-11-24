@@ -10,7 +10,8 @@ module ortak_ust #(
     parameter DOLGU_ATLA   = 1,                   // 1: cumlenin gercek blok sayisi kadar hesap (nb = ceil(token/8)); 0: her zaman 8 blok (eski davranis)
     parameter NA           = 1,                   // paralel dogrusal hat sayisi (1, 2, 4, 8)
     parameter AGIRLIK_ROM  = 0,                   // 1: agirliklar yonga ici bankalardan (bayt akisinda yalniz aktivasyon blogu); NA>1 icin zorunlu
-    parameter ROM_D        = 8192                 // agirlik bankasi derinligi
+    parameter ROM_D        = 8192,                // agirlik bankasi derinligi
+    parameter LN_PAR       = 0                    // 1: LayerNorm bir blogun 8 satiri icin 8 paralel hatta
 ) (
     input  wire         clk,
     input  wire         rst,
@@ -81,7 +82,7 @@ module ortak_ust #(
         .cumle_no(cumle_no), .cumle_bitti(cumle_bitti), .ayar_blok_sayisi(c_blok),
         .ic_oku(ic_oku), .ic_oku_adres(ic_adres), .oku_veri_ic(oku_veri), .sinif(sinif), .sonuc_gecerli(sonuc_gecerli), .logit0(logit0), .logit1(logit1));
 
-    ortak_cekirdek #(.NA(NA), .AGIRLIK_ROM(AGIRLIK_ROM), .ROM_D(ROM_D)) u_cekirdek (
+    ortak_cekirdek #(.NA(NA), .AGIRLIK_ROM(AGIRLIK_ROM), .ROM_D(ROM_D), .LN_PAR(LN_PAR)) u_cekirdek (
         .clk(clk), .rst(rst), .basla(c_basla), .is_tipi(c_tip), .taban_giris(c_tg), .taban_ikinci(c_ti), .taban_cikis(c_tc),
         .ayar_k(c_k), .ayar_panel_sayisi(c_pan), .ayar_blok_sayisi(c_blok), .ayar_kaydirma(c_kay), .gelu_etkin(c_gelu), .devrik_yaz(c_devrik),
         .ayar_m0(c_m0), .ayar_m0_sm(c_m0sm), .uzunluk(c_uz), .cikis_panel_ofset(c_ofs), .baglam_kanal(c_bkanal),

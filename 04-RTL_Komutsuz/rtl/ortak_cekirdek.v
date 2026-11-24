@@ -12,7 +12,8 @@
 module ortak_cekirdek #(
     parameter NA = 1,                  // paralel dogrusal hat sayisi (1, 2, 4, 8); NA>1 iken AGIRLIK_ROM=1 olmali
     parameter AGIRLIK_ROM = 0,         // 1: agirlik paneli yonga ici bankalardan (agirlik_rom_b<i>.mem) gelir; 0: bayt akisindan (w_yaz_*)
-    parameter ROM_D = 8192             // banka derinligi (64 bit sozcuk)
+    parameter ROM_D = 8192,            // banka derinligi (64 bit sozcuk)
+    parameter LN_PAR = 0               // 1: artik + LayerNorm bir blogun 8 satiri icin 8 paralel hatta (artik_ln_par), her hat kendi yeniden olcekleme devresiyle
 ) (
     input  wire         clk,
     input  wire         rst,
@@ -321,11 +322,18 @@ module ortak_cekirdek #(
 
     // ---------------- artik toplama + LayerNorm (ortak carpma devresini kullanir) ----------------
     wire ln_bitti;
-    artik_ln_ortak u_ln (.clk(clk), .rst(rst), .basla(basla_d & t_ln), .ln_no(lnk), .taban_x(tg), .taban_a(ti), .taban_cikis(tc), .y_yaz(ln_y_yaz_k), .taban_cikis_y(ln_taban_y_k), .ayar_blok_sayisi(nb_k),
-        .mesgul(), .bitti(ln_bitti), .oku_adres(ln_oku_adres), .oku_veri(bellek_oku_veri),
-        .yaz_etkin(ln_yaz_etkin), .yaz_adres(ln_yaz_adres), .yaz_veri(ln_yaz_veri), .tasma(ln_tasma),
-        .rs_gir_gecerli(ln_rs_gir_gecerli), .rs_genis(ln_rs_genis), .rs_gir_veri(ln_rs_gir_veri), .rs_m0(ln_rs_m0), .rs_n(ln_rs_n), .rs_meta_gir(ln_rs_meta_gir),
-        .rs_cik_gecerli(rs_gecerli & t_ln), .rs_cik_veri(rs_veri), .rs_meta_cik(rs_meta[7:0]));
+    generate if (LN_PAR != 0) begin : g_lnp
+        artik_ln_par u_ln (.clk(clk), .rst(rst), .basla(basla_d & t_ln), .ln_no(lnk), .taban_x(tg), .taban_a(ti), .taban_cikis(tc), .y_yaz(ln_y_yaz_k), .taban_cikis_y(ln_taban_y_k), .ayar_blok_sayisi(nb_k),
+            .mesgul(), .bitti(ln_bitti), .oku_adres(ln_oku_adres), .oku_veri(bellek_oku_veri),
+            .yaz_etkin(ln_yaz_etkin), .yaz_adres(ln_yaz_adres), .yaz_veri(ln_yaz_veri), .tasma(ln_tasma));
+        assign ln_rs_gir_gecerli = 1'b0; assign ln_rs_genis = 1'b0; assign ln_rs_gir_veri = 32'sd0; assign ln_rs_m0 = 31'd0; assign ln_rs_n = 6'd0; assign ln_rs_meta_gir = 8'd0;
+    end else begin : g_lns
+        artik_ln_ortak u_ln (.clk(clk), .rst(rst), .basla(basla_d & t_ln), .ln_no(lnk), .taban_x(tg), .taban_a(ti), .taban_cikis(tc), .y_yaz(ln_y_yaz_k), .taban_cikis_y(ln_taban_y_k), .ayar_blok_sayisi(nb_k),
+            .mesgul(), .bitti(ln_bitti), .oku_adres(ln_oku_adres), .oku_veri(bellek_oku_veri),
+            .yaz_etkin(ln_yaz_etkin), .yaz_adres(ln_yaz_adres), .yaz_veri(ln_yaz_veri), .tasma(ln_tasma),
+            .rs_gir_gecerli(ln_rs_gir_gecerli), .rs_genis(ln_rs_genis), .rs_gir_veri(ln_rs_gir_veri), .rs_m0(ln_rs_m0), .rs_n(ln_rs_n), .rs_meta_gir(ln_rs_meta_gir),
+            .rs_cik_gecerli(rs_gecerli & t_ln), .rs_cik_veri(rs_veri), .rs_meta_cik(rs_meta[7:0]));
+    end endgenerate
 
     // ---------------- dikkat denetimi (Q.K^T + Softmax ve P.V) ----------------
     localparam D_BOS = 4'd0, D_P0 = 4'd1, D_P0W = 4'd2, D_P1 = 4'd3, D_P1W = 4'd4, D_CAL = 4'd5, D_KOS = 4'd6, D_AKIT = 4'd7,

@@ -17,7 +17,7 @@ VIVADO = r"C:\Xilinx\2025.1\Vivado\bin"
 RTL3 = os.path.join(PROJE, "03-RTL", "rtl")
 RTL4 = os.path.join(KOK, "rtl")
 TB = os.path.join(KOK, "tb", "tb_ortak_ust.v")
-DOSYA4 = ["ortak_ust", "cizelge_ortak", "akis_ayristirici", "ortak_cekirdek", "ek_hat", "yaz_fifo", "agirlik_rom_banka", "birlesik_bellek_2o", "artik_ln_ortak",
+DOSYA4 = ["ortak_ust", "cizelge_ortak", "akis_ayristirici", "ortak_cekirdek", "ek_hat", "yaz_fifo", "agirlik_rom_banka", "artik_ln_par", "birlesik_bellek_2o", "artik_ln_ortak",
           "yeniden_olcekle_ortak", "layernorm_birim_dz", "panel_kopyalayici", "panel_parametre_yukleyici", "parametre_rom", "gelu_yukleyici",
           "cikis_sozcuk_toplayici_devrik", "softmax_birim_gomulu"]
 DOSYA3 = ["ters_bolucu", "seri_bolucu", "cift_kapili_bellek", "cikis_sozcuk_toplayici", "panel_tamponu", "tile_denetleyici", "gelu_tablosu", "sistolik_dizi", "islem_elemani"]
@@ -43,11 +43,12 @@ def main():
     ap.add_argument("--mod", choices=["dogruluk", "sure"], default="dogruluk")
     ap.add_argument("--ns", type=int, default=None)
     ap.add_argument("--etiket", default=None)
+    ap.add_argument("--ln-par", type=int, default=0)
     ap.add_argument("--derleme-atla", action="store_true")
     ap.add_argument("--ek", nargs="*", default=[], help="ek xelab generic (ad=deger)")
     a = ap.parse_args()
     rom = a.rom if a.rom is not None else (1 if a.na > 1 else 0)
-    etiket = a.etiket or f"na{a.na}_r{rom}_d{a.dolgu}_h{a.hizli_olcum}"
+    etiket = a.etiket or f"na{a.na}_r{rom}_d{a.dolgu}_h{a.hizli_olcum}_l{a.ln_par}"
     dizin = os.path.join(KOK, "sim", "xs_k_" + etiket)
     os.makedirs(dizin, exist_ok=True)
     # bellek dosyalari
@@ -66,7 +67,7 @@ def main():
     if not a.derleme_atla:
         dosyalar = [TB] + [os.path.join(RTL4, x + ".v") for x in DOSYA4] + [os.path.join(RTL3, x + ".v") for x in DOSYA3]
         r = calistir([os.path.join(VIVADO, "xvlog.bat"), "-i", RTL4] + dosyalar, dizin, "cikti_xvlog.txt")
-        gen = [f"NA={a.na}", f"AGIRLIK_ROM={rom}", f"ROM_D={romd}", f"DOLGU_ATLA={a.dolgu}", f"HIZLI_OLCUM={a.hizli_olcum}"] + a.ek
+        gen = [f"NA={a.na}", f"AGIRLIK_ROM={rom}", f"ROM_D={romd}", f"DOLGU_ATLA={a.dolgu}", f"HIZLI_OLCUM={a.hizli_olcum}", f"LN_PAR={a.ln_par}"] + a.ek
         komut = [os.path.join(VIVADO, "xelab.bat"), "tb_ortak_ust", "-s", "snap", "-debug", "typical"]
         for g in gen:
             komut += ["-generic_top", g]
