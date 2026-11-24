@@ -166,3 +166,19 @@ with open(os.path.join(KOK, "notlar", "sonuclar", "kesisim.txt"), "w", encoding=
     f.write("\n".join(kesisim_metin) + "\n")
 print("\n".join(kesisim_metin))
 print("g14, g15, g16 yazildi:", OUT)
+
+# ---------------- g20: saat frekansinin etkisi (ust model) ----------------
+fig, ax = plt.subplots(figsize=(W, 3.0))
+frek = [100, 105, 110, 117]
+for tok, renk in ((8, MAVI), (32, YESIL), (64, KIRMIZI)):
+    cev = satirlar[("tamatt", 8, tok)]
+    ax.plot(frek, [cev / (f * 1e3) for f in frek], color=renk, marker="o", ms=4, lw=1.4, label=f"üst model, {tok} belirteç")
+    ax.axhline(cpu[tok], color=renk, ls=":", lw=1.2)
+ax.axvline(117, color="#999999", lw=0.8, ls="--"); ax.text(116.7, ax.get_ylim()[1] * 0.93, "yönlendirmede tutan en yüksek saat\n≈ 117 MHz (kestirim)", ha="right", va="top", fontsize=FK - 2, color="#555555")
+ax.set_xlabel("Saat (MHz)"); ax.set_ylabel("Çıkarım süresi (ms)")
+ax.set_yscale("log"); ax.set_yticks([0.2, 0.5, 1]); ax.get_yaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, p: tr(v, 1)))
+ax.grid(True, which="both", color="#dddddd", lw=0.6)
+ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.22), ncol=3, frameon=False, fontsize=FK - 2)
+ax.text(100.3, 0.205, "noktalı çizgiler: işlemci (aynı uzunluklar)", fontsize=FK - 2, color="#555555")
+kaydet(fig, "g20_saat_etkisi.png")
+print("g20 yazildi")
