@@ -139,3 +139,9 @@ Hızlanma (nb=8'e göre, hesap): nb=1 için 8,0 kat, nb=2 için 4,2 kat, nb=4 i�
 **Mimari notu:** `notlar/MIMARI_NOTU_hizlandirma_secenekleri.md` yazıldı (seçenekler A–E, senaryolar, yedek plan, karar noktaları); RTL değiştirilmedi.
 
 **150 MHz sonucu (ölçüldü, D11 devamı):** aynı dizi 6,667 ns kısıtıyla: 6 790 LUT, 3 000 yazmaç, 0 DSP, **WNS −0,987 ns** (en kötü yol 7,63 ns, 12 mantık seviyesi, setup ihlali 1 164 uç noktada). Hold +0,216 ns. Yorum: LUT çarpmalı eleman çarpma+biriktirmeyi tek çevrimde yaparken en fazla ≈ 115–125 MHz'e çıkar; 150 MHz için boru hattı (ek yazmaç) gerekir. Boru hattı eklenmiş sürüm denenmedi.
+
+## D12 — LayerNorm: varyansı yükleme sırasında hesaplamak (24 Kasım 2026)
+**Amaç:** Mimari notundaki seçenek A'nın ilk adımı. LayerNorm satırında ayrı 130 çevrimlik "fark karesi toplama" geçişini kaldırmak.
+**Yöntem:** Σ(q−m)² = Σq² − 2m·Σq + 128·m² (m tamsayı olduğundan tam eşitlik). Σq² yükleme sırasında biriktirilir (18×18 çarpma ve toplama, eski fark-kare çarpımının yerini aldı; DSP sayısı aynı), ortalamadan sonra dört adımda (ortalama, 2Σq−128m, m×t1 LUT'ta, çıkarma) kareler toplamı bulunur. Değişiklik `scripts/uret_ln_duzeltilmis.py` üretecine eklendi, `rtl/layernorm_birim_dz.v` yeniden üretildi.
+**Sonuç (ölçüldü, xsim):** eski regresyon 328 716 kontrol, 0 hata (altın modelle bit-birebir); nb=8 saf hesap 716 438 → **683 926 çevrim** (−32 512 = 4 LayerNorm × 64 satır × ≈ 127 çevrim); LayerNorm satır süresi ≈ 683 → ≈ 557 çevrim (hesap, satır sürelerinden).
+**Yorum:** Beklenen kazanç (≈ 130 çevrim/satır) gerçekleşti. Sıradaki adım (satır örtüştürme) ≈ 557 → ≈ 400 hedefliyor.
