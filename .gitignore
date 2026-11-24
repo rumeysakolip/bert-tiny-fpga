@@ -74,3 +74,16 @@ rapor_sistemi/
 04-RTL_Komutsuz/sim/xs_lane*/
 04-RTL_Komutsuz/sentez/deney/cikti/*.xdc
 04-RTL_Komutsuz/vektor_rom/
+
+# 24 Kasim 2026: uretilmis / yerel buyuk dosyalar (yeniden uretilebilir)
+04-RTL_Komutsuz/sentez/buyuk_*/
+04-RTL_Komutsuz/sentez/*_stdout.txt
+04-RTL_Komutsuz/sentez/cikti_kart/
+04-RTL_Komutsuz/sim/xs_k_*/
+04-RTL_Komutsuz/sim/xs_saf_*/
+04-RTL_Komutsuz/sim/xs_dolgu/
+04-RTL_Komutsuz/sim/xs_lane*/
+04-RTL_Komutsuz/sentez/cikti_onceki*/
+04-RTL_Komutsuz/sentez/cikti_dolgu_onceki/
+04-RTL_Komutsuz/sentez/cikti_zamanlama_onceki/
+04-RTL_Komutsuz/vektor_rom/
