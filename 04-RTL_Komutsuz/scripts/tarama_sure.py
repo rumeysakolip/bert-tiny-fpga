@@ -1,6 +1,7 @@
 """Saf hesap suresi taramasi: yapilandirmalar x cumle uzunluklari -> notlar/sonuclar/sure_tarama.csv
 Her koşu tek cumle (ilk cumle) ve agirlik ROM modunda (agirliklar yonga ici bellekte, akis beklemesi yok).
 Kullanim (cwd: 04-RTL_Komutsuz):  python scripts/tarama_sure.py "NA=1,2,4,8" [etiket_eki]
+Ek komut satiri bayraklari ortam degiskeni TARAMA_BAYRAK ile (ornek: "--ln-par 1 --smp 1"), etiket TARAMA_AD ile verilir.
 Yapilandirma anahtarlari: NA (paralel dogrusal hat sayisi) ve --ek ile iletilen ek generic'ler (ornek: LN=1) ortam degiskeni TARAMA_EK ile verilebilir.
 """
 import csv
@@ -27,9 +28,10 @@ def main():
         for na in nalar:
             for i, k in enumerate(KUMELER):
                 etiket = f"tara_{ek_ad}_na{na}"
-                komut = [sys.executable, os.path.join(KOK, "scripts", "kos_xsim.py"), "--na", str(na), "--rom", "1", "--dolgu", "1", "--kume", k, "--mod", "sure", "--etiket", etiket]
+                komut = [sys.executable, os.path.join(KOK, "scripts", "kos_xsim.py"), "--na", str(na), "--rom", os.environ.get("TARAMA_ROM", "1"), "--dolgu", "1", "--kume", k, "--mod", "sure", "--etiket", etiket]
                 if i > 0:
                     komut.append("--derleme-atla")
+                komut += os.environ.get("TARAMA_BAYRAK", "").split()
                 if ek:
                     komut += ["--ek"] + ek
                 r = subprocess.run(komut, cwd=KOK, capture_output=True, text=True, encoding="utf-8", errors="replace")

@@ -45,11 +45,12 @@ def main():
     ap.add_argument("--etiket", default=None)
     ap.add_argument("--ln-par", type=int, default=0)
     ap.add_argument("--smp", type=int, default=0)
+    ap.add_argument("--attp", type=int, default=0)
     ap.add_argument("--derleme-atla", action="store_true")
     ap.add_argument("--ek", nargs="*", default=[], help="ek xelab generic (ad=deger)")
     a = ap.parse_args()
     rom = a.rom if a.rom is not None else (1 if a.na > 1 else 0)
-    etiket = a.etiket or f"na{a.na}_r{rom}_d{a.dolgu}_h{a.hizli_olcum}_l{a.ln_par}_s{a.smp}"
+    etiket = a.etiket or f"na{a.na}_r{rom}_d{a.dolgu}_h{a.hizli_olcum}_l{a.ln_par}_s{a.smp}_a{a.attp}"
     dizin = os.path.join(KOK, "sim", "xs_k_" + etiket)
     os.makedirs(dizin, exist_ok=True)
     # bellek dosyalari
@@ -68,7 +69,7 @@ def main():
     if not a.derleme_atla:
         dosyalar = [TB] + [os.path.join(RTL4, x + ".v") for x in DOSYA4] + [os.path.join(RTL3, x + ".v") for x in DOSYA3]
         r = calistir([os.path.join(VIVADO, "xvlog.bat"), "-i", RTL4] + dosyalar, dizin, "cikti_xvlog.txt")
-        gen = [f"NA={a.na}", f"AGIRLIK_ROM={rom}", f"ROM_D={romd}", f"DOLGU_ATLA={a.dolgu}", f"HIZLI_OLCUM={a.hizli_olcum}", f"LN_PAR={a.ln_par}", f"SMP={a.smp}"] + a.ek
+        gen = [f"NA={a.na}", f"AGIRLIK_ROM={rom}", f"ROM_D={romd}", f"DOLGU_ATLA={a.dolgu}", f"HIZLI_OLCUM={a.hizli_olcum}", f"LN_PAR={a.ln_par}", f"SMP={a.smp}", f"ATTP={a.attp}"] + a.ek
         komut = [os.path.join(VIVADO, "xelab.bat"), "tb_ortak_ust", "-s", "snap", "-debug", "typical"]
         for g in gen:
             komut += ["-generic_top", g]
