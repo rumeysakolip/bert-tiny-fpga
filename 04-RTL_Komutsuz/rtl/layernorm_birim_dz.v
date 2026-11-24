@@ -64,6 +64,11 @@ module layernorm_birim_dz #(
     reg signed [TOPLAM_GENISLIGI-1:0] toplam;
     reg signed [FARK_GENISLIGI-1:0]   ortalama;
     reg [KARELER_TOPLAMI_GENISLIGI-1:0]         kareler_toplami;
+    reg [2*GIRIS_GENISLIGI+KANAL_SAYISI_LOG2-1:0] kare_yuk;       // yukleme sirasinda biriken sum(q^2)
+    reg [2:0]                                   ort_adim;         // ORTALAMA durumu alt adimi
+    reg signed [TOPLAM_GENISLIGI+2:0]           ort_t1;           // 2*sum(q) - N*m
+    (* use_dsp = "no" *) reg signed [FARK_GENISLIGI+TOPLAM_GENISLIGI+2:0] ort_carpim;    // m * t1 (satir basina bir kez; LUT'ta)
+    wire [2*GIRIS_GENISLIGI-1:0] kare_giris = giris_veri * giris_veri;
     reg [VARYANS_GENISLIGI-1:0]        karekok_girisi, karekok_sonucu, karekok_bit;
     reg [KAREKOK_BIT_SAYISI:0]             karekok_sayaci;
     reg [31:0]             standart_sapma;
@@ -141,7 +146,7 @@ module layernorm_birim_dz #(
     always @(posedge clk) begin
         if (rst) begin
             durum <= DURUM_BOSTA; sayac <= 0; cikis_gecerli <= 1'b0; cikis_veri <= 8'sd0; cikis_son <= 1'b0;
-            toplam <= 0; ortalama <= 0; kareler_toplami <= 0; standart_sapma <= 32'd1; bolum_a <= 0; gamma_carpim <= 0; olcek_toplam <= 0; kaydirilmis <= 0; fark_kayit <= 0; fark_karesi_kayit <= 0; kare_asama1_gecerli <= 1'b0; kare_asama2_gecerli <= 1'b0;
+            toplam <= 0; ortalama <= 0; kareler_toplami <= 0; kare_yuk <= 0; ort_adim <= 3'd0; ort_t1 <= 0; ort_carpim <= 0; standart_sapma <= 32'd1; bolum_a <= 0; gamma_carpim <= 0; olcek_toplam <= 0; kaydirilmis <= 0; fark_kayit <= 0; fark_karesi_kayit <= 0; kare_asama1_gecerli <= 1'b0; kare_asama2_gecerli <= 1'b0;
             karekok_girisi <= 0; karekok_sonucu <= 0; karekok_bit <= 0; karekok_sayaci <= 0; epsilon_kayit <= 0; olcek_m0_kayit <= 0; kaydirma_kayit <= 0; karekok_deneme <= 0; karekok_evresi <= 2'd0; karekok_buyuk_esit <= 1'b0;
             bolum_a_gecerli <= 1'b0; bolum_b_gecerli <= 1'b0; gamma_carpim_gecerli <= 1'b0; olcek_carpim_gecerli <= 1'b0; olcek_toplam_gecerli <= 1'b0; yuvarlama_gecerli <= 1'b0; kaydirma_gecerli <= 1'b0; beta_gecerli <= 1'b0;
             bolum_a_son <= 1'b0; bolum_b_son <= 1'b0; gamma_carpim_son <= 1'b0; olcek_carpim_son <= 1'b0; olcek_toplam_son <= 1'b0; yuvarlama_son <= 1'b0; kaydirma_son <= 1'b0; beta_son <= 1'b0;
@@ -176,16 +181,24 @@ module layernorm_birim_dz #(
             if (beta_gecerli) cikis_veri <= (beta_eklenmis > 127) ? 8'sd127 : (beta_eklenmis < -128) ? -8'sd128 : beta_eklenmis[7:0];
             case (durum)
                 DURUM_BOSTA: if (baslat) begin
-                    epsilon_kayit <= epsilon_q; olcek_m0_kayit <= olcek_m0; kaydirma_kayit <= olcek_kaydirma; sayac <= 0; toplam <= 0; kareler_toplami <= 0; durum <= DURUM_YUKLE;
+                    epsilon_kayit <= epsilon_q; olcek_m0_kayit <= olcek_m0; kaydirma_kayit <= olcek_kaydirma; sayac <= 0; toplam <= 0; kareler_toplami <= 0; kare_yuk <= 0; ort_adim <= 3'd0; durum <= DURUM_YUKLE;
                 end
                 DURUM_YUKLE: if (giris_gecerli) begin
                     giris_tamponu[satir_sirasi] <= giris_veri;
                     toplam <= toplam + giris_veri;
+                    kare_yuk <= kare_yuk + kare_giris;
                     if (sayac == KANAL_SAYISI-1) begin sayac <= 0; durum <= DURUM_ORTALAMA; end else sayac <= sayac + 1;
                 end
-                DURUM_ORTALAMA: begin
-                    ortalama <= (toplam + (1 <<< (KANAL_SAYISI_LOG2-1))) >>> KANAL_SAYISI_LOG2;
-                    sayac <= 0; kareler_toplami <= 0; kare_asama1_gecerli <= 1'b0; kare_asama2_gecerli <= 1'b0; durum <= DURUM_KARE_TOPLA;
+                DURUM_ORTALAMA: begin                                       // 4 adim: ortalama | t1 | m*t1 | kareler toplami (eski N+2 cevrimlik gecis yerine)
+                    case (ort_adim)
+                        3'd0: begin ortalama <= (toplam + (1 <<< (KANAL_SAYISI_LOG2-1))) >>> KANAL_SAYISI_LOG2; ort_adim <= 3'd1; end
+                        3'd1: begin ort_t1 <= (toplam <<< 1) - (ortalama <<< KANAL_SAYISI_LOG2); ort_adim <= 3'd2; end
+                        3'd2: begin ort_carpim <= ortalama * ort_t1; ort_adim <= 3'd3; end
+                        default: begin
+                            kareler_toplami <= kare_yuk - ort_carpim; ort_adim <= 3'd0;
+                            sayac <= 0; kare_asama1_gecerli <= 1'b0; kare_asama2_gecerli <= 1'b0; durum <= DURUM_VARYANS;
+                        end
+                    endcase
                 end
                 DURUM_KARE_TOPLA: begin                                     // 3 asamali boru hatti: d -> d*d -> toplam
                     fark_kayit   <= fark_anlik;
