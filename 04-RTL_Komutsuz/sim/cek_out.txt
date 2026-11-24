@@ -1,0 +1,22 @@
+==== ORTAK CEKIRDEK SINAMASI: tek dizi + tek yeniden olcekleme devresi; dogrusal, dikkat, artik+LayerNorm; 1 cumle; altin modelle bit-birebir ====
+---- EVRE 1: dogrusal katmanlar (ayni cekirdek, is turu 0) ----
+   l0_q sonucu: BASARILI  (8192 kontrol, 0 hata) | 18524 cevrim
+   l0_k sonucu: BASARILI  (8192 kontrol, 0 hata) | 18524 cevrim
+   V (devrik panel duzeni, 2 bas x 512 sozcuk): BASARILI  (0 hata) | 18534 cevrim
+   l0_ffn1 sonucu: BASARILI  (32768 kontrol, 0 hata) | 73868 cevrim
+   l0_ffn2 sonucu: BASARILI  (8192 kontrol, 0 hata) | 67676 cevrim
+---- EVRE 2: dikkat (is turu 1: Q.K^T + Softmax, is turu 2: P.V) ----
+[katman 0, cumle 0, bas 0] uzunluk=4 : Q.K^T+Softmax 21386 cevrim, P.V baglam BASARILI (4096 kontrol, 0 hata) | P.V 5386 cevrim
+[katman 0, cumle 0, bas 1] uzunluk=4 : Q.K^T+Softmax 21386 cevrim, P.V baglam BASARILI (4096 kontrol, 0 hata) | P.V 5386 cevrim
+[katman 1, cumle 0, bas 0] uzunluk=4 : Q.K^T+Softmax 21386 cevrim, P.V baglam BASARILI (4096 kontrol, 0 hata) | P.V 5386 cevrim
+[katman 1, cumle 0, bas 1] uzunluk=4 : Q.K^T+Softmax 21386 cevrim, P.V baglam BASARILI (4096 kontrol, 0 hata) | P.V 5386 cevrim
+---- EVRE 3: artik toplama + LayerNorm (is turu 3; ayni carpma devresi sirayla uc is gorur) ----
+[LayerNorm 1/4, cumle 0] BASARILI (8192 kontrol, 0 hata) | 42693 cevrim
+[LayerNorm 2/4, cumle 0] BASARILI (8192 kontrol, 0 hata) | 42693 cevrim
+[LayerNorm 3/4, cumle 0] BASARILI (8192 kontrol, 0 hata) | 42693 cevrim
+[LayerNorm 4/4, cumle 0] BASARILI (128 kontrol, yalniz ilk token, 0 hata) | 42693 cevrim
+----------------------------------------------
+ORTAK CEKIRDEK TEST: BASARILI  (1 cumle, 106624 kontrol, 0 hata, toplam 474986 is cevrimi, bellek okuma carpismasi 0)
+
+Tam gunluk: C:\Users\rumey\Documents\biitirme-projem\04-RTL_Komutsuz\vivado\gunluk_ortak_cekirdek.txt
+Press any key to continue . . . 

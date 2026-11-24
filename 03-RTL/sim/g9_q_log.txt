@@ -1,0 +1,4 @@
+HIZLANDIRICI TB BITTI: cevrim=65309 gonderilen_bayt=26106 yanit_bayt=8337 paket=70 hata=2
+  hata enjeksiyonu: bozuk CRC -> HATA(CRC), bilinmeyen komut -> HATA(bilinmeyen komut) : OK
+  PASS l0_q         K=128 C=128: 8192 eleman, uyuþmayan=0
+G9 HOST-IN-THE-LOOP: PASS (1 katman, cümle 0, 70 paket, 26106 bayt gönderildi, 0 hata)

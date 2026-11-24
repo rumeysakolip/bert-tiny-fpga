@@ -1,0 +1,55 @@
+{
+ "etiket": "Vivado + xsim (benzetim); kartta denenmedi",
+ "konu7a": {
+  "kisit_dosyasi": "sentez/basys3.xdc",
+  "kisitlar": "set_false_path: uart_rx_pin (from), uart_tx_pin (to), rst (from); set_input/output_delay degeri uydurulmadi",
+  "reset_senkronlayici": "rtl/bert_tiny_uart_ust.v, 2 kademeli (asenkron kurma, saatle birakma)",
+  "check_timing_once": {
+   "no_input_delay": 2,
+   "no_output_delay": 1
+  },
+  "check_timing_sonra": {
+   "no_input_delay_kisitsiz": 0,
+   "no_output_delay_kisitsiz": 0,
+   "false_path_ile_kapsanan_giris": 2,
+   "false_path_ile_kapsanan_cikis": 1
+  },
+  "periyot_ns": 6.667,
+  "WNS_ns": 0.014,
+  "WHS_ns": 0.029,
+  "LUT": 3559,
+  "FF": 6072,
+  "BRAM": 19.5,
+  "DSP": 87,
+  "kaynak": "sentez/cikti/io_kisit_150_zamanlama.txt, io_kisit_150_kullanim.txt"
+ },
+ "layernorm_ek_yazmac": {
+  "degisiklik": "olcek_carpim ciktisina bir yazmac asamasi",
+  "WNS_ns_150MHz_oncesi": -0.017,
+  "WNS_ns_150MHz_sonrasi": 0.174,
+  "WHS_ns": 0.024,
+  "LayerNorm_cevrim_satir": {
+   "once": 377,
+   "sonra": 378
+  },
+  "kaynak": "sentez/cikti/ln_ek_yazmac_150_zamanlama.txt, sim/g11_sonuc.json"
+ },
+ "konu7b": {
+  "agac_listesi": [
+   "sim/postsynth_ust/ust_ps_islevsel.v",
+   "sim/postsynth_ust/ust_pr_zaman.v",
+   "sim/postsynth_ust/ust_pr_zaman.sdf"
+  ],
+  "testbench": "sim/postsynth_ust/tb_ps_ust.v (tb_uart_baud.v'den; hiyerarsik okuma yapan 2 kontrol cikarildi, 8 kontrol kaldi; GSR icin 300 ns)",
+  "sentez_sonrasi_islevsel": {
+   "sonuc": "PASS (8 kontrol, 0 hata)",
+   "sure_sn": 50
+  },
+  "yonlendirme_sonrasi_SDF": {
+   "sonuc": "PASS (8 kontrol, 0 hata)",
+   "sure_sn": 1214,
+   "not": "testbench 100 MHz saatle, ag listesi 150 MHz kisitla yonlendirilmis; tam vektor kumesi (175 390 kontrol) kosturulmadi, yalniz UART kontrolu"
+  },
+  "kosulmayan": "tb_bert_tiny_ust tam vektor kumesi ag listesinde"
+ }
+}

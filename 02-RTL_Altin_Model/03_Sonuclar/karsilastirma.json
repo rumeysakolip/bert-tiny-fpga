@@ -1,0 +1,109 @@
+{
+  "kosu": "minmax_sim_n128",
+  "m0_bit": 16,
+  "fp32": {
+    "dogru": 719,
+    "dogruluk": 0.8245,
+    "sure_sn": 6.5,
+    "ptq_fp32_tahminleriyle_uyusma": 872,
+    "kayip": 0.5817,
+    "kayip_ortanca": 0.0124,
+    "ortalama_guven": 0.946,
+    "dogru_sinif_olasiligi": 0.8074,
+    "egitim": {
+      "son_epoch": 4,
+      "egitim_kaybi": 0.164,
+      "kaynak": "00-FP32_Egitim/03_Sonuclar/sonuclar.json"
+    }
+  },
+  "modeller": {
+    "INT8-PTQ (yazılım)": {
+      "n": 872,
+      "dogru": 718,
+      "dogruluk": 0.8234,
+      "kayip_puan": 0.11,
+      "kayip_cumle": 1,
+      "uyusma_orani": 0.9966,
+      "uyusmayan_cumle": 3,
+      "fp32_dogru_aday_yanlis": 2,
+      "fp32_yanlis_aday_dogru": 1,
+      "mlperf_orani": 0.9986,
+      "hedef_saglandi": true,
+      "sinir_saglandi": true,
+      "mlperf_saglandi": true,
+      "karar": "HEDEF sağlandı (<=1 puan)",
+      "sure_sn": null,
+      "kayip": 0.5826,
+      "kayip_ortanca": 0.0123,
+      "ortalama_guven": 0.946,
+      "dogru_sinif_olasiligi": 0.8065
+    },
+    "Altın-A (PTQ eşdeğeri)": {
+      "n": 872,
+      "dogru": 718,
+      "dogruluk": 0.8234,
+      "kayip_puan": 0.11,
+      "kayip_cumle": 1,
+      "uyusma_orani": 0.9966,
+      "uyusmayan_cumle": 3,
+      "fp32_dogru_aday_yanlis": 2,
+      "fp32_yanlis_aday_dogru": 1,
+      "mlperf_orani": 0.9986,
+      "hedef_saglandi": true,
+      "sinir_saglandi": true,
+      "mlperf_saglandi": true,
+      "karar": "HEDEF sağlandı (<=1 puan)",
+      "sure_sn": 15.1,
+      "kayip": 0.5826,
+      "kayip_ortanca": 0.0123,
+      "ortalama_guven": 0.946,
+      "dogru_sinif_olasiligi": 0.8065
+    },
+    "Altın-B (donanım)": {
+      "n": 872,
+      "dogru": 720,
+      "dogruluk": 0.8257,
+      "kayip_puan": -0.11,
+      "kayip_cumle": -1,
+      "uyusma_orani": 0.9943,
+      "uyusmayan_cumle": 5,
+      "fp32_dogru_aday_yanlis": 2,
+      "fp32_yanlis_aday_dogru": 3,
+      "mlperf_orani": 1.0014,
+      "hedef_saglandi": true,
+      "sinir_saglandi": true,
+      "mlperf_saglandi": true,
+      "karar": "HEDEF sağlandı (<=1 puan)",
+      "sure_sn": 18.1,
+      "kayip": 0.5752,
+      "kayip_ortanca": 0.0127,
+      "ortalama_guven": 0.946,
+      "dogru_sinif_olasiligi": 0.8086
+    }
+  },
+  "esdegerlik": {
+    "Altın-A  vs  INT8-PTQ": {
+      "ayni_tahmin": 872,
+      "toplam": 872,
+      "oran": 1.0,
+      "not": "altın modelin GEÇERLİLİK KANITI",
+      "logit_farki": {
+        "ortanca": 2.6380348200349957e-07,
+        "p99": 0.000546779573059019,
+        "maks": 0.01491689540100094
+      }
+    },
+    "Altın-B  vs  Altın-A": {
+      "ayni_tahmin": 864,
+      "toplam": 872,
+      "oran": 0.9908,
+      "not": "donanım yaklaşımlarının etkisi"
+    },
+    "Altın-FP32 vs PTQ-FP32": {
+      "ayni_tahmin": 872,
+      "toplam": 872,
+      "oran": 1.0,
+      "not": "FP32 yolunun tutarlılığı"
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "kosu": "minmax_sim_n128",
+  "olcutler": {
+    "fp32": {
+      "dogru": 719,
+      "beklenen": 719,
+      "fp32_tahmin_uyusma": 872,
+      "gecti": true
+    },
+    "A_kipi": {
+      "dogru": 718,
+      "beklenen": 718,
+      "ptq_tahmin_uyusma": 872,
+      "kayip_puan": 0.11,
+      "logit_fark_ortanca": 2.6380348200349957e-07,
+      "logit_fark_maks": 0.01491689540100094,
+      "gecti": true
+    },
+    "tamsayi_yolu": {
+      "sistolik_birebir": true,
+      "tasan_birikec": 0,
+      "en_genis_birikec": "classifier.birikec",
+      "gereken_bit": 21,
+      "bos_pay_bit": 11,
+      "gecti": true
+    }
+  },
+  "birikec_genislikleri": {
+    "bert.encoder.layer.0.attention.output.dense.birikec": {
+      "bit": 32,
+      "min": -68638,
+      "max": 60031,
+      "tasma": 0,
+      "gereken_bit": 18,
+      "bos_pay_bit": 14
+    },
+    "bert.encoder.layer.0.attention.self.key.birikec": {
+      "bit": 32,
+      "min": -46048,
+      "max": 47925,
+      "tasma": 0,
+      "gereken_bit": 17,
+      "bos_pay_bit": 15
+    },
+    "bert.encoder.layer.0.attention.self.query.birikec": {
+      "bit": 32,
+      "min": -45798,
+      "max": 50241,
+      "tasma": 0,
+      "gereken_bit": 17,
+      "bos_pay_bit": 15
+    },
+    "bert.encoder.layer.0.attention.self.value.birikec": {
+      "bit": 32,
+      "min": -50318,
+      "max": 42625,
+      "tasma": 0,
+      "gereken_bit": 17,
+      "bos_pay_bit": 15
+    },
+    "bert.encoder.layer.0.intermediate.dense.birikec": {
+      "bit": 32,
+      "min": -46140,
+      "max": 37770,
+      "tasma": 0,
+      "gereken_bit": 17,
+      "bos_pay_bit": 15
+    },
+    "bert.encoder.layer.0.output.dense.birikec": {
+      "bit": 32,
+      "min": -23224,
+      "max": 25436,
+      "tasma": 0,
+      "gereken_bit": 16,
+      "bos_pay_bit": 16
+    },
+    "bert.encoder.layer.1.attention.output.dense.birikec": {
+      "bit": 32,
+      "min": -72294,
+      "max": 71640,
+      "tasma": 0,
+      "gereken_bit": 18,
+      "bos_pay_bit": 14
+    },
+    "bert.encoder.layer.1.attention.self.key.birikec": {
+      "bit": 32,
+      "min": -65400,
+      "max": 64902,
+      "tasma": 0,
+      "gereken_bit": 17,
+      "bos_pay_bit": 15
+    },
+    "bert.encoder.layer.1.attention.self.query.birikec": {
+      "bit": 32,
+      "min": -60673,
+      "max": 59709,
+      "tasma": 0,
+      "gereken_bit": 17,
+      "bos_pay_bit": 15
+    },
+    "bert.encoder.layer.1.attention.self.value.birikec": {
+      "bit": 32,
+      "min": -57720,
+      "max": 53927,
+      "tasma": 0,
+      "gereken_bit": 17,
+      "bos_pay_bit": 15
+    },
+    "bert.encoder.layer.1.intermediate.dense.birikec": {
+      "bit": 32,
+      "min": -100114,
+      "max": 91316,
+      "tasma": 0,
+      "gereken_bit": 18,
+      "bos_pay_bit": 14
+    },
+    "bert.encoder.layer.1.output.dense.birikec": {
+      "bit": 32,
+      "min": -34661,
+      "max": 28586,
+      "tasma": 0,
+      "gereken_bit": 17,
+      "bos_pay_bit": 15
+    },
+    "bert.pooler.dense.birikec": {
+      "bit": 32,
+      "min": -115818,
+      "max": 115937,
+      "tasma": 0,
+      "gereken_bit": 18,
+      "bos_pay_bit": 14
+    },
+    "classifier.birikec": {
+      "bit": 32,
+      "min": -649311,
+      "max": 627220,
+      "tasma": 0,
+      "gereken_bit": 21,
+      "bos_pay_bit": 11
+    }
+  }
+}

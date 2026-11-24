@@ -1,0 +1,56 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Thu Nov 12 06:49:14 2026
+| Host         : pc running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/sentez/cikti/ortak_sentez_hiyerarsik.txt
+| Design       : ortak_cekirdek
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Synthesized
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------+-------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|         Instance        |             Module            | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------+-------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| ortak_cekirdek          |                         (top) |       4548 |       3952 |     391 |  205 | 5932 |     22 |     14 |         87 |
+|   (ortak_cekirdek)      |                         (top) |        163 |         65 |      96 |    2 |  316 |      2 |      0 |          0 |
+|   u_bellek              |            birlesik_bellek_2o |        282 |        282 |       0 |    0 |    7 |     12 |      0 |          0 |
+|     birim[5].u_birim    |         cift_kapili_bellek_67 |        136 |        136 |       0 |    0 |    0 |      2 |      0 |          0 |
+|     birim[3].u_birim    |         cift_kapili_bellek_65 |        145 |        145 |       0 |    0 |    0 |      2 |      0 |          0 |
+|   u_devrik              | cikis_sozcuk_toplayici_devrik |        174 |         78 |      96 |    0 |   91 |      0 |      0 |          0 |
+|   u_gelu_tablosu        |                  gelu_tablosu |         64 |         16 |      48 |    0 |    0 |      0 |      0 |          0 |
+|   u_kop                 |             panel_kopyalayici |        172 |        172 |       0 |    0 |  138 |      0 |      0 |          0 |
+|   u_ln                  |                artik_ln_ortak |       1511 |       1400 |      36 |   75 | 1286 |      0 |     12 |         12 |
+|     (u_ln)              |                artik_ln_ortak |        380 |        380 |       0 |    0 |  293 |      0 |     10 |          0 |
+|     u_ln                |            layernorm_birim_dz |       1131 |       1020 |      36 |   75 |  993 |      0 |      2 |         12 |
+|       (u_ln)            |            layernorm_birim_dz |        815 |        762 |      36 |   17 |  761 |      0 |      2 |          6 |
+|       u_ters_bolucu     |   ters_bolucu__parameterized0 |        316 |        258 |       0 |   58 |  232 |      0 |      0 |          6 |
+|         (u_ters_bolucu) |   ters_bolucu__parameterized0 |        240 |        182 |       0 |   58 |  154 |      0 |      0 |          6 |
+|         u_ters_bolucu   |   seri_bolucu__parameterized0 |         76 |         76 |       0 |    0 |   78 |      0 |      0 |          0 |
+|   u_panel_tamponu       |                 panel_tamponu |        124 |         32 |      92 |    0 |    0 |      2 |      0 |          0 |
+|   u_param               |     panel_parametre_yukleyici |         46 |         46 |       0 |    0 |   74 |      0 |      0 |          0 |
+|   u_rs                  |         yeniden_olcekle_ortak |        531 |        513 |       0 |   18 |  238 |      0 |      0 |          4 |
+|   u_sm                  |          softmax_birim_gomulu |        358 |        293 |      23 |   42 |  234 |      0 |      2 |          7 |
+|     (u_sm)              |          softmax_birim_gomulu |        218 |        187 |      23 |    8 |   84 |      0 |      2 |          3 |
+|     u_ters_bolucu       |                   ters_bolucu |        140 |        106 |       0 |   34 |  150 |      0 |      0 |          4 |
+|       (u_ters_bolucu)   |                   ters_bolucu |         75 |         41 |       0 |   34 |   84 |      0 |      0 |          4 |
+|       u_ters_bolucu     |                   seri_bolucu |         65 |         65 |       0 |    0 |   66 |      0 |      0 |          0 |
+|   u_tablo               |                gelu_yukleyici |         85 |         85 |       0 |    0 |   46 |      0 |      0 |          0 |
+|   u_tile                |              tile_denetleyici |       1002 |        934 |       0 |   68 | 3369 |      0 |      0 |         64 |
+|     (u_tile)            |              tile_denetleyici |        659 |        659 |       0 |    0 | 2275 |      0 |      0 |          0 |
+|     u_sistolik_dizi     |                 sistolik_dizi |        343 |        275 |       0 |   68 | 1094 |      0 |      0 |         64 |
+|       (u_sistolik_dizi) |                 sistolik_dizi |        274 |        206 |       0 |   68 |  414 |      0 |      0 |          0 |
+|   u_toplayici           |        cikis_sozcuk_toplayici |         36 |         36 |       0 |    0 |  133 |      0 |      0 |          0 |
++-------------------------+-------------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

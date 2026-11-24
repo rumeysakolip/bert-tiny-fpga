@@ -1,0 +1,8 @@
+yapilandirma,dogru,dogruluk,kayip_puan,hedef_gecti,sinir_gecti,sure_sn,yeniden_olcekle,layer_norm,softmax,gelu,tanh,m0_bit,skor_bit,ln_bit
+A (taban),718,0.8234,0.11,True,True,15.3,float,float,float,float,float,31,12,12
++ sabit noktalı ölçekleme,715,0.82,0.46,True,True,15.9,sabit,float,float,float,float,31,12,12
++ LUT GELU,718,0.8234,0.11,True,True,15.2,float,float,float,lut,float,31,12,12
++ LUT tanh,718,0.8234,0.11,True,True,15.2,float,float,float,float,lut,31,12,12
++ tamsayı softmax,720,0.8257,-0.11,True,True,16.0,float,float,tam,float,float,31,12,12
++ tamsayı LayerNorm,717,0.8222,0.23,True,True,16.6,float,tam,float,float,float,31,12,12
+B (hepsi birden),717,0.8222,0.23,True,True,18.1,sabit,tam,tam,lut,lut,31,12,12

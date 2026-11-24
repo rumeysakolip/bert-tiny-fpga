@@ -1,0 +1,25 @@
+
+****** xsim v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Thu Oct 29 21:17:34 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/tb_x/xsim_script.tcl
+# xsim {tb_x} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+WARNING: file tb/vektor_g11/sm_meta.mem could not be opened
+BILGI: vektor klasoru bulunamadi, '.' deneniyor
+BILGI: vektor klasoru=.  mod=BAYT
+SOFTMAX: 325 satir, 20820 cikis bayt karsilastirildi
+LAYERNORM: 485 satir, 62108 cikis bayt karsilastirildi
+BILGI: cevrim=4202991 gonderilen_bayt=666996 alinan_bayt=704848
+BERT_TINY_UST TEST: PASS (175390 kontrol, 0 hata)
+$finish called at time : 42029915 ns : File "C:/Users/rumey/Documents/biitirme-projem/03-RTL/tb/tb_bert_tiny_ust.v" Line 410
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 191.059 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 16420 KB (Peak: 16420 KB), Simulation CPU Usage: 12015 ms
+INFO: [Common 17-206] Exiting xsim at Thu Oct 29 21:17:49 2026...

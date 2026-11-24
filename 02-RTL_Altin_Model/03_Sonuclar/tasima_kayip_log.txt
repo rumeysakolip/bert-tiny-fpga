@@ -1,0 +1,17 @@
+FP32 referansý: 719/872
+koþu                              doðru   kayýp      CE  önceki ile fark  maks|dlogit|
+B_float_tasima                      717   0.23p  0.5758                         0.0000
+kumulatif_1_gomme                   717   0.23p  0.5758                0        0.0000
+kumulatif_2_ln_cikis                717   0.23p  0.5758                0        0.0000
+kumulatif_3_artik                   718   0.11p  0.5752                3        0.3752
+kumulatif_4_qk                      718   0.11p  0.5752                0        0.3752
+kumulatif_5_av                      718   0.11p  0.5752                0        0.3752
+kumulatif_6_gelu_tanh               718   0.11p  0.5752                0        0.3752
+tek_gomme                           717   0.23p  0.5758                         0.0000
+tek_ln_cikis                        717   0.23p  0.5758                         0.0000
+tek_artik                           718   0.11p  0.5752                         0.3752
+tek_qk                              717   0.23p  0.5758                         0.0235
+tek_av                              717   0.23p  0.5758                         0.0000
+tek_gelu_tanh                       717   0.23p  0.5758                         0.0000
+
+TAM TAMSAYI HAT: 718/872 (FP32 719); kayýp 0.11 puan; hedef>=711: True, sýnýr>=702: True

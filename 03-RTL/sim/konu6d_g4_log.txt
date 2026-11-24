@@ -1,0 +1,12 @@
+  PASS eski PE (8x8)  1012 kontrol, 0 hata
+  PASS eski systolic_4x4  264 test, 0 hata
+  PASS pe 9b x 8b  10333 kontrol, 0 hata
+  PASS N=4 regresyon (yeni==eski)  259 test, eski ve yeni modul birebir, 0 hata
+  PASS nxn N=4 K=4  198 test, 6336 kontrol, 0 hata  tile=11..11 (K+2N-1=10)
+  PASS nxn N=4 K=16  198 test, 6336 kontrol, 0 hata  tile=23..23 (K+2N-1=22)
+  PASS nxn N=4 K=64  198 test, 6336 kontrol, 0 hata  tile=71..71 (K+2N-1=70)
+  PASS nxn N=8 K=8  198 test, 25344 kontrol, 0 hata  tile=23..23 (K+2N-1=22)
+  PASS nxn N=8 K=64  198 test, 25344 kontrol, 0 hata  tile=79..79 (K+2N-1=78)
+  PASS nxn N=8 K=128  198 test, 25344 kontrol, 0 hata  tile=143..143 (K+2N-1=142)
+  PASS nxn N=8 K=512  198 test, 25344 kontrol, 0 hata  tile=527..527 (K+2N-1=526)
+G4 TOPLAM: PASS (11 koþu, 0 baþarýsýz)

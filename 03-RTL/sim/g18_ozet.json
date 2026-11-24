@@ -1,0 +1,76 @@
+{
+ "n_cumle": 872,
+ "fp32": 719,
+ "satirlar": [
+  {
+   "ad": "FP32 referans",
+   "dogru": 719,
+   "uyusma": 1.0
+  },
+  {
+   "ad": "PTQ minmax_sim_n128",
+   "dogru": 718,
+   "uyusma": 0.9966
+  },
+  {
+   "ad": "PTQ minmax_sim_n512",
+   "dogru": 718,
+   "uyusma": 0.9966
+  },
+  {
+   "ad": "PTQ percentile99.99_sim_n128",
+   "dogru": 717,
+   "uyusma": 0.9954
+  },
+  {
+   "ad": "PTQ percentile99.99_sim_n512",
+   "dogru": 717,
+   "uyusma": 0.9954
+  },
+  {
+   "ad": "PTQ minmax_asim_n512",
+   "dogru": 716,
+   "uyusma": 0.9943
+  },
+  {
+   "ad": "PTQ percentile99.99_asim_n512",
+   "dogru": 718,
+   "uyusma": 0.9989
+  },
+  {
+   "ad": "Altın model A (PTQ eşdeğeri)",
+   "dogru": 718,
+   "uyusma": 0.9966
+  },
+  {
+   "ad": "Tam tamsayı hat (donanım düzeni)",
+   "dogru": 718,
+   "uyusma": 0.9966
+  }
+ ],
+ "tam_hat": {
+  "kosu": "kumulatif_6_gelu_tanh",
+  "adim": [
+   "gomme",
+   "ln_cikis",
+   "artik",
+   "qk",
+   "av",
+   "gelu_tanh"
+  ],
+  "dogru": 718,
+  "kayip_puan_fp32e_gore": 0.11,
+  "kayip_cumle": 1,
+  "capraz_entropi": 0.5752,
+  "B_float_ile_ayrisan_cumle": 3,
+  "onceki_kumulatif_ile_ayrisan": 0,
+  "fp32_ile_uyusma": 0.9966,
+  "maks_logit_farki_B_floata_gore": 0.3752,
+  "ortalama_logit_farki": 0.02122,
+  "hedef_711": true,
+  "sinir_702": true,
+  "mlperf_712": true
+ },
+ "qat_calistirildi": false,
+ "gurultu_kurali": "1 puan ~ 8,72 cumle; 1-2 cumle farki gurultu"
+}

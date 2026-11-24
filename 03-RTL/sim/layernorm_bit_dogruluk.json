@@ -1,0 +1,107 @@
+{
+ "etiket": "altin model (NumPy), 872 cumle",
+ "cumle": 872,
+ "fp32_dogru": 719,
+ "yapilandirma": "Ayarlar.B_kipi(m0_bit=31, tasima_adim=TASIMA_ADIMLARI); g_bit ve ln_bit disinda varsayilan",
+ "gurultu_kurali": "1 puan ~ 8,72 cumle; 1-2 cumle farki gurultu",
+ "kosular": {
+  "g12_ln12 (varsayilan)": {
+   "g_bit": 12,
+   "ln_bit": 12,
+   "genis_tamsayi": false,
+   "genis_cagri_sayisi": 0,
+   "dogru": 718,
+   "dogruluk": 0.8234,
+   "kayip_puan_fp32e_gore": 0.11,
+   "varsayilandan_ayrisan_cumle": 0,
+   "varsayilanla_dogru_yanlis_degisen": {
+    "dogruyken_yanlis": 0,
+    "yanlisken_dogru": 0
+   },
+   "maks_logit_farki": 0.0,
+   "ortalama_logit_farki": 0.0
+  },
+  "g12_ln12_genis (yama denetimi)": {
+   "g_bit": 12,
+   "ln_bit": 12,
+   "genis_tamsayi": true,
+   "genis_cagri_sayisi": 0,
+   "dogru": 718,
+   "dogruluk": 0.8234,
+   "kayip_puan_fp32e_gore": 0.11,
+   "varsayilandan_ayrisan_cumle": 0,
+   "varsayilanla_dogru_yanlis_degisen": {
+    "dogruyken_yanlis": 0,
+    "yanlisken_dogru": 0
+   },
+   "maks_logit_farki": 0.0,
+   "ortalama_logit_farki": 0.0
+  },
+  "g16_ln12_int64 (TASAR, gecersiz)": {
+   "g_bit": 16,
+   "ln_bit": 12,
+   "genis_tamsayi": false,
+   "genis_cagri_sayisi": 0,
+   "dogru": 610,
+   "dogruluk": 0.6995,
+   "kayip_puan_fp32e_gore": 12.5,
+   "varsayilandan_ayrisan_cumle": 228,
+   "varsayilanla_dogru_yanlis_degisen": {
+    "dogruyken_yanlis": 168,
+    "yanlisken_dogru": 60
+   },
+   "maks_logit_farki": 4.4559,
+   "ortalama_logit_farki": 1.4103
+  },
+  "g16_ln12": {
+   "g_bit": 16,
+   "ln_bit": 12,
+   "genis_tamsayi": true,
+   "genis_cagri_sayisi": 35,
+   "dogru": 718,
+   "dogruluk": 0.8234,
+   "kayip_puan_fp32e_gore": 0.11,
+   "varsayilandan_ayrisan_cumle": 2,
+   "varsayilanla_dogru_yanlis_degisen": {
+    "dogruyken_yanlis": 1,
+    "yanlisken_dogru": 1
+   },
+   "maks_logit_farki": 0.2814,
+   "ortalama_logit_farki": 0.02368
+  },
+  "g12_ln16": {
+   "g_bit": 12,
+   "ln_bit": 16,
+   "genis_tamsayi": true,
+   "genis_cagri_sayisi": 0,
+   "dogru": 717,
+   "dogruluk": 0.8222,
+   "kayip_puan_fp32e_gore": 0.23,
+   "varsayilandan_ayrisan_cumle": 5,
+   "varsayilanla_dogru_yanlis_degisen": {
+    "dogruyken_yanlis": 3,
+    "yanlisken_dogru": 2
+   },
+   "maks_logit_farki": 0.469,
+   "ortalama_logit_farki": 0.03227
+  },
+  "g16_ln16": {
+   "g_bit": 16,
+   "ln_bit": 16,
+   "genis_tamsayi": true,
+   "genis_cagri_sayisi": 35,
+   "dogru": 718,
+   "dogruluk": 0.8234,
+   "kayip_puan_fp32e_gore": 0.11,
+   "varsayilandan_ayrisan_cumle": 4,
+   "varsayilanla_dogru_yanlis_degisen": {
+    "dogruyken_yanlis": 2,
+    "yanlisken_dogru": 2
+   },
+   "maks_logit_farki": 0.5159,
+   "ortalama_logit_farki": 0.03287
+  }
+ },
+ "yama_denetimi_g12_logitler_ayni": true,
+ "not": "g16_ln12_int64: altin modelin int64 ara carpimi tasar (y*gamma_q*M0 ~ 2^63..2^67) ve sonuc GECERSIZDIR; g_bit=16 sonuclari buyuk tamsayi (object) carpimi ile hesaplandi, 12 bit sonucu ayni (yama denetimi)"
+}

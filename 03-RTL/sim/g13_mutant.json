@@ -1,0 +1,61 @@
+{
+ "temel": "PASS",
+ "mutant": [
+  {
+   "ad": "m1",
+   "dosya": "veri_yolu",
+   "tanim": "Softmax maske bayti yok sayildi",
+   "sonuc": "FAIL",
+   "hata": 274,
+   "yakalandi": true
+  },
+  {
+   "ad": "m2",
+   "dosya": "kontrol_birimi",
+   "tanim": "SOFTMAX_BASLAT iptal vermiyor (kurtarma testi yakalamali)",
+   "sonuc": "FAIL",
+   "hata": 38,
+   "yakalandi": true
+  },
+  {
+   "ad": "m3",
+   "dosya": "komut_cozucu",
+   "tanim": "LAYERNORM_AYAR kaydirma alani bir bit eksik",
+   "sonuc": "FAIL",
+   "hata": 793,
+   "yakalandi": true
+  },
+  {
+   "ad": "m4",
+   "dosya": "komut_cozucu",
+   "tanim": "SOFTMAX_AYAR m0 alani bir bit eksik",
+   "sonuc": "FAIL",
+   "hata": 1,
+   "yakalandi": true
+  },
+  {
+   "ad": "m5",
+   "dosya": "veri_yolu",
+   "tanim": "LAYERNORM_OKU yanlis tampondan okuyor",
+   "sonuc": "FAIL",
+   "hata": 770,
+   "yakalandi": true
+  },
+  {
+   "ad": "m6",
+   "dosya": "kontrol_birimi",
+   "tanim": "CRC hata kodu yanlis",
+   "sonuc": "FAIL",
+   "hata": 5,
+   "yakalandi": true
+  },
+  {
+   "ad": "m7",
+   "dosya": "veri_yolu",
+   "tanim": "sozcuk bayt sirasi 2 artiyor",
+   "sonuc": "FAIL",
+   "hata": 1220,
+   "yakalandi": true
+  }
+ ]
+}

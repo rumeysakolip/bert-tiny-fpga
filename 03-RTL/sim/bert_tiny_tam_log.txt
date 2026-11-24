@@ -1,0 +1,5 @@
+BILGI: vektor klasoru=tb/vektor_g11  mod=BAYT
+SOFTMAX: 325 satir, 20820 cikis bayt karsilastirildi
+LAYERNORM: 485 satir, 62108 cikis bayt karsilastirildi
+BILGI: cevrim=4200546 gonderilen_bayt=666996 alinan_bayt=704848
+BERT_TINY_UST TEST: PASS (175390 kontrol, 0 hata)

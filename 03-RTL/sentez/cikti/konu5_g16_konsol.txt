@@ -1,0 +1,583 @@
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Mon Nov  2 17:53:26 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sentez/konu5_sentez.tcl
+# set g [lindex $argv 0]
+# if {$g eq ""} { set g 12 }
+# set per [lindex $argv 1]
+# if {$per eq ""} { set per 10.0 }
+# file mkdir sentez/cikti
+# read_verilog rtl/bolucu_seri.v
+read_verilog: Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 494.785 ; gain = 214.613
+# read_verilog rtl/bolucu_ters.v
+# read_verilog rtl/layernorm_birim.v
+# synth_design -top layernorm_birim -part xc7a35tcpg236-1 -mode out_of_context -flatten_hierarchy rebuilt -generic G=$g
+Command: synth_design -top layernorm_birim -part xc7a35tcpg236-1 -mode out_of_context -flatten_hierarchy rebuilt -generic G=16
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 26776
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 998.301 ; gain = 499.535
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6901] identifier 'GWID' is used before its declaration [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:26]
+INFO: [Synth 8-6157] synthesizing module 'layernorm_birim' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:15]
+	Parameter G bound to: 16 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'bolucu_ters' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_ters.v:18]
+	Parameter NW bound to: 35 - type: integer 
+	Parameter DW bound to: 20 - type: integer 
+	Parameter QB bound to: 21 - type: integer 
+	Parameter YW bound to: 9 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'bolucu_seri' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_seri.v:7]
+	Parameter W bound to: 36 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bolucu_seri' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_seri.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'bolucu_ters' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_ters.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'layernorm_birim' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:15]
+WARNING: [Synth 8-6014] Unused sequential element ps_i_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:127]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1110.906 ; gain = 612.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1110.906 ; gain = 612.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1110.906 ; gain = 612.141
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 1124.984 ; gain = 626.219
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   75 Bit       Adders := 1     
+	   2 Input   74 Bit       Adders := 1     
+	   2 Input   45 Bit       Adders := 2     
+	   3 Input   43 Bit       Adders := 1     
+	   3 Input   42 Bit       Adders := 1     
+	   2 Input   40 Bit       Adders := 2     
+	   3 Input   40 Bit       Adders := 1     
+	   3 Input   37 Bit       Adders := 1     
+	   2 Input   36 Bit       Adders := 1     
+	   2 Input   35 Bit       Adders := 1     
+	   2 Input   26 Bit       Adders := 1     
+	   2 Input   25 Bit       Adders := 1     
+	   2 Input   21 Bit       Adders := 4     
+	   3 Input   19 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    6 Bit       Adders := 1     
++---Registers : 
+	               74 Bit    Registers := 1     
+	               73 Bit    Registers := 1     
+	               71 Bit    Registers := 2     
+	               48 Bit    Registers := 2     
+	               45 Bit    Registers := 1     
+	               42 Bit    Registers := 1     
+	               40 Bit    Registers := 4     
+	               37 Bit    Registers := 1     
+	               36 Bit    Registers := 5     
+	               35 Bit    Registers := 5     
+	               32 Bit    Registers := 1     
+	               31 Bit    Registers := 1     
+	               25 Bit    Registers := 1     
+	               21 Bit    Registers := 5     
+	               20 Bit    Registers := 2     
+	               19 Bit    Registers := 2     
+	               18 Bit    Registers := 3     
+	                9 Bit    Registers := 7     
+	                8 Bit    Registers := 2     
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 29    
++---Multipliers : 
+	              32x41  Multipliers := 1     
+	              35x36  Multipliers := 1     
++---RAMs : 
+	               2K Bit	(128 X 20 bit)          RAMs := 1     
+	               2K Bit	(128 X 18 bit)          RAMs := 1     
++---Muxes : 
+	  12 Input   45 Bit        Muxes := 1     
+	   2 Input   43 Bit        Muxes := 1     
+	  12 Input   40 Bit        Muxes := 4     
+	   2 Input   40 Bit        Muxes := 1     
+	   2 Input   37 Bit        Muxes := 1     
+	   2 Input   36 Bit        Muxes := 1     
+	   2 Input   35 Bit        Muxes := 1     
+	  12 Input   25 Bit        Muxes := 1     
+	  12 Input   21 Bit        Muxes := 1     
+	   2 Input   21 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 3     
+	   2 Input    1 Bit        Muxes := 8     
+	  12 Input    1 Bit        Muxes := 12    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3936] Found unconnected internal register 'qd4_reg' and it is trimmed from '48' to '24' bits. [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_ters.v:77]
+WARNING: [Synth 8-3936] Found unconnected internal register 'qd4_reg' and it is trimmed from '48' to '17' bits. [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_ters.v:77]
+WARNING: [Synth 8-6014] Unused sequential element u_dv/quo_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_seri.v:31]
+WARNING: [Synth 8-6014] Unused sequential element pm10 was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_ters.v:91]
+WARNING: [Synth 8-6014] Unused sequential element u_dv/quo_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_seri.v:31]
+DSP Report: Generating DSP pm1_reg, operation Mode is: (A2*B2)'.
+DSP Report: register pm1_reg is absorbed into DSP pm1_reg.
+DSP Report: register R_reg is absorbed into DSP pm1_reg.
+DSP Report: register pm1_reg is absorbed into DSP pm1_reg.
+DSP Report: operator pm10 is absorbed into DSP pm1_reg.
+DSP Report: operator pm10 is absorbed into DSP pm1_reg.
+DSP Report: Generating DSP pm10, operation Mode is: A*B2.
+DSP Report: register pm10 is absorbed into DSP pm10.
+DSP Report: operator pm10 is absorbed into DSP pm10.
+DSP Report: operator pm10 is absorbed into DSP pm10.
+DSP Report: Generating DSP pm1_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register pm1_reg is absorbed into DSP pm1_reg.
+DSP Report: register R_reg is absorbed into DSP pm1_reg.
+DSP Report: register pm1_reg is absorbed into DSP pm1_reg.
+DSP Report: operator pm10 is absorbed into DSP pm1_reg.
+DSP Report: operator pm10 is absorbed into DSP pm1_reg.
+DSP Report: Generating DSP pm10, operation Mode is: A2*B2.
+DSP Report: register pm10 is absorbed into DSP pm10.
+DSP Report: register pm10 is absorbed into DSP pm10.
+DSP Report: operator pm10 is absorbed into DSP pm10.
+DSP Report: operator pm10 is absorbed into DSP pm10.
+DSP Report: Generating DSP pm1_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register pm1_reg is absorbed into DSP pm1_reg.
+DSP Report: register R_reg is absorbed into DSP pm1_reg.
+DSP Report: register pm1_reg is absorbed into DSP pm1_reg.
+DSP Report: operator pm10 is absorbed into DSP pm1_reg.
+DSP Report: operator pm10 is absorbed into DSP pm1_reg.
+DSP Report: Generating DSP qd40, operation Mode is: A*B''.
+DSP Report: register qd40 is absorbed into DSP qd40.
+DSP Report: register qd40 is absorbed into DSP qd40.
+DSP Report: operator qd40 is absorbed into DSP qd40.
+DSP Report: operator qd40 is absorbed into DSP qd40.
+DSP Report: Generating DSP qd4_reg, operation Mode is: (PCIN>>17)+A*B''.
+DSP Report: register qd4_reg is absorbed into DSP qd4_reg.
+DSP Report: register qd4_reg is absorbed into DSP qd4_reg.
+DSP Report: register qd4_reg is absorbed into DSP qd4_reg.
+DSP Report: operator qd40 is absorbed into DSP qd4_reg.
+DSP Report: operator qd40 is absorbed into DSP qd4_reg.
+WARNING: [Synth 8-6014] Unused sequential element p1_reg was removed.  [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:124]
+DSP Report: Generating DSP p10, operation Mode is: A2*B2.
+DSP Report: register p10 is absorbed into DSP p10.
+DSP Report: register y_reg is absorbed into DSP p10.
+DSP Report: operator p10 is absorbed into DSP p10.
+DSP Report: operator p10 is absorbed into DSP p10.
+DSP Report: Generating DSP p20, operation Mode is: A2*B2.
+DSP Report: register p20 is absorbed into DSP p20.
+DSP Report: register p20 is absorbed into DSP p20.
+DSP Report: operator p20 is absorbed into DSP p20.
+DSP Report: operator p20 is absorbed into DSP p20.
+DSP Report: Generating DSP p2_reg, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register p2_reg is absorbed into DSP p2_reg.
+DSP Report: register p2_reg is absorbed into DSP p2_reg.
+DSP Report: operator p20 is absorbed into DSP p2_reg.
+DSP Report: operator p20 is absorbed into DSP p2_reg.
+DSP Report: Generating DSP p20, operation Mode is: A2*B2.
+DSP Report: register p20 is absorbed into DSP p20.
+DSP Report: register p20 is absorbed into DSP p20.
+DSP Report: operator p20 is absorbed into DSP p20.
+DSP Report: operator p20 is absorbed into DSP p20.
+DSP Report: Generating DSP p2_reg, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register p2_reg is absorbed into DSP p2_reg.
+DSP Report: register p2_reg is absorbed into DSP p2_reg.
+DSP Report: operator p20 is absorbed into DSP p2_reg.
+DSP Report: operator p20 is absorbed into DSP p2_reg.
+DSP Report: Generating DSP dsq_r_reg, operation Mode is: (C' or 0)+A2*B2.
+DSP Report: register dsq_r_reg is absorbed into DSP dsq_r_reg.
+DSP Report: register dsq_r_reg is absorbed into DSP dsq_r_reg.
+DSP Report: register dsq_r_reg is absorbed into DSP dsq_r_reg.
+DSP Report: operator dsq_r0 is absorbed into DSP dsq_r_reg.
+DSP Report: operator dsq_r0 is absorbed into DSP dsq_r_reg.
+WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "layernorm_birim/gam_reg",trying to implement using LUTRAM
+WARNING: [Synth 8-6849] Infeasible attribute ram_style = "block" set for RAM "layernorm_birim/gam_reg",trying to implement using LUTRAM
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[47]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[46]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[45]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[44]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[43]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[42]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[41]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[40]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[39]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[38]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[37]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[36]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[35]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[34]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[33]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[32]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[31]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[30]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[29]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[28]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[27]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[26]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[25]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[24]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[23]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[22]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[21]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[20]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[19]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[18]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[17]) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[47]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[46]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[45]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[44]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[43]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[42]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[41]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[40]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[39]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[38]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[37]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[36]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[35]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[34]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[33]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[32]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[31]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[30]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[29]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[28]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[27]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[26]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[25]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[24]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[23]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[22]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[21]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[20]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[19]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[18]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[17]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[15]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[14]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[13]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[12]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[11]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[10]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[9]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[8]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[7]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[6]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[5]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[4]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[3]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[2]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[1]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (pm1_reg[0]__0) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (u_dv/quo_reg) is unused and will be removed from module bolucu_ters.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[47]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[46]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[45]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[44]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[43]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[42]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[41]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[40]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[39]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[38]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[37]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[36]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[35]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[34]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[33]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[32]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[31]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[30]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[29]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[28]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[27]) is unused and will be removed from module layernorm_birim.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:45 . Memory (MB): peak = 1346.289 ; gain = 847.523
+---------------------------------------------------------------------------------
+ Sort Area is  pm10_3 : 0 0 : 2828 5841 : Used 1 time 100
+ Sort Area is  pm10_3 : 0 1 : 3013 5841 : Used 1 time 100
+ Sort Area is  pm10_0 : 0 0 : 2737 5750 : Used 1 time 100
+ Sort Area is  pm10_0 : 0 1 : 3013 5750 : Used 1 time 100
+ Sort Area is  qd40_7 : 0 0 : 3058 3795 : Used 1 time 100
+ Sort Area is  qd40_7 : 0 1 : 737 3795 : Used 1 time 100
+ Sort Area is  dsq_r_reg_11 : 0 0 : 2827 2827 : Used 1 time 100
+ Sort Area is  pm1_reg_5 : 0 0 : 400 400 : Used 1 time 100
+ Sort Area is  p20_e : 0 0 : 3542 6597 : Used 1 time 0
+ Sort Area is  p20_e : 0 1 : 3055 6597 : Used 1 time 0
+ Sort Area is  p20_c : 0 0 : 2737 5456 : Used 1 time 0
+ Sort Area is  p20_c : 0 1 : 2719 5456 : Used 1 time 0
+ Sort Area is  p10_a : 0 0 : 3021 3021 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++----------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name     | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++----------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|layernorm_birim | bet_reg    | 128 x 17(READ_FIRST)   | W |   | 128 x 20(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++----------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++----------------+------------+-----------+----------------------+-----------------+
+|Module Name     | RTL Object | Inference | Size (Depth x Width) | Primitives      | 
++----------------+------------+-----------+----------------------+-----------------+
+|layernorm_birim | gam_reg    | Implied   | 128 x 20             | RAM64M x 14     | 
+|layernorm_birim | buf_q_reg  | Implied   | 128 x 18             | RAM128X1S x 18  | 
++----------------+------------+-----------+----------------------+-----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++----------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|bolucu_ters     | (A2*B2)'         | 20     | 2      | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 0    | 
+|bolucu_ters     | A*B2             | 19     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|bolucu_ters     | (PCIN>>17)+A2*B2 | 20     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|bolucu_ters     | A2*B2            | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|bolucu_ters     | (PCIN>>17)+A2*B2 | 20     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|bolucu_ters     | A*B''            | 21     | 18     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 0    | 
+|bolucu_ters     | (PCIN>>17)+A*B'' | 21     | 5      | -      | -      | 24     | 0    | 2    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | A2*B2            | 21     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | A2*B2            | 24     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17)+A2*B  | 24     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | A2*B2            | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17)+A2*B  | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | (C' or 0)+A2*B2  | 19     | 18     | 18     | -      | 37     | 1    | 1    | 1    | -    | -     | 0    | 1    | 
++----------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:46 . Memory (MB): peak = 1346.289 ; gain = 847.523
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++----------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name     | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++----------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|layernorm_birim | bet_reg    | 128 x 17(READ_FIRST)   | W |   | 128 x 20(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++----------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++----------------+------------+-----------+----------------------+-----------------+
+|Module Name     | RTL Object | Inference | Size (Depth x Width) | Primitives      | 
++----------------+------------+-----------+----------------------+-----------------+
+|layernorm_birim | gam_reg    | Implied   | 128 x 20             | RAM64M x 14     | 
+|layernorm_birim | buf_q_reg  | Implied   | 128 x 18             | RAM128X1S x 18  | 
++----------------+------------+-----------+----------------------+-----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance bet_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:47 . Memory (MB): peak = 1346.316 ; gain = 847.551
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1529.578 ; gain = 1030.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1529.578 ; gain = 1030.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1529.578 ; gain = 1030.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1529.578 ; gain = 1030.812
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1530.594 ; gain = 1031.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1530.594 ; gain = 1031.828
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++----------------+-------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name     | RTL Name          | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++----------------+-------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|layernorm_birim | u_dv/sat5_reg     | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|layernorm_birim | u_dv/q0_5_reg[20] | 4      | 21    | NO           | NO                 | YES               | 21     | 0       | 
+|layernorm_birim | u_dv/n4_reg[34]   | 5      | 35    | NO           | NO                 | YES               | 35     | 0       | 
+|layernorm_birim | u_dv/y5_reg[8]    | 6      | 9     | NO           | NO                 | NO                | 9      | 0       | 
+|layernorm_birim | ps_l_reg          | 5      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|layernorm_birim | ps_v_reg          | 11     | 1     | YES          | NO                 | YES               | 1      | 0       | 
++----------------+-------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++----------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|layernorm_birim | A'*B'             | 30     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | A'*B'             | 30     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17+A*B')'  | 0      | 14     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | A'*B'             | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17+A*B')'  | 0      | 14     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | Dynamic           | -      | -      | -      | -      | 37     | -    | -    | -    | -    | -     | 0    | 1    | 
+|bolucu_ters     | (A'*B')'          | 19     | 1      | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|bolucu_ters     | A'*B'             | 18     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|bolucu_ters     | (PCIN>>17+A'*B')' | 19     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|bolucu_ters     | A'*B'             | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|bolucu_ters     | (PCIN>>17+A'*B')' | 19     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|bolucu_ters     | A*B''             | 20     | 17     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 0    | 
+|bolucu_ters     | (PCIN>>17+A*B'')' | 20     | 4      | -      | -      | 24     | 0    | 2    | -    | -    | -     | 0    | 1    | 
++----------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |CARRY4    |   251|
+|2     |DSP48E1   |    13|
+|3     |LUT1      |   112|
+|4     |LUT2      |   769|
+|5     |LUT3      |   279|
+|6     |LUT4      |   128|
+|7     |LUT5      |   118|
+|8     |LUT6      |   280|
+|9     |RAM128X1S |    18|
+|10    |RAM64M    |    14|
+|11    |RAMB18E1  |     1|
+|12    |SRL16E    |    68|
+|13    |FDRE      |   776|
+|14    |FDSE      |     9|
++------+----------+------+
+
+Report Instance Areas: 
++------+---------+------------+------+
+|      |Instance |Module      |Cells |
++------+---------+------------+------+
+|1     |top      |            |  2836|
+|2     |  u_dv   |bolucu_ters |  1042|
+|3     |    u_dv |bolucu_seri |   325|
++------+---------+------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1530.594 ; gain = 1031.828
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 152 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1530.594 ; gain = 1031.828
+Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1530.594 ; gain = 1031.828
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1544.652 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 297 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1657.508 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 32 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 18 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 14 instances
+
+Synth Design complete | Checksum: b2d8f6d8
+INFO: [Common 17-83] Releasing license: Synthesis
+20 Infos, 111 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:01:02 . Memory (MB): peak = 1657.508 ; gain = 1162.723
+# create_clock -period $per [get_ports clk]
+# report_utilization -file sentez/cikti/konu5_g${g}_layernorm_birim_kullanim.txt
+# report_timing_summary -delay_type max -max_paths 3 -file sentez/cikti/konu5_g${g}_layernorm_birim_zamanlama.txt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+report_timing_summary: Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1933.836 ; gain = 276.328
+# puts "KONU5 SENTEZ BITTI: G=$g"
+KONU5 SENTEZ BITTI: G=16
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 17:55:00 2026...

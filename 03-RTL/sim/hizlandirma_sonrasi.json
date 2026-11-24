@@ -1,0 +1,177 @@
+{
+ "etiket": "Konu 1-8 sonrasi (hizlandirma sonrasi); onceki degerler hizlandirma_oncesi.json",
+ "tarih": "2026-11-02",
+ "cevrim_modeli": {
+  "dogrusal_12_katman": 431256,
+  "dikkat_carpimlari": 41568,
+  "softmax_satir_cevrimi": 171,
+  "softmax_toplam": 43776,
+  "layernorm_satir_cevrimi": 377,
+  "layernorm_toplam": 120640,
+  "toplam": 637240,
+  "ms_100mhz": 6.372400000000001,
+  "ms_125mhz": 5.098,
+  "ms_150mhz": 4.248,
+  "onceki_toplam": 2682200,
+  "onceki_ms_100mhz": 26.822,
+  "etiket": "dogrusal ve dikkat: olculdu (benzetim, G7, G10); Softmax ve LayerNorm: satir cevrimi olculdu, toplam hesap (satir sayisi 256 ve 320); ms degerleri hesap (cevrim / frekans); 125 ve 150 MHz yalniz Vivado'da kapandi, kartta denenmedi",
+  "kaynak": [
+   "sim/g19_ozet.json",
+   "sim/g11_sonuc.json",
+   "sim/konu6h_g7_sonuc.json",
+   "sim/g10_sonuc.json"
+  ]
+ },
+ "dogrusal_nb_olcumleri": {
+  "katman_cevrimi_nb": {
+   "1": {
+    "q": 2849,
+    "ffn1": 11369,
+    "ffn2": 8993
+   },
+   "2": {
+    "q": 4698,
+    "ffn1": 18570,
+    "ffn2": 16986
+   },
+   "4": {
+    "q": 9306,
+    "ffn1": 37002,
+    "ffn2": 33882
+   },
+   "7": {
+    "q": 16218,
+    "ffn1": 64650,
+    "ffn2": 59226
+   },
+   "8": {
+    "q": 18522,
+    "ffn1": 73866,
+    "ffn2": 67674
+   }
+  },
+  "toplam_12_katman": {
+   "1": 63516,
+   "2": 108696,
+   "4": 216216,
+   "7": 377496,
+   "8": 431256
+  },
+  "kaynak": "sim/nb_olcum.json"
+ },
+ "token_dagilimi": {
+  "ortalama": 25.16,
+  "medyan": 24.5,
+  "yuzde90": 40.0,
+  "en_uzun": 55,
+  "blok_ortalama": 3.592,
+  "kaynak": "sim/token_uzunluk.json"
+ },
+ "vivado_basamaklar": {
+  "100MHz_1grup": {
+   "LUT": 3774,
+   "LUT_bellek": 356,
+   "FF": 5720,
+   "DSP": 87,
+   "BRAM_tile": 19.0,
+   "WNS_ns": 0.716,
+   "WHS_ns": 0.031,
+   "TNS_ns": 0.0,
+   "basarisiz_uc_nokta": 0,
+   "kisitlar_saglandi": true,
+   "kaynak": "sentez/cikti/konu6a_p10_*.txt"
+  },
+  "125MHz_karekok_oncesi": {
+   "LUT": 3826,
+   "LUT_bellek": 356,
+   "FF": 5795,
+   "DSP": 87,
+   "BRAM_tile": 19.0,
+   "WNS_ns": -0.248,
+   "WHS_ns": 0.007,
+   "TNS_ns": -0.881,
+   "basarisiz_uc_nokta": 10,
+   "kisitlar_saglandi": false,
+   "kaynak": "sentez/cikti/konu6b_p8_*.txt"
+  },
+  "125MHz": {
+   "LUT": 3811,
+   "LUT_bellek": 356,
+   "FF": 5836,
+   "DSP": 87,
+   "BRAM_tile": 19.0,
+   "WNS_ns": 0.033,
+   "WHS_ns": 0.025,
+   "TNS_ns": 0.0,
+   "basarisiz_uc_nokta": 0,
+   "kisitlar_saglandi": true,
+   "kaynak": "sentez/cikti/konu6c_p8_*.txt"
+  },
+  "125MHz_MMCM": {
+   "LUT": 3824,
+   "LUT_bellek": 373,
+   "FF": 5959,
+   "DSP": 87,
+   "BRAM_tile": 19.0,
+   "WNS_ns": 0.116,
+   "WHS_ns": 0.016,
+   "TNS_ns": 0.0,
+   "basarisiz_uc_nokta": 0,
+   "kisitlar_saglandi": true,
+   "kaynak": "sentez/cikti/konu6f_mmcm125_*.txt"
+  },
+  "150MHz_ilk": {
+   "LUT": 3881,
+   "LUT_bellek": 373,
+   "FF": 6032,
+   "DSP": 87,
+   "BRAM_tile": 19.0,
+   "WNS_ns": -0.443,
+   "WHS_ns": 0.02,
+   "TNS_ns": -55.87,
+   "basarisiz_uc_nokta": 240,
+   "kisitlar_saglandi": false,
+   "kaynak": "sentez/cikti/konu6d_p6_67_*.txt"
+  },
+  "150MHz": {
+   "LUT": 3785,
+   "LUT_bellek": 356,
+   "FF": 6121,
+   "DSP": 87,
+   "BRAM_tile": 19.5,
+   "WNS_ns": 0.012,
+   "WHS_ns": 0.051,
+   "TNS_ns": 0.0,
+   "basarisiz_uc_nokta": 0,
+   "kisitlar_saglandi": true,
+   "kaynak": "sentez/cikti/konu6i_p6_67_*.txt"
+  },
+  "175MHz_5_71ns": {
+   "LUT": 3859,
+   "LUT_bellek": 356,
+   "FF": 6369,
+   "DSP": 87,
+   "BRAM_tile": 19.5,
+   "WNS_ns": -1.017,
+   "WHS_ns": 0.02,
+   "TNS_ns": -354.88,
+   "basarisiz_uc_nokta": 870,
+   "kisitlar_saglandi": false,
+   "kaynak": "sentez/cikti/konu6j_p5_71_*.txt"
+  },
+  "150MHz_MMCM": {
+   "LUT": 3780,
+   "LUT_bellek": 356,
+   "FF": 6260,
+   "DSP": 87,
+   "BRAM_tile": 19.5,
+   "WNS_ns": -0.162,
+   "WHS_ns": 0.023,
+   "TNS_ns": -1.096,
+   "basarisiz_uc_nokta": 64,
+   "kisitlar_saglandi": false,
+   "kaynak": "sentez/cikti/konu6k_mmcm150_*.txt"
+  }
+ },
+ "layernorm_bit_karari": "g_bit=12'de kal. Doğruluk 718/872 ile 718/872 (iki cümle fark, bir cümle doğrudan yanlışa, biri yanlıştan doğruya: gürültü), yani 16 bitin doğruluk kazancı yok. 16 bit, gamma 20 bit ve çarpma zinciri 74 bit olduğundan sentezde LUT, FF ve DSP artar, zamanlama payı düşer; ayrıca altın modelin int64 ara çarpımı g_bit=16'da taşar (35 çağrıda), yani 16 bit seçilirse altın modelin de geniş tamsayıya geçmesi gerekir. Karar Rümeysa'nındır."
+}

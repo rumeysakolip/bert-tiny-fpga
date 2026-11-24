@@ -1,0 +1,7 @@
+kosu,dogru_int8,kayip_puan,kayip_cumle,uyusma_orani,fp32D_int8Y,fp32Y_int8D,hedef,mlperf
+minmax_sim_n128,718,0.11,1,0.9966,2,1,True,True
+minmax_sim_n512,718,0.11,1,0.9966,2,1,True,True
+percentile99.99_sim_n128,717,0.23,2,0.9954,3,1,True,True
+percentile99.99_sim_n512,717,0.23,2,0.9954,3,1,True,True
+minmax_asim_n512,716,0.34,3,0.9943,4,1,True,True
+percentile99.99_asim_n512,718,0.11,1,0.9989,1,0,True,True

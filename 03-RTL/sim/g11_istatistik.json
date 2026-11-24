@@ -1,0 +1,23 @@
+{
+ "sm_hata_maks_lsb": 2.3989116964557606,
+ "sm_hata_ort_lsb": 0.2431340951063829,
+ "sm_eleman": 9467,
+ "ln_hata_maks_lsb": 0.9295305102928282,
+ "ln_hata_ort_lsb": 0.25497491644755177,
+ "ln_eleman": 61440,
+ "isqrt_hata_maks": 0.9995511309898575,
+ "sentez": {
+  "softmax_birim": {
+   "LUT": 561.0,
+   "FF": 198.0,
+   "DSP": 3.0,
+   "WNS": 3.186
+  },
+  "layernorm_birim": {
+   "LUT": 1129.0,
+   "FF": 604.0,
+   "DSP": 6.0,
+   "WNS": 1.383
+  }
+ }
+}

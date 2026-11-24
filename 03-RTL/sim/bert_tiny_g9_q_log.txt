@@ -1,0 +1,5 @@
+WARNING: tb/tb_hizlandirici.v:50: $readmemh(sim/g9_q_yanit.hex): Not enough words in the file for the requested range [0:65535].
+BILGI: komut dosyasi=sim/g9_q_komut.hex
+WARNING: tb/tb_hizlandirici.v:53: $readmemh(sim/g9_q_komut.hex): Not enough words in the file for the requested range [0:1048575].
+HIZLANDIRICI TB BITTI: cevrim=65309 gonderilen_bayt=26106 yanit_bayt=8337 paket=70 hata=2
+HIZLANDIRICI YANIT KARSILASTIRMA: PASS  (8337 yanit bayti beklenenle ayni, 0 fark)

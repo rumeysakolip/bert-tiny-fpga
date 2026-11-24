@@ -1,0 +1,42 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_ortak_cekirdek.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_ortak_cekirdek
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/ortak_cekirdek.v" into library work
+INFO: [VRFC 10-311] analyzing module ortak_cekirdek
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/birlesik_bellek_2o.v" into library work
+INFO: [VRFC 10-311] analyzing module birlesik_bellek_2o
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/artik_ln_ortak.v" into library work
+INFO: [VRFC 10-311] analyzing module artik_ln_ortak
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/yeniden_olcekle_ortak.v" into library work
+INFO: [VRFC 10-311] analyzing module yeniden_olcekle_ortak
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/layernorm_birim_dz.v" into library work
+INFO: [VRFC 10-311] analyzing module layernorm_birim_dz
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/panel_kopyalayici.v" into library work
+INFO: [VRFC 10-311] analyzing module panel_kopyalayici
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/panel_parametre_yukleyici.v" into library work
+INFO: [VRFC 10-311] analyzing module panel_parametre_yukleyici
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/parametre_rom.v" into library work
+INFO: [VRFC 10-311] analyzing module parametre_rom
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/gelu_yukleyici.v" into library work
+INFO: [VRFC 10-311] analyzing module gelu_yukleyici
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/cikis_sozcuk_toplayici_devrik.v" into library work
+INFO: [VRFC 10-311] analyzing module cikis_sozcuk_toplayici_devrik
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/rtl/softmax_birim_gomulu.v" into library work
+INFO: [VRFC 10-311] analyzing module softmax_birim_gomulu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/ters_bolucu.v" into library work
+INFO: [VRFC 10-311] analyzing module ters_bolucu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/seri_bolucu.v" into library work
+INFO: [VRFC 10-311] analyzing module seri_bolucu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cift_kapili_bellek.v" into library work
+INFO: [VRFC 10-311] analyzing module cift_kapili_bellek
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cikis_sozcuk_toplayici.v" into library work
+INFO: [VRFC 10-311] analyzing module cikis_sozcuk_toplayici
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/panel_tamponu.v" into library work
+INFO: [VRFC 10-311] analyzing module panel_tamponu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/tile_denetleyici.v" into library work
+INFO: [VRFC 10-311] analyzing module tile_denetleyici
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/gelu_tablosu.v" into library work
+INFO: [VRFC 10-311] analyzing module gelu_tablosu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/sistolik_dizi.v" into library work
+INFO: [VRFC 10-311] analyzing module sistolik_dizi
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/islem_elemani.v" into library work
+INFO: [VRFC 10-311] analyzing module islem_elemani

@@ -1,0 +1,49 @@
+{
+ "seq_len": 64,
+ "mac": {
+  "Q/K/V izdüşümleri": 6291456,
+  "Q·Kᵀ": 1048576,
+  "Dikkat·V": 1048576,
+  "Dikkat çıkış izdüşümü": 2097152,
+  "FFN1 (H→4H)": 8388608,
+  "FFN2 (4H→H)": 8388608,
+  "Pooler + sınıflandırıcı": 16640
+ },
+ "toplam_mac": 27279616,
+ "eleman": {
+  "Softmax (eleman)": 16384,
+  "LayerNorm (eleman)": 40960,
+  "GELU (eleman)": 65536
+ },
+ "cpu_sure_yuzde": {
+  "Doğrusal katmanlar (GEMM)": 57.0,
+  "Diğer (yeniden şekillendirme, kopyalama, toplama)": 19.2,
+  "Dikkat çekirdeği (Q·Kᵀ + softmax + Dikkat·V)": 9.9,
+  "GELU": 8.2,
+  "LayerNorm": 4.0,
+  "Gömme tablosu": 1.8
+ },
+ "cpu_gecikme_ms": 2.49,
+ "rtl_cevrim": {
+  "Doğrusal katmanlar (12, ölçüldü)": 431256,
+  "Dikkat çarpımları (Q·Kᵀ, P·V, ölçüldü)": 41568,
+  "Softmax birimi (hesap)": 43776,
+  "LayerNorm birimi (hesap)": 120640
+ },
+ "rtl_toplam_cevrim": 637240,
+ "rtl_ms_100mhz": 6.372400000000001,
+ "satir_sayilari": {
+  "softmax": 256,
+  "layernorm": 320
+ },
+ "not": "rtl_cevrim: dogrusal ve dikkat OLCULDU (benzetim), Softmax/LayerNorm = olculen satir cevrimi x satir sayisi (HESAP, bu birimler sisteme bagli degil). pooler/classifier ve GELU ek cevrimi dahil degil.",
+ "rtl_cevrim_onceki": {
+  "Doğrusal katmanlar (12, ölçüldü)": 428928,
+  "Dikkat çarpımları (Q·Kᵀ, P·V, ölçüldü)": 41048,
+  "Softmax birimi (hesap)": 524544,
+  "LayerNorm birimi (hesap)": 1687680
+ },
+ "rtl_toplam_cevrim_onceki": 2682200,
+ "rtl_ms_100mhz_onceki": 26.822,
+ "onceki_not": "onceki: Konu 1 tabani (2 Kasim 2026, hizlandirma oncesi), sim/g19_ozet_onceki.json"
+}

@@ -1,0 +1,13 @@
+g12_ln12 (varsayilan)              dogru 718/872  genis cagri 0  (36 sn)
+g12_ln12_genis (yama denetimi)     dogru 718/872  genis cagri 0  (79 sn)
+g16_ln12_int64 (TASAR, gecersiz)   dogru 610/872  genis cagri 0  (121 sn)
+g16_ln12                           dogru 718/872  genis cagri 35  (173 sn)
+g12_ln16                           dogru 717/872  genis cagri 0  (214 sn)
+g16_ln16                           dogru 718/872  genis cagri 35  (272 sn)
+yama denetimi (g12 logitleri ayni): True
+g12_ln12 (varsayilan) {'g_bit': 12, 'ln_bit': 12, 'genis_tamsayi': False, 'genis_cagri_sayisi': 0, 'dogru': 718, 'dogruluk': 0.8234, 'kayip_puan_fp32e_gore': 0.11, 'varsayilandan_ayrisan_cumle': 0, 'varsayilanla_dogru_yanlis_degisen': {'dogruyken_yanlis': 0, 'yanlisken_dogru': 0}, 'maks_logit_farki': 0.0, 'ortalama_logit_farki': 0.0}
+g12_ln12_genis (yama denetimi) {'g_bit': 12, 'ln_bit': 12, 'genis_tamsayi': True, 'genis_cagri_sayisi': 0, 'dogru': 718, 'dogruluk': 0.8234, 'kayip_puan_fp32e_gore': 0.11, 'varsayilandan_ayrisan_cumle': 0, 'varsayilanla_dogru_yanlis_degisen': {'dogruyken_yanlis': 0, 'yanlisken_dogru': 0}, 'maks_logit_farki': 0.0, 'ortalama_logit_farki': 0.0}
+g16_ln12_int64 (TASAR, gecersiz) {'g_bit': 16, 'ln_bit': 12, 'genis_tamsayi': False, 'genis_cagri_sayisi': 0, 'dogru': 610, 'dogruluk': 0.6995, 'kayip_puan_fp32e_gore': 12.5, 'varsayilandan_ayrisan_cumle': 228, 'varsayilanla_dogru_yanlis_degisen': {'dogruyken_yanlis': 168, 'yanlisken_dogru': 60}, 'maks_logit_farki': 4.4559, 'ortalama_logit_farki': 1.4103}
+g16_ln12 {'g_bit': 16, 'ln_bit': 12, 'genis_tamsayi': True, 'genis_cagri_sayisi': 35, 'dogru': 718, 'dogruluk': 0.8234, 'kayip_puan_fp32e_gore': 0.11, 'varsayilandan_ayrisan_cumle': 2, 'varsayilanla_dogru_yanlis_degisen': {'dogruyken_yanlis': 1, 'yanlisken_dogru': 1}, 'maks_logit_farki': 0.2814, 'ortalama_logit_farki': 0.02368}
+g12_ln16 {'g_bit': 12, 'ln_bit': 16, 'genis_tamsayi': True, 'genis_cagri_sayisi': 0, 'dogru': 717, 'dogruluk': 0.8222, 'kayip_puan_fp32e_gore': 0.23, 'varsayilandan_ayrisan_cumle': 5, 'varsayilanla_dogru_yanlis_degisen': {'dogruyken_yanlis': 3, 'yanlisken_dogru': 2}, 'maks_logit_farki': 0.469, 'ortalama_logit_farki': 0.03227}
+g16_ln16 {'g_bit': 16, 'ln_bit': 16, 'genis_tamsayi': True, 'genis_cagri_sayisi': 35, 'dogru': 718, 'dogruluk': 0.8234, 'kayip_puan_fp32e_gore': 0.11, 'varsayilandan_ayrisan_cumle': 4, 'varsayilanla_dogru_yanlis_degisen': {'dogruyken_yanlis': 2, 'yanlisken_dogru': 2}, 'maks_logit_farki': 0.5159, 'ortalama_logit_farki': 0.03287}

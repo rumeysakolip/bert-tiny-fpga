@@ -1,0 +1,24 @@
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe tb_dikkat_zinciri -s dikkat -debug typical 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.cift_kapili_bellek
+Compiling module work.panel_kopyalayici
+Compiling module work.panel_tamponu
+Compiling module work.islem_elemani
+Compiling module work.sistolik_dizi_default
+Compiling module work.tile_denetleyici_default
+Compiling module work.yeniden_olcekle_ortak
+Compiling module work.seri_bolucu(GENISLIK=25)
+Compiling module work.ters_bolucu_default
+Compiling module work.softmax_birim_gomulu(TABLO_DOSYA...
+Compiling module work.dikkat_cekirdegi
+Compiling module work.tb_dikkat_zinciri
+Built simulation snapshot dikkat

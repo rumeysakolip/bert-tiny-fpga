@@ -1,0 +1,85 @@
+dizi,f_mhz,baud,agirlik_senaryosu,bayt,hesap_cevrim,hesap_ms,aktarim_s,toplam_s,uart_degerlendirme,dsp_tahmin,kartta_sigar,frekans_durumu,etiket
+4x4,100.0,,agirlik_cipte_varsayim,0,3996760,39.968,0.0,0.04,-,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,100.0,921600,agirlik_tablolari_420_7KB,420700,3996760,39.968,4.565,4.605,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,100.0,921600,olculen_trafik_x2,715326,3996760,39.968,7.762,7.802,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,100.0,3000000,agirlik_tablolari_420_7KB,420700,3996760,39.968,1.402,1.442,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,100.0,3000000,olculen_trafik_x2,715326,3996760,39.968,2.384,2.424,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,100.0,12000000,agirlik_tablolari_420_7KB,420700,3996760,39.968,0.351,0.391,calismaz,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,100.0,12000000,olculen_trafik_x2,715326,3996760,39.968,0.596,0.636,calismaz,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,96.0,,agirlik_cipte_varsayim,0,3996760,41.633,0.0,0.042,-,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,96.0,921600,agirlik_tablolari_420_7KB,420700,3996760,41.633,4.565,4.607,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,96.0,921600,olculen_trafik_x2,715326,3996760,41.633,7.762,7.803,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,96.0,3000000,agirlik_tablolari_420_7KB,420700,3996760,41.633,1.402,1.444,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,96.0,3000000,olculen_trafik_x2,715326,3996760,41.633,2.384,2.426,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,96.0,12000000,agirlik_tablolari_420_7KB,420700,3996760,41.633,0.351,0.392,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,96.0,12000000,olculen_trafik_x2,715326,3996760,41.633,0.596,0.638,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,125.0,,agirlik_cipte_varsayim,0,3996760,31.974,0.0,0.032,-,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,125.0,921600,agirlik_tablolari_420_7KB,420700,3996760,31.974,4.565,4.597,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,125.0,921600,olculen_trafik_x2,715326,3996760,31.974,7.762,7.794,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,125.0,3000000,agirlik_tablolari_420_7KB,420700,3996760,31.974,1.402,1.434,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,125.0,3000000,olculen_trafik_x2,715326,3996760,31.974,2.384,2.416,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,125.0,12000000,agirlik_tablolari_420_7KB,420700,3996760,31.974,0.351,0.383,calismaz,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,125.0,12000000,olculen_trafik_x2,715326,3996760,31.974,0.596,0.628,calismaz,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,150.0,,agirlik_cipte_varsayim,0,3996760,26.645,0.0,0.027,-,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,150.0,921600,agirlik_tablolari_420_7KB,420700,3996760,26.645,4.565,4.592,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,150.0,921600,olculen_trafik_x2,715326,3996760,26.645,7.762,7.788,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,150.0,3000000,agirlik_tablolari_420_7KB,420700,3996760,26.645,1.402,1.429,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,150.0,3000000,olculen_trafik_x2,715326,3996760,26.645,2.384,2.411,guvenli,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,150.0,12000000,agirlik_tablolari_420_7KB,420700,3996760,26.645,0.351,0.377,sinirda,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+4x4,150.0,12000000,olculen_trafik_x2,715326,3996760,26.645,0.596,0.623,sinirda,29,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,100.0,,agirlik_cipte_varsayim,0,2682200,26.822,0.0,0.027,-,77,evet,"olculdu (Vivado, kapandi)",hesap
+8x8,100.0,921600,agirlik_tablolari_420_7KB,420700,2682200,26.822,4.565,4.592,guvenli,77,evet,"olculdu (Vivado, kapandi)",hesap
+8x8,100.0,921600,olculen_trafik_x2,715326,2682200,26.822,7.762,7.789,guvenli,77,evet,"olculdu (Vivado, kapandi)",hesap
+8x8,100.0,3000000,agirlik_tablolari_420_7KB,420700,2682200,26.822,1.402,1.429,guvenli,77,evet,"olculdu (Vivado, kapandi)",hesap
+8x8,100.0,3000000,olculen_trafik_x2,715326,2682200,26.822,2.384,2.411,guvenli,77,evet,"olculdu (Vivado, kapandi)",hesap
+8x8,100.0,12000000,agirlik_tablolari_420_7KB,420700,2682200,26.822,0.351,0.377,calismaz,77,evet,"olculdu (Vivado, kapandi)",hesap
+8x8,100.0,12000000,olculen_trafik_x2,715326,2682200,26.822,0.596,0.623,calismaz,77,evet,"olculdu (Vivado, kapandi)",hesap
+8x8,96.0,,agirlik_cipte_varsayim,0,2682200,27.94,0.0,0.028,-,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,96.0,921600,agirlik_tablolari_420_7KB,420700,2682200,27.94,4.565,4.593,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,96.0,921600,olculen_trafik_x2,715326,2682200,27.94,7.762,7.79,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,96.0,3000000,agirlik_tablolari_420_7KB,420700,2682200,27.94,1.402,1.43,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,96.0,3000000,olculen_trafik_x2,715326,2682200,27.94,2.384,2.412,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,96.0,12000000,agirlik_tablolari_420_7KB,420700,2682200,27.94,0.351,0.379,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,96.0,12000000,olculen_trafik_x2,715326,2682200,27.94,0.596,0.624,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,125.0,,agirlik_cipte_varsayim,0,2682200,21.458,0.0,0.021,-,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,125.0,921600,agirlik_tablolari_420_7KB,420700,2682200,21.458,4.565,4.586,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,125.0,921600,olculen_trafik_x2,715326,2682200,21.458,7.762,7.783,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,125.0,3000000,agirlik_tablolari_420_7KB,420700,2682200,21.458,1.402,1.424,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,125.0,3000000,olculen_trafik_x2,715326,2682200,21.458,2.384,2.406,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,125.0,12000000,agirlik_tablolari_420_7KB,420700,2682200,21.458,0.351,0.372,calismaz,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,125.0,12000000,olculen_trafik_x2,715326,2682200,21.458,0.596,0.618,calismaz,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,150.0,,agirlik_cipte_varsayim,0,2682200,17.881,0.0,0.018,-,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,150.0,921600,agirlik_tablolari_420_7KB,420700,2682200,17.881,4.565,4.583,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,150.0,921600,olculen_trafik_x2,715326,2682200,17.881,7.762,7.78,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,150.0,3000000,agirlik_tablolari_420_7KB,420700,2682200,17.881,1.402,1.42,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,150.0,3000000,olculen_trafik_x2,715326,2682200,17.881,2.384,2.402,guvenli,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,150.0,12000000,agirlik_tablolari_420_7KB,420700,2682200,17.881,0.351,0.368,sinirda,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+8x8,150.0,12000000,olculen_trafik_x2,715326,2682200,17.881,0.596,0.614,sinirda,77,evet,senaryo (kapandigi dogrulanmadi),hesap
+16x16,100.0,,agirlik_cipte_varsayim,0,2342296,23.423,0.0,0.023,-,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,100.0,921600,agirlik_tablolari_420_7KB,420700,2342296,23.423,4.565,4.588,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,100.0,921600,olculen_trafik_x2,715326,2342296,23.423,7.762,7.785,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,100.0,3000000,agirlik_tablolari_420_7KB,420700,2342296,23.423,1.402,1.426,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,100.0,3000000,olculen_trafik_x2,715326,2342296,23.423,2.384,2.408,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,100.0,12000000,agirlik_tablolari_420_7KB,420700,2342296,23.423,0.351,0.374,calismaz,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,100.0,12000000,olculen_trafik_x2,715326,2342296,23.423,0.596,0.62,calismaz,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,96.0,,agirlik_cipte_varsayim,0,2342296,24.399,0.0,0.024,-,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,96.0,921600,agirlik_tablolari_420_7KB,420700,2342296,24.399,4.565,4.589,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,96.0,921600,olculen_trafik_x2,715326,2342296,24.399,7.762,7.786,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,96.0,3000000,agirlik_tablolari_420_7KB,420700,2342296,24.399,1.402,1.427,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,96.0,3000000,olculen_trafik_x2,715326,2342296,24.399,2.384,2.409,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,96.0,12000000,agirlik_tablolari_420_7KB,420700,2342296,24.399,0.351,0.375,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,96.0,12000000,olculen_trafik_x2,715326,2342296,24.399,0.596,0.621,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,125.0,,agirlik_cipte_varsayim,0,2342296,18.738,0.0,0.019,-,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,125.0,921600,agirlik_tablolari_420_7KB,420700,2342296,18.738,4.565,4.584,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,125.0,921600,olculen_trafik_x2,715326,2342296,18.738,7.762,7.781,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,125.0,3000000,agirlik_tablolari_420_7KB,420700,2342296,18.738,1.402,1.421,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,125.0,3000000,olculen_trafik_x2,715326,2342296,18.738,2.384,2.403,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,125.0,12000000,agirlik_tablolari_420_7KB,420700,2342296,18.738,0.351,0.369,calismaz,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,125.0,12000000,olculen_trafik_x2,715326,2342296,18.738,0.596,0.615,calismaz,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,150.0,,agirlik_cipte_varsayim,0,2342296,15.615,0.0,0.016,-,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,150.0,921600,agirlik_tablolari_420_7KB,420700,2342296,15.615,4.565,4.581,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,150.0,921600,olculen_trafik_x2,715326,2342296,15.615,7.762,7.777,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,150.0,3000000,agirlik_tablolari_420_7KB,420700,2342296,15.615,1.402,1.418,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,150.0,3000000,olculen_trafik_x2,715326,2342296,15.615,2.384,2.4,guvenli,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,150.0,12000000,agirlik_tablolari_420_7KB,420700,2342296,15.615,0.351,0.366,sinirda,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap
+16x16,150.0,12000000,olculen_trafik_x2,715326,2342296,15.615,0.596,0.612,sinirda,269,HAYIR (DSP>90),senaryo (kapandigi dogrulanmadi),hesap

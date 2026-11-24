@@ -1,0 +1,38 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/pe.v" into library work
+INFO: [VRFC 10-311] analyzing module pe
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/systolic_nxn.v" into library work
+INFO: [VRFC 10-311] analyzing module systolic_nxn
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bram_sdp.v" into library work
+INFO: [VRFC 10-311] analyzing module bram_sdp
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/panel_tamponu.v" into library work
+INFO: [VRFC 10-311] analyzing module panel_tamponu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/tile_denetleyici.v" into library work
+INFO: [VRFC 10-311] analyzing module tile_denetleyici
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/yeniden_olcekle.v" into library work
+INFO: [VRFC 10-311] analyzing module yeniden_olcekle
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/gelu_lut.v" into library work
+INFO: [VRFC 10-311] analyzing module gelu_lut
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cikis_paketle.v" into library work
+INFO: [VRFC 10-311] analyzing module cikis_paketle
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/dogrusal_katman.v" into library work
+INFO: [VRFC 10-311] analyzing module dogrusal_katman
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/komut_cozucu.v" into library work
+INFO: [VRFC 10-311] analyzing module komut_cozucu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_seri.v" into library work
+INFO: [VRFC 10-311] analyzing module bolucu_seri
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/softmax_birim.v" into library work
+INFO: [VRFC 10-311] analyzing module softmax_birim
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v" into library work
+INFO: [VRFC 10-311] analyzing module layernorm_birim
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/cikis_tamponu.v" into library work
+INFO: [VRFC 10-311] analyzing module cikis_tamponu
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bert_tiny_ust.v" into library work
+INFO: [VRFC 10-311] analyzing module bert_tiny_ust
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/uart_rx.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/uart_tx.v" into library work
+INFO: [VRFC 10-311] analyzing module uart_tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bert_tiny_uart_ust.v" into library work
+INFO: [VRFC 10-311] analyzing module bert_tiny_uart_ust
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/rumey/Documents/biitirme-projem/03-RTL/tb/tb_bert_tiny_ust.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_bert_tiny_ust

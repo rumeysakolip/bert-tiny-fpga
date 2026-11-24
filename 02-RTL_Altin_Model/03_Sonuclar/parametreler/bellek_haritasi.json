@@ -1,0 +1,247 @@
+{
+  "toplam_bit": 3446526,
+  "toplam_kb": 420.7,
+  "bram36_gerekli": 93.5,
+  "basys3_bram36": 50,
+  "tek_seferde_sigar_mi": false,
+  "katmanlar": {
+    "l0_q": {
+      "katman": "bert.encoder.layer.0.attention.self.query",
+      "cikis_kanali": 128,
+      "girdi": 128,
+      "agirlik_bayt": 16384,
+      "bias_bayt": 512,
+      "a_olcek": 0.06851995272899238,
+      "kaydirma_n": 37,
+      "cikis_olcek_kalibre": 0.036618750865065205,
+      "dosyalar": {
+        "w": "l0_q_w.mem",
+        "b": "l0_q_b.mem",
+        "m0": "l0_q_m0.mem"
+      },
+      "bit": 139136,
+      "bram36": 3.774
+    },
+    "l0_k": {
+      "katman": "bert.encoder.layer.0.attention.self.key",
+      "cikis_kanali": 128,
+      "girdi": 128,
+      "agirlik_bayt": 16384,
+      "bias_bayt": 512,
+      "a_olcek": 0.06851995272899238,
+      "kaydirma_n": 37,
+      "cikis_olcek_kalibre": 0.039257714128869726,
+      "dosyalar": {
+        "w": "l0_k_w.mem",
+        "b": "l0_k_b.mem",
+        "m0": "l0_k_m0.mem"
+      },
+      "bit": 139136,
+      "bram36": 3.774
+    },
+    "l0_v": {
+      "katman": "bert.encoder.layer.0.attention.self.value",
+      "cikis_kanali": 128,
+      "girdi": 128,
+      "agirlik_bayt": 16384,
+      "bias_bayt": 512,
+      "a_olcek": 0.06851995272899238,
+      "kaydirma_n": 37,
+      "cikis_olcek_kalibre": 0.06317208507868248,
+      "dosyalar": {
+        "w": "l0_v_w.mem",
+        "b": "l0_v_b.mem",
+        "m0": "l0_v_m0.mem"
+      },
+      "bit": 139136,
+      "bram36": 3.774
+    },
+    "l0_attn_out": {
+      "katman": "bert.encoder.layer.0.attention.output.dense",
+      "cikis_kanali": 128,
+      "girdi": 128,
+      "agirlik_bayt": 16384,
+      "bias_bayt": 512,
+      "a_olcek": 0.0398823820699857,
+      "kaydirma_n": 38,
+      "cikis_olcek_kalibre": 0.05566697608767532,
+      "dosyalar": {
+        "w": "l0_attn_out_w.mem",
+        "b": "l0_attn_out_b.mem",
+        "m0": "l0_attn_out_m0.mem"
+      },
+      "bit": 139136,
+      "bram36": 3.774
+    },
+    "l0_ffn1": {
+      "katman": "bert.encoder.layer.0.intermediate.dense",
+      "cikis_kanali": 512,
+      "girdi": 128,
+      "agirlik_bayt": 65536,
+      "bias_bayt": 2048,
+      "a_olcek": 0.10461600746695451,
+      "kaydirma_n": 37,
+      "cikis_olcek_kalibre": 0.09435518520084892,
+      "dosyalar": {
+        "w": "l0_ffn1_w.mem",
+        "b": "l0_ffn1_b.mem",
+        "m0": "l0_ffn1_m0.mem"
+      },
+      "bit": 556544,
+      "bram36": 15.097
+    },
+    "l0_ffn2": {
+      "katman": "bert.encoder.layer.0.output.dense",
+      "cikis_kanali": 128,
+      "girdi": 512,
+      "agirlik_bayt": 65536,
+      "bias_bayt": 512,
+      "a_olcek": 0.0684742139080378,
+      "kaydirma_n": 37,
+      "cikis_olcek_kalibre": 0.1212986022468627,
+      "dosyalar": {
+        "w": "l0_ffn2_w.mem",
+        "b": "l0_ffn2_b.mem",
+        "m0": "l0_ffn2_m0.mem"
+      },
+      "bit": 532352,
+      "bram36": 14.441
+    },
+    "l1_q": {
+      "katman": "bert.encoder.layer.1.attention.self.query",
+      "cikis_kanali": 128,
+      "girdi": 128,
+      "agirlik_bayt": 16384,
+      "bias_bayt": 512,
+      "a_olcek": 0.05277477474663201,
+      "kaydirma_n": 38,
+      "cikis_olcek_kalibre": 0.05710272526177834,
+      "dosyalar": {
+        "w": "l1_q_w.mem",
+        "b": "l1_q_b.mem",
+        "m0": "l1_q_m0.mem"
+      },
+      "bit": 139136,
+      "bram36": 3.774
+    },
+    "l1_k": {
+      "katman": "bert.encoder.layer.1.attention.self.key",
+      "cikis_kanali": 128,
+      "girdi": 128,
+      "agirlik_bayt": 16384,
+      "bias_bayt": 512,
+      "a_olcek": 0.05277477474663201,
+      "kaydirma_n": 38,
+      "cikis_olcek_kalibre": 0.04327076814306064,
+      "dosyalar": {
+        "w": "l1_k_w.mem",
+        "b": "l1_k_b.mem",
+        "m0": "l1_k_m0.mem"
+      },
+      "bit": 139136,
+      "bram36": 3.774
+    },
+    "l1_v": {
+      "katman": "bert.encoder.layer.1.attention.self.value",
+      "cikis_kanali": 128,
+      "girdi": 128,
+      "agirlik_bayt": 16384,
+      "bias_bayt": 512,
+      "a_olcek": 0.05277477474663201,
+      "kaydirma_n": 38,
+      "cikis_olcek_kalibre": 0.04961599515179011,
+      "dosyalar": {
+        "w": "l1_v_w.mem",
+        "b": "l1_v_b.mem",
+        "m0": "l1_v_m0.mem"
+      },
+      "bit": 139136,
+      "bram36": 3.774
+    },
+    "l1_attn_out": {
+      "katman": "bert.encoder.layer.1.attention.output.dense",
+      "cikis_kanali": 128,
+      "girdi": 128,
+      "agirlik_bayt": 16384,
+      "bias_bayt": 512,
+      "a_olcek": 0.033483433911180874,
+      "kaydirma_n": 37,
+      "cikis_olcek_kalibre": 0.07616196279450664,
+      "dosyalar": {
+        "w": "l1_attn_out_w.mem",
+        "b": "l1_attn_out_b.mem",
+        "m0": "l1_attn_out_m0.mem"
+      },
+      "bit": 139136,
+      "bram36": 3.774
+    },
+    "l1_ffn1": {
+      "katman": "bert.encoder.layer.1.intermediate.dense",
+      "cikis_kanali": 512,
+      "girdi": 128,
+      "agirlik_bayt": 65536,
+      "bias_bayt": 2048,
+      "a_olcek": 0.03786769626647469,
+      "kaydirma_n": 38,
+      "cikis_olcek_kalibre": 0.08200757334551473,
+      "dosyalar": {
+        "w": "l1_ffn1_w.mem",
+        "b": "l1_ffn1_b.mem",
+        "m0": "l1_ffn1_m0.mem"
+      },
+      "bit": 556544,
+      "bram36": 15.097
+    },
+    "l1_ffn2": {
+      "katman": "bert.encoder.layer.1.output.dense",
+      "cikis_kanali": 128,
+      "girdi": 512,
+      "agirlik_bayt": 65536,
+      "bias_bayt": 512,
+      "a_olcek": 0.05007529070996863,
+      "kaydirma_n": 36,
+      "cikis_olcek_kalibre": 0.028539205160666638,
+      "dosyalar": {
+        "w": "l1_ffn2_w.mem",
+        "b": "l1_ffn2_b.mem",
+        "m0": "l1_ffn2_m0.mem"
+      },
+      "bit": 532352,
+      "bram36": 14.441
+    },
+    "pooler": {
+      "katman": "bert.pooler.dense",
+      "cikis_kanali": 128,
+      "girdi": 128,
+      "agirlik_bayt": 16384,
+      "bias_bayt": 512,
+      "a_olcek": 0.03569627746822327,
+      "kaydirma_n": 38,
+      "cikis_olcek_kalibre": 0.07650867221862312,
+      "dosyalar": {
+        "w": "pooler_w.mem",
+        "b": "pooler_b.mem",
+        "m0": "pooler_m0.mem"
+      },
+      "bit": 139136,
+      "bram36": 3.774
+    },
+    "classifier": {
+      "katman": "classifier",
+      "cikis_kanali": 2,
+      "girdi": 128,
+      "agirlik_bayt": 256,
+      "bias_bayt": 8,
+      "a_olcek": 0.007874015748031496,
+      "kaydirma_n": 42,
+      "cikis_olcek_kalibre": 0.023452069815688245,
+      "dosyalar": {
+        "w": "classifier_w.mem",
+        "b": "classifier_b.mem",
+        "m0": "classifier_m0.mem"
+      },
+      "bit": 2174,
+      "bram36": 0.059
+    }
+  }
+}

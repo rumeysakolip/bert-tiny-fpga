@@ -1,0 +1,1488 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Tue Nov  3 13:26:31 2026
+| Host         : pc running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 20 -sort_by slack -file sentez/cikti/io_kisit_150_yollar.txt
+| Design       : bert_tiny_uart_ust
+| Device       : 7a35t-cpg236
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.014ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[16]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.620ns  (logic 3.094ns (46.735%)  route 3.526ns (53.265%))
+  Logic Levels:           13  (CARRY4=10 LUT2=2 LUT4=1)
+  Clock Path Skew:        -0.116ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.782ns = ( 11.449 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.077ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.556     5.077    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/clk_IBUF_BUFG
+    SLICE_X11Y20         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y20         FDRE (Prop_fdre_C_Q)         0.456     5.533 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg[1]/Q
+                         net (fo=5, routed)           0.959     6.492    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg_n_0_[1]
+    SLICE_X11Y21         LUT4 (Prop_lut4_I0_O)        0.124     6.616 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry_i_8__0/O
+                         net (fo=1, routed)           0.000     6.616    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry_i_8__0_n_0
+    SLICE_X11Y21         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.148 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry/CO[3]
+                         net (fo=1, routed)           0.000     7.148    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry_n_0
+    SLICE_X11Y22         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.262 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     7.262    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__0_n_0
+    SLICE_X11Y23         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.376 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     7.376    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__1_n_0
+    SLICE_X11Y24         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.490 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__2/CO[3]
+                         net (fo=1, routed)           0.009     7.499    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__2_n_0
+    SLICE_X11Y25         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.613 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__3/CO[3]
+                         net (fo=18, routed)          1.559     9.172    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli
+    SLICE_X10Y46         LUT2 (Prop_lut2_I1_O)        0.124     9.296 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[3]_i_3/O
+                         net (fo=1, routed)           0.000     9.296    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[3]_i_3_n_0
+    SLICE_X10Y46         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.513     9.809 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     9.809    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[3]_i_2_n_0
+    SLICE_X10Y47         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.926 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     9.926    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[7]_i_2_n_0
+    SLICE_X10Y48         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.043 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    10.043    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[11]_i_2_n_0
+    SLICE_X10Y49         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.160 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.001    10.161    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[15]_i_2_n_0
+    SLICE_X10Y50         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.219    10.380 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[16]_i_2/O[0]
+                         net (fo=1, routed)           0.999    11.379    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[16]_i_2_n_7
+    SLICE_X10Y54         LUT2 (Prop_lut2_I0_O)        0.319    11.698 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[16]_i_1/O
+                         net (fo=1, routed)           0.000    11.698    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[16]_i_1_n_0
+    SLICE_X10Y54         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[16]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.441    11.449    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/clk_IBUF_BUFG
+    SLICE_X10Y54         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[16]/C
+                         clock pessimism              0.180    11.629    
+                         clock uncertainty           -0.035    11.593    
+    SLICE_X10Y54         FDRE (Setup_fdre_C_D)        0.118    11.711    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[16]
+  -------------------------------------------------------------------
+                         required time                         11.711    
+                         arrival time                         -11.698    
+  -------------------------------------------------------------------
+                         slack                                  0.014    
+
+Slack (MET) :             0.086ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[11]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.000ns  (logic 1.802ns (30.032%)  route 4.198ns (69.968%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.860    11.073    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X14Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[11]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X14Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[11]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X14Y58         FDRE (Setup_fdre_C_R)       -0.524    11.160    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[11]
+  -------------------------------------------------------------------
+                         required time                         11.160    
+                         arrival time                         -11.073    
+  -------------------------------------------------------------------
+                         slack                                  0.086    
+
+Slack (MET) :             0.086ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[1]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.000ns  (logic 1.802ns (30.032%)  route 4.198ns (69.968%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.860    11.073    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X14Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[1]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X14Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[1]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X14Y58         FDRE (Setup_fdre_C_R)       -0.524    11.160    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[1]
+  -------------------------------------------------------------------
+                         required time                         11.160    
+                         arrival time                         -11.073    
+  -------------------------------------------------------------------
+                         slack                                  0.086    
+
+Slack (MET) :             0.086ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[21]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.000ns  (logic 1.802ns (30.032%)  route 4.198ns (69.968%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.860    11.073    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X14Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[21]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X14Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[21]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X14Y58         FDRE (Setup_fdre_C_R)       -0.524    11.160    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[21]
+  -------------------------------------------------------------------
+                         required time                         11.160    
+                         arrival time                         -11.073    
+  -------------------------------------------------------------------
+                         slack                                  0.086    
+
+Slack (MET) :             0.086ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[28]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.000ns  (logic 1.802ns (30.032%)  route 4.198ns (69.968%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.860    11.073    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X14Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[28]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X14Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[28]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X14Y58         FDRE (Setup_fdre_C_R)       -0.524    11.160    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[28]
+  -------------------------------------------------------------------
+                         required time                         11.160    
+                         arrival time                         -11.073    
+  -------------------------------------------------------------------
+                         slack                                  0.086    
+
+Slack (MET) :             0.092ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[0]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.995ns  (logic 1.802ns (30.060%)  route 4.193ns (69.940%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.854    11.068    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X14Y57         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[0]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X14Y57         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[0]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X14Y57         FDRE (Setup_fdre_C_R)       -0.524    11.160    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[0]
+  -------------------------------------------------------------------
+                         required time                         11.160    
+                         arrival time                         -11.068    
+  -------------------------------------------------------------------
+                         slack                                  0.092    
+
+Slack (MET) :             0.092ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[18]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.995ns  (logic 1.802ns (30.060%)  route 4.193ns (69.940%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.854    11.068    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X14Y57         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[18]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X14Y57         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[18]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X14Y57         FDRE (Setup_fdre_C_R)       -0.524    11.160    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[18]
+  -------------------------------------------------------------------
+                         required time                         11.160    
+                         arrival time                         -11.068    
+  -------------------------------------------------------------------
+                         slack                                  0.092    
+
+Slack (MET) :             0.127ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[11]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.507ns  (logic 2.968ns (45.614%)  route 3.539ns (54.386%))
+  Logic Levels:           11  (CARRY4=8 LUT2=2 LUT4=1)
+  Clock Path Skew:        -0.116ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.782ns = ( 11.449 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.077ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.556     5.077    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/clk_IBUF_BUFG
+    SLICE_X11Y20         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y20         FDRE (Prop_fdre_C_Q)         0.456     5.533 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg[1]/Q
+                         net (fo=5, routed)           0.959     6.492    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg_n_0_[1]
+    SLICE_X11Y21         LUT4 (Prop_lut4_I0_O)        0.124     6.616 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry_i_8__0/O
+                         net (fo=1, routed)           0.000     6.616    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry_i_8__0_n_0
+    SLICE_X11Y21         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.148 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry/CO[3]
+                         net (fo=1, routed)           0.000     7.148    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry_n_0
+    SLICE_X11Y22         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.262 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     7.262    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__0_n_0
+    SLICE_X11Y23         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.376 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     7.376    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__1_n_0
+    SLICE_X11Y24         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.490 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__2/CO[3]
+                         net (fo=1, routed)           0.009     7.499    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__2_n_0
+    SLICE_X11Y25         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.613 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__3/CO[3]
+                         net (fo=18, routed)          1.559     9.172    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli
+    SLICE_X10Y46         LUT2 (Prop_lut2_I1_O)        0.124     9.296 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[3]_i_3/O
+                         net (fo=1, routed)           0.000     9.296    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[3]_i_3_n_0
+    SLICE_X10Y46         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.513     9.809 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     9.809    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[3]_i_2_n_0
+    SLICE_X10Y47         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.926 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     9.926    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[7]_i_2_n_0
+    SLICE_X10Y48         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    10.241 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[11]_i_2/O[3]
+                         net (fo=1, routed)           1.012    11.253    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[11]_i_2_n_4
+    SLICE_X10Y53         LUT2 (Prop_lut2_I0_O)        0.331    11.584 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[11]_i_1/O
+                         net (fo=1, routed)           0.000    11.584    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[11]_i_1_n_0
+    SLICE_X10Y53         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.441    11.449    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/clk_IBUF_BUFG
+    SLICE_X10Y53         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[11]/C
+                         clock pessimism              0.180    11.629    
+                         clock uncertainty           -0.035    11.593    
+    SLICE_X10Y53         FDRE (Setup_fdre_C_D)        0.118    11.711    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[11]
+  -------------------------------------------------------------------
+                         required time                         11.711    
+                         arrival time                         -11.584    
+  -------------------------------------------------------------------
+                         slack                                  0.127    
+
+Slack (MET) :             0.170ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.422ns  (logic 3.087ns (48.066%)  route 3.335ns (51.934%))
+  Logic Levels:           12  (CARRY4=9 LUT2=2 LUT4=1)
+  Clock Path Skew:        -0.115ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.783ns = ( 11.450 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.077ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.556     5.077    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/clk_IBUF_BUFG
+    SLICE_X11Y20         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y20         FDRE (Prop_fdre_C_Q)         0.456     5.533 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg[1]/Q
+                         net (fo=5, routed)           0.959     6.492    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolen_kayit_reg_n_0_[1]
+    SLICE_X11Y21         LUT4 (Prop_lut4_I0_O)        0.124     6.616 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry_i_8__0/O
+                         net (fo=1, routed)           0.000     6.616    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry_i_8__0_n_0
+    SLICE_X11Y21         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     7.148 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry/CO[3]
+                         net (fo=1, routed)           0.000     7.148    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry_n_0
+    SLICE_X11Y22         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.262 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     7.262    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__0_n_0
+    SLICE_X11Y23         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.376 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     7.376    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__1_n_0
+    SLICE_X11Y24         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.490 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__2/CO[3]
+                         net (fo=1, routed)           0.009     7.499    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__2_n_0
+    SLICE_X11Y25         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.613 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli_carry__3/CO[3]
+                         net (fo=18, routed)          1.559     9.172    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/duzeltme_gerekli
+    SLICE_X10Y46         LUT2 (Prop_lut2_I1_O)        0.124     9.296 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[3]_i_3/O
+                         net (fo=1, routed)           0.000     9.296    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[3]_i_3_n_0
+    SLICE_X10Y46         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.513     9.809 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     9.809    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[3]_i_2_n_0
+    SLICE_X10Y47         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     9.926 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     9.926    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[7]_i_2_n_0
+    SLICE_X10Y48         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    10.043 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    10.043    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[11]_i_2_n_0
+    SLICE_X10Y49         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315    10.358 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[15]_i_2/O[3]
+                         net (fo=1, routed)           0.809    11.167    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[15]_i_2_n_4
+    SLICE_X11Y50         LUT2 (Prop_lut2_I0_O)        0.333    11.500 r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[15]_i_1/O
+                         net (fo=1, routed)           0.000    11.500    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum[15]_i_1_n_0
+    SLICE_X11Y50         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.442    11.450    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/clk_IBUF_BUFG
+    SLICE_X11Y50         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[15]/C
+                         clock pessimism              0.180    11.630    
+                         clock uncertainty           -0.035    11.594    
+    SLICE_X11Y50         FDRE (Setup_fdre_C_D)        0.075    11.669    u_bert_tiny/u_veri_yolu/u_layernorm/u_ters_bolucu/bolum_reg[15]
+  -------------------------------------------------------------------
+                         required time                         11.669    
+                         arrival time                         -11.500    
+  -------------------------------------------------------------------
+                         slack                                  0.170    
+
+Slack (MET) :             0.181ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[13]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.000ns  (logic 1.802ns (30.032%)  route 4.198ns (69.968%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.860    11.073    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[13]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[13]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X15Y58         FDRE (Setup_fdre_C_R)       -0.429    11.255    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[13]
+  -------------------------------------------------------------------
+                         required time                         11.255    
+                         arrival time                         -11.073    
+  -------------------------------------------------------------------
+                         slack                                  0.181    
+
+Slack (MET) :             0.181ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[32]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.000ns  (logic 1.802ns (30.032%)  route 4.198ns (69.968%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.860    11.073    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[32]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[32]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X15Y58         FDRE (Setup_fdre_C_R)       -0.429    11.255    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[32]
+  -------------------------------------------------------------------
+                         required time                         11.255    
+                         arrival time                         -11.073    
+  -------------------------------------------------------------------
+                         slack                                  0.181    
+
+Slack (MET) :             0.181ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[40]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.000ns  (logic 1.802ns (30.032%)  route 4.198ns (69.968%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.860    11.073    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[40]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[40]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X15Y58         FDRE (Setup_fdre_C_R)       -0.429    11.255    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[40]
+  -------------------------------------------------------------------
+                         required time                         11.255    
+                         arrival time                         -11.073    
+  -------------------------------------------------------------------
+                         slack                                  0.181    
+
+Slack (MET) :             0.181ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[54]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.000ns  (logic 1.802ns (30.032%)  route 4.198ns (69.968%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.860    11.073    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[54]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[54]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X15Y58         FDRE (Setup_fdre_C_R)       -0.429    11.255    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[54]
+  -------------------------------------------------------------------
+                         required time                         11.255    
+                         arrival time                         -11.073    
+  -------------------------------------------------------------------
+                         slack                                  0.181    
+
+Slack (MET) :             0.181ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[55]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.000ns  (logic 1.802ns (30.032%)  route 4.198ns (69.968%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.860    11.073    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[55]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[55]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X15Y58         FDRE (Setup_fdre_C_R)       -0.429    11.255    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[55]
+  -------------------------------------------------------------------
+                         required time                         11.255    
+                         arrival time                         -11.073    
+  -------------------------------------------------------------------
+                         slack                                  0.181    
+
+Slack (MET) :             0.181ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[59]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        6.000ns  (logic 1.802ns (30.032%)  route 4.198ns (69.968%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.860    11.073    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[59]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X15Y58         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[59]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X15Y58         FDRE (Setup_fdre_C_R)       -0.429    11.255    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[59]
+  -------------------------------------------------------------------
+                         required time                         11.255    
+                         arrival time                         -11.073    
+  -------------------------------------------------------------------
+                         slack                                  0.181    
+
+Slack (MET) :             0.183ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[16]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.903ns  (logic 1.802ns (30.527%)  route 4.101ns (69.473%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.779ns = ( 11.446 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.763    10.976    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X14Y59         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[16]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.438    11.446    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X14Y59         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[16]/C
+                         clock pessimism              0.272    11.718    
+                         clock uncertainty           -0.035    11.683    
+    SLICE_X14Y59         FDRE (Setup_fdre_C_R)       -0.524    11.159    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[16]
+  -------------------------------------------------------------------
+                         required time                         11.159    
+                         arrival time                         -10.976    
+  -------------------------------------------------------------------
+                         slack                                  0.183    
+
+Slack (MET) :             0.183ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[23]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.903ns  (logic 1.802ns (30.527%)  route 4.101ns (69.473%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.779ns = ( 11.446 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.763    10.976    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X14Y59         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[23]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.438    11.446    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X14Y59         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[23]/C
+                         clock pessimism              0.272    11.718    
+                         clock uncertainty           -0.035    11.683    
+    SLICE_X14Y59         FDRE (Setup_fdre_C_R)       -0.524    11.159    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[23]
+  -------------------------------------------------------------------
+                         required time                         11.159    
+                         arrival time                         -10.976    
+  -------------------------------------------------------------------
+                         slack                                  0.183    
+
+Slack (MET) :             0.183ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[34]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.903ns  (logic 1.802ns (30.527%)  route 4.101ns (69.473%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.779ns = ( 11.446 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.763    10.976    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X14Y59         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[34]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.438    11.446    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X14Y59         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[34]/C
+                         clock pessimism              0.272    11.718    
+                         clock uncertainty           -0.035    11.683    
+    SLICE_X14Y59         FDRE (Setup_fdre_C_R)       -0.524    11.159    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[34]
+  -------------------------------------------------------------------
+                         required time                         11.159    
+                         arrival time                         -10.976    
+  -------------------------------------------------------------------
+                         slack                                  0.183    
+
+Slack (MET) :             0.183ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[3]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.903ns  (logic 1.802ns (30.527%)  route 4.101ns (69.473%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.779ns = ( 11.446 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.763    10.976    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X14Y59         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[3]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.438    11.446    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X14Y59         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[3]/C
+                         clock pessimism              0.272    11.718    
+                         clock uncertainty           -0.035    11.683    
+    SLICE_X14Y59         FDRE (Setup_fdre_C_R)       -0.524    11.159    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[3]
+  -------------------------------------------------------------------
+                         required time                         11.159    
+                         arrival time                         -10.976    
+  -------------------------------------------------------------------
+                         slack                                  0.183    
+
+Slack (MET) :             0.187ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Destination:            u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[17]/R
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@3.334ns period=6.667ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            6.667ns  (sys_clk_pin rise@6.667ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.995ns  (logic 1.802ns (30.060%)  route 4.193ns (69.940%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=2 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.780ns = ( 11.447 - 6.667 ) 
+    Source Clock Delay      (SCD):    5.073ns
+    Clock Pessimism Removal (CPR):    0.272ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.552     5.073    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X12Y64         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X12Y64         FDRE (Prop_fdre_C_Q)         0.518     5.591 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[5]/Q
+                         net (fo=7, routed)           0.457     6.048    u_bert_tiny/u_veri_yolu/komut_yazmaci[5]
+    SLICE_X13Y64         LUT3 (Prop_lut3_I0_O)        0.124     6.172 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.533     6.705    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X12Y63         LUT6 (Prop_lut6_I5_O)        0.124     6.829 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_8/O
+                         net (fo=5, routed)           0.848     7.677    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[3]
+    SLICE_X11Y63         LUT4 (Prop_lut4_I0_O)        0.124     7.801 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     7.801    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X11Y63         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.351 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.351    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X11Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.465 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          0.721     9.187    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X13Y64         LUT5 (Prop_lut5_I3_O)        0.124     9.311 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.779    10.089    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X15Y61         LUT5 (Prop_lut5_I0_O)        0.124    10.213 r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici[63]_i_1/O
+                         net (fo=68, routed)          0.854    11.068    u_bert_tiny/u_veri_yolu/RSTB
+    SLICE_X15Y57         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[17]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      6.667     6.667 r  
+    W5                                                0.000     6.667 r  clk (IN)
+                         net (fo=0)                   0.000     6.667    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388     8.055 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862     9.917    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.008 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6700, routed)        1.439    11.447    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X15Y57         FDRE                                         r  u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[17]/C
+                         clock pessimism              0.272    11.719    
+                         clock uncertainty           -0.035    11.684    
+    SLICE_X15Y57         FDRE (Setup_fdre_C_R)       -0.429    11.255    u_bert_tiny/u_veri_yolu/sozcuk_toplayici_reg[17]
+  -------------------------------------------------------------------
+                         required time                         11.255    
+                         arrival time                         -11.068    
+  -------------------------------------------------------------------
+                         slack                                  0.187    
+
+
+
+

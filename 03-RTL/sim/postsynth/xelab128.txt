@@ -1,0 +1,94 @@
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe -L unisims_ver -timescale 1ns/1ps -s s128 work.tb_systolic_nxn work.glbl 
+Multi-threading is on. Using 14 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.x_lut1_mux2
+Compiling module unisims_ver.LUT1
+Compiling module unisims_ver.x_lut2_mux4
+Compiling module unisims_ver.LUT2
+Compiling module unisims_ver.x_lut3_mux8
+Compiling module unisims_ver.LUT3
+Compiling module unisims_ver.LUT4
+Compiling module unisims_ver.LUT5
+Compiling module unisims_ver.LUT6
+Compiling module unisims_ver.FDRE_default
+Compiling module unisims_ver.DSP48E1(ACASCREG=0,ALUMODEREG=0,...
+Compiling module unisims_ver.CARRY4
+Compiling module work.pe
+Compiling module unisims_ver.DSP48E1(ALUMODEREG=0,CARRYINREG=...
+Compiling module work.pe_0
+Compiling module unisims_ver.DSP48E1(ACASCREG=2,ALUMODEREG=0,...
+Compiling module work.pe_1
+Compiling module work.pe_2
+Compiling module work.pe_3
+Compiling module work.pe_4
+Compiling module work.pe_5
+Compiling module work.pe_6
+Compiling module work.pe_7
+Compiling module work.pe_8
+Compiling module work.pe_9
+Compiling module work.pe_10
+Compiling module work.pe_11
+Compiling module work.pe_12
+Compiling module work.pe_13
+Compiling module work.pe_14
+Compiling module work.pe_15
+Compiling module work.pe_16
+Compiling module work.pe_17
+Compiling module work.pe_18
+Compiling module work.pe_19
+Compiling module work.pe_20
+Compiling module work.pe_21
+Compiling module work.pe_22
+Compiling module work.pe_23
+Compiling module work.pe_24
+Compiling module work.pe_25
+Compiling module work.pe_26
+Compiling module work.pe_27
+Compiling module work.pe_28
+Compiling module work.pe_29
+Compiling module work.pe_30
+Compiling module work.pe_31
+Compiling module work.pe_32
+Compiling module work.pe_33
+Compiling module work.pe_34
+Compiling module work.pe_35
+Compiling module work.pe_36
+Compiling module work.pe_37
+Compiling module work.pe_38
+Compiling module work.pe_39
+Compiling module work.pe_40
+Compiling module work.pe_41
+Compiling module work.pe_42
+Compiling module work.pe_43
+Compiling module work.pe_44
+Compiling module work.pe_45
+Compiling module work.pe_46
+Compiling module work.pe_47
+Compiling module work.pe_48
+Compiling module work.pe_49
+Compiling module work.pe_50
+Compiling module work.pe_51
+Compiling module work.pe_52
+Compiling module work.pe_53
+Compiling module work.pe_54
+Compiling module work.pe_55
+Compiling module work.pe_56
+Compiling module work.pe_57
+Compiling module work.pe_58
+Compiling module work.pe_59
+Compiling module work.pe_60
+Compiling module work.pe_61
+Compiling module work.pe_62
+Compiling module unisims_ver.SRL16E_default
+Compiling module work.systolic_nxn
+Compiling module work.tb_systolic_nxn
+Compiling module work.glbl
+Built simulation snapshot s128
