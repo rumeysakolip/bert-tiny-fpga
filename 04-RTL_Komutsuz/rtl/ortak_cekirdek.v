@@ -13,7 +13,8 @@ module ortak_cekirdek #(
     parameter NA = 1,                  // paralel dogrusal hat sayisi (1, 2, 4, 8); NA>1 iken AGIRLIK_ROM=1 olmali
     parameter AGIRLIK_ROM = 0,         // 1: agirlik paneli yonga ici bankalardan (agirlik_rom_b<i>.mem) gelir; 0: bayt akisindan (w_yaz_*)
     parameter ROM_D = 8192,            // banka derinligi (64 bit sozcuk)
-    parameter LN_PAR = 0               // 1: artik + LayerNorm bir blogun 8 satiri icin 8 paralel hatta (artik_ln_par), her hat kendi yeniden olcekleme devresiyle
+    parameter LN_PAR = 0,              // 1: artik + LayerNorm bir blogun 8 satiri icin 8 paralel hatta (artik_ln_par), her hat kendi yeniden olcekleme devresiyle
+    parameter SMP = 0                  // 1: Softmax bir blogun 8 satiri icin 8 paralel birimde (skor bellegi 8 bankaya bolunur)
 ) (
     input  wire         clk,
     input  wire         rst,
@@ -298,12 +299,37 @@ module ortak_cekirdek #(
 
     // ---------------- Softmax (gomulu ustel tablo) ----------------
     reg         sm_baslat, sm_giris_gecerli, sm_giris_maske;
+    reg         gir_gecerli_d, gir_gecerli_d2;
     reg  signed [31:0] sm_giris_veri;
     wire        sm_giris_hazir, sm_cikis_gecerli, sm_cikis_son, sm_mesgul;
     wire [7:0]  sm_cikis_veri;
-    softmax_birim_gomulu #(.SATIR_UZUNLUGU(64), .TABLO_DOSYASI("exp_l0.mem"), .DINAMIK(1)) u_sm (.clk(clk), .rst(rst), .olcek_m0(ayar_m0_sm), .baslat(sm_baslat), .satir_uz(kmax),
-        .giris_hazir(sm_giris_hazir), .giris_gecerli(sm_giris_gecerli), .giris_veri(sm_giris_veri), .giris_maske(sm_giris_maske),
-        .cikis_gecerli(sm_cikis_gecerli), .cikis_veri(sm_cikis_veri), .cikis_son(sm_cikis_son), .mesgul(sm_mesgul));
+    reg  [11:0] skor_blk_adres;                                    // SMP: bankalarin ortak okuma adresi {blok, sutun}
+    wire [63:0] sm_kelime;                                         // SMP: 8 birimin ayni sutunu (bayt i = birim i)
+    generate if (SMP == 0) begin : g_sm1
+        softmax_birim_gomulu #(.SATIR_UZUNLUGU(64), .TABLO_DOSYASI("exp_l0.mem"), .DINAMIK(1)) u_sm (.clk(clk), .rst(rst), .olcek_m0(ayar_m0_sm), .baslat(sm_baslat), .satir_uz(kmax),
+            .giris_hazir(sm_giris_hazir), .giris_gecerli(sm_giris_gecerli), .giris_veri(sm_giris_veri), .giris_maske(sm_giris_maske),
+            .cikis_gecerli(sm_cikis_gecerli), .cikis_veri(sm_cikis_veri), .cikis_son(sm_cikis_son), .mesgul(sm_mesgul));
+        assign sm_kelime = 64'd0;
+    end else begin : g_sm8
+        wire [7:0] hz, cg, cs, ms;
+        genvar b;
+        for (b = 0; b < 8; b = b + 1) begin : g_b
+            reg signed [15:0] sk [0:511];                          // bankada yalniz token_sirasi == b olan satirlar: {blok, panel, kanal}
+            reg signed [15:0] oku;
+            reg signed [31:0] gv;
+            wire [7:0] cv;
+            always @(posedge clk) begin
+                if (rs_gecerli && t_qk && rs_meta[16:14] == b) sk[{rs_meta[9:7], rs_meta[2:0], rs_meta[13:11]}] <= rs_veri[15:0];
+                oku <= sk[skor_blk_adres[8:0]];
+                if (gir_gecerli_d2) gv <= {{16{oku[15]}}, oku};
+            end
+            softmax_birim_gomulu #(.SATIR_UZUNLUGU(64), .TABLO_DOSYASI("exp_l0.mem"), .DINAMIK(1)) u_sm (.clk(clk), .rst(rst), .olcek_m0(ayar_m0_sm), .baslat(sm_baslat), .satir_uz(kmax),
+                .giris_hazir(hz[b]), .giris_gecerli(sm_giris_gecerli), .giris_veri(gv), .giris_maske(sm_giris_maske),
+                .cikis_gecerli(cg[b]), .cikis_veri(cv), .cikis_son(cs[b]), .mesgul(ms[b]));
+            assign sm_kelime[8*b +: 8] = cv;
+        end
+        assign sm_giris_hazir = hz[0]; assign sm_cikis_gecerli = cg[0]; assign sm_cikis_son = cs[0]; assign sm_mesgul = ms[0]; assign sm_cikis_veri = 8'd0;
+    end endgenerate
 
     reg [7:0]  pbuf [0:511];
     reg [6:0]  cikis_say;
@@ -337,15 +363,16 @@ module ortak_cekirdek #(
 
     // ---------------- dikkat denetimi (Q.K^T + Softmax ve P.V) ----------------
     localparam D_BOS = 4'd0, D_P0 = 4'd1, D_P0W = 4'd2, D_P1 = 4'd3, D_P1W = 4'd4, D_CAL = 4'd5, D_KOS = 4'd6, D_AKIT = 4'd7,
-               S_BASLAT = 4'd8, S_HAZIR = 4'd9, S_GIRIS = 4'd10, S_BEKLE = 4'd11, S_YAZ = 4'd12;
-    reg [3:0]  durum;
+               S_BASLAT = 4'd8, S_HAZIR = 4'd9, S_GIRIS = 4'd10, S_BEKLE = 4'd11, S_YAZ = 4'd12,
+               P_BASLAT = 5'd16, P_HAZIR = 5'd17, P_GIRIS = 5'd18, P_BEKLE = 5'd19, P_YAZ = 5'd20;
+    reg [4:0]  durum;
+    reg [3:0]  blk_p;                    // SMP: islenen token blogu
     reg [3:0]  yuklenen;
     reg [1:0]  bos;
     reg        kop_mesgul, kop_tampon;
     reg [3:0]  akit_say;
     reg [6:0]  satir;
     reg [6:0]  gir_say;
-    reg        gir_gecerli_d, gir_gecerli_d2;
     reg [6:0]  gir_idx_d, gir_idx_d2;
     reg [6:0]  yaz_say;
     reg        att_bitti;
@@ -383,7 +410,7 @@ module ortak_cekirdek #(
                     akit_say <= akit_say + 4'd1;
                     if (akit_say == 4'd12) begin
                         if (t_pv) begin att_bitti <= 1'b1; durum <= D_BOS; end
-                        else begin satir <= 0; satir_mod <= 0; grup_taban <= 9'd0; durum <= S_BASLAT; end
+                        else begin satir <= 0; satir_mod <= 0; grup_taban <= 9'd0; blk_p <= 4'd0; durum <= (SMP != 0) ? P_BASLAT : S_BASLAT; end
                     end
                 end
                 S_BASLAT: begin sm_baslat <= 1'b1; gir_say <= 7'd0; durum <= S_HAZIR; end
@@ -408,8 +435,33 @@ module ortak_cekirdek #(
                         else begin satir <= satir + 7'd1; satir_mod <= 3'd0; grup_taban <= grup_taban + {2'b00, kpv}; durum <= S_BASLAT; end
                     end else yaz_say <= yaz_say + 7'd1;
                 end
+                // ---- SMP: bir blogun 8 satiri 8 Softmax biriminde birlikte ----
+                P_BASLAT: begin sm_baslat <= 1'b1; gir_say <= 7'd0; durum <= P_HAZIR; end
+                P_HAZIR: if (sm_giris_hazir) durum <= P_GIRIS;
+                P_GIRIS: begin
+                    if (gir_say < kmax) begin
+                        skor_blk_adres <= {3'b000, blk_p[2:0], gir_say[5:0]};
+                        gir_gecerli_d <= 1'b1; gir_idx_d <= gir_say; gir_say <= gir_say + 7'd1;
+                    end else gir_gecerli_d <= 1'b0;
+                    if (gir_say == kmax && !gir_gecerli_d && !gir_gecerli_d2) durum <= P_BEKLE;
+                end
+                P_BEKLE: if (satir_tamam) begin
+                    if (kpv > kmax) begin yaz_say <= kmax; durum <= P_YAZ; end
+                    else if (blk_p == nb_k - 4'd1) begin att_bitti <= 1'b1; durum <= D_BOS; end
+                    else begin blk_p <= blk_p + 4'd1; grup_taban <= grup_taban + {2'b00, kpv}; durum <= P_BASLAT; end
+                end
+                P_YAZ: begin                                                // kmax..kpv-1 sifir dolgu sozcukleri
+                    sm_p_yaz_etkin <= 1'b1; sm_p_yaz_adres <= grup_taban + {3'b000, yaz_say[5:0]}; sm_p_yaz_veri <= 64'd0;
+                    if (yaz_say == kpv - 7'd1) begin
+                        if (blk_p == nb_k - 4'd1) begin att_bitti <= 1'b1; durum <= D_BOS; end
+                        else begin blk_p <= blk_p + 4'd1; grup_taban <= grup_taban + {2'b00, kpv}; durum <= P_BASLAT; end
+                    end else yaz_say <= yaz_say + 7'd1;
+                end
                 default: durum <= D_BOS;
             endcase
+            if (SMP != 0 && sm_cikis_gecerli) begin                           // 8 birimin ayni sutunu tek olasilik sozcugu
+                sm_p_yaz_etkin <= 1'b1; sm_p_yaz_adres <= grup_taban + {3'b000, cikis_say[5:0]}; sm_p_yaz_veri <= sm_kelime;
+            end
 
             gir_gecerli_d2 <= gir_gecerli_d; gir_idx_d2 <= gir_idx_d;
             if (gir_gecerli_d2) begin
