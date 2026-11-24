@@ -1,0 +1,17 @@
+==== KART TESTI: flas (SCK=50 MHz) -> akis ayristirici -> hizlandirici -> LED/gosterge; cumle 0 ====
+   [cevrim 2023154] SONUC DARBESI: sinif=1 puan -65 73, okunan bayt 419429
+KART TESTI: BASARILI  (cumle 0, sinif 1, puanlar -65 73, 2306155 cevrim, 419429 bayt flastan okundu)
+==== KART TESTI: flas (SCK=50 MHz) -> akis ayristirici -> hizlandirici -> LED/gosterge; cumle 1 ====
+   [cevrim 2023154] SONUC DARBESI: sinif=0 puan 95 -108, okunan bayt 419429
+KART TESTI: BASARILI  (cumle 1, sinif 0, puanlar 95 -108, 2306155 cevrim, 419429 bayt flastan okundu)
+==== KART TESTI: flas (SCK=50 MHz) -> akis ayristirici -> hizlandirici -> LED/gosterge; cumle 3 ====
+   [cevrim 2023154] SONUC DARBESI: sinif=0 puan 18 -33, okunan bayt 419429
+KART TESTI: BASARILI  (cumle 3, sinif 0, puanlar 18 -33, 2306155 cevrim, 419429 bayt flastan okundu)
+--- BOL=4 (kart hizi), cumle 0
+==== KART TESTI: flas (SCK=12 MHz) -> akis ayristirici -> hizlandirici -> LED/gosterge; cumle 0 ====
+   [cevrim 7049275] SONUC DARBESI: sinif=1 puan -65 73, okunan bayt 419429
+   gosterge mod0 (puan0) : [-065]
+   gosterge mod1 (puan1) : [ 073]
+   gosterge mod2 (sure, ms) : [0704] (nokta: ondalik)
+   gosterge mod3 (okunan KB) : [0409]
+KART TESTI: BASARILI  (cumle 0, sinif 1, puanlar -65 73, 7332276 cevrim, 419429 bayt flastan okundu)

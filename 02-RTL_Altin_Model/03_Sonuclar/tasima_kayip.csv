@@ -1,0 +1,14 @@
+kosu,dogru,kayip_puan,capraz_entropi,B_float_ile_ayrisan,onceki_ile_ayrisan,maks_logit_farki
+B_float_tasima,717,0.23,0.5758,0,,0.0
+kumulatif_1_gomme,717,0.23,0.5758,0,0,0.0
+kumulatif_2_ln_cikis,717,0.23,0.5758,0,0,0.0
+kumulatif_3_artik,718,0.11,0.5752,3,3,0.3752
+kumulatif_4_qk,718,0.11,0.5752,3,0,0.3752
+kumulatif_5_av,718,0.11,0.5752,3,0,0.3752
+kumulatif_6_gelu_tanh,718,0.11,0.5752,3,0,0.3752
+tek_gomme,717,0.23,0.5758,0,,0.0
+tek_ln_cikis,717,0.23,0.5758,0,,0.0
+tek_artik,718,0.11,0.5752,3,,0.3752
+tek_qk,717,0.23,0.5758,0,,0.0235
+tek_av,717,0.23,0.5758,0,,0.0
+tek_gelu_tanh,717,0.23,0.5758,0,,0.0

@@ -1,0 +1,6 @@
+Vivado Simulator v2025.1.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/2025.1/Vivado/bin/unwrapped/win64.o/xelab.exe -L unisims_ver -timescale 1ns/1ps -s s128 w128.tb_systolic_nxn w128.glbl -generic_top KT 128 
+Multi-threading is on. Using 14 slave threads.
+ERROR: [XSIM 43-3225] Cannot find design unit work.128 in library work located at xsim.dir/work.

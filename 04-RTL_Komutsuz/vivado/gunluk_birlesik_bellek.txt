@@ -1,0 +1,38 @@
+
+****** xsim v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Thu Nov 12 02:23:44 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/birlesik/xsim_script.tcl
+# xsim {birlesik} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+==== BIRLESIK AKTIVASYON BELLEGI (48 KB, 6 birim) SINAMASI: katmanlar kopyalamadan zincirlenir, altin modelle bit-birebir ====
+Birimler: 1=0..1023  2=1024..2047  3=2048..3071  4=3072..4095  5=4096..5119  6=5120..6143 (sozcuk adresi)
+[cumle 0] Senaryo A: giris birim 6'ya yazildi; Q->birim 1, K->birim 2, V->birim 3
+   Q katmani calisti: 18522 cevrim
+   K katmani calisti: 18522 cevrim
+   V katmani calisti: 18522 cevrim
+   l0_q sonucu (bellek birimi 1'den itibaren): BASARILI  (8192 kontrol, 0 hata)
+   l0_k sonucu (bellek birimi 2'den itibaren): BASARILI  (8192 kontrol, 0 hata)
+   l0_v sonucu (bellek birimi 3'den itibaren): BASARILI  (8192 kontrol, 0 hata)
+[cumle 0] Senaryo B: giris birim 5'e yazildi; ileri besleme 1 -> birim 1-4; ileri besleme 2 AYNI yerden okur -> birim 6
+   ileri besleme 1 (GELU) calisti: 73866 cevrim
+   ileri besleme 2 calisti (girisi ileri besleme 1'in cikisi, kopyalanmadi): 67674 cevrim
+   l0_ffn1 sonucu (bellek birimi 1'den itibaren): BASARILI  (32768 kontrol, 0 hata)
+   l0_ffn2 sonucu (bellek birimi 6'den itibaren): BASARILI  (8192 kontrol, 0 hata)
+Senaryo C: V katmani DEVRIK yazim kipinde birim 4'e yazilir (deger matrisi, olasilik x deger icin panel duzeni)
+[cumle 0] V katmani devrik yazimla calisti: 18532 cevrim
+   bas 0 deger paneli (8 panel x 64 sozcuk): BASARILI  (512 sozcuk, 0 hata)
+   bas 1 deger paneli (8 panel x 64 sozcuk): BASARILI  (512 sozcuk, 0 hata)
+----------------------------------------------
+BIRLESIK BELLEK TEST: BASARILI  (1 cumle, 73728 kontrol, 0 hata, toplam 215638 hesap cevrimi)
+$finish called at time : 2493610 ns : File "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_birlesik_bellek.v" Line 216
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:24 . Memory (MB): peak = 198.367 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 13144 KB (Peak: 13144 KB), Simulation CPU Usage: 22405 ms
+INFO: [Common 17-206] Exiting xsim at Thu Nov 12 02:24:11 2026...

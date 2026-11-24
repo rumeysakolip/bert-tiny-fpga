@@ -1,0 +1,137 @@
+{
+ "birim": {
+  "softmax": {
+   "sonuc": "PASS",
+   "satir": 325,
+   "kontrol": 20800,
+   "hata": 0,
+   "cevrim_min": 171,
+   "cevrim_maks": 171,
+   "faz_cevrimleri": {
+    "1": 65,
+    "2": 69,
+    "5": 1,
+    "6": 28,
+    "7": 64,
+    "9": 8
+   }
+  },
+  "layernorm": {
+   "sonuc": "PASS",
+   "satir": 485,
+   "kontrol": 62080,
+   "hata": 0,
+   "cevrim_min": 378,
+   "cevrim_maks": 378,
+   "faz_cevrimleri": {
+    "1": 129,
+    "2": 1,
+    "3": 130,
+    "4": 1,
+    "5": 60,
+    "6": 1,
+    "7": 1,
+    "8": 35,
+    "9": 128,
+    "10": 20
+   }
+  }
+ },
+ "mutant": [
+  {
+   "ad": "sm1",
+   "birim": "softmax",
+   "tanim": "bolme oncesi yuvarlama yarimi silindi",
+   "sonuc": "FAIL",
+   "hata": 3629,
+   "yakalandi": true,
+   "aciklama": ""
+  },
+  {
+   "ad": "sm2",
+   "birim": "softmax",
+   "tanim": "LUT doyum indisi 511 yerine 510",
+   "sonuc": "PASS",
+   "hata": 0,
+   "yakalandi": false,
+   "aciklama": "esdeger mutant: exp tablosunun 510. ve 511. girisleri ayni degerde (15 bit yuvarlamadan sonra), doyum indisi cikisi degistirmez"
+  },
+  {
+   "ad": "ln1",
+   "birim": "layernorm",
+   "tanim": "negatif bolmede taban (floor) duzeltmesi silindi",
+   "sonuc": "FAIL",
+   "hata": 159,
+   "yakalandi": true,
+   "aciklama": ""
+  },
+  {
+   "ad": "ln2",
+   "birim": "layernorm",
+   "tanim": "yeniden olceklemede yuvarlama sabiti silindi",
+   "sonuc": "FAIL",
+   "hata": 30632,
+   "yakalandi": true,
+   "aciklama": ""
+  },
+  {
+   "ad": "ln3",
+   "birim": "layernorm",
+   "tanim": "std >= 1 kirpmasi kaldirildi",
+   "sonuc": "PASS",
+   "hata": 0,
+   "yakalandi": false,
+   "aciklama": "esdeger mutant: eps_q >= 1 oldugundan var + eps_q >= 1 ve karekok >= 1; std >= 1 kirpmasi bu parametrelerde hic devreye girmez (savunma amacli)"
+  },
+  {
+   "ad": "tr1",
+   "birim": "softmax+layernorm",
+   "tanim": "bolme: tek duzeltme (q0+1) silindi",
+   "sonuc": "FAIL",
+   "hata": {
+    "softmax": 293,
+    "layernorm": 1
+   },
+   "yakalandi": true,
+   "aciklama": ""
+  },
+  {
+   "ad": "tr2",
+   "birim": "softmax+layernorm",
+   "tanim": "bolme: ters degerin en dusuk biti silindi (ters deger bir bit kisaldi)",
+   "sonuc": "PASS",
+   "hata": {
+    "softmax": 0,
+    "layernorm": 0
+   },
+   "yakalandi": false,
+   "aciklama": "",
+   "birim_testinde_yakalandi": true
+  },
+  {
+   "ad": "tr3",
+   "birim": "softmax+layernorm",
+   "tanim": "bolme: duzeltme kosulu >= yerine >",
+   "sonuc": "FAIL",
+   "hata": {
+    "softmax": 0,
+    "layernorm": 1
+   },
+   "yakalandi": true,
+   "aciklama": ""
+  },
+  {
+   "ad": "tr4",
+   "birim": "softmax+layernorm",
+   "tanim": "bolme: kalan bayragi duzeltme oncesi kalandan alindi",
+   "sonuc": "PASS",
+   "hata": {
+    "softmax": 0,
+    "layernorm": 0
+   },
+   "yakalandi": false,
+   "aciklama": "",
+   "birim_testinde_yakalandi": true
+  }
+ ]
+}

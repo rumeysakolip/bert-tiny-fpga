@@ -1,0 +1,15 @@
+[PASS] tam_hiz_1bayt_cevrim (124 s)
+    BILGI cumle 0: 79656 cevrim (akis 60515 bayt, aralik=1), hata=0
+    BILGI cumle 1: 79652 cevrim (akis 60515 bayt, aralik=1), hata=0
+    BILGI cumle 2: 79652 cevrim (akis 60515 bayt, aralik=1), hata=0
+    BILGI cumle 3: 79652 cevrim (akis 60515 bayt, aralik=1), hata=0
+    TOPLAM 318612 cevrim, 242060 bayt kabul, 98304 kontrol
+    KOMUTSUZ PROTOTIP TEST (ns=4 aralik=1): PASS  (98304 kontrol, 0 hata)
+[PASS] flas_hizi_8cevrim_bayt (43 s)
+    BILGI cumle 0: 500667 cevrim (akis 60515 bayt, aralik=8), hata=0
+    TOPLAM 500667 cevrim, 60515 bayt kabul, 24576 kontrol
+    KOMUTSUZ PROTOTIP TEST (ns=1 aralik=8): PASS  (24576 kontrol, 0 hata)
+[PASS] hatali_akis_crc (13 s)
+    HATALI AKIS: hata=1 hata_sayisi=1 kabul_edilen_bayt=31085 satir_no=1 cumle_no=0
+    CRC HATA ENJEKSIYONU TEST: PASS  (hata yakalandi, cizelge durdu)
+KOMUTSUZ TOPLAM: PASS

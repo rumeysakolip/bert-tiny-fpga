@@ -1,0 +1,33 @@
+
+****** xsim v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Wed Nov 11 23:49:13 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/sm_gomulu/xsim_script.tcl
+# xsim {sm_gomulu} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+==== SOFTMAX (gomulu ustel tablo) SINAMASI ====
+Ustel tablo, devre icinde baslangic degeriyle yuklu; disaridan yazma yok.
+BILGI: +vdir verilmedi, varsayilan klasor: C:/Users/rumey/Documents/biitirme-projem/03-RTL/tb/vektor_g11
+FAZ 1 65
+FAZ 2 69
+FAZ 5 1
+FAZ 6 28
+FAZ 7 64
+FAZ 9 8
+  [ilerleme] 50 / 325 satir islendi, hata=0
+  [ilerleme] 100 / 325 satir islendi, hata=0
+  [ilerleme] 150 / 325 satir islendi, hata=0
+  [ilerleme] 200 / 325 satir islendi, hata=0
+  [ilerleme] 250 / 325 satir islendi, hata=0
+  [ilerleme] 300 / 325 satir islendi, hata=0
+  [ilerleme] 325 / 325 satir islendi, hata=0
+SOFTMAX GOMULU TEST:  BASARILI  (325 satir, 20800 kontrol, 0 hata)  hesap_cevrimi=171..171
+$finish called at time : 780040 ns : File "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_softmax_gomulu.v" Line 78
+exit
+INFO: [Common 17-206] Exiting xsim at Wed Nov 11 23:49:25 2026...

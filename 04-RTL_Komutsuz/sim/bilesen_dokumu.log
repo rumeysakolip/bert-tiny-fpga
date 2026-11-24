@@ -1,0 +1,22 @@
+Basys 3 (1 dizi) 32 326662 {'dogrusal': 75760, 'ffn': 142618, 'dikkat': 34816, 'ln': 70452, 'son': 3015, 'diger': 1}
+2 paralel dizi 32 224898 {'dogrusal': 42382, 'ffn': 74598, 'dikkat': 34816, 'ln': 70452, 'son': 2649, 'diger': 1}
+8 paralel dizi 32 141631 {'dogrusal': 13358, 'ffn': 21570, 'dikkat': 34816, 'ln': 70452, 'son': 1434, 'diger': 1}
+8 dizi + LayerNorm + Softmax paralel 32 64255 {'dogrusal': 13358, 'ffn': 21570, 'dikkat': 17952, 'ln': 9940, 'son': 1434, 'diger': 1}
+8 dizi + hepsi paralel 32 55591 {'dogrusal': 13370, 'ffn': 21570, 'dikkat': 9276, 'ln': 9940, 'son': 1434, 'diger': 1}
+Basys 3 (1 dizi) 64 683926 {'dogrusal': 149488, 'ffn': 283930, 'dikkat': 107152, 'ln': 140340, 'son': 3015, 'diger': 1}
+2 paralel dizi 64 474642 {'dogrusal': 79246, 'ffn': 145254, 'dikkat': 107152, 'ln': 140340, 'son': 2649, 'diger': 1}
+8 paralel dizi 64 310735 {'dogrusal': 22574, 'ffn': 39234, 'dikkat': 107152, 'ln': 140340, 'son': 1434, 'diger': 1}
+8 dizi + LayerNorm + Softmax paralel 64 133455 {'dogrusal': 22574, 'ffn': 39234, 'dikkat': 50896, 'ln': 19316, 'son': 1434, 'diger': 1}
+8 dizi + hepsi paralel 64 101703 {'dogrusal': 22586, 'ffn': 39234, 'dikkat': 19132, 'ln': 19316, 'son': 1434, 'diger': 1}
+Traceback (most recent call last):
+  File "C:\Users\rumey\Documents\biitirme-projem\04-RTL_Komutsuz\scripts\bilesen_dokumu.py", line 97, in <module>
+    ax.set_xticklabels(["Basys 3\n1 dizi", "2\ndizi", "8\ndizi", "8 dizi,\ntam\nparalel"], fontsize=8.5)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rumey\AppData\Roaming\Python\Python314\site-packages\matplotlib\axes\_base.py", line 74, in wrapper
+    return get_method(self)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\rumey\AppData\Roaming\Python\Python314\site-packages\matplotlib\axis.py", line 2106, in set_ticklabels
+    raise ValueError(
+    ...<3 lines>...
+        f" the number of labels ({len(labels)}).")
+ValueError: The number of FixedLocator locations (5), usually from a call to set_ticks, does not match the number of labels (4).

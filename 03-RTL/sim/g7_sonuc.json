@@ -1,0 +1,149 @@
+{
+ "ns": 4,
+ "sonuclar": [
+  {
+   "ad": "l0_q",
+   "K": 128,
+   "C": 128,
+   "n": 37,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim_olculen": 18522,
+   "cevrim_teorik": 18176,
+   "kirpilan_eleman": 0,
+   "sure_sn": 430.0
+  },
+  {
+   "ad": "l0_k",
+   "K": 128,
+   "C": 128,
+   "n": 37,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim_olculen": 18522,
+   "cevrim_teorik": 18176,
+   "kirpilan_eleman": 0,
+   "sure_sn": 429.9
+  },
+  {
+   "ad": "l0_v",
+   "K": 128,
+   "C": 128,
+   "n": 37,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim_olculen": 18522,
+   "cevrim_teorik": 18176,
+   "kirpilan_eleman": 0,
+   "sure_sn": 430.0
+  },
+  {
+   "ad": "l0_attn_out",
+   "K": 128,
+   "C": 128,
+   "n": 38,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim_olculen": 18522,
+   "cevrim_teorik": 18176,
+   "kirpilan_eleman": 0,
+   "sure_sn": 437.0
+  },
+  {
+   "ad": "l0_ffn1",
+   "K": 128,
+   "C": 512,
+   "n": 37,
+   "pass": true,
+   "ayrinti": "131072 kontrol, 0 hata",
+   "cevrim_olculen": 73866,
+   "cevrim_teorik": 72704,
+   "kirpilan_eleman": 0,
+   "sure_sn": 934.8
+  },
+  {
+   "ad": "l0_ffn2",
+   "K": 512,
+   "C": 128,
+   "n": 37,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim_olculen": 67674,
+   "cevrim_teorik": 67328,
+   "kirpilan_eleman": 0,
+   "sure_sn": 883.8
+  },
+  {
+   "ad": "l1_q",
+   "K": 128,
+   "C": 128,
+   "n": 38,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim_olculen": 18522,
+   "cevrim_teorik": 18176,
+   "kirpilan_eleman": 0,
+   "sure_sn": 437.5
+  },
+  {
+   "ad": "l1_k",
+   "K": 128,
+   "C": 128,
+   "n": 38,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim_olculen": 18522,
+   "cevrim_teorik": 18176,
+   "kirpilan_eleman": 0,
+   "sure_sn": 436.5
+  },
+  {
+   "ad": "l1_v",
+   "K": 128,
+   "C": 128,
+   "n": 38,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim_olculen": 18522,
+   "cevrim_teorik": 18176,
+   "kirpilan_eleman": 0,
+   "sure_sn": 437.9
+  },
+  {
+   "ad": "l1_attn_out",
+   "K": 128,
+   "C": 128,
+   "n": 37,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim_olculen": 18522,
+   "cevrim_teorik": 18176,
+   "kirpilan_eleman": 0,
+   "sure_sn": 439.6
+  },
+  {
+   "ad": "l1_ffn1",
+   "K": 128,
+   "C": 512,
+   "n": 38,
+   "pass": true,
+   "ayrinti": "131072 kontrol, 0 hata",
+   "cevrim_olculen": 73866,
+   "cevrim_teorik": 72704,
+   "kirpilan_eleman": 0,
+   "sure_sn": 941.6
+  },
+  {
+   "ad": "l1_ffn2",
+   "K": 512,
+   "C": 128,
+   "n": 36,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim_olculen": 67674,
+   "cevrim_teorik": 67328,
+   "kirpilan_eleman": 46,
+   "sure_sn": 901.8
+  }
+ ]
+}

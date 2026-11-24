@@ -1,0 +1,9 @@
+sm: PASS 125000 bolen, 1000000 cift, 0 hata | {'cift': 1000000, 'doyan_cift': 119135, 'kalansiz_cift': 303420, 'bolen_min': 1, 'bolen_maks': 4194303, 'n_maks': 16777215}
+ln: PASS 125000 bolen, 1000000 cift, 0 hata | {'cift': 1000000, 'doyan_cift': 113851, 'kalansiz_cift': 292184, 'bolen_min': 1, 'bolen_maks': 1048575, 'n_maks': 2147483647}
+mutant t1: sm=FAIL(19960 hata), ln=FAIL(20042 hata)  -> yakalandi
+mutant t2: sm=FAIL(6489 hata), ln=FAIL(7100 hata)  -> yakalandi
+mutant t3: sm=FAIL(6023 hata), ln=FAIL(6391 hata)  -> yakalandi
+mutant t4: sm=FAIL(2196 hata), ln=FAIL(2098 hata)  -> yakalandi
+mutant t5: sm=FAIL(8219 hata), ln=FAIL(8489 hata)  -> yakalandi
+mutant t6: sm=PASS(0 hata), ln=PASS(0 hata)  -> KACTI
+BOLUCU_TERS TOPLAM: FAIL | kacan mutant: ['t6'] | 138 sn

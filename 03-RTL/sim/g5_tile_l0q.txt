@@ -1,0 +1,3 @@
+----------------------------------------------
+KATMAN_CEVRIM l0_q K=128 C=128 : cumle basina 18387 18387 18387 18387 ; teorik (K+14)*P*NB = 18176 ; tile sayisi 512
+TILE DENETLEYICI TEST (l0_q K=128 C=128): PASS  (32768 kontrol, 0 hata)

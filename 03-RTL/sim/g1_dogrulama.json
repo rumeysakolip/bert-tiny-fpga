@@ -1,0 +1,204 @@
+{
+ "kontrol": 90,
+ "hata": 0,
+ "katmanlar": {
+  "l0_q": {
+   "K": 128,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 32768,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 37,
+   "birikec_maks": 36538
+  },
+  "l0_k": {
+   "K": 128,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 32768,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 37,
+   "birikec_maks": 32127
+  },
+  "l0_v": {
+   "K": 128,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 32768,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 37,
+   "birikec_maks": 50760
+  },
+  "l0_attn_out": {
+   "K": 128,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 32768,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 38,
+   "birikec_maks": 48491
+  },
+  "l0_ffn1": {
+   "K": 128,
+   "C": 512,
+   "cumle": 4,
+   "vektor": 131072,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 37,
+   "birikec_maks": 44485
+  },
+  "l0_ffn2": {
+   "K": 512,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 32768,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 37,
+   "birikec_maks": 16665
+  },
+  "l1_q": {
+   "K": 128,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 32768,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 38,
+   "birikec_maks": 39785
+  },
+  "l1_k": {
+   "K": 128,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 32768,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 38,
+   "birikec_maks": 45829
+  },
+  "l1_v": {
+   "K": 128,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 32768,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 38,
+   "birikec_maks": 34810
+  },
+  "l1_attn_out": {
+   "K": 128,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 32768,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 37,
+   "birikec_maks": 57108
+  },
+  "l1_ffn1": {
+   "K": 128,
+   "C": 512,
+   "cumle": 4,
+   "vektor": 131072,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 38,
+   "birikec_maks": 77698
+  },
+  "l1_ffn2": {
+   "K": 512,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 32768,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 46,
+   "kaydirma_n": 36,
+   "birikec_maks": 30329
+  },
+  "pooler": {
+   "K": 128,
+   "C": 128,
+   "cumle": 4,
+   "vektor": 512,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 38,
+   "birikec_maks": 102543
+  },
+  "classifier": {
+   "K": 128,
+   "C": 2,
+   "cumle": 4,
+   "vektor": 8,
+   "birikec_ok": true,
+   "cikis_ok": true,
+   "blok_ok": true,
+   "panel_ok": true,
+   "kirpilan_eleman": 0,
+   "kaydirma_n": 42,
+   "birikec_maks": 544212
+  },
+  "l0_dikkat": {
+   "qk_maks": 31791,
+   "av_maks": 16744,
+   "p_aralik": [
+    0,
+    253
+   ]
+  },
+  "l1_dikkat": {
+   "qk_maks": 25865,
+   "av_maks": 15778,
+   "p_aralik": [
+    0,
+    247
+   ]
+  }
+ }
+}

@@ -1,0 +1,9 @@
+  PASS l0_qk_h0     16384 kontrol, 0 hata  cevrim/cumle=5196
+  PASS l0_av_h0     16384 kontrol, 0 hata  cevrim/cumle=5196
+  PASS l0_qk_h1     16384 kontrol, 0 hata  cevrim/cumle=5196
+  PASS l0_av_h1     16384 kontrol, 0 hata  cevrim/cumle=5196
+  PASS l1_qk_h0     16384 kontrol, 0 hata  cevrim/cumle=5196
+  PASS l1_av_h0     16384 kontrol, 0 hata  cevrim/cumle=5196
+  PASS l1_qk_h1     16384 kontrol, 0 hata  cevrim/cumle=5196
+  PASS l1_av_h1     16384 kontrol, 0 hata  cevrim/cumle=5196
+G10 TOPLAM: PASS (8 koþu, 0 baþarýsýz)

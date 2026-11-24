@@ -1,92 +1,84 @@
-# BERT-Tiny INT8 FPGA Hızlandırıcısı
+# BERT-Tiny INT8 FPGA Hızlandırıcı (Basys 3, Artix-7 XC7A35T)
 
-BIL 401 bitirme tasarımı. BERT-Tiny modelinin SST-2 duygu sınıflandırma görevindeki çıkarımı INT8
-tamsayı aritmetiğine indiriliyor ve matris çarpımları FPGA üzerinde çıkış-sabit bir sistolik dizi ile
-hızlandırılıyor. Depo; eğitim ve niceleme betiklerini, deney çıktılarını, RTL kaynaklarını ve raporları içerir.
+BIL 401 bitirme projesi. SST-2 duygu sınıflandırması yapan BERT-Tiny modelinin çıkarımını sekiz bitlik tamsayılarla yapan, komutsuz akışlı ve tek paylaşımlı çekirdekli bir FPGA hızlandırıcısı. Cümle ve ağırlıklar kartın seri flaş belleğinden bayt akışı olarak okunur; her veri bloğunun sonunda 16 bit CRC denetlenir.
 
-## Durum (15 Ekim 2026)
+Projede anlatılan bütün çalışmaların kodu, verisi ve sonuç dosyaları bu depoda bulunur. Raporlar depoya konmamıştır. Aşağıdaki tabloda "Konu" sütunu, çalışmanın ara rapordaki bölüm numarasını gösterir.
 
-| Aşama | Durum | Sonuç |
+## Önemli sonuçlar
+
+| Ölçüt | Değer | Dosya |
 |---|---|---|
-| FP32 baz eğitimi | tamamlandı | 719 / 872 = %82,45 |
-| Statik INT8 PTQ (6 ayar) | tamamlandı | 716–718 doğru, kayıp 0,11–0,34 puan; hedef ve MLPerf eşiği sağlandı |
-| Softmax/GELU/LayerNorm bit genişliği (I-BERT) | tamamlandı | GELU 12 bit · Softmax 12→16 bit · LayerNorm 16 bit · 4 Newton yinelemesi |
-| QAT (ön koşular, CPU) | kısmi | 710–712 doğru; PTQ'dan geride, zorunlu değil |
-| PE + 4×4 sistolik dizi (RTL) | tamamlandı (benzetim) | PE 1012 kontrol / 0 hata; dizi 264 test / 0 hata; 10 hesap çevrimi |
-| Sentez, kart üzerinde çalıştırma | yapılmadı | — |
-
-Başarı ölçütleri: hedef ≤1 puan kayıp (≥711 doğru), üst sınır ≤2 puan (≥702), MLPerf eşiği ≥712.
-872 cümlelik kümede 1 puan ≈ 8,72 cümledir; 1–2 cümlelik farklar gürültü sayılır.
+| Altın model ile bit düzeyinde karşılaştırma | 328 716 kontrol, 0 hata (2 katman, 4 cümle) | `04-RTL_Komutsuz/sim/xs_ust/gunluk.txt` |
+| Doğruluk (SST-2, 872 cümle) | FP32 719, INT8 718 (kayıp 0,11 puan) | `03-RTL/sim/g18_ozet.json` |
+| Hesap süresi | 785 750 çevrim = 7,86 ms @100 MHz | `04-RTL_Komutsuz/sim/xs_olcum_1/gunluk.txt` |
+| Cümle süresi (flaş dahil) | 70,5 ms (SCK 12,5 MHz), 20,2 ms (50 MHz) | `04-RTL_Komutsuz/notlar/KART_KULLANIM.md` |
+| Kaynak (Vivado, yerleştirme+yönlendirme) | 87/90 DSP, 25/50 BRAM, 5 185 LUT, 6 605 FF | `04-RTL_Komutsuz/sentez/cikti_kart/impl_kullanim.txt` |
+| Dizi boyutu deneyi (4×4, 8×8, 16×16) | 69 120 / 18 304 / 5 088 çevrim | `03-RTL/sim/g20_ozet.json` |
+| İşlemci gecikmesi (i7-12650H, PyTorch FP32) | 1,53 ms (64 öğe), 0,77 ms (8 öğe) | `04-RTL_Komutsuz/notlar/islemci_gecikme_sonuc_tur*.json` |
 
 ## Dizin yapısı
 
-| Dizin | İçerik |
+| Dizin | İçerik | Konu (rapor bölümü) |
+|---|---|---|
+| `00-FP32_Egitim/` | FP32 BERT-Tiny eğitimi (SST-2) | 4.1, 4.2 |
+| `01-INT8_Nicemleme/` | Eğitim sonrası ve eğitim sırasında niceleme (PTQ, QAT), girdi modeli | 2.2, 4.3 |
+| `02-RTL_Altin_Model/` | Python altın model (tam tamsayı hat), test vektörleri üreticisi | 3.3, 4.3 |
+| `03-RTL/` | İlk (komutlu) tasarım, bileşen testleri, G0–G20 deneyleri, dizi boyutu deneyi, hızlandırma notları | 3.2, 4.4 |
+| `04-RTL_Komutsuz/` | **Son tasarım:** komutsuz akış, sabit çizelge, ortak çekirdek, kart üst modülü, QSPI flaş okuyucu | 3.4, 3.5, 4.4 |
+| `belgeler/plan/` | Nihai plan ve yol haritası | 1.6, 8 |
+| `host/` | İlk tasarımın bilgisayar tarafı (UART) betikleri | 3.2 |
+
+### Son tasarımın (`04-RTL_Komutsuz/`) iç yapısı
+
+| Alt dizin | İçerik |
 |---|---|
-| `yazilim/` | Eğitim, niceleme ve analiz betikleri (`egit_fp32.py`, `nicele_ptq.py`, `nicele_qat.py`, `ibert_*.py`, `hesap_yuku_analizi.py`) |
-| `notebooks/` | Colab not defterleri: FP32 eğitim, INT8 PTQ, QAT |
-| `deneyler/fp32_baz/` | FP32 sonuçları, eğitim günlüğü, 872 cümlenin tahminleri, başarı ölçütleri |
-| `deneyler/int8_ptq/` | PTQ koşuları — kalibrasyon SST-2'nin GitHub kopyasından (6.920 cümle) |
-| `deneyler/int8_ptq_gercek_glue/` | PTQ koşuları — kalibrasyon gerçek GLUE eğitim kümesinden (67.349); iki kaynağın karşılaştırması |
-| `deneyler/g4/` | Softmax/GELU/LayerNorm hassasiyet analizi ve uçtan uca doğruluk |
-| `deneyler/int8_qat/` | QAT ön koşuları (CPU) ve PTQ ile karşılaştırma |
-| `deneyler/hesap_yuku/` | MAC ve CPU süresi dağılımı |
-| `donanim/` | Verilog kaynakları (`rtl/`), testbench'ler (`tb/`), benzetim günlükleri (`sim/`) |
-| `belgeler/` | Raporlar (.docx) ve kaynakça |
-
-Model ağırlıkları (`model.safetensors`, 17 MB) ve veri kümesi dosyaları depoda tutulmaz; Drive'da
-saklanır. Dalga formları (`.vcd`) ve INT8 ağırlık arşivleri (`.npz`) yeniden üretilebilir olduğu için
-depo dışıdır.
-
-## Kurulum
-
-```bash
-pip install -r requirements.txt     # torch, transformers, datasets, numpy
-```
-
-RTL tarafı için Icarus Verilog ve GTKWave gerekir.
+| `rtl/` | Verilog: `ortak_ust.v` (akış ayrıştırıcı + çizelge + çekirdek), `cizelge_ortak.v`, `ortak_cekirdek.v`, `kart_ust.v`, `kart_mantik.v`, `qspi_okuyucu.v` ve alt modüller; gömülü sabit tablolar (`*.mem`) |
+| `tb/` | Test düzenekleri (altın model karşılaştırması, hata enjeksiyonu, flaş modeli) |
+| `scripts/` | Akış ve vektör üreticileri, regresyon koşturucuları, işlemci gecikme ölçümü |
+| `vektor_*/` | Altın modelden üretilen test vektörleri ve flaş akışı (`vektor_akis/`) |
+| `sim/` | Benzetim günlükleri ve çıktıları |
+| `sentez/` | Vivado betikleri (`kart_uret.tcl` vb.), kısıt dosyası, kullanım ve zamanlama raporları, kart bit dosyası ve flaş imajı (`cikti_kart/`) |
+| `vivado/` | Vivado xsim toplu çalıştırma betikleri (`sim_*.bat`) |
+| `notlar/` | Mimari notları, kart kullanım kılavuzu, işlemci ölçüm sonuçları |
 
 ## Çalıştırma
 
-FP32 eğitim (Colab, T4 önerilir):
+Gerekenler: Python 3 (`requirements.txt` dosyaları ilgili dizinlerde), Icarus Verilog, Vivado 2025.1 (hedef çip `xc7a35tcpg236-1`).
 
 ```bash
-python yazilim/egit_fp32.py --out_dir deneyler/fp32_baz --epochs 4 --lr 1e-4 --seed 42
+# Altın model ve test vektörleri
+cd 02-RTL_Altin_Model/01_Kod && python 04_test_vektoru_uret.py
+
+# Komutsuz tasarım regresyonu (Icarus Verilog)
+cd 04-RTL_Komutsuz && python scripts/kos_komutsuz.py
+
+# Kart tasarımını Vivado ile üret (sentez, yerleştirme, bitstream, flaş imajı)
+cd 04-RTL_Komutsuz && vivado -mode batch -source sentez/kart_uret.tcl
 ```
 
-INT8 PTQ (tek koşu; model `deneyler/fp32_baz/model/` konumunda olmalı):
-
-```bash
-python yazilim/nicele_ptq.py \
-  --model_dir deneyler/fp32_baz/model \
-  --fp32_csv  deneyler/fp32_baz/dogrulama_tahminleri.csv \
-  --out_dir   deneyler/int8_ptq \
-  --observer minmax --n_kalib 512
-```
-
-Altı ayarın tamamı için `notebooks/02_nicele_ptq_colab.ipynb`, QAT için `notebooks/03_nicele_qat_colab.ipynb`.
-
-RTL benzetimi (`donanim/` dizininden):
-
-```bash
-iverilog -g2001 -Wall -o sim/tb_pe.vvp rtl/pe.v tb/tb_pe.v && vvp sim/tb_pe.vvp
-iverilog -g2001 -Wall -o sim/tb_systolic_4x4.vvp rtl/pe.v rtl/systolic_4x4.v tb/tb_systolic_4x4.v && vvp sim/tb_systolic_4x4.vvp
-```
-
-## Yöntem özeti
-
-Niceleme statik ve kalibrasyonludur: ağırlıklar çıkış kanalı başına simetrik INT8, aktivasyonlar
-tensör başına sabit ölçekli INT8, bias INT32 (ölçeği aktivasyon × ağırlık). Dinamik niceleme,
-ölçeği çalışma anında hesapladığı ve sabit noktalı donanıma uymadığı için kullanılmamıştır.
-Ölçekler kalibrasyon cümleleriyle bir kez belirlenir; doğrulama kümesi kalibrasyonda kullanılmaz.
-
-Şu an nicelenen işlemler 14 doğrusal katmandır. Gömme tabloları, artık toplamlar, QK^T ve Softmax·V
-çarpımları FP32 kalmaktadır; bu nedenle buradaki doğruluk sayıları tam tamsayı bir hattın doğruluğu
-değildir.
+Kartta çalıştırma adımları ve anahtarların anlamı: `04-RTL_Komutsuz/notlar/KART_KULLANIM.md`.
 
 ## Kaynaklar
 
-Kim ve ark. (2021) I-BERT, arXiv:2101.01321 · Zafrir ve ark. (2019) Q8BERT, arXiv:1910.06188 ·
-Bondarenko ve ark. (2021) arXiv:2109.12948 · Turc ve ark. (2019) arXiv:1908.08962 ·
-Kung (1982) Why Systolic Architectures? · MLCommons, MLPerf Inference Rules
+1. Anthropic, Claude (yapay zekâ asistanı), yardımcı araç olarak kullanılmıştır.
+2. J. Devlin, M.-W. Chang, K. Lee, K. Toutanova, "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding," NAACL-HLT 2019.
+3. I. Turc, M.-W. Chang, K. Lee, K. Toutanova, "Well-Read Students Learn Better," arXiv:1908.08962.
+4. R. Socher vd., "Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank," EMNLP 2013 (SST-2).
+5. Z. Li, "Dataflow & Tiling Strategies in Edge-AI FPGA Accelerators," arXiv:2505.08992.
+6. R. Li, S. Chen vd., KV260 üzerinde döşemeli matris çarpımı hızlandırıcısı, arXiv:2503.16731.
+7. Z. Liu, Z. Ren, P. Yin vd., Swin Transformer FPGA hızlandırıcısı.
+8. SwiftTron, IJCNN 2023.
+9. I-ViT, ICCV 2023.
+10. Ling vd., AIoT 2024.
+11. QUARK, ICCAD 2025.
+12. A. Vaswani vd., "Attention Is All You Need," NIPS 2017.
+13. B. Jacob vd., "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference," CVPR 2018.
+14. Intel, Core i7-12650H işlemci özellikleri (Intel ARK).
 
-Ayrıntılı kaynakça: `belgeler/kaynaklar.md`
+
+
+## Lisans ve atıf
+
+Depo, proje tamamlandığında lisanslanacaktır; `LICENSE` dosyası henüz eklenmemiştir. Kullanılan üçüncü taraf varlıkların kendi lisansları geçerlidir:
+- SST-2 veri kümesi (Stanford Sentiment Treebank) ve önceden eğitilmiş BERT-Tiny modeli, kendi yayın koşullarıyla kullanılmıştır. Kullanım ve dağıtım koşulları ilgili sayfalarda belirtilmiştir.
+- Telif haklı makaleler ve okul belgeleri bu depoda yer almaz.

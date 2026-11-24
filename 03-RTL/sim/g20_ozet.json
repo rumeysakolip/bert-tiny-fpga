@@ -1,0 +1,60 @@
+{
+ "4": {
+  "sentez": {
+   "LUT": 114,
+   "FF": 204,
+   "DSP": 16,
+   "WNS": 2.349,
+   "fmax_tahmin": 130.70186903672723
+  },
+  "impl": {
+   "LUT": 112,
+   "FF": 204,
+   "DSP": 16,
+   "WNS": 1.42,
+   "fmax_tahmin": 116.55011655011656
+  },
+  "tile_cevrim": 70,
+  "dogrulama": true,
+  "kontrol": 6336,
+  "l0_q_tile_sayisi": 512,
+  "l0_q_cevrim_hesap": 69120
+ },
+ "8": {
+  "sentez": {
+   "LUT": 311,
+   "FF": 1042,
+   "DSP": 64,
+   "WNS": 2.333,
+   "fmax_tahmin": 130.4291117777488
+  },
+  "impl": {
+   "LUT": 272,
+   "FF": 1042,
+   "DSP": 64,
+   "WNS": 1.076,
+   "fmax_tahmin": 112.0573733751681
+  },
+  "tile_cevrim": 78,
+  "dogrulama": true,
+  "kontrol": 25344,
+  "l0_q_tile_sayisi": 128,
+  "l0_q_cevrim_hesap": 18304,
+  "l0_q_cevrim_olculen": 18392
+ },
+ "16": {
+  "sentez": {
+   "LUT": 695,
+   "FF": 4318,
+   "DSP": 256,
+   "WNS": 2.316,
+   "fmax_tahmin": 130.14055179593961
+  },
+  "impl": null,
+  "tile_cevrim": 94,
+  "dogrulama": true,
+  "kontrol": 101376,
+  "l0_q_tile_sayisi": 32,
+  "l0_q_cevrim_hesap": 5088
+ }
+}

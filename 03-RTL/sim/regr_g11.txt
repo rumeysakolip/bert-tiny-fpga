@@ -1,0 +1,8 @@
+softmax: PASS 325 satir, 20800 kontrol, 0 hata, 2049 cevrim
+layernorm: PASS 485 satir, 62080 kontrol, 0 hata, 5274 cevrim
+mutant sm1: FAIL (3629 hata)
+mutant sm2: PASS (0 hata)
+mutant ln1: FAIL (159 hata)
+mutant ln2: FAIL (30632 hata)
+mutant ln3: PASS (0 hata)
+G11 TOPLAM: PASS | aciklanmamis kacan mutant: []

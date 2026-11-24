@@ -1,0 +1,106 @@
+{
+ "sonuclar": [
+  {
+   "ad": "eski PE (8x8)",
+   "pass": true,
+   "ayrinti": "1012 kontrol, 0 hata"
+  },
+  {
+   "ad": "eski systolic_4x4",
+   "pass": true,
+   "ayrinti": "264 test, 0 hata"
+  },
+  {
+   "ad": "islem_elemani 9b x 8b",
+   "pass": true,
+   "ayrinti": "10333 kontrol, 0 hata",
+   "cikti": [
+    "bolum hatalari: 1=0 2=0 3=0 4=0 5=0",
+    "PE (9b x 8b -> 32b) TEST: PASS  (10333 kontrol, 0 hata)"
+   ]
+  },
+  {
+   "ad": "N=4 regresyon (yeni==eski)",
+   "pass": true,
+   "ayrinti": "259 test, eski ve yeni modul birebir, 0 hata"
+  },
+  {
+   "ad": "nxn N=4 K=4",
+   "N": 4,
+   "K": 4,
+   "pass": true,
+   "ayrinti": "198 test, 6336 kontrol, 0 hata",
+   "tile_cevrim_min": 11,
+   "tile_cevrim_max": 11,
+   "beklenen_cevrim": 11,
+   "sure_sn": 0.3
+  },
+  {
+   "ad": "nxn N=4 K=16",
+   "N": 4,
+   "K": 16,
+   "pass": true,
+   "ayrinti": "198 test, 6336 kontrol, 0 hata",
+   "tile_cevrim_min": 23,
+   "tile_cevrim_max": 23,
+   "beklenen_cevrim": 23,
+   "sure_sn": 0.5
+  },
+  {
+   "ad": "nxn N=4 K=64",
+   "N": 4,
+   "K": 64,
+   "pass": true,
+   "ayrinti": "198 test, 6336 kontrol, 0 hata",
+   "tile_cevrim_min": 71,
+   "tile_cevrim_max": 71,
+   "beklenen_cevrim": 71,
+   "sure_sn": 1.1
+  },
+  {
+   "ad": "nxn N=8 K=8",
+   "N": 8,
+   "K": 8,
+   "pass": true,
+   "ayrinti": "198 test, 25344 kontrol, 0 hata",
+   "tile_cevrim_min": 23,
+   "tile_cevrim_max": 23,
+   "beklenen_cevrim": 23,
+   "sure_sn": 1.5
+  },
+  {
+   "ad": "nxn N=8 K=64",
+   "N": 8,
+   "K": 64,
+   "pass": true,
+   "ayrinti": "198 test, 25344 kontrol, 0 hata",
+   "tile_cevrim_min": 79,
+   "tile_cevrim_max": 79,
+   "beklenen_cevrim": 79,
+   "sure_sn": 57.9
+  },
+  {
+   "ad": "nxn N=8 K=128",
+   "N": 8,
+   "K": 128,
+   "pass": true,
+   "ayrinti": "198 test, 25344 kontrol, 0 hata",
+   "tile_cevrim_min": 143,
+   "tile_cevrim_max": 143,
+   "beklenen_cevrim": 143,
+   "sure_sn": 134.1
+  },
+  {
+   "ad": "nxn N=8 K=512",
+   "N": 8,
+   "K": 512,
+   "pass": true,
+   "ayrinti": "198 test, 25344 kontrol, 0 hata",
+   "tile_cevrim_min": 527,
+   "tile_cevrim_max": 527,
+   "beklenen_cevrim": 527,
+   "sure_sn": 433.2
+  }
+ ],
+ "toplam_hata": 0
+}

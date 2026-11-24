@@ -1,0 +1,2 @@
+ERROR: [Common 17-39] 'place_design' failed due to earlier errors.
+

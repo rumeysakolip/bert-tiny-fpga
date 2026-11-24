@@ -1,0 +1,16 @@
+{
+  "fp32": {
+    "n": 872,
+    "dogru": 719,
+    "dogruluk": 0.8245
+  },
+  "esikler": {
+    "bir_puan_cumle": 8.72,
+    "min_dogru_hedef": 711,
+    "en_cok_kayip_cumle_hedef": 8,
+    "min_dogru_sinir": 702,
+    "en_cok_kayip_cumle_sinir": 17,
+    "min_dogru_mlperf": 712,
+    "en_cok_kayip_cumle_mlperf": 7
+  }
+}

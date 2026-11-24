@@ -1,0 +1,58 @@
+==== UCTAN UCA SINAMA: bayt akisi -> CRC-16 ayristirici -> sabit cizelge -> ortak cekirdek; 2 katman, 1 cumle; altin modelle bit-birebir ====
+Cizelge katman basina 14 satir: Q(2 bas) K(2 bas) V | Q.K^T+Softmax ve P.V (2 bas) | cikis dogrusali | LayerNorm 1 | ileri besleme 1, 2 | LayerNorm 2
+[cumle 0 katman 0 satir 0] bitti (cevrim 19634, okunan bayt 16403)
+[cumle 0 katman 0 satir 1] bitti (cevrim 31069, okunan bayt 24611)
+WARNING: tb/tb_ortak_ust.v:103: $readmemh(C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_q_cikis.mem): Not enough words in the file for the requested range [0:131071].
+   [katman 0, satir 1] Q (sorgu): BASARILI (0 hata)
+   [katman 0, satir 1] Q (sorgu): BASARILI (0 hata)
+[cumle 0 katman 0 satir 2] bitti (cevrim 45576, okunan bayt 32819)
+[cumle 0 katman 0 satir 3] bitti (cevrim 57011, okunan bayt 41027)
+WARNING: tb/tb_ortak_ust.v:103: $readmemh(C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_k_cikis.mem): Not enough words in the file for the requested range [0:131071].
+   [katman 0, satir 3] K (anahtar): BASARILI (0 hata)
+   [katman 0, satir 3] K (anahtar): BASARILI (0 hata)
+[cumle 0 katman 0 satir 4] bitti (cevrim 80752, okunan bayt 57443)
+WARNING: tb/tb_ortak_ust.v:122: $readmemh(C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_av_h0_w_panel.mem): Not enough words in the file for the requested range [0:4095].
+   [katman 0, satir 4] V (devrik panel duzeni): BASARILI (0 hata)
+WARNING: tb/tb_ortak_ust.v:122: $readmemh(C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_av_h1_w_panel.mem): Not enough words in the file for the requested range [0:4095].
+   [katman 0, satir 4] V (devrik panel duzeni): BASARILI (0 hata)
+[cumle 0 katman 0 satir 5] bitti (cevrim 105220, okunan bayt 57443)
+[cumle 0 katman 0 satir 6] bitti (cevrim 110616, okunan bayt 57443)
+[cumle 0 katman 0 satir 7] bitti (cevrim 132012, okunan bayt 57443)
+[cumle 0 katman 0 satir 8] bitti (cevrim 137408, okunan bayt 57443)
+WARNING: tb/tb_ortak_ust.v:103: $readmemh(C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_attn_out_girdi.mem): Not enough words in the file for the requested range [0:131071].
+   [katman 0, satir 8] baglam (P.V): BASARILI (0 hata)
+[cumle 0 katman 0 satir 9] bitti (cevrim 161139, okunan bayt 73859)
+WARNING: tb/tb_ortak_ust.v:103: $readmemh(C:/Users/rumey/Documents/biitirme-projem/02-RTL_Altin_Model/03_Sonuclar/test_vektorleri/l0_attn_out_cikis.mem): Not enough words in the file for the requested range [0:131071].
+   [katman 0, satir 9] dikkat cikis dogrusali: BASARILI (0 hata)
+[cumle 0 katman 0 satir 10] bitti (cevrim 207938, okunan bayt 73859)
+WARNING: tb/tb_ortak_ust.v:103: $readmemh(C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vektor_ln/ln1_cikis.mem): Not enough words in the file for the requested range [0:131071].
+   [katman 0, satir 10] LayerNorm 1 (yeniden olcekli): BASARILI (0 hata)
+   [katman 0, satir 10] LayerNorm 1 (ham cikis): BASARILI (0 hata)
+[cumle 0 katman 0 satir 11] bitti (cevrim 290344, okunan bayt 139523)
+   [katman 0, satir 11] ara sonuc: altin modelin ara vektor dosyasi bu satir icin zincirleme girdiyle uretilmedi; dogruluk sonraki LayerNorm ile denetlenir
+[cumle 0 katman 0 satir 12] bitti (cevrim 366299, okunan bayt 205091)
+   [katman 0, satir 12] ara sonuc: altin modelin ara vektor dosyasi bu satir icin zincirleme girdiyle uretilmedi; dogruluk sonraki LayerNorm ile denetlenir
+[cumle 0 katman 0 satir 13] bitti (cevrim 409002, okunan bayt 205091)
+WARNING: tb/tb_ortak_ust.v:103: $readmemh(C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vektor_ln/ln2_cikis.mem): Not enough words in the file for the requested range [0:131071].
+   [katman 0, satir 13] LayerNorm 2 (katman cikisi): BASARILI (0 hata)
+[cumle 0 katman 1 satir 0] bitti (cevrim 423509, okunan bayt 213299)
+[cumle 0 katman 1 satir 1] bitti (cevrim 434944, okunan bayt 221507)
+[cumle 0 katman 1 satir 2] bitti (cevrim 446379, okunan bayt 229715)
+[cumle 0 katman 1 satir 3] bitti (cevrim 457814, okunan bayt 237923)
+[cumle 0 katman 1 satir 4] bitti (cevrim 478483, okunan bayt 254339)
+[cumle 0 katman 1 satir 5] bitti (cevrim 499879, okunan bayt 254339)
+[cumle 0 katman 1 satir 6] bitti (cevrim 505275, okunan bayt 254339)
+[cumle 0 katman 1 satir 7] bitti (cevrim 526671, okunan bayt 254339)
+[cumle 0 katman 1 satir 8] bitti (cevrim 532067, okunan bayt 254339)
+[cumle 0 katman 1 satir 9] bitti (cevrim 552726, okunan bayt 270755)
+[cumle 0 katman 1 satir 10] bitti (cevrim 596453, okunan bayt 270755)
+WARNING: tb/tb_ortak_ust.v:103: $readmemh(C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vektor_ln/ln3_cikis.mem): Not enough words in the file for the requested range [0:131071].
+   [katman 1, satir 10] LayerNorm 1 (yeniden olcekli): BASARILI (0 hata)
+   [katman 1, satir 10] LayerNorm 1 (ham cikis): BASARILI (0 hata)
+[cumle 0 katman 1 satir 11] bitti (cevrim 678859, okunan bayt 336419)
+[cumle 0 katman 1 satir 12] bitti (cevrim 754814, okunan bayt 401987)
+[cumle 0 katman 1 satir 13] bitti (cevrim 797517, okunan bayt 401987)
+WARNING: tb/tb_ortak_ust.v:103: $readmemh(C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vektor_ln/ln4_cikis.mem): Not enough words in the file for the requested range [0:131071].
+   [katman 1, satir 13] LayerNorm 2 (katman cikisi): BASARILI (0 hata)
+----------------------------------------------
+UCTAN UCA TEST: BASARILI  (2 katman, 1 cumle, 82048 kontrol, 0 hata, toplam 797912 cevrim, 401987 bayt akis, bellek carpismasi 0)

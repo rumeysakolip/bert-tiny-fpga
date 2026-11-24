@@ -1,0 +1,47 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Thu Oct 29 21:11:27 2026
+| Host         : pc running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file sentez/cikti/bert_tiny_uart_ust_kullanim_hiyerarsik.txt
+| Design       : bert_tiny_uart_ust
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|        Instance        |            Module           | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| bert_tiny_uart_ust     |                       (top) |       5714 |       3769 |    1877 |   68 | 5386 |     14 |      3 |         77 |
+|   (bert_tiny_uart_ust) |                       (top) |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   u_rx                 |                     uart_rx |         53 |         53 |       0 |    0 |   41 |      0 |      0 |          0 |
+|   u_ust                |               bert_tiny_ust |       5641 |       3696 |    1877 |   68 | 5314 |     14 |      3 |         77 |
+|     u_cd               |                komut_cozucu |        726 |        726 |       0 |    0 |  958 |      0 |      0 |          0 |
+|     u_kat              |             dogrusal_katman |       3230 |       1646 |    1516 |   68 | 3531 |     14 |      2 |         68 |
+|       u_tile           |            tile_denetleyici |        978 |        927 |       0 |   51 | 3194 |      0 |      0 |         64 |
+|         (u_tile)       |            tile_denetleyici |        639 |        639 |       0 |    0 | 2152 |      0 |      0 |          0 |
+|         u_dizi         |                systolic_nxn |        350 |        299 |       0 |   51 | 1042 |      0 |      0 |         64 |
+|           (u_dizi)     |                systolic_nxn |        258 |        207 |       0 |   51 |  362 |      0 |      0 |          0 |
+|       u_lut            |                    gelu_lut |         60 |         12 |      48 |    0 |    0 |      0 |      0 |          0 |
+|       u_panel          |               panel_tamponu |       1755 |        287 |    1468 |    0 |   64 |      0 |      0 |          0 |
+|       u_pk             |               cikis_paketle |          9 |          9 |       0 |    0 |  133 |      0 |      0 |          0 |
+|       u_rq             |             yeniden_olcekle |        428 |        411 |       0 |   17 |  135 |      0 |      0 |          4 |
+|     u_ln               |             layernorm_birim |       1126 |       1002 |     124 |    0 |  604 |      0 |      0 |          6 |
+|       (u_ln)           |             layernorm_birim |        975 |        851 |     124 |    0 |  449 |      0 |      0 |          6 |
+|       u_dv             | bolucu_seri__parameterized0 |        151 |        151 |       0 |    0 |  155 |      0 |      0 |          0 |
+|     u_sm               |               softmax_birim |        552 |        327 |     225 |    0 |  198 |      0 |      0 |          3 |
+|       (u_sm)           |               softmax_birim |        453 |        228 |     225 |    0 |   94 |      0 |      0 |          3 |
+|       u_dv             |                 bolucu_seri |         99 |         99 |       0 |    0 |  104 |      0 |      0 |          0 |
++------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

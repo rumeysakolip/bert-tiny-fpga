@@ -1,0 +1,42 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Thu Nov 12 02:10:15 2026
+| Host         : pc running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/sentez/cikti/dikkat_sentez_hiyerarsik.txt
+| Design       : dikkat_cekirdegi
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Synthesized
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|         Instance        |         Module         | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++-------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| dikkat_cekirdegi        |                  (top) |       2092 |       1798 |     167 |  127 | 4136 |     22 |      4 |         75 |
+|   (dikkat_cekirdegi)    |                  (top) |        201 |        105 |      96 |    0 |  173 |     13 |      1 |          0 |
+|   u_ctx                 | cikis_sozcuk_toplayici |          3 |          3 |       0 |    0 |  130 |      0 |      0 |          0 |
+|   u_kop                 |      panel_kopyalayici |         42 |         42 |       0 |    0 |   72 |      0 |      0 |          0 |
+|   u_pan                 |          panel_tamponu |         64 |         16 |      48 |    0 |    0 |      2 |      0 |          0 |
+|   u_rs                  |  yeniden_olcekle_ortak |        467 |        450 |       0 |   17 |  224 |      0 |      0 |          4 |
+|   u_sm                  |   softmax_birim_gomulu |        353 |        288 |      23 |   42 |  241 |      0 |      2 |          7 |
+|     (u_sm)              |   softmax_birim_gomulu |        213 |        182 |      23 |    8 |   85 |      0 |      2 |          3 |
+|     u_ters_bolucu       |            ters_bolucu |        140 |        106 |       0 |   34 |  156 |      0 |      0 |          4 |
+|       (u_ters_bolucu)   |            ters_bolucu |         75 |         41 |       0 |   34 |   90 |      0 |      0 |          4 |
+|       u_ters_bolucu     |            seri_bolucu |         65 |         65 |       0 |    0 |   66 |      0 |      0 |          0 |
+|   u_tile                |       tile_denetleyici |        962 |        894 |       0 |   68 | 3296 |      0 |      0 |         64 |
+|     (u_tile)            |       tile_denetleyici |        638 |        638 |       0 |    0 | 2212 |      0 |      0 |          0 |
+|     u_sistolik_dizi     |          sistolik_dizi |        324 |        256 |       0 |   68 | 1084 |      0 |      0 |         64 |
+|       (u_sistolik_dizi) |          sistolik_dizi |        256 |        188 |       0 |   68 |  404 |      0 |      0 |          0 |
++-------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

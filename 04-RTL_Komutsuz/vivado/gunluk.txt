@@ -1,0 +1,1 @@
+ERROR: Please check the snapshot name which is created during 'xelab',the current snapshot name "xsim.dir/ortak_ust/xsimk.exe" does not exist 

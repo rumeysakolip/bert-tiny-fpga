@@ -1,0 +1,5 @@
+model,dogru,dogruluk,kayip_puan,kayip_cumle,uyusma_orani,fp32_dogru_aday_yanlis,fp32_yanlis_aday_dogru,mlperf_orani,hedef_saglandi,sinir_saglandi,mlperf_saglandi,dogrulama_kaybi,kayip_artisi,ortalama_guven,dogru_sinif_olasiligi
+FP32 (referans),719,0.8245,0.0,0,1.0,0,0,1.0,True,True,True,0.5817,0.0,0.946,0.8074
+INT8-PTQ (yazılım),718,0.8234,0.11,1,0.9966,2,1,0.9986,True,True,True,0.5826,0.0009,0.946,0.8065
+Altın-A (PTQ eşdeğeri),718,0.8234,0.11,1,0.9966,2,1,0.9986,True,True,True,0.5826,0.0009,0.946,0.8065
+Altın-B (donanım),720,0.8257,-0.11,-1,0.9943,2,3,1.0014,True,True,True,0.5752,-0.0065,0.946,0.8086

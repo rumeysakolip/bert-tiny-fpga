@@ -1,0 +1,4 @@
+Colab kosularinin ciktilarini buraya indir.
+Drive'da: MyDrive/bert-tiny-fpga/deneyler/int8_ptq/<kosu_adi>/
+Her kosu klasorunde: sonuclar.json, olcekler.json, int8_tahminleri.csv, int8_agirliklar.npz
+Ayrica ozet_tablo.csv (not defterinin 4. hucresi uretir).

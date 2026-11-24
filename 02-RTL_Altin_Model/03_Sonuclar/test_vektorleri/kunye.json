@@ -1,0 +1,301 @@
+{
+  "kip": "B",
+  "cumle_idx": [
+    289,
+    203,
+    652,
+    462
+  ],
+  "cumleler": [
+    "cool ? ",
+    "bad . ",
+    "very bad . ",
+    "yes , dull . "
+  ],
+  "etiket": [
+    1,
+    0,
+    0,
+    0
+  ],
+  "gercek_token_sayisi": [
+    4,
+    4,
+    5,
+    6
+  ],
+  "dizi_uzunlugu": 64,
+  "logit": [
+    [
+      -1.5243844985961914,
+      1.712001085281372
+    ],
+    [
+      2.2279465198516846,
+      -2.5328235626220703
+    ],
+    [
+      2.3452069759368896,
+      -2.603179693222046
+    ],
+    [
+      0.39868518710136414,
+      -0.7504662275314331
+    ]
+  ],
+  "tahmin": [
+    1,
+    0,
+    0,
+    0
+  ],
+  "dosyalar": {
+    "l0_q": {
+      "girdi": "l0_q_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        128
+      ],
+      "beklenen": "l0_q_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        128
+      ],
+      "cikis": "l0_q_cikis.mem",
+      "birikec_maks_mutlak": 36538,
+      "gereken_bit": 17
+    },
+    "l0_k": {
+      "girdi": "l0_k_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        128
+      ],
+      "beklenen": "l0_k_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        128
+      ],
+      "cikis": "l0_k_cikis.mem",
+      "birikec_maks_mutlak": 32127,
+      "gereken_bit": 16
+    },
+    "l0_v": {
+      "girdi": "l0_v_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        128
+      ],
+      "beklenen": "l0_v_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        128
+      ],
+      "cikis": "l0_v_cikis.mem",
+      "birikec_maks_mutlak": 50760,
+      "gereken_bit": 17
+    },
+    "l0_attn_out": {
+      "girdi": "l0_attn_out_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        128
+      ],
+      "beklenen": "l0_attn_out_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        128
+      ],
+      "cikis": "l0_attn_out_cikis.mem",
+      "birikec_maks_mutlak": 48491,
+      "gereken_bit": 17
+    },
+    "l0_ffn1": {
+      "girdi": "l0_ffn1_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        128
+      ],
+      "beklenen": "l0_ffn1_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        512
+      ],
+      "cikis": "l0_ffn1_cikis.mem",
+      "birikec_maks_mutlak": 44485,
+      "gereken_bit": 17
+    },
+    "l0_ffn2": {
+      "girdi": "l0_ffn2_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        512
+      ],
+      "beklenen": "l0_ffn2_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        128
+      ],
+      "cikis": "l0_ffn2_cikis.mem",
+      "birikec_maks_mutlak": 16665,
+      "gereken_bit": 16
+    },
+    "l1_q": {
+      "girdi": "l1_q_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        128
+      ],
+      "beklenen": "l1_q_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        128
+      ],
+      "cikis": "l1_q_cikis.mem",
+      "birikec_maks_mutlak": 39785,
+      "gereken_bit": 17
+    },
+    "l1_k": {
+      "girdi": "l1_k_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        128
+      ],
+      "beklenen": "l1_k_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        128
+      ],
+      "cikis": "l1_k_cikis.mem",
+      "birikec_maks_mutlak": 45829,
+      "gereken_bit": 17
+    },
+    "l1_v": {
+      "girdi": "l1_v_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        128
+      ],
+      "beklenen": "l1_v_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        128
+      ],
+      "cikis": "l1_v_cikis.mem",
+      "birikec_maks_mutlak": 34810,
+      "gereken_bit": 17
+    },
+    "l1_attn_out": {
+      "girdi": "l1_attn_out_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        128
+      ],
+      "beklenen": "l1_attn_out_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        128
+      ],
+      "cikis": "l1_attn_out_cikis.mem",
+      "birikec_maks_mutlak": 57108,
+      "gereken_bit": 17
+    },
+    "l1_ffn1": {
+      "girdi": "l1_ffn1_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        128
+      ],
+      "beklenen": "l1_ffn1_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        512
+      ],
+      "cikis": "l1_ffn1_cikis.mem",
+      "birikec_maks_mutlak": 77698,
+      "gereken_bit": 18
+    },
+    "l1_ffn2": {
+      "girdi": "l1_ffn2_girdi.mem",
+      "girdi_sekil": [
+        4,
+        64,
+        512
+      ],
+      "beklenen": "l1_ffn2_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        64,
+        128
+      ],
+      "cikis": "l1_ffn2_cikis.mem",
+      "birikec_maks_mutlak": 30329,
+      "gereken_bit": 16
+    },
+    "pooler": {
+      "girdi": "pooler_girdi.mem",
+      "girdi_sekil": [
+        4,
+        128
+      ],
+      "beklenen": "pooler_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        128
+      ],
+      "cikis": "pooler_cikis.mem",
+      "birikec_maks_mutlak": 102543,
+      "gereken_bit": 18
+    },
+    "classifier": {
+      "girdi": "classifier_girdi.mem",
+      "girdi_sekil": [
+        4,
+        128
+      ],
+      "beklenen": "classifier_birikec.mem",
+      "beklenen_sekil": [
+        4,
+        2
+      ],
+      "cikis": "classifier_cikis.mem",
+      "birikec_maks_mutlak": 544212,
+      "gereken_bit": 21
+    }
+  },
+  "fpga_girdi_olcek": 0.06851995272899238,
+  "dikkat": {
+    "l0": {
+      "qk_birikec_maks_mutlak": 31791,
+      "av_birikec_maks_mutlak": 16744,
+      "av_gereken_bit": 16
+    },
+    "l1": {
+      "qk_birikec_maks_mutlak": 25865,
+      "av_birikec_maks_mutlak": 15778,
+      "av_gereken_bit": 15
+    }
+  }
+}

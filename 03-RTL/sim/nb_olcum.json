@@ -1,0 +1,221 @@
+{
+ "etiket": "benzetim (Icarus)",
+ "yontem": "tb_katman.v +NBE; cevrim = kos->layer_done; yalniz ilk nb*8 token karsilastirildi, dolgu bloklari disarida",
+ "sonuclar": [
+  {
+   "sekil": "q",
+   "ad": "l0_q",
+   "K": 128,
+   "C": 128,
+   "nb": 1,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "1024 kontrol, 0 hata",
+   "cevrim": 2849,
+   "teorik_K14_P_NB": 2272
+  },
+  {
+   "sekil": "q",
+   "ad": "l0_q",
+   "K": 128,
+   "C": 128,
+   "nb": 2,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "2048 kontrol, 0 hata",
+   "cevrim": 4698,
+   "teorik_K14_P_NB": 4544
+  },
+  {
+   "sekil": "q",
+   "ad": "l0_q",
+   "K": 128,
+   "C": 128,
+   "nb": 4,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "4096 kontrol, 0 hata",
+   "cevrim": 9306,
+   "teorik_K14_P_NB": 9088
+  },
+  {
+   "sekil": "q",
+   "ad": "l0_q",
+   "K": 128,
+   "C": 128,
+   "nb": 7,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "7168 kontrol, 0 hata",
+   "cevrim": 16218,
+   "teorik_K14_P_NB": 15904
+  },
+  {
+   "sekil": "q",
+   "ad": "l0_q",
+   "K": 128,
+   "C": 128,
+   "nb": 8,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "8192 kontrol, 0 hata",
+   "cevrim": 18522,
+   "teorik_K14_P_NB": 18176
+  },
+  {
+   "sekil": "ffn1",
+   "ad": "l0_ffn1",
+   "K": 128,
+   "C": 512,
+   "nb": 1,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "4096 kontrol, 0 hata",
+   "cevrim": 11369,
+   "teorik_K14_P_NB": 9088
+  },
+  {
+   "sekil": "ffn1",
+   "ad": "l0_ffn1",
+   "K": 128,
+   "C": 512,
+   "nb": 2,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "8192 kontrol, 0 hata",
+   "cevrim": 18570,
+   "teorik_K14_P_NB": 18176
+  },
+  {
+   "sekil": "ffn1",
+   "ad": "l0_ffn1",
+   "K": 128,
+   "C": 512,
+   "nb": 4,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "16384 kontrol, 0 hata",
+   "cevrim": 37002,
+   "teorik_K14_P_NB": 36352
+  },
+  {
+   "sekil": "ffn1",
+   "ad": "l0_ffn1",
+   "K": 128,
+   "C": 512,
+   "nb": 7,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "28672 kontrol, 0 hata",
+   "cevrim": 64650,
+   "teorik_K14_P_NB": 63616
+  },
+  {
+   "sekil": "ffn1",
+   "ad": "l0_ffn1",
+   "K": 128,
+   "C": 512,
+   "nb": 8,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "32768 kontrol, 0 hata",
+   "cevrim": 73866,
+   "teorik_K14_P_NB": 72704
+  },
+  {
+   "sekil": "ffn2",
+   "ad": "l0_ffn2",
+   "K": 512,
+   "C": 128,
+   "nb": 1,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "1024 kontrol, 0 hata",
+   "cevrim": 8993,
+   "teorik_K14_P_NB": 8416
+  },
+  {
+   "sekil": "ffn2",
+   "ad": "l0_ffn2",
+   "K": 512,
+   "C": 128,
+   "nb": 2,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "2048 kontrol, 0 hata",
+   "cevrim": 16986,
+   "teorik_K14_P_NB": 16832
+  },
+  {
+   "sekil": "ffn2",
+   "ad": "l0_ffn2",
+   "K": 512,
+   "C": 128,
+   "nb": 4,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "4096 kontrol, 0 hata",
+   "cevrim": 33882,
+   "teorik_K14_P_NB": 33664
+  },
+  {
+   "sekil": "ffn2",
+   "ad": "l0_ffn2",
+   "K": 512,
+   "C": 128,
+   "nb": 7,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "7168 kontrol, 0 hata",
+   "cevrim": 59226,
+   "teorik_K14_P_NB": 58912
+  },
+  {
+   "sekil": "ffn2",
+   "ad": "l0_ffn2",
+   "K": 512,
+   "C": 128,
+   "nb": 8,
+   "ns": 1,
+   "pass": true,
+   "ayrinti": "8192 kontrol, 0 hata",
+   "cevrim": 67674,
+   "teorik_K14_P_NB": 67328
+  }
+ ],
+ "katman_cevrimi_nb": {
+  "1": {
+   "q": 2849,
+   "ffn1": 11369,
+   "ffn2": 8993
+  },
+  "2": {
+   "q": 4698,
+   "ffn1": 18570,
+   "ffn2": 16986
+  },
+  "4": {
+   "q": 9306,
+   "ffn1": 37002,
+   "ffn2": 33882
+  },
+  "7": {
+   "q": 16218,
+   "ffn1": 64650,
+   "ffn2": 59226
+  },
+  "8": {
+   "q": 18522,
+   "ffn1": 73866,
+   "ffn2": 67674
+  }
+ },
+ "dogrusal_12_katman_toplam_cevrim": {
+  "1": 63516,
+  "2": 108696,
+  "4": 216216,
+  "7": 377496,
+  "8": 431256
+ },
+ "gecti": true
+}

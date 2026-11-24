@@ -1,0 +1,54 @@
+#-----------------------------------------------------------
+# xsim v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Thu Nov 12 21:20:50 2026
+# Process ID         : 15328
+# Current directory  : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vivado
+# Command line       : xsim.exe -mode tcl -source {xsim.dir/ortak_cekirdek/xsim_script.tcl}
+# Log file           : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vivado/xsim.log
+# Journal file       : C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vivado\xsim.jou
+# Running On         : pc
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i7-12650H
+# CPU Frequency      : 2688 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 16
+# Host memory        : 16908 MB
+# Swap memory        : 14495 MB
+# Total Virtual      : 31403 MB
+# Available Virtual  : 6946 MB
+#-----------------------------------------------------------
+source xsim.dir/ortak_cekirdek/xsim_script.tcl
+# xsim {ortak_cekirdek} -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+==== ORTAK CEKIRDEK SINAMASI: tek dizi + tek yeniden olcekleme devresi; dogrusal, dikkat, artik+LayerNorm; 1 cumle; altin modelle bit-birebir ====
+Bellek birimleri (sozcuk adresi): 1=0..1023  2=1024..2047  3=2048..3071  4=3072..4095  5=4096..5119  6=5120..6143
+---- EVRE 1: dogrusal katmanlar (ayni cekirdek, is turu 0) ----
+[cumle 0] Q -> birim 1, K -> birim 2, V (devrik) -> birim 3; giris birim 6
+   l0_q sonucu: BASARILI  (8192 kontrol, 0 hata) | 18524 cevrim
+   l0_k sonucu: BASARILI  (8192 kontrol, 0 hata) | 18524 cevrim
+   V (devrik panel duzeni, 2 bas x 512 sozcuk): BASARILI  (0 hata) | 18534 cevrim
+[cumle 0] ileri besleme 1 (GELU) giris birim 5 -> birim 1-4; ileri besleme 2 ayni yerden okur -> birim 6
+   l0_ffn1 sonucu: BASARILI  (32768 kontrol, 0 hata) | 73868 cevrim
+   l0_ffn2 sonucu: BASARILI  (8192 kontrol, 0 hata) | 67676 cevrim
+---- EVRE 2: dikkat (is turu 1: Q.K^T + Softmax, is turu 2: P.V) ----
+[katman 0, cumle 0, bas 0] uzunluk=4 : Q.K^T+Softmax 21386 cevrim, P.V baglam BASARILI (4096 kontrol, 0 hata) | P.V 5386 cevrim
+[katman 0, cumle 0, bas 1] uzunluk=4 : Q.K^T+Softmax 21386 cevrim, P.V baglam BASARILI (4096 kontrol, 0 hata) | P.V 5386 cevrim
+[katman 1, cumle 0, bas 0] uzunluk=4 : Q.K^T+Softmax 21386 cevrim, P.V baglam BASARILI (4096 kontrol, 0 hata) | P.V 5386 cevrim
+[katman 1, cumle 0, bas 1] uzunluk=4 : Q.K^T+Softmax 21386 cevrim, P.V baglam BASARILI (4096 kontrol, 0 hata) | P.V 5386 cevrim
+---- EVRE 3: artik toplama + LayerNorm (is turu 3; ayni carpma devresi sirayla uc is gorur) ----
+[LayerNorm 1/4, cumle 0] BASARILI (8192 kontrol, 0 hata) | 42693 cevrim
+[LayerNorm 2/4, cumle 0] BASARILI (8192 kontrol, 0 hata) | 42693 cevrim
+[LayerNorm 3/4, cumle 0] BASARILI (8192 kontrol, 0 hata) | 42693 cevrim
+[LayerNorm 4/4, cumle 0] BASARILI (128 kontrol, yalniz ilk token, 0 hata) | 42693 cevrim
+----------------------------------------------
+ORTAK CEKIRDEK TEST: BASARILI  (1 cumle, 106624 kontrol, 0 hata, toplam 474986 is cevrimi, bellek okuma carpismasi 0)
+$finish called at time : 5344400 ns : File "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_ortak_cekirdek.v" Line 481
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:16 . Memory (MB): peak = 198.949 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 15112 KB (Peak: 15112 KB), Simulation CPU Usage: 15984 ms
+INFO: [Common 17-206] Exiting xsim at Thu Nov 12 21:21:10 2026...

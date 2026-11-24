@@ -1,0 +1,52 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Mon Nov  2 19:38:39 2026
+| Host         : pc running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file sentez/cikti/konu6h_p6_67_kullanim_hiyerarsik.txt
+| Design       : bert_tiny_uart_ust
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|        Instance        |            Module           | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| bert_tiny_uart_ust     |                       (top) |       3797 |       3441 |     207 |  149 | 6109 |     16 |      7 |         87 |
+|   (bert_tiny_uart_ust) |                       (top) |          0 |          0 |       0 |    0 |    0 |      0 |      0 |          0 |
+|   u_rx                 |                     uart_rx |         53 |         53 |       0 |    0 |   41 |      0 |      0 |          0 |
+|   u_ust                |               bert_tiny_ust |       3726 |       3370 |     207 |  149 | 6037 |     16 |      7 |         87 |
+|     u_cd               |                komut_cozucu |        702 |        702 |       0 |    0 |  956 |      0 |      0 |          0 |
+|     u_kat              |             dogrusal_katman |       1514 |       1295 |     136 |   83 | 3678 |     16 |      2 |         68 |
+|       u_tile           |            tile_denetleyici |        900 |        832 |       0 |   68 | 3337 |      0 |      0 |         64 |
+|         (u_tile)       |            tile_denetleyici |        632 |        632 |       0 |    0 | 2243 |      0 |      0 |          0 |
+|         u_dizi         |                systolic_nxn |        268 |        200 |       0 |   68 | 1094 |      0 |      0 |         64 |
+|           (u_dizi)     |                systolic_nxn |        231 |        163 |       0 |   68 |  414 |      0 |      0 |          0 |
+|       u_lut            |                    gelu_lut |         60 |         12 |      48 |    0 |    0 |      0 |      0 |          0 |
+|       u_panel          |               panel_tamponu |        121 |         33 |      88 |    0 |    0 |      2 |      0 |          0 |
+|       u_pk             |               cikis_paketle |          9 |          9 |       0 |    0 |  133 |      0 |      0 |          0 |
+|       u_rq             |             yeniden_olcekle |        417 |        403 |       0 |   14 |  198 |      0 |      0 |          4 |
+|     u_ln               |             layernorm_birim |       1187 |       1109 |      36 |   42 | 1084 |      0 |      2 |         12 |
+|       (u_ln)           |             layernorm_birim |        911 |        864 |      36 |   11 |  802 |      0 |      2 |          6 |
+|       u_dv             | bolucu_ters__parameterized0 |        277 |        246 |       0 |   31 |  282 |      0 |      0 |          6 |
+|         (u_dv)         | bolucu_ters__parameterized0 |        202 |        171 |       0 |   31 |  188 |      0 |      0 |          6 |
+|         u_dv           | bolucu_seri__parameterized0 |         75 |         75 |       0 |    0 |   94 |      0 |      0 |          0 |
+|     u_sm               |               softmax_birim |        317 |        270 |      23 |   24 |  295 |      0 |      2 |          7 |
+|       (u_sm)           |               softmax_birim |        196 |        167 |      23 |    6 |  139 |      0 |      2 |          3 |
+|       u_dv             |                 bolucu_ters |        123 |        105 |       0 |   18 |  156 |      0 |      0 |          4 |
+|         (u_dv)         |                 bolucu_ters |         59 |         41 |       0 |   18 |   74 |      0 |      0 |          4 |
+|         u_dv           |                 bolucu_seri |         64 |         64 |       0 |    0 |   82 |      0 |      0 |          0 |
++------------------------+-----------------------------+------------+------------+---------+------+------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

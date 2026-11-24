@@ -1,0 +1,37 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Fri Nov  6 00:08:31 2026
+| Host         : pc running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file sentez/cikti/komutsuz_sentez_kullanim_hiyerarsik.txt
+| Design       : komutsuz_ust
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+|           Instance           |         Module         | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | DSP Blocks |
++------------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+| komutsuz_ust                 |                  (top) |       1341 |       1166 |      92 |   83 | 3832 |     16 |      2 |         68 |
+|   u_ayristirici              |       akis_ayristirici |        101 |        101 |       0 |    0 |  322 |      0 |      0 |          0 |
+|   u_katman                   |        dogrusal_katman |       1198 |       1023 |      92 |   83 | 3471 |     16 |      2 |         68 |
+|     u_yeniden_olcekle        |        yeniden_olcekle |        133 |        115 |       0 |   18 |   92 |      0 |      0 |          4 |
+|     u_cikis_sozcuk_toplayici | cikis_sozcuk_toplayici |          3 |          3 |       0 |    0 |  133 |      0 |      0 |          0 |
+|     u_panel_tamponu          |          panel_tamponu |        139 |         47 |      92 |    0 |    0 |      2 |      0 |          0 |
+|     u_tile_denetleyici       |       tile_denetleyici |        921 |        857 |       0 |   64 | 3239 |      0 |      0 |         64 |
+|       (u_tile_denetleyici)   |       tile_denetleyici |        625 |        625 |       0 |    0 | 2217 |      0 |      0 |          0 |
+|       u_sistolik_dizi        |          sistolik_dizi |        300 |        236 |       0 |   64 | 1022 |      0 |      0 |         64 |
+|         (u_sistolik_dizi)    |          sistolik_dizi |        233 |        169 |       0 |   64 |  382 |      0 |      0 |          0 |
++------------------------------+------------------------+------------+------------+---------+------+------+--------+--------+------------+
+
+

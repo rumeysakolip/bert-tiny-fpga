@@ -1,0 +1,272 @@
+{
+ "m0_bit": 31,
+ "n_cumle": 872,
+ "fp32_dogru": 719,
+ "adimlar": {
+  "gomme": "gömme LN çıkışı -> L0 Q/K/V girdisi",
+  "ln_cikis": "LN çıkışı -> sonraki Linear girdisi (ffn1, L1 Q/K/V, pooler)",
+  "artik": "artık toplamlar (h + attn_out, h + ffn2) tamsayıda",
+  "qk": "Q·Kᵀ INT32 -> skor (tamsayı yeniden ölçekleme)",
+  "av": "P(UINT8)·V INT32 -> bağlam INT8",
+  "gelu_tanh": "GELU/tanh çıkışı -> sonraki Linear girdisi"
+ },
+ "kosular": {
+  "B_float_tasima": {
+   "adim": [],
+   "dogru": 717,
+   "kayip_puan_fp32e_gore": 0.23,
+   "kayip_cumle": 2,
+   "capraz_entropi": 0.5758,
+   "B_float_ile_ayrisan_cumle": 0,
+   "onceki_kumulatif_ile_ayrisan": null,
+   "fp32_ile_uyusma": 0.9954,
+   "maks_logit_farki_B_floata_gore": 0.0,
+   "ortalama_logit_farki": 0.0,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "kumulatif_1_gomme": {
+   "adim": [
+    "gomme"
+   ],
+   "dogru": 717,
+   "kayip_puan_fp32e_gore": 0.23,
+   "kayip_cumle": 2,
+   "capraz_entropi": 0.5758,
+   "B_float_ile_ayrisan_cumle": 0,
+   "onceki_kumulatif_ile_ayrisan": 0,
+   "fp32_ile_uyusma": 0.9954,
+   "maks_logit_farki_B_floata_gore": 0.0,
+   "ortalama_logit_farki": 0.0,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "kumulatif_2_ln_cikis": {
+   "adim": [
+    "gomme",
+    "ln_cikis"
+   ],
+   "dogru": 717,
+   "kayip_puan_fp32e_gore": 0.23,
+   "kayip_cumle": 2,
+   "capraz_entropi": 0.5758,
+   "B_float_ile_ayrisan_cumle": 0,
+   "onceki_kumulatif_ile_ayrisan": 0,
+   "fp32_ile_uyusma": 0.9954,
+   "maks_logit_farki_B_floata_gore": 0.0,
+   "ortalama_logit_farki": 0.0,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "kumulatif_3_artik": {
+   "adim": [
+    "gomme",
+    "ln_cikis",
+    "artik"
+   ],
+   "dogru": 718,
+   "kayip_puan_fp32e_gore": 0.11,
+   "kayip_cumle": 1,
+   "capraz_entropi": 0.5752,
+   "B_float_ile_ayrisan_cumle": 3,
+   "onceki_kumulatif_ile_ayrisan": 3,
+   "fp32_ile_uyusma": 0.9966,
+   "maks_logit_farki_B_floata_gore": 0.3752,
+   "ortalama_logit_farki": 0.02122,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "kumulatif_4_qk": {
+   "adim": [
+    "gomme",
+    "ln_cikis",
+    "artik",
+    "qk"
+   ],
+   "dogru": 718,
+   "kayip_puan_fp32e_gore": 0.11,
+   "kayip_cumle": 1,
+   "capraz_entropi": 0.5752,
+   "B_float_ile_ayrisan_cumle": 3,
+   "onceki_kumulatif_ile_ayrisan": 0,
+   "fp32_ile_uyusma": 0.9966,
+   "maks_logit_farki_B_floata_gore": 0.3752,
+   "ortalama_logit_farki": 0.02122,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "kumulatif_5_av": {
+   "adim": [
+    "gomme",
+    "ln_cikis",
+    "artik",
+    "qk",
+    "av"
+   ],
+   "dogru": 718,
+   "kayip_puan_fp32e_gore": 0.11,
+   "kayip_cumle": 1,
+   "capraz_entropi": 0.5752,
+   "B_float_ile_ayrisan_cumle": 3,
+   "onceki_kumulatif_ile_ayrisan": 0,
+   "fp32_ile_uyusma": 0.9966,
+   "maks_logit_farki_B_floata_gore": 0.3752,
+   "ortalama_logit_farki": 0.02122,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "kumulatif_6_gelu_tanh": {
+   "adim": [
+    "gomme",
+    "ln_cikis",
+    "artik",
+    "qk",
+    "av",
+    "gelu_tanh"
+   ],
+   "dogru": 718,
+   "kayip_puan_fp32e_gore": 0.11,
+   "kayip_cumle": 1,
+   "capraz_entropi": 0.5752,
+   "B_float_ile_ayrisan_cumle": 3,
+   "onceki_kumulatif_ile_ayrisan": 0,
+   "fp32_ile_uyusma": 0.9966,
+   "maks_logit_farki_B_floata_gore": 0.3752,
+   "ortalama_logit_farki": 0.02122,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "tek_gomme": {
+   "adim": [
+    "gomme"
+   ],
+   "dogru": 717,
+   "kayip_puan_fp32e_gore": 0.23,
+   "kayip_cumle": 2,
+   "capraz_entropi": 0.5758,
+   "B_float_ile_ayrisan_cumle": 0,
+   "onceki_kumulatif_ile_ayrisan": null,
+   "fp32_ile_uyusma": 0.9954,
+   "maks_logit_farki_B_floata_gore": 0.0,
+   "ortalama_logit_farki": 0.0,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "tek_ln_cikis": {
+   "adim": [
+    "ln_cikis"
+   ],
+   "dogru": 717,
+   "kayip_puan_fp32e_gore": 0.23,
+   "kayip_cumle": 2,
+   "capraz_entropi": 0.5758,
+   "B_float_ile_ayrisan_cumle": 0,
+   "onceki_kumulatif_ile_ayrisan": null,
+   "fp32_ile_uyusma": 0.9954,
+   "maks_logit_farki_B_floata_gore": 0.0,
+   "ortalama_logit_farki": 0.0,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "tek_artik": {
+   "adim": [
+    "artik"
+   ],
+   "dogru": 718,
+   "kayip_puan_fp32e_gore": 0.11,
+   "kayip_cumle": 1,
+   "capraz_entropi": 0.5752,
+   "B_float_ile_ayrisan_cumle": 3,
+   "onceki_kumulatif_ile_ayrisan": null,
+   "fp32_ile_uyusma": 0.9966,
+   "maks_logit_farki_B_floata_gore": 0.3752,
+   "ortalama_logit_farki": 0.02122,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "tek_qk": {
+   "adim": [
+    "qk"
+   ],
+   "dogru": 717,
+   "kayip_puan_fp32e_gore": 0.23,
+   "kayip_cumle": 2,
+   "capraz_entropi": 0.5758,
+   "B_float_ile_ayrisan_cumle": 0,
+   "onceki_kumulatif_ile_ayrisan": null,
+   "fp32_ile_uyusma": 0.9954,
+   "maks_logit_farki_B_floata_gore": 0.0235,
+   "ortalama_logit_farki": 1e-05,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "tek_av": {
+   "adim": [
+    "av"
+   ],
+   "dogru": 717,
+   "kayip_puan_fp32e_gore": 0.23,
+   "kayip_cumle": 2,
+   "capraz_entropi": 0.5758,
+   "B_float_ile_ayrisan_cumle": 0,
+   "onceki_kumulatif_ile_ayrisan": null,
+   "fp32_ile_uyusma": 0.9954,
+   "maks_logit_farki_B_floata_gore": 0.0,
+   "ortalama_logit_farki": 0.0,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  },
+  "tek_gelu_tanh": {
+   "adim": [
+    "gelu_tanh"
+   ],
+   "dogru": 717,
+   "kayip_puan_fp32e_gore": 0.23,
+   "kayip_cumle": 2,
+   "capraz_entropi": 0.5758,
+   "B_float_ile_ayrisan_cumle": 0,
+   "onceki_kumulatif_ile_ayrisan": null,
+   "fp32_ile_uyusma": 0.9954,
+   "maks_logit_farki_B_floata_gore": 0.0,
+   "ortalama_logit_farki": 0.0,
+   "hedef_711": true,
+   "sinir_702": true,
+   "mlperf_712": true
+  }
+ },
+ "tam_hat": {
+  "kosu": "kumulatif_6_gelu_tanh",
+  "adim": [
+   "gomme",
+   "ln_cikis",
+   "artik",
+   "qk",
+   "av",
+   "gelu_tanh"
+  ],
+  "dogru": 718,
+  "kayip_puan_fp32e_gore": 0.11,
+  "kayip_cumle": 1,
+  "capraz_entropi": 0.5752,
+  "B_float_ile_ayrisan_cumle": 3,
+  "onceki_kumulatif_ile_ayrisan": 0,
+  "fp32_ile_uyusma": 0.9966,
+  "maks_logit_farki_B_floata_gore": 0.3752,
+  "ortalama_logit_farki": 0.02122,
+  "hedef_711": true,
+  "sinir_702": true,
+  "mlperf_712": true
+ }
+}

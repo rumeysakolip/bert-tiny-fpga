@@ -1,0 +1,1292 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Tue Nov  3 08:15:38 2026
+| Host         : pc running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 20 -sort_by slack -file sentez/cikti/yenimimari_p10_yollar.txt
+| Design       : bert_tiny_uart_ust
+| Device       : 7a35t-cpg236
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             1.912ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[0]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.746ns  (logic 1.968ns (25.406%)  route 5.778ns (74.594%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=1 LUT6=2)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.792ns = ( 14.792 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.082ns
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.561     5.082    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X41Y35         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y35         FDRE (Prop_fdre_C_Q)         0.456     5.538 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/Q
+                         net (fo=7, routed)           0.832     6.371    u_bert_tiny/u_veri_yolu/komut_yazmaci[7]
+    SLICE_X42Y34         LUT3 (Prop_lut3_I2_O)        0.148     6.519 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.668     7.187    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X41Y35         LUT6 (Prop_lut6_I0_O)        0.328     7.515 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_7/O
+                         net (fo=5, routed)           0.596     8.110    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[2]
+    SLICE_X40Y34         LUT4 (Prop_lut4_I1_O)        0.124     8.234 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     8.234    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X40Y34         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.784 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.784    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X40Y35         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.898 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          1.135    10.034    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X38Y37         LUT5 (Prop_lut5_I3_O)        0.124    10.158 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.589    10.747    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X43Y32         LUT6 (Prop_lut6_I0_O)        0.124    10.871 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_1/O
+                         net (fo=77, routed)          1.958    12.828    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin
+    SLICE_X9Y47          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.451    14.792    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X9Y47          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[0]/C
+                         clock pessimism              0.188    14.980    
+                         clock uncertainty           -0.035    14.945    
+    SLICE_X9Y47          FDRE (Setup_fdre_C_CE)      -0.205    14.740    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[0]
+  -------------------------------------------------------------------
+                         required time                         14.740    
+                         arrival time                         -12.828    
+  -------------------------------------------------------------------
+                         slack                                  1.912    
+
+Slack (MET) :             1.937ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[1]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.757ns  (logic 1.968ns (25.370%)  route 5.789ns (74.630%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=1 LUT6=2)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.792ns = ( 14.792 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.082ns
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.561     5.082    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X41Y35         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y35         FDRE (Prop_fdre_C_Q)         0.456     5.538 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/Q
+                         net (fo=7, routed)           0.832     6.371    u_bert_tiny/u_veri_yolu/komut_yazmaci[7]
+    SLICE_X42Y34         LUT3 (Prop_lut3_I2_O)        0.148     6.519 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.668     7.187    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X41Y35         LUT6 (Prop_lut6_I0_O)        0.328     7.515 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_7/O
+                         net (fo=5, routed)           0.596     8.110    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[2]
+    SLICE_X40Y34         LUT4 (Prop_lut4_I1_O)        0.124     8.234 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     8.234    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X40Y34         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.784 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.784    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X40Y35         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.898 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          1.135    10.034    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X38Y37         LUT5 (Prop_lut5_I3_O)        0.124    10.158 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.589    10.747    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X43Y32         LUT6 (Prop_lut6_I0_O)        0.124    10.871 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_1/O
+                         net (fo=77, routed)          1.969    12.839    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin
+    SLICE_X8Y47          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.451    14.792    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X8Y47          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[1]/C
+                         clock pessimism              0.188    14.980    
+                         clock uncertainty           -0.035    14.945    
+    SLICE_X8Y47          FDRE (Setup_fdre_C_CE)      -0.169    14.776    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[1]
+  -------------------------------------------------------------------
+                         required time                         14.776    
+                         arrival time                         -12.839    
+  -------------------------------------------------------------------
+                         slack                                  1.937    
+
+Slack (MET) :             1.937ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[2]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.757ns  (logic 1.968ns (25.370%)  route 5.789ns (74.630%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=1 LUT6=2)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.792ns = ( 14.792 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.082ns
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.561     5.082    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X41Y35         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y35         FDRE (Prop_fdre_C_Q)         0.456     5.538 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/Q
+                         net (fo=7, routed)           0.832     6.371    u_bert_tiny/u_veri_yolu/komut_yazmaci[7]
+    SLICE_X42Y34         LUT3 (Prop_lut3_I2_O)        0.148     6.519 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.668     7.187    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X41Y35         LUT6 (Prop_lut6_I0_O)        0.328     7.515 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_7/O
+                         net (fo=5, routed)           0.596     8.110    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[2]
+    SLICE_X40Y34         LUT4 (Prop_lut4_I1_O)        0.124     8.234 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     8.234    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X40Y34         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.784 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.784    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X40Y35         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.898 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          1.135    10.034    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X38Y37         LUT5 (Prop_lut5_I3_O)        0.124    10.158 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.589    10.747    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X43Y32         LUT6 (Prop_lut6_I0_O)        0.124    10.871 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_1/O
+                         net (fo=77, routed)          1.969    12.839    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin
+    SLICE_X8Y47          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[2]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.451    14.792    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X8Y47          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[2]/C
+                         clock pessimism              0.188    14.980    
+                         clock uncertainty           -0.035    14.945    
+    SLICE_X8Y47          FDRE (Setup_fdre_C_CE)      -0.169    14.776    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[2]
+  -------------------------------------------------------------------
+                         required time                         14.776    
+                         arrival time                         -12.839    
+  -------------------------------------------------------------------
+                         slack                                  1.937    
+
+Slack (MET) :             1.937ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[3]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.757ns  (logic 1.968ns (25.370%)  route 5.789ns (74.630%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=1 LUT6=2)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.792ns = ( 14.792 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.082ns
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.561     5.082    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X41Y35         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y35         FDRE (Prop_fdre_C_Q)         0.456     5.538 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/Q
+                         net (fo=7, routed)           0.832     6.371    u_bert_tiny/u_veri_yolu/komut_yazmaci[7]
+    SLICE_X42Y34         LUT3 (Prop_lut3_I2_O)        0.148     6.519 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.668     7.187    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X41Y35         LUT6 (Prop_lut6_I0_O)        0.328     7.515 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_7/O
+                         net (fo=5, routed)           0.596     8.110    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[2]
+    SLICE_X40Y34         LUT4 (Prop_lut4_I1_O)        0.124     8.234 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     8.234    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X40Y34         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.784 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.784    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X40Y35         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.898 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          1.135    10.034    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X38Y37         LUT5 (Prop_lut5_I3_O)        0.124    10.158 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.589    10.747    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X43Y32         LUT6 (Prop_lut6_I0_O)        0.124    10.871 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_1/O
+                         net (fo=77, routed)          1.969    12.839    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin
+    SLICE_X8Y47          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[3]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.451    14.792    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X8Y47          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[3]/C
+                         clock pessimism              0.188    14.980    
+                         clock uncertainty           -0.035    14.945    
+    SLICE_X8Y47          FDRE (Setup_fdre_C_CE)      -0.169    14.776    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[3]
+  -------------------------------------------------------------------
+                         required time                         14.776    
+                         arrival time                         -12.839    
+  -------------------------------------------------------------------
+                         slack                                  1.937    
+
+Slack (MET) :             1.937ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[8]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.757ns  (logic 1.968ns (25.370%)  route 5.789ns (74.630%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=1 LUT6=2)
+  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.792ns = ( 14.792 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.082ns
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.561     5.082    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X41Y35         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y35         FDRE (Prop_fdre_C_Q)         0.456     5.538 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/Q
+                         net (fo=7, routed)           0.832     6.371    u_bert_tiny/u_veri_yolu/komut_yazmaci[7]
+    SLICE_X42Y34         LUT3 (Prop_lut3_I2_O)        0.148     6.519 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.668     7.187    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X41Y35         LUT6 (Prop_lut6_I0_O)        0.328     7.515 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_7/O
+                         net (fo=5, routed)           0.596     8.110    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[2]
+    SLICE_X40Y34         LUT4 (Prop_lut4_I1_O)        0.124     8.234 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     8.234    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X40Y34         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.784 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.784    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X40Y35         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.898 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          1.135    10.034    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X38Y37         LUT5 (Prop_lut5_I3_O)        0.124    10.158 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.589    10.747    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X43Y32         LUT6 (Prop_lut6_I0_O)        0.124    10.871 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_1/O
+                         net (fo=77, routed)          1.969    12.839    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin
+    SLICE_X8Y47          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[8]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.451    14.792    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X8Y47          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[8]/C
+                         clock pessimism              0.188    14.980    
+                         clock uncertainty           -0.035    14.945    
+    SLICE_X8Y47          FDRE (Setup_fdre_C_CE)      -0.169    14.776    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[8]
+  -------------------------------------------------------------------
+                         required time                         14.776    
+                         arrival time                         -12.839    
+  -------------------------------------------------------------------
+                         slack                                  1.937    
+
+Slack (MET) :             1.975ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[3].u_islem_elemani/birikec_reg/RSTB
+                            (rising edge-triggered cell DSP48E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.380ns  (logic 0.944ns (12.791%)  route 6.436ns (87.209%))
+  Logic Levels:           4  (LUT4=2 LUT5=1 LUT6=1)
+  Clock Path Skew:        0.138ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.043ns = ( 15.043 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.084ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.563     5.084    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/clk_IBUF_BUFG
+    SLICE_X44Y37         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y37         FDRE (Prop_fdre_C_Q)         0.456     5.540 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/Q
+                         net (fo=5, routed)           0.842     6.382    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg_n_0_[1]
+    SLICE_X43Y35         LUT4 (Prop_lut4_I0_O)        0.124     6.506 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.616     7.122    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X44Y38         LUT6 (Prop_lut6_I4_O)        0.124     7.246 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/FSM_onehot_durum[4]_i_5/O
+                         net (fo=55, routed)          0.769     8.016    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/ayni_panel_tile_baslat__0
+    SLICE_X44Y45         LUT5 (Prop_lut5_I0_O)        0.124     8.140 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/a_cikis[8]_i_3/O
+                         net (fo=15, routed)          0.530     8.670    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/birikec_reg_0
+    SLICE_X42Y45         LUT4 (Prop_lut4_I0_O)        0.116     8.786 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/a_cikis[8]_i_1/O
+                         net (fo=1205, routed)        3.679    12.465    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[3].u_islem_elemani/b_cikis_reg[0]_0
+    DSP48_X0Y44          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[3].u_islem_elemani/birikec_reg/RSTB
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.702    15.043    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[3].u_islem_elemani/clk_IBUF_BUFG
+    DSP48_X0Y44          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[3].u_islem_elemani/birikec_reg/CLK
+                         clock pessimism              0.180    15.222    
+                         clock uncertainty           -0.035    15.187    
+    DSP48_X0Y44          DSP48E1 (Setup_dsp48e1_CLK_RSTB)
+                                                     -0.747    14.440    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[3].u_islem_elemani/birikec_reg
+  -------------------------------------------------------------------
+                         required time                         14.440    
+                         arrival time                         -12.465    
+  -------------------------------------------------------------------
+                         slack                                  1.975    
+
+Slack (MET) :             2.009ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[7].u_islem_elemani/birikec_reg/RSTA
+                            (rising edge-triggered cell DSP48E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.380ns  (logic 0.944ns (12.791%)  route 6.436ns (87.209%))
+  Logic Levels:           4  (LUT4=2 LUT5=1 LUT6=1)
+  Clock Path Skew:        0.136ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.041ns = ( 15.041 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.084ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.563     5.084    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/clk_IBUF_BUFG
+    SLICE_X44Y37         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y37         FDRE (Prop_fdre_C_Q)         0.456     5.540 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/Q
+                         net (fo=5, routed)           0.842     6.382    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg_n_0_[1]
+    SLICE_X43Y35         LUT4 (Prop_lut4_I0_O)        0.124     6.506 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.616     7.122    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X44Y38         LUT6 (Prop_lut6_I4_O)        0.124     7.246 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/FSM_onehot_durum[4]_i_5/O
+                         net (fo=55, routed)          0.769     8.016    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/ayni_panel_tile_baslat__0
+    SLICE_X44Y45         LUT5 (Prop_lut5_I0_O)        0.124     8.140 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/a_cikis[8]_i_3/O
+                         net (fo=15, routed)          0.530     8.670    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/birikec_reg_0
+    SLICE_X42Y45         LUT4 (Prop_lut4_I0_O)        0.116     8.786 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/a_cikis[8]_i_1/O
+                         net (fo=1205, routed)        3.679    12.465    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[7].u_islem_elemani/b_cikis_reg[0]_0
+    DSP48_X0Y45          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[7].u_islem_elemani/birikec_reg/RSTA
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.700    15.041    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[7].u_islem_elemani/clk_IBUF_BUFG
+    DSP48_X0Y45          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[7].u_islem_elemani/birikec_reg/CLK
+                         clock pessimism              0.180    15.220    
+                         clock uncertainty           -0.035    15.185    
+    DSP48_X0Y45          DSP48E1 (Setup_dsp48e1_CLK_RSTA)
+                                                     -0.711    14.474    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[7].u_islem_elemani/birikec_reg
+  -------------------------------------------------------------------
+                         required time                         14.474    
+                         arrival time                         -12.465    
+  -------------------------------------------------------------------
+                         slack                                  2.009    
+
+Slack (MET) :             2.038ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg/RSTB
+                            (rising edge-triggered cell DSP48E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.321ns  (logic 0.944ns (12.894%)  route 6.377ns (87.106%))
+  Logic Levels:           4  (LUT4=2 LUT5=1 LUT6=1)
+  Clock Path Skew:        0.141ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.046ns = ( 15.046 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.084ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.563     5.084    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/clk_IBUF_BUFG
+    SLICE_X44Y37         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y37         FDRE (Prop_fdre_C_Q)         0.456     5.540 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/Q
+                         net (fo=5, routed)           0.842     6.382    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg_n_0_[1]
+    SLICE_X43Y35         LUT4 (Prop_lut4_I0_O)        0.124     6.506 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.616     7.122    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X44Y38         LUT6 (Prop_lut6_I4_O)        0.124     7.246 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/FSM_onehot_durum[4]_i_5/O
+                         net (fo=55, routed)          0.769     8.016    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/ayni_panel_tile_baslat__0
+    SLICE_X44Y45         LUT5 (Prop_lut5_I0_O)        0.124     8.140 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/a_cikis[8]_i_3/O
+                         net (fo=15, routed)          0.530     8.670    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/birikec_reg_0
+    SLICE_X42Y45         LUT4 (Prop_lut4_I0_O)        0.116     8.786 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/a_cikis[8]_i_1/O
+                         net (fo=1205, routed)        3.619    12.405    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg_2
+    DSP48_X0Y42          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg/RSTB
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.705    15.046    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/clk_IBUF_BUFG
+    DSP48_X0Y42          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg/CLK
+                         clock pessimism              0.180    15.225    
+                         clock uncertainty           -0.035    15.190    
+    DSP48_X0Y42          DSP48E1 (Setup_dsp48e1_CLK_RSTB)
+                                                     -0.747    14.443    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg
+  -------------------------------------------------------------------
+                         required time                         14.443    
+                         arrival time                         -12.405    
+  -------------------------------------------------------------------
+                         slack                                  2.038    
+
+Slack (MET) :             2.073ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[4].u_islem_elemani/birikec_reg/RSTA
+                            (rising edge-triggered cell DSP48E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.321ns  (logic 0.944ns (12.894%)  route 6.377ns (87.106%))
+  Logic Levels:           4  (LUT4=2 LUT5=1 LUT6=1)
+  Clock Path Skew:        0.140ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.045ns = ( 15.045 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.084ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.563     5.084    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/clk_IBUF_BUFG
+    SLICE_X44Y37         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y37         FDRE (Prop_fdre_C_Q)         0.456     5.540 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/Q
+                         net (fo=5, routed)           0.842     6.382    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg_n_0_[1]
+    SLICE_X43Y35         LUT4 (Prop_lut4_I0_O)        0.124     6.506 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.616     7.122    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X44Y38         LUT6 (Prop_lut6_I4_O)        0.124     7.246 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/FSM_onehot_durum[4]_i_5/O
+                         net (fo=55, routed)          0.769     8.016    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/ayni_panel_tile_baslat__0
+    SLICE_X44Y45         LUT5 (Prop_lut5_I0_O)        0.124     8.140 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/a_cikis[8]_i_3/O
+                         net (fo=15, routed)          0.530     8.670    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/birikec_reg_0
+    SLICE_X42Y45         LUT4 (Prop_lut4_I0_O)        0.116     8.786 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/a_cikis[8]_i_1/O
+                         net (fo=1205, routed)        3.619    12.405    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[4].u_islem_elemani/birikec_reg_2
+    DSP48_X0Y43          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[4].u_islem_elemani/birikec_reg/RSTA
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.704    15.045    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[4].u_islem_elemani/clk_IBUF_BUFG
+    DSP48_X0Y43          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[4].u_islem_elemani/birikec_reg/CLK
+                         clock pessimism              0.180    15.224    
+                         clock uncertainty           -0.035    15.189    
+    DSP48_X0Y43          DSP48E1 (Setup_dsp48e1_CLK_RSTA)
+                                                     -0.711    14.478    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[4].u_islem_elemani/birikec_reg
+  -------------------------------------------------------------------
+                         required time                         14.478    
+                         arrival time                         -12.405    
+  -------------------------------------------------------------------
+                         slack                                  2.073    
+
+Slack (MET) :             2.075ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[10]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.617ns  (logic 1.968ns (25.836%)  route 5.649ns (74.164%))
+  Logic Levels:           7  (CARRY4=2 LUT3=1 LUT4=1 LUT5=1 LUT6=2)
+  Clock Path Skew:        -0.103ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.791ns = ( 14.791 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.082ns
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.561     5.082    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X41Y35         FDRE                                         r  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y35         FDRE (Prop_fdre_C_Q)         0.456     5.538 f  u_bert_tiny/u_veri_yolu/komut_yazmaci_reg[7]/Q
+                         net (fo=7, routed)           0.832     6.371    u_bert_tiny/u_veri_yolu/komut_yazmaci[7]
+    SLICE_X42Y34         LUT3 (Prop_lut3_I2_O)        0.148     6.519 f  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_11/O
+                         net (fo=7, routed)           0.668     7.187    u_bert_tiny/u_veri_yolu/p_1_in
+    SLICE_X41Y35         LUT6 (Prop_lut6_I0_O)        0.328     7.515 r  u_bert_tiny/u_veri_yolu/sekil_gecerli_kayit4_carry_i_7/O
+                         net (fo=5, routed)           0.596     8.110    u_bert_tiny/u_veri_yolu/baslik_bayt_sayisi[2]
+    SLICE_X40Y34         LUT4 (Prop_lut4_I1_O)        0.124     8.234 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12/O
+                         net (fo=1, routed)           0.000     8.234    u_bert_tiny/u_veri_yolu/baslik_yazmaci[77]_i_12_n_0
+    SLICE_X40Y34         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     8.784 r  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3/CO[3]
+                         net (fo=1, routed)           0.000     8.784    u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_3_n_0
+    SLICE_X40Y35         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.898 f  u_bert_tiny/u_veri_yolu/baslik_yazmaci_reg[77]_i_2/CO[3]
+                         net (fo=14, routed)          1.135    10.034    u_bert_tiny/u_veri_yolu/baslik_bolgesinde
+    SLICE_X38Y37         LUT5 (Prop_lut5_I3_O)        0.124    10.158 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_2/O
+                         net (fo=27, routed)          0.589    10.747    u_bert_tiny/u_veri_yolu/sozcuk_yaz
+    SLICE_X43Y32         LUT6 (Prop_lut6_I0_O)        0.124    10.871 r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin_i_1/O
+                         net (fo=77, routed)          1.829    12.700    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_etkin
+    SLICE_X8Y46          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[10]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.450    14.791    u_bert_tiny/u_veri_yolu/clk_IBUF_BUFG
+    SLICE_X8Y46          FDRE                                         r  u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[10]/C
+                         clock pessimism              0.188    14.979    
+                         clock uncertainty           -0.035    14.944    
+    SLICE_X8Y46          FDRE (Setup_fdre_C_CE)      -0.169    14.775    u_bert_tiny/u_veri_yolu/aktivasyon_yaz_veri_reg[10]
+  -------------------------------------------------------------------
+                         required time                         14.775    
+                         arrival time                         -12.700    
+  -------------------------------------------------------------------
+                         slack                                  2.075    
+
+Slack (MET) :             2.078ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[0].u_islem_elemani/birikec_reg/RSTB
+                            (rising edge-triggered cell DSP48E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.107ns  (logic 0.944ns (13.282%)  route 6.163ns (86.718%))
+  Logic Levels:           4  (LUT4=2 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.032ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.872ns = ( 14.872 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.084ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.563     5.084    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/clk_IBUF_BUFG
+    SLICE_X44Y37         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y37         FDRE (Prop_fdre_C_Q)         0.456     5.540 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/Q
+                         net (fo=5, routed)           0.842     6.382    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg_n_0_[1]
+    SLICE_X43Y35         LUT4 (Prop_lut4_I0_O)        0.124     6.506 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.616     7.122    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X44Y38         LUT6 (Prop_lut6_I4_O)        0.124     7.246 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/FSM_onehot_durum[4]_i_5/O
+                         net (fo=55, routed)          0.769     8.016    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/ayni_panel_tile_baslat__0
+    SLICE_X44Y45         LUT5 (Prop_lut5_I0_O)        0.124     8.140 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/a_cikis[8]_i_3/O
+                         net (fo=15, routed)          0.530     8.670    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/birikec_reg_0
+    SLICE_X42Y45         LUT4 (Prop_lut4_I0_O)        0.116     8.786 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/a_cikis[8]_i_1/O
+                         net (fo=1205, routed)        3.405    12.191    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[0].u_islem_elemani/birikec_reg_0
+    DSP48_X0Y39          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[0].u_islem_elemani/birikec_reg/RSTB
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.531    14.872    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[0].u_islem_elemani/clk_IBUF_BUFG
+    DSP48_X0Y39          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[0].u_islem_elemani/birikec_reg/CLK
+                         clock pessimism              0.180    15.052    
+                         clock uncertainty           -0.035    15.017    
+    DSP48_X0Y39          DSP48E1 (Setup_dsp48e1_CLK_RSTB)
+                                                     -0.747    14.270    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[0].u_islem_elemani/birikec_reg
+  -------------------------------------------------------------------
+                         required time                         14.270    
+                         arrival time                         -12.191    
+  -------------------------------------------------------------------
+                         slack                                  2.078    
+
+Slack (MET) :             2.080ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg/RSTA
+                            (rising edge-triggered cell DSP48E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.315ns  (logic 0.944ns (12.906%)  route 6.371ns (87.094%))
+  Logic Levels:           4  (LUT4=2 LUT5=1 LUT6=1)
+  Clock Path Skew:        0.141ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.046ns = ( 15.046 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.084ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.563     5.084    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/clk_IBUF_BUFG
+    SLICE_X44Y37         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y37         FDRE (Prop_fdre_C_Q)         0.456     5.540 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/Q
+                         net (fo=5, routed)           0.842     6.382    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg_n_0_[1]
+    SLICE_X43Y35         LUT4 (Prop_lut4_I0_O)        0.124     6.506 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.616     7.122    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X44Y38         LUT6 (Prop_lut6_I4_O)        0.124     7.246 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/FSM_onehot_durum[4]_i_5/O
+                         net (fo=55, routed)          0.769     8.016    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/ayni_panel_tile_baslat__0
+    SLICE_X44Y45         LUT5 (Prop_lut5_I0_O)        0.124     8.140 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/a_cikis[8]_i_3/O
+                         net (fo=15, routed)          0.530     8.670    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/birikec_reg_0
+    SLICE_X42Y45         LUT4 (Prop_lut4_I0_O)        0.116     8.786 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/a_cikis[8]_i_1/O
+                         net (fo=1205, routed)        3.613    12.399    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg_2
+    DSP48_X0Y42          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg/RSTA
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.705    15.046    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/clk_IBUF_BUFG
+    DSP48_X0Y42          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg/CLK
+                         clock pessimism              0.180    15.225    
+                         clock uncertainty           -0.035    15.190    
+    DSP48_X0Y42          DSP48E1 (Setup_dsp48e1_CLK_RSTA)
+                                                     -0.711    14.479    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[2].u_islem_elemani/birikec_reg
+  -------------------------------------------------------------------
+                         required time                         14.479    
+                         arrival time                         -12.399    
+  -------------------------------------------------------------------
+                         slack                                  2.080    
+
+Slack (MET) :             2.085ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_softmax/sayac_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_softmax/pay_kayit_reg/A[9]
+                            (rising edge-triggered cell DSP48E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        4.136ns  (logic 0.580ns (14.022%)  route 3.556ns (85.978%))
+  Logic Levels:           1  (RAMD64E=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.867ns = ( 14.867 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.076ns
+    Clock Pessimism Removal (CPR):    0.188ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.555     5.076    u_bert_tiny/u_veri_yolu/u_softmax/clk_IBUF_BUFG
+    SLICE_X44Y19         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_softmax/sayac_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y19         FDRE (Prop_fdre_C_Q)         0.456     5.532 r  u_bert_tiny/u_veri_yolu/u_softmax/sayac_reg[0]/Q
+                         net (fo=30, routed)          2.236     7.768    u_bert_tiny/u_veri_yolu/u_softmax/us_tamponu_reg_0_63_9_11/ADDRA0
+    SLICE_X42Y22         RAMD64E (Prop_ramd64e_RADR0_O)
+                                                      0.124     7.892 r  u_bert_tiny/u_veri_yolu/u_softmax/us_tamponu_reg_0_63_9_11/RAMA/O
+                         net (fo=1, routed)           1.320     9.212    u_bert_tiny/u_veri_yolu/u_softmax/pay_hesap1[9]
+    DSP48_X0Y9           DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_softmax/pay_kayit_reg/A[9]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.526    14.867    u_bert_tiny/u_veri_yolu/u_softmax/clk_IBUF_BUFG
+    DSP48_X0Y9           DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_softmax/pay_kayit_reg/CLK
+                         clock pessimism              0.188    15.055    
+                         clock uncertainty           -0.035    15.019    
+    DSP48_X0Y9           DSP48E1 (Setup_dsp48e1_CLK_A[9])
+                                                     -3.722    11.297    u_bert_tiny/u_veri_yolu/u_softmax/pay_kayit_reg
+  -------------------------------------------------------------------
+                         required time                         11.297    
+                         arrival time                          -9.212    
+  -------------------------------------------------------------------
+                         slack                                  2.085    
+
+Slack (MET) :             2.117ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/a_cikis_reg[5]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.687ns  (logic 0.580ns (7.545%)  route 7.107ns (92.455%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.045ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.953ns = ( 14.953 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.088ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.567     5.088    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/clk_IBUF_BUFG
+    SLICE_X44Y45         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y45         FDRE (Prop_fdre_C_Q)         0.456     5.544 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/Q
+                         net (fo=38, routed)          2.286     7.830    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/b_cikis_reg[0]_0
+    SLICE_X36Y65         LUT2 (Prop_lut2_I0_O)        0.124     7.954 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/a_cikis[8]_i_2/O
+                         net (fo=680, routed)         4.821    12.775    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/E[0]
+    SLICE_X55Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/a_cikis_reg[5]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.612    14.953    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/clk_IBUF_BUFG
+    SLICE_X55Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/a_cikis_reg[5]/C
+                         clock pessimism              0.180    15.133    
+                         clock uncertainty           -0.035    15.098    
+    SLICE_X55Y108        FDRE (Setup_fdre_C_CE)      -0.205    14.893    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/a_cikis_reg[5]
+  -------------------------------------------------------------------
+                         required time                         14.893    
+                         arrival time                         -12.775    
+  -------------------------------------------------------------------
+                         slack                                  2.117    
+
+Slack (MET) :             2.117ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/a_cikis_reg[7]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.687ns  (logic 0.580ns (7.545%)  route 7.107ns (92.455%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.045ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.953ns = ( 14.953 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.088ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.567     5.088    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/clk_IBUF_BUFG
+    SLICE_X44Y45         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y45         FDRE (Prop_fdre_C_Q)         0.456     5.544 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/Q
+                         net (fo=38, routed)          2.286     7.830    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/b_cikis_reg[0]_0
+    SLICE_X36Y65         LUT2 (Prop_lut2_I0_O)        0.124     7.954 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/a_cikis[8]_i_2/O
+                         net (fo=680, routed)         4.821    12.775    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/E[0]
+    SLICE_X55Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/a_cikis_reg[7]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.612    14.953    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/clk_IBUF_BUFG
+    SLICE_X55Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/a_cikis_reg[7]/C
+                         clock pessimism              0.180    15.133    
+                         clock uncertainty           -0.035    15.098    
+    SLICE_X55Y108        FDRE (Setup_fdre_C_CE)      -0.205    14.893    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[1].u_islem_elemani/a_cikis_reg[7]
+  -------------------------------------------------------------------
+                         required time                         14.893    
+                         arrival time                         -12.775    
+  -------------------------------------------------------------------
+                         slack                                  2.117    
+
+Slack (MET) :             2.117ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/a_cikis_reg[0]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.687ns  (logic 0.580ns (7.545%)  route 7.107ns (92.455%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.045ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.953ns = ( 14.953 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.088ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.567     5.088    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/clk_IBUF_BUFG
+    SLICE_X44Y45         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y45         FDRE (Prop_fdre_C_Q)         0.456     5.544 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/Q
+                         net (fo=38, routed)          2.286     7.830    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/b_cikis_reg[0]_0
+    SLICE_X36Y65         LUT2 (Prop_lut2_I0_O)        0.124     7.954 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/a_cikis[8]_i_2/O
+                         net (fo=680, routed)         4.821    12.775    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/E[0]
+    SLICE_X55Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/a_cikis_reg[0]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.612    14.953    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/clk_IBUF_BUFG
+    SLICE_X55Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/a_cikis_reg[0]/C
+                         clock pessimism              0.180    15.133    
+                         clock uncertainty           -0.035    15.098    
+    SLICE_X55Y108        FDRE (Setup_fdre_C_CE)      -0.205    14.893    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/a_cikis_reg[0]
+  -------------------------------------------------------------------
+                         required time                         14.893    
+                         arrival time                         -12.775    
+  -------------------------------------------------------------------
+                         slack                                  2.117    
+
+Slack (MET) :             2.117ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/a_cikis_reg[5]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.687ns  (logic 0.580ns (7.545%)  route 7.107ns (92.455%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.045ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.953ns = ( 14.953 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.088ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.567     5.088    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/clk_IBUF_BUFG
+    SLICE_X44Y45         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y45         FDRE (Prop_fdre_C_Q)         0.456     5.544 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/Q
+                         net (fo=38, routed)          2.286     7.830    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/b_cikis_reg[0]_0
+    SLICE_X36Y65         LUT2 (Prop_lut2_I0_O)        0.124     7.954 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/a_cikis[8]_i_2/O
+                         net (fo=680, routed)         4.821    12.775    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/E[0]
+    SLICE_X55Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/a_cikis_reg[5]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.612    14.953    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/clk_IBUF_BUFG
+    SLICE_X55Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/a_cikis_reg[5]/C
+                         clock pessimism              0.180    15.133    
+                         clock uncertainty           -0.035    15.098    
+    SLICE_X55Y108        FDRE (Setup_fdre_C_CE)      -0.205    14.893    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[2].u_islem_elemani/a_cikis_reg[5]
+  -------------------------------------------------------------------
+                         required time                         14.893    
+                         arrival time                         -12.775    
+  -------------------------------------------------------------------
+                         slack                                  2.117    
+
+Slack (MET) :             2.118ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[4].u_islem_elemani/birikec_reg/RSTB
+                            (rising edge-triggered cell DSP48E1 clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.236ns  (logic 0.944ns (13.046%)  route 6.292ns (86.954%))
+  Logic Levels:           4  (LUT4=2 LUT5=1 LUT6=1)
+  Clock Path Skew:        0.136ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.041ns = ( 15.041 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.084ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.563     5.084    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/clk_IBUF_BUFG
+    SLICE_X44Y37         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y37         FDRE (Prop_fdre_C_Q)         0.456     5.540 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg[1]/Q
+                         net (fo=5, routed)           0.842     6.382    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/blok_no_reg_n_0_[1]
+    SLICE_X43Y35         LUT4 (Prop_lut4_I0_O)        0.124     6.506 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.616     7.122    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X44Y38         LUT6 (Prop_lut6_I4_O)        0.124     7.246 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/FSM_onehot_durum[4]_i_5/O
+                         net (fo=55, routed)          0.769     8.016    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/ayni_panel_tile_baslat__0
+    SLICE_X44Y45         LUT5 (Prop_lut5_I0_O)        0.124     8.140 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/a_cikis[8]_i_3/O
+                         net (fo=15, routed)          0.530     8.670    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/birikec_reg_0
+    SLICE_X42Y45         LUT4 (Prop_lut4_I0_O)        0.116     8.786 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[4].u_islem_elemani/a_cikis[8]_i_1/O
+                         net (fo=1205, routed)        3.534    12.320    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[4].u_islem_elemani/birikec_reg_0
+    DSP48_X1Y44          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[4].u_islem_elemani/birikec_reg/RSTB
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.700    15.041    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[4].u_islem_elemani/clk_IBUF_BUFG
+    DSP48_X1Y44          DSP48E1                                      r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[4].u_islem_elemani/birikec_reg/CLK
+                         clock pessimism              0.180    15.220    
+                         clock uncertainty           -0.035    15.185    
+    DSP48_X1Y44          DSP48E1 (Setup_dsp48e1_CLK_RSTB)
+                                                     -0.747    14.438    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[3].g_sutun[4].u_islem_elemani/birikec_reg
+  -------------------------------------------------------------------
+                         required time                         14.438    
+                         arrival time                         -12.320    
+  -------------------------------------------------------------------
+                         slack                                  2.118    
+
+Slack (MET) :             2.122ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[0].u_islem_elemani/a_cikis_reg[8]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.684ns  (logic 0.580ns (7.548%)  route 7.104ns (92.452%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.047ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.955ns = ( 14.955 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.088ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.567     5.088    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/clk_IBUF_BUFG
+    SLICE_X44Y45         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y45         FDRE (Prop_fdre_C_Q)         0.456     5.544 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/Q
+                         net (fo=38, routed)          2.286     7.830    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/b_cikis_reg[0]_0
+    SLICE_X36Y65         LUT2 (Prop_lut2_I0_O)        0.124     7.954 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/a_cikis[8]_i_2/O
+                         net (fo=680, routed)         4.818    12.772    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[0].u_islem_elemani/E[0]
+    SLICE_X13Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[0].u_islem_elemani/a_cikis_reg[8]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.614    14.955    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[0].u_islem_elemani/clk_IBUF_BUFG
+    SLICE_X13Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[0].u_islem_elemani/a_cikis_reg[8]/C
+                         clock pessimism              0.180    15.135    
+                         clock uncertainty           -0.035    15.100    
+    SLICE_X13Y108        FDRE (Setup_fdre_C_CE)      -0.205    14.895    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[0].u_islem_elemani/a_cikis_reg[8]
+  -------------------------------------------------------------------
+                         required time                         14.895    
+                         arrival time                         -12.772    
+  -------------------------------------------------------------------
+                         slack                                  2.122    
+
+Slack (MET) :             2.122ns  (required time - arrival time)
+  Source:                 u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[1].u_islem_elemani/a_cikis_reg[8]/CE
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        7.684ns  (logic 0.580ns (7.548%)  route 7.104ns (92.452%))
+  Logic Levels:           1  (LUT2=1)
+  Clock Path Skew:        0.047ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    4.955ns = ( 14.955 - 10.000 ) 
+    Source Clock Delay      (SCD):    5.088ns
+    Clock Pessimism Removal (CPR):    0.180ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.458     1.458 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.967     3.425    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096     3.521 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.567     5.088    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/clk_IBUF_BUFG
+    SLICE_X44Y45         FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y45         FDRE (Prop_fdre_C_Q)         0.456     5.544 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/durum_reg[0]/Q
+                         net (fo=38, routed)          2.286     7.830    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/b_cikis_reg[0]_0
+    SLICE_X36Y65         LUT2 (Prop_lut2_I0_O)        0.124     7.954 r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[4].g_sutun[3].u_islem_elemani/a_cikis[8]_i_2/O
+                         net (fo=680, routed)         4.818    12.772    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[1].u_islem_elemani/E[0]
+    SLICE_X13Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[1].u_islem_elemani/a_cikis_reg[8]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    W5                                                0.000    10.000 r  clk (IN)
+                         net (fo=0)                   0.000    10.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         1.388    11.388 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           1.862    13.250    clk_IBUF
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    13.341 r  clk_IBUF_BUFG_inst/O
+                         net (fo=6625, routed)        1.614    14.955    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[1].u_islem_elemani/clk_IBUF_BUFG
+    SLICE_X13Y108        FDRE                                         r  u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[1].u_islem_elemani/a_cikis_reg[8]/C
+                         clock pessimism              0.180    15.135    
+                         clock uncertainty           -0.035    15.100    
+    SLICE_X13Y108        FDRE (Setup_fdre_C_CE)      -0.205    14.895    u_bert_tiny/u_veri_yolu/u_dogrusal_katman/u_tile_denetleyici/u_sistolik_dizi/g_satir[2].g_sutun[1].u_islem_elemani/a_cikis_reg[8]
+  -------------------------------------------------------------------
+                         required time                         14.895    
+                         arrival time                         -12.772    
+  -------------------------------------------------------------------
+                         slack                                  2.122    
+
+
+
+

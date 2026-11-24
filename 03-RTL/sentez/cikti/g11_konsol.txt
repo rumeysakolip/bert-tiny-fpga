@@ -1,0 +1,738 @@
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Tue Oct 27 11:07:17 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source sentez/g11_sentez.tcl
+# set part xc7a35tcpg236-1
+# file mkdir sentez/cikti
+# foreach {ust dosya} {softmax_birim softmax_birim layernorm_birim layernorm_birim} {
+#     read_verilog rtl/bolucu_seri.v
+#     read_verilog rtl/$dosya.v
+#     synth_design -top $ust -part $part -mode out_of_context -flatten_hierarchy rebuilt
+#     create_clock -period 10.0 [get_ports clk]
+#     report_utilization -file sentez/cikti/${ust}_kullanim.txt
+#     report_timing_summary -delay_type max -max_paths 1 -file sentez/cikti/${ust}_zamanlama.txt
+#     close_design
+#     remove_files [get_files]
+# }
+Command: synth_design -top softmax_birim -part xc7a35tcpg236-1 -mode out_of_context -flatten_hierarchy rebuilt
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 11384
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 999.824 ; gain = 500.941
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'softmax_birim' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/softmax_birim.v:11]
+INFO: [Synth 8-6157] synthesizing module 'bolucu_seri' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_seri.v:7]
+	Parameter W bound to: 24 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bolucu_seri' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_seri.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'softmax_birim' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/softmax_birim.v:11]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1108.926 ; gain = 610.043
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1108.926 ; gain = 610.043
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1108.926 ; gain = 610.043
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1108.926 ; gain = 610.043
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   34 Bit       Adders := 1     
+	   3 Input   25 Bit       Adders := 1     
+	   2 Input   22 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    7 Bit       Adders := 1     
++---Registers : 
+	               58 Bit    Registers := 1     
+	               34 Bit    Registers := 2     
+	               25 Bit    Registers := 1     
+	               24 Bit    Registers := 6     
+	               22 Bit    Registers := 1     
+	               16 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
++---Multipliers : 
+	              24x34  Multipliers := 1     
++---RAMs : 
+	               8K Bit	(512 X 16 bit)          RAMs := 1     
+	               2K Bit	(64 X 32 bit)          RAMs := 1     
+	             1024 Bit	(64 X 16 bit)          RAMs := 1     
+	               64 Bit	(64 X 1 bit)          RAMs := 1     
++---Muxes : 
+	  10 Input   34 Bit        Muxes := 1     
+	   2 Input   34 Bit        Muxes := 1     
+	   2 Input   25 Bit        Muxes := 1     
+	   2 Input   24 Bit        Muxes := 1     
+	  10 Input   22 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 1     
+	  10 Input    7 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 3     
+	  10 Input    1 Bit        Muxes := 13    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP carp0, operation Mode is: A2*B2.
+DSP Report: register carp0 is absorbed into DSP carp0.
+DSP Report: register carp0 is absorbed into DSP carp0.
+DSP Report: operator carp0 is absorbed into DSP carp0.
+DSP Report: operator carp0 is absorbed into DSP carp0.
+DSP Report: Generating DSP carp_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register fark_reg is absorbed into DSP carp_reg.
+DSP Report: register carp_reg is absorbed into DSP carp_reg.
+DSP Report: register carp_reg is absorbed into DSP carp_reg.
+DSP Report: operator carp0 is absorbed into DSP carp_reg.
+DSP Report: operator carp0 is absorbed into DSP carp_reg.
+DSP Report: Generating DSP dv_num_reg, operation Mode is: C+A*(B:0xff).
+DSP Report: register dv_num_reg is absorbed into DSP dv_num_reg.
+DSP Report: operator pay is absorbed into DSP dv_num_reg.
+DSP Report: operator pay0 is absorbed into DSP dv_num_reg.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[47]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[46]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[45]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[44]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[43]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[42]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[41]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[40]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[39]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[38]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[37]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[36]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[35]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[34]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[33]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[32]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[31]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[30]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[29]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[28]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[27]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[26]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[25]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[24]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[23]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[22]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[21]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[20]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[19]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[18]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[17]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[15]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[14]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[13]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[12]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[11]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[10]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[9]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[8]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[7]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[6]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[5]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[4]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[3]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[2]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[1]) is unused and will be removed from module softmax_birim.
+WARNING: [Synth 8-3332] Sequential element (carp_reg[0]) is unused and will be removed from module softmax_birim.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1309.102 ; gain = 810.219
+---------------------------------------------------------------------------------
+ Sort Area is  carp0_0 : 0 0 : 3489 7042 : Used 1 time 0
+ Sort Area is  carp0_0 : 0 1 : 3553 7042 : Used 1 time 0
+ Sort Area is  dv_num_reg_3 : 0 0 : 556 556 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++--------------+------------+-----------+----------------------+----------------+
+|Module Name   | RTL Object | Inference | Size (Depth x Width) | Primitives     | 
++--------------+------------+-----------+----------------------+----------------+
+|softmax_birim | mbuf_reg   | Implied   | 64 x 1               | RAM64X1S x 1   | 
+|softmax_birim | sbuf_reg   | Implied   | 64 x 32              | RAM64X1S x 32  | 
+|softmax_birim | lut_reg    | Implied   | 512 x 16             | RAM64M x 48    | 
+|softmax_birim | ebuf_reg   | Implied   | 64 x 16              | RAM64X1S x 16  | 
++--------------+------------+-----------+----------------------+----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++--------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name   | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|softmax_birim | A2*B2            | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|softmax_birim | (PCIN>>17)+A2*B2 | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|softmax_birim | C+A*(B:0xff)     | 16     | 8      | 21     | -      | 24     | 0    | 0    | 0    | -    | -     | 0    | 1    | 
++--------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1309.102 ; gain = 810.219
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++--------------+------------+-----------+----------------------+----------------+
+|Module Name   | RTL Object | Inference | Size (Depth x Width) | Primitives     | 
++--------------+------------+-----------+----------------------+----------------+
+|softmax_birim | mbuf_reg   | Implied   | 64 x 1               | RAM64X1S x 1   | 
+|softmax_birim | sbuf_reg   | Implied   | 64 x 32              | RAM64X1S x 32  | 
+|softmax_birim | lut_reg    | Implied   | 512 x 16             | RAM64M x 48    | 
+|softmax_birim | ebuf_reg   | Implied   | 64 x 16              | RAM64X1S x 16  | 
++--------------+------------+-----------+----------------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1309.102 ; gain = 810.219
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1521.168 ; gain = 1022.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1521.168 ; gain = 1022.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1521.168 ; gain = 1022.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1521.168 ; gain = 1022.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1521.168 ; gain = 1022.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1521.168 ; gain = 1022.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++--------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name   | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|softmax_birim | A'*B'            | 24     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|softmax_birim | (PCIN>>17+A*B')' | 0      | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|softmax_birim | (C'+A*B)'        | 16     | 8      | 21     | -      | 24     | 0    | 0    | 1    | -    | -     | 0    | 1    | 
++--------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    30|
+|2     |DSP48E1  |     3|
+|3     |LUT1     |     4|
+|4     |LUT2     |   182|
+|5     |LUT3     |    31|
+|6     |LUT4     |   102|
+|7     |LUT5     |    36|
+|8     |LUT6     |    51|
+|9     |RAM64M   |    40|
+|10    |RAM64X1D |     8|
+|11    |RAM64X1S |    49|
+|12    |FDRE     |   198|
++------+---------+------+
+
+Report Instance Areas: 
++------+---------+------------+------+
+|      |Instance |Module      |Cells |
++------+---------+------------+------+
+|1     |top      |            |   734|
+|2     |  u_dv   |bolucu_seri |   248|
++------+---------+------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1521.168 ; gain = 1022.285
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 48 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1521.168 ; gain = 1022.285
+Synthesis Optimization Complete : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1521.168 ; gain = 1022.285
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1536.203 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 130 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1645.664 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 97 instances were transformed.
+  RAM64M => RAM64M (RAMD64E(x4)): 40 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 8 instances
+  RAM64X1S => RAM64X1S (RAMS64E): 49 instances
+
+Synth Design complete | Checksum: 9940be7a
+INFO: [Common 17-83] Releasing license: Synthesis
+16 Infos, 48 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1645.664 ; gain = 1151.742
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+report_timing_summary: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1872.898 ; gain = 227.234
+Command: synth_design -top layernorm_birim -part xc7a35tcpg236-1 -mode out_of_context -flatten_hierarchy rebuilt
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'layernorm_birim' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:14]
+INFO: [Synth 8-6157] synthesizing module 'bolucu_seri' [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_seri.v:7]
+	Parameter W bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bolucu_seri' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/bolucu_seri.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'layernorm_birim' (0#1) [C:/Users/rumey/Documents/biitirme-projem/03-RTL/rtl/layernorm_birim.v:14]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   67 Bit       Adders := 1     
+	   2 Input   66 Bit       Adders := 1     
+	   2 Input   45 Bit       Adders := 2     
+	   2 Input   40 Bit       Adders := 2     
+	   3 Input   40 Bit       Adders := 1     
+	   3 Input   33 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 2     
+	   2 Input   26 Bit       Adders := 1     
+	   2 Input   25 Bit       Adders := 1     
+	   2 Input   21 Bit       Adders := 1     
+	   3 Input   19 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 2     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    6 Bit       Adders := 1     
++---Registers : 
+	               66 Bit    Registers := 1     
+	               65 Bit    Registers := 1     
+	               45 Bit    Registers := 1     
+	               40 Bit    Registers := 4     
+	               33 Bit    Registers := 1     
+	               32 Bit    Registers := 6     
+	               31 Bit    Registers := 1     
+	               25 Bit    Registers := 1     
+	               21 Bit    Registers := 1     
+	               19 Bit    Registers := 2     
+	               18 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
++---Multipliers : 
+	              32x33  Multipliers := 1     
++---RAMs : 
+	               2K Bit	(128 X 18 bit)          RAMs := 1     
++---Muxes : 
+	  15 Input   45 Bit        Muxes := 1     
+	  15 Input   40 Bit        Muxes := 4     
+	   2 Input   40 Bit        Muxes := 1     
+	   2 Input   33 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 2     
+	  15 Input   25 Bit        Muxes := 1     
+	  15 Input   21 Bit        Muxes := 1     
+	   2 Input   17 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 3     
+	  15 Input    1 Bit        Muxes := 20    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP dsq_r_reg, operation Mode is: (C' or 0)+A2*B2.
+DSP Report: register dsq_r_reg is absorbed into DSP dsq_r_reg.
+DSP Report: register dsq_r_reg is absorbed into DSP dsq_r_reg.
+DSP Report: register dsq_r_reg is absorbed into DSP dsq_r_reg.
+DSP Report: operator dsq_r0 is absorbed into DSP dsq_r_reg.
+DSP Report: operator dsq_r0 is absorbed into DSP dsq_r_reg.
+DSP Report: Generating DSP p1_reg, operation Mode is: (A2*B)'.
+DSP Report: register y_reg is absorbed into DSP p1_reg.
+DSP Report: register p1_reg is absorbed into DSP p1_reg.
+DSP Report: operator p10 is absorbed into DSP p1_reg.
+DSP Report: Generating DSP p20, operation Mode is: A2*B.
+DSP Report: register p20 is absorbed into DSP p20.
+DSP Report: operator p20 is absorbed into DSP p20.
+DSP Report: operator p20 is absorbed into DSP p20.
+DSP Report: Generating DSP p2_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register p2_reg is absorbed into DSP p2_reg.
+DSP Report: operator p20 is absorbed into DSP p2_reg.
+DSP Report: operator p20 is absorbed into DSP p2_reg.
+DSP Report: Generating DSP p20, operation Mode is: A*B2.
+DSP Report: register p20 is absorbed into DSP p20.
+DSP Report: operator p20 is absorbed into DSP p20.
+DSP Report: operator p20 is absorbed into DSP p20.
+DSP Report: Generating DSP p2_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register p2_reg is absorbed into DSP p2_reg.
+DSP Report: operator p20 is absorbed into DSP p2_reg.
+DSP Report: operator p20 is absorbed into DSP p2_reg.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[47]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[46]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[45]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[44]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[43]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[42]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[41]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[40]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[39]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[38]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[37]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[36]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[35]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[34]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[33]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[32]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[31]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[30]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[29]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[28]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[27]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[26]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[25]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[24]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[23]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[22]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[21]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[20]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[19]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[18]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[17]) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[47]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[46]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[45]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[44]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[43]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[42]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[41]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[40]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[39]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[38]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[37]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[36]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[35]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[34]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[33]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[32]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[31]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[30]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[29]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[28]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[27]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[26]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[25]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[24]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[23]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[22]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[21]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[20]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[19]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[18]__0) is unused and will be removed from module layernorm_birim.
+WARNING: [Synth 8-3332] Sequential element (p2_reg[17]__0) is unused and will be removed from module layernorm_birim.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+ Sort Area is  dsq_r_reg_0 : 0 0 : 2827 2827 : Used 1 time 100
+ Sort Area is  p20_4 : 0 0 : 3119 5820 : Used 1 time 0
+ Sort Area is  p20_4 : 0 1 : 2701 5820 : Used 1 time 0
+ Sort Area is  p20_7 : 0 0 : 2777 5368 : Used 1 time 0
+ Sort Area is  p20_7 : 0 1 : 2591 5368 : Used 1 time 0
+ Sort Area is  p1_reg_2 : 0 0 : 2084 2084 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++----------------+------------+-----------+----------------------+-----------------+
+|Module Name     | RTL Object | Inference | Size (Depth x Width) | Primitives      | 
++----------------+------------+-----------+----------------------+-----------------+
+|layernorm_birim | buf_q_reg  | Implied   | 128 x 18             | RAM128X1S x 18  | 
+|layernorm_birim | bet_reg    | Implied   | 128 x 16             | RAM64M x 12     | 
+|layernorm_birim | gam_reg    | Implied   | 128 x 16             | RAM64M x 12     | 
++----------------+------------+-----------+----------------------+-----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++----------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|layernorm_birim | (C' or 0)+A2*B2 | 19     | 18     | 18     | -      | 37     | 1    | 1    | 1    | -    | -     | 0    | 1    | 
+|layernorm_birim | (A2*B)'         | 17     | 16     | -      | -      | 33     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|layernorm_birim | A2*B            | 18     | 16     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17)+A*B  | 16     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | A*B2            | 18     | 18     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17)+A*B  | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
++----------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++----------------+------------+-----------+----------------------+-----------------+
+|Module Name     | RTL Object | Inference | Size (Depth x Width) | Primitives      | 
++----------------+------------+-----------+----------------------+-----------------+
+|layernorm_birim | buf_q_reg  | Implied   | 128 x 18             | RAM128X1S x 18  | 
+|layernorm_birim | bet_reg    | Implied   | 128 x 16             | RAM64M x 12     | 
+|layernorm_birim | gam_reg    | Implied   | 128 x 16             | RAM64M x 12     | 
++----------------+------------+-----------+----------------------+-----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++----------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name     | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|layernorm_birim | Dynamic          | -      | -      | -      | -      | 37     | -    | -    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | (A'*B)'          | 30     | 18     | -      | -      | 33     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | A'*B             | 17     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17+A*B')' | 30     | 14     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|layernorm_birim | A*B'             | 17     | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|layernorm_birim | (PCIN>>17+A*B')' | 0      | 14     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 1    | 
++----------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |CARRY4    |   179|
+|2     |DSP48E1   |     6|
+|3     |LUT1      |    59|
+|4     |LUT2      |   530|
+|5     |LUT3      |   249|
+|6     |LUT4      |   151|
+|7     |LUT5      |   118|
+|8     |LUT6      |   189|
+|9     |RAM128X1S |    18|
+|10    |RAM64M    |    22|
+|11    |FDRE      |   603|
+|12    |FDSE      |     1|
++------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1872.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 63 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1872.898 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1872.898 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1872.898 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 225 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'layernorm_birim' is not ideal for floorplanning, since the cellview 'layernorm_birim' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1872.898 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 40 instances were transformed.
+  RAM128X1S => RAM128X1S (MUXF7, RAMS64E(x2)): 18 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 22 instances
+
+Synth Design complete | Checksum: 8a73f832
+INFO: [Common 17-83] Releasing license: Synthesis
+32 Infos, 113 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1872.898 ; gain = 0.000
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+report_timing_summary: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1901.434 ; gain = 28.535
+# puts "G11 SENTEZ BITTI"
+G11 SENTEZ BITTI
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 27 11:08:09 2026...

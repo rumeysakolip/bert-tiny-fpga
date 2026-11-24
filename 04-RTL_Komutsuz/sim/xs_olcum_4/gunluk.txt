@@ -1,0 +1,84 @@
+
+****** xsim v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Thu Nov 12 12:10:16 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/olcum/xsim_script.tcl
+# xsim {olcum} -testplusarg hizli=1 -testplusarg aralik=4 -testplusarg ns=2 -autoloadwcfg -runall
+Time resolution is 1 ps
+run -all
+==== UCTAN UCA SINAMA: bayt akisi -> CRC-16 ayristirici -> sabit cizelge -> ortak cekirdek; 2 katman, 2 cumle; altin modelle bit-birebir ====
+Cizelge katman basina 14 satir: Q(2 bas) K(2 bas) V | Q.K^T+Softmax ve P.V (2 bas) | cikis dogrusali | LayerNorm 1 | ileri besleme 1, 2 | LayerNorm 2
+OLCUM KIPI: kontrolsuz; bayt araligi 4 cevrim
+SATIR katman 0 satir 1 basladi cevrim 68361
+SATIR katman 0 satir 2 basladi cevrim 103933
+SATIR katman 0 satir 3 basladi cevrim 139505
+SATIR katman 0 satir 4 basladi cevrim 175077
+SATIR katman 0 satir 5 basladi cevrim 243779
+SATIR katman 0 satir 6 basladi cevrim 265173
+SATIR katman 0 satir 7 basladi cevrim 270567
+SATIR katman 0 satir 8 basladi cevrim 291961
+SATIR katman 0 satir 9 basladi cevrim 297355
+SATIR katman 0 satir 10 basladi cevrim 366049
+SATIR katman 0 satir 11 basladi cevrim 409774
+SATIR katman 0 satir 12 basladi cevrim 677445
+SATIR katman 0 satir 13 basladi cevrim 948889
+SATIR katman 1 satir 0 basladi cevrim 991590
+SATIR katman 1 satir 1 basladi cevrim 1027165
+SATIR katman 1 satir 2 basladi cevrim 1062737
+SATIR katman 1 satir 3 basladi cevrim 1098309
+SATIR katman 1 satir 4 basladi cevrim 1133881
+SATIR katman 1 satir 5 basladi cevrim 1202583
+SATIR katman 1 satir 6 basladi cevrim 1223977
+SATIR katman 1 satir 7 basladi cevrim 1229371
+SATIR katman 1 satir 8 basladi cevrim 1250765
+SATIR katman 1 satir 9 basladi cevrim 1256159
+SATIR katman 1 satir 10 basladi cevrim 1324853
+SATIR katman 1 satir 11 basladi cevrim 1368578
+SATIR katman 1 satir 12 basladi cevrim 1636249
+SATIR katman 1 satir 13 basladi cevrim 1907693
+SATIR katman 1 satir 14 basladi cevrim 1950394
+SATIR katman 1 satir 15 basladi cevrim 2017329
+SATIR katman 0 satir 0 basladi cevrim 2021709
+[cumle 0] toplam 2021703 cevrim (20 ms @100 MHz); sinif=1 puanlar -65, 73
+SATIR katman 0 satir 1 basladi cevrim 2090065
+SATIR katman 0 satir 2 basladi cevrim 2125637
+SATIR katman 0 satir 3 basladi cevrim 2161209
+SATIR katman 0 satir 4 basladi cevrim 2196781
+SATIR katman 0 satir 5 basladi cevrim 2265483
+SATIR katman 0 satir 6 basladi cevrim 2286877
+SATIR katman 0 satir 7 basladi cevrim 2292271
+SATIR katman 0 satir 8 basladi cevrim 2313665
+SATIR katman 0 satir 9 basladi cevrim 2319059
+SATIR katman 0 satir 10 basladi cevrim 2387753
+SATIR katman 0 satir 11 basladi cevrim 2431478
+SATIR katman 0 satir 12 basladi cevrim 2699149
+SATIR katman 0 satir 13 basladi cevrim 2970593
+SATIR katman 1 satir 0 basladi cevrim 3013294
+SATIR katman 1 satir 1 basladi cevrim 3048869
+SATIR katman 1 satir 2 basladi cevrim 3084441
+SATIR katman 1 satir 3 basladi cevrim 3120013
+SATIR katman 1 satir 4 basladi cevrim 3155585
+SATIR katman 1 satir 5 basladi cevrim 3224287
+SATIR katman 1 satir 6 basladi cevrim 3245681
+SATIR katman 1 satir 7 basladi cevrim 3251075
+SATIR katman 1 satir 8 basladi cevrim 3272469
+SATIR katman 1 satir 9 basladi cevrim 3277863
+SATIR katman 1 satir 10 basladi cevrim 3346557
+SATIR katman 1 satir 11 basladi cevrim 3390282
+SATIR katman 1 satir 12 basladi cevrim 3657953
+SATIR katman 1 satir 13 basladi cevrim 3929397
+SATIR katman 1 satir 14 basladi cevrim 3972098
+SATIR katman 1 satir 15 basladi cevrim 4039033
+SATIR katman 0 satir 0 basladi cevrim 4043413
+[cumle 1] toplam 2021704 cevrim (20 ms @100 MHz); sinif=0 puanlar 95, -108
+OLCUM BITTI: toplam 4043413 cevrim, 838858 bayt akis
+$finish called at time : 40434135 ns : File "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/tb/tb_ortak_ust.v" Line 194
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:01:30 . Memory (MB): peak = 199.559 ; gain = 0.000
+exit
+INFO: xsimkernel Simulation Memory Usage: 18128 KB (Peak: 18128 KB), Simulation CPU Usage: 89061 ms
+INFO: [Common 17-206] Exiting xsim at Thu Nov 12 12:11:48 2026...

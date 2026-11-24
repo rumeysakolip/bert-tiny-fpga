@@ -1,0 +1,196 @@
+{
+  "islemci": {
+    "Name": "12th Gen Intel(R) Core(TM) i7-12650H",
+    "NumberOfCores": 10,
+    "NumberOfLogicalProcessors": 16,
+    "MaxClockSpeed": 2700
+  },
+  "guc_plani": "Power Scheme GUID: 5da85d85-eb0c-4710-a805-6da8bbcf1f02  (Office)",
+  "isletim_sistemi": "Windows-11-10.0.26300-SP0",
+  "tarih": "2026-11-13 00:25",
+  "sonuclar": [
+    {
+      "iplik": 1,
+      "olcumler": {
+        "pytorch_fp32_64_belirtec": {
+          "tekrar": 500,
+          "ortalama_ms": 5.30758039932698,
+          "standart_sapma_ms": 4.24118251493769,
+          "ortanca_ms": 4.811499995412305,
+          "yuzde95_ms": 6.73846001154743,
+          "en_kucuk_ms": 3.5453999880701303,
+          "ilk_cikis_puanlari": [
+            -2.7843410968780518,
+            2.9585530757904053
+          ]
+        },
+        "pytorch_fp32_8_belirtec": {
+          "tekrar": 500,
+          "ortalama_ms": 2.5934529996011406,
+          "standart_sapma_ms": 0.8330434422399948,
+          "ortanca_ms": 2.3395500029437244,
+          "yuzde95_ms": 4.024614993249997,
+          "en_kucuk_ms": 1.5404000005219132,
+          "ilk_cikis_puanlari": [
+            -2.78273606300354,
+            2.9705545902252197
+          ]
+        },
+        "altin_kayan_nokta_64_belirtec": {
+          "tekrar": 300,
+          "ortalama_ms": 8.400056666578166,
+          "standart_sapma_ms": 1.2472682996631923,
+          "ortanca_ms": 8.060849999310449,
+          "yuzde95_ms": 10.820400016382338,
+          "en_kucuk_ms": 6.545799988089129,
+          "ilk_cikis_puanlari": [
+            -2.7843410968780518,
+            2.9585530757904053
+          ]
+        },
+        "altin_tamsayi_b_kipi_64_belirtec": {
+          "tekrar": 300,
+          "ortalama_ms": 40.21104766638018,
+          "standart_sapma_ms": 5.6511094454204285,
+          "ortanca_ms": 38.37224999733735,
+          "yuzde95_ms": 51.37674501747824,
+          "en_kucuk_ms": 33.36299999500625,
+          "ilk_cikis_puanlari": [
+            -2.7907962799072266,
+            2.954960823059082
+          ]
+        }
+      },
+      "ornek_cumle_belirtec_sayisi": 12,
+      "surumler": {
+        "python": "3.14.3",
+        "numpy": "2.4.6",
+        "torch": "2.14.1+cpu",
+        "torch_iplik": 1
+      },
+      "sure_sn": 46.5
+    },
+    {
+      "iplik": 10,
+      "olcumler": {
+        "pytorch_fp32_64_belirtec": {
+          "tekrar": 500,
+          "ortalama_ms": 1.5490415994427167,
+          "standart_sapma_ms": 0.24056899889803599,
+          "ortanca_ms": 1.5185499796643853,
+          "yuzde95_ms": 1.913849989068694,
+          "en_kucuk_ms": 1.134599995566532,
+          "ilk_cikis_puanlari": [
+            -2.7843410968780518,
+            2.9585530757904053
+          ]
+        },
+        "pytorch_fp32_8_belirtec": {
+          "tekrar": 500,
+          "ortalama_ms": 2.2549130003899336,
+          "standart_sapma_ms": 2.1350013138773263,
+          "ortanca_ms": 1.372750019072555,
+          "yuzde95_ms": 5.0067149932146995,
+          "en_kucuk_ms": 0.673100003041327,
+          "ilk_cikis_puanlari": [
+            -2.78273606300354,
+            2.9705545902252197
+          ]
+        },
+        "altin_kayan_nokta_64_belirtec": {
+          "tekrar": 300,
+          "ortalama_ms": 64.0455879997656,
+          "standart_sapma_ms": 27.301505937489633,
+          "ortanca_ms": 56.859000003896654,
+          "yuzde95_ms": 117.6652800117154,
+          "en_kucuk_ms": 39.98880001017824,
+          "ilk_cikis_puanlari": [
+            -2.7843410968780518,
+            2.958552837371826
+          ]
+        },
+        "altin_tamsayi_b_kipi_64_belirtec": {
+          "tekrar": 300,
+          "ortalama_ms": 40.858334331812024,
+          "standart_sapma_ms": 9.260537168212124,
+          "ortanca_ms": 39.04309999779798,
+          "yuzde95_ms": 52.11635498853866,
+          "en_kucuk_ms": 33.93360000336543,
+          "ilk_cikis_puanlari": [
+            -2.7907962799072266,
+            2.954960823059082
+          ]
+        }
+      },
+      "ornek_cumle_belirtec_sayisi": 12,
+      "surumler": {
+        "python": "3.14.3",
+        "numpy": "2.4.6",
+        "torch": "2.14.1+cpu",
+        "torch_iplik": 10
+      },
+      "sure_sn": 61.2
+    },
+    {
+      "iplik": 16,
+      "olcumler": {
+        "pytorch_fp32_64_belirtec": {
+          "tekrar": 500,
+          "ortalama_ms": 6.090350600890815,
+          "standart_sapma_ms": 2.82319685636388,
+          "ortanca_ms": 5.323000019416213,
+          "yuzde95_ms": 9.901095014356535,
+          "en_kucuk_ms": 3.631600004155189,
+          "ilk_cikis_puanlari": [
+            -2.7843410968780518,
+            2.9585530757904053
+          ]
+        },
+        "pytorch_fp32_8_belirtec": {
+          "tekrar": 500,
+          "ortalama_ms": 4.598090999992564,
+          "standart_sapma_ms": 2.0585244196814445,
+          "ortanca_ms": 3.9530000067315996,
+          "yuzde95_ms": 7.3433200072031335,
+          "en_kucuk_ms": 2.8392000240273774,
+          "ilk_cikis_puanlari": [
+            -2.78273606300354,
+            2.9705545902252197
+          ]
+        },
+        "altin_kayan_nokta_64_belirtec": {
+          "tekrar": 300,
+          "ortalama_ms": 84.3270763331869,
+          "standart_sapma_ms": 25.09199191574761,
+          "ortanca_ms": 77.67164999677334,
+          "yuzde95_ms": 142.41123500105465,
+          "en_kucuk_ms": 55.476599984103814,
+          "ilk_cikis_puanlari": [
+            -2.7843410968780518,
+            2.958552837371826
+          ]
+        },
+        "altin_tamsayi_b_kipi_64_belirtec": {
+          "tekrar": 300,
+          "ortalama_ms": 40.418214666909385,
+          "standart_sapma_ms": 10.199785808892212,
+          "ortanca_ms": 38.24945000815205,
+          "yuzde95_ms": 51.356080011464655,
+          "en_kucuk_ms": 34.249599993927404,
+          "ilk_cikis_puanlari": [
+            -2.7907962799072266,
+            2.954960823059082
+          ]
+        }
+      },
+      "ornek_cumle_belirtec_sayisi": 12,
+      "surumler": {
+        "python": "3.14.3",
+        "numpy": "2.4.6",
+        "torch": "2.14.1+cpu",
+        "torch_iplik": 16
+      },
+      "sure_sn": 71.3
+    }
+  ]
+}

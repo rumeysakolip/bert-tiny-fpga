@@ -1,0 +1,32 @@
+{
+ "cumle": 0,
+ "katmanlar": {
+  "l0_q": {
+   "K": 128,
+   "C": 128,
+   "eleman": 8192,
+   "nb": 8,
+   "uyusmayan": 0,
+   "pass": true
+  }
+ },
+ "hata_enjeksiyonu": {
+  "bozuk_crc": {
+   "tur": "HATA",
+   "cmd": 1,
+   "kod": 1,
+   "neden": "CRC"
+  },
+  "bilinmeyen_komut": {
+   "tur": "HATA",
+   "cmd": 85,
+   "kod": 2,
+   "neden": "bilinmeyen komut"
+  },
+  "ok": true
+ },
+ "gonderilen_bayt": 26106,
+ "paket_sayisi": 70,
+ "uart_921600_sn_tahmin": 0.37,
+ "uart_3M_sn_tahmin": 0.11
+}
