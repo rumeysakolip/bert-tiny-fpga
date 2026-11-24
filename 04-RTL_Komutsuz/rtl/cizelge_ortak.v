@@ -16,7 +16,8 @@
 module cizelge_ortak #(
     parameter KATMAN_ISLEM = 1,
     parameter SINIFLANDIR  = 1,                   // 1: son katmandan sonra pooler (tanh) ve siniflandirici satirlari + karar
-    parameter DOLGU_ATLA   = 1                    // 1: token blogu sayisi nb = ceil(cumle_uzunluk/8) (dolgu bloklari hesaplanmaz); 0: her zaman 8 blok (eski davranis)
+    parameter DOLGU_ATLA   = 1,                   // 1: token blogu sayisi nb = ceil(cumle_uzunluk/8) (dolgu bloklari hesaplanmaz); 0: her zaman 8 blok (eski davranis)
+    parameter NA           = 1                    // paralel dogrusal dizi (lane) sayisi: 1, 2, 4 ya da 8; dogrusal satirda NA panel ayni anda hesaplanir
 ) (
     input  wire         clk,
     input  wire         rst,
@@ -36,6 +37,7 @@ module cizelge_ortak #(
     output reg  [12:0]  taban_cikis,
     output reg  [10:0]  ayar_k,
     output reg  [6:0]   ayar_panel_sayisi,
+    output reg  [15:0]  agirlik_adres,           // agirlik ROM'u (yonga ici): bu panel grubunun banka ici sozcuk adresi (blok_basla ile birlikte gecerli)
     output reg  [5:0]   ayar_kaydirma,
     output reg          gelu_etkin,
     output reg  [3:0]   ayar_blok_sayisi,
@@ -180,6 +182,13 @@ function [8*16-1:0] katman_ad; input integer i; begin case (i)
     // <<< parametre_harita bitti
 
     localparam SATIR_SAYISI = 14;
+    localparam LOG2NA = (NA == 1) ? 0 : (NA == 2) ? 1 : (NA == 4) ? 2 : 3;
+    // agirlik ROM'unda (NA banka) satirlarin banka ici taban adresi: satir r, NA'ya yuvarlanmis ceil(C/8/NA) grup x K sozcuk
+    function [15:0] rom_taban; input integer i; integer r; integer s; begin
+        s = 0;
+        for (r = 0; r < 14; r = r + 1) if (r < i) s = s + ((((katman_c(r) + 7) >> 3) + NA - 1) >> LOG2NA) * katman_k(r);
+        rom_taban = s;
+    end endfunction
 
     // ---------------- sabit tablo ----------------
     // satir turu: 0 dogrusal, 1 Q.K^T, 2 P.V, 3 LayerNorm
@@ -245,6 +254,7 @@ function [8*16-1:0] katman_ad; input integer i; begin case (i)
     wire [1:0]  tur  = s_tur(sn);
     wire [2:0]  kat  = s_kat(sn);
     wire [6:0]  npan = s_panel(sn);
+    wire [6:0]  npg  = (npan + NA - 1) >> LOG2NA;                 // panel GRUBU sayisi (NA panel birlikte); NA=1 iken npan
     integer     kidx;                                      // katman_tablosundaki genel sira
     always @* kidx = (sn >= 4'd14) ? (sn - 2) : (katman_no * 6 + kat);     // 14, 15: pooler ve siniflandirici (genel sira 12, 13)
     assign blok_k = katman_k(kidx);
@@ -308,30 +318,32 @@ function [8*16-1:0] katman_ad; input integer i; begin case (i)
                 S_DOGRUSAL: begin
                     // siradaki paneli serbest tampona al: blok -> param yukleme -> panel_hazir
                     case (fdurum)
-                        F_BOS: if (yuklenen < npan && bos[yuklenen[0]]) begin
+                        F_BOS: if (yuklenen < npg && bos[yuklenen[0]]) begin
                             blok_basla <= 1'b1; blok_tur <= 1'b1; blok_tampon <= yuklenen[0];
                             fetch_tampon <= yuklenen[0]; fetch_idx <= yuklenen; bos[yuklenen[0]] <= 1'b0; yuklenen <= yuklenen + 7'd1; fdurum <= F_BLOK;
+                            agirlik_adres <= rom_taban(kidx) + ((katman_k(kidx) == 11'd512) ? (({9'd0, (s_pofs(sn) >> LOG2NA)} + {9'd0, yuklenen}) << 9) : (({9'd0, (s_pofs(sn) >> LOG2NA)} + {9'd0, yuklenen}) << 7));
                         end
                         F_BLOK: if (blok_tamam) begin
                             param_basla <= 1'b1; param_tampon <= fetch_tampon;
-                            param_taban <= katman_taban(kidx) + {s_pofs(sn) + fetch_idx, 3'b000}; fdurum <= F_PARAM;
+                            param_taban <= katman_taban(kidx) + {s_pofs(sn) + (fetch_idx << LOG2NA), 3'b000}; fdurum <= F_PARAM;
                         end
                         default: if (param_bitti) fdurum <= F_BOS;
                     endcase
                     // iki panel hazirsa cekirdegi baslat
-                    if (!basladi && (ph_sonraki == 2'b11 || (npan == 7'd1 && ph_sonraki[0]))) begin basla <= 1'b1; basladi <= 1'b1; durum <= S_BEKLE; end
+                    if (!basladi && (ph_sonraki == 2'b11 || (npg == 7'd1 && ph_sonraki[0]))) begin basla <= 1'b1; basladi <= 1'b1; durum <= S_BEKLE; end
                 end
                 S_BEKLE: begin
                     // dogrusal satirda paneller akmaya devam eder
                     if (tur == 2'd0) begin
                         case (fdurum)
-                            F_BOS: if (yuklenen < npan && bos[yuklenen[0]]) begin
+                            F_BOS: if (yuklenen < npg && bos[yuklenen[0]]) begin
                                 blok_basla <= 1'b1; blok_tur <= 1'b1; blok_tampon <= yuklenen[0];
                                 fetch_tampon <= yuklenen[0]; fetch_idx <= yuklenen; bos[yuklenen[0]] <= 1'b0; yuklenen <= yuklenen + 7'd1; fdurum <= F_BLOK;
+                            agirlik_adres <= rom_taban(kidx) + ((katman_k(kidx) == 11'd512) ? (({9'd0, (s_pofs(sn) >> LOG2NA)} + {9'd0, yuklenen}) << 9) : (({9'd0, (s_pofs(sn) >> LOG2NA)} + {9'd0, yuklenen}) << 7));
                             end
                             F_BLOK: if (blok_tamam) begin
                                 param_basla <= 1'b1; param_tampon <= fetch_tampon;
-                                param_taban <= katman_taban(kidx) + {s_pofs(sn) + fetch_idx, 3'b000}; fdurum <= F_PARAM;
+                                param_taban <= katman_taban(kidx) + {s_pofs(sn) + (fetch_idx << LOG2NA), 3'b000}; fdurum <= F_PARAM;
                             end
                             default: if (param_bitti) fdurum <= F_BOS;
                         endcase

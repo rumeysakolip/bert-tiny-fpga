@@ -9,7 +9,11 @@
 // Yerlesim kurali: Q.K^T ve P.V icin taban_giris ile taban_ikinci FARKLI 1024'luk birimlerde olmalidir.
 // -----------------------------------------------------------------------------
 `timescale 1ns/1ps
-module ortak_cekirdek (
+module ortak_cekirdek #(
+    parameter NA = 1,                  // paralel dogrusal hat sayisi (1, 2, 4, 8); NA>1 iken AGIRLIK_ROM=1 olmali
+    parameter AGIRLIK_ROM = 0,         // 1: agirlik paneli yonga ici bankalardan (agirlik_rom_b<i>.mem) gelir; 0: bayt akisindan (w_yaz_*)
+    parameter ROM_D = 8192             // banka derinligi (64 bit sozcuk)
+) (
     input  wire         clk,
     input  wire         rst,
     input  wire         basla,                 // 1 cevrim darbe (mesgul degilken)
@@ -52,6 +56,12 @@ module ortak_cekirdek (
     input  wire [11:0]  param_taban,
     input  wire         param_tampon,
     output wire         param_bitti,
+    // yonga ici agirlik ROM'u (AGIRLIK_ROM=1): bir panel grubunu panel tamponlarina kopyalama istegi
+    input  wire         agr_basla,
+    input  wire [15:0]  agr_adres,
+    input  wire         agr_tampon,
+    input  wire [10:0]  agr_k,
+    output wire         agr_bitti,
     input  wire         tablo_basla,
     input  wire [2:0]   tablo_sec,
     output wire         tablo_bitti,
@@ -73,6 +83,8 @@ module ortak_cekirdek (
     reg        isyeri, basla_d, devrik_k;
     reg [3:0]  nb_k;                       // bu isin token blogu sayisi nb (1..8), basla'da kilitlenir (dolgu atlama)
     wire [6:0] kmax = {nb_k, 3'b000};      // 8*nb: etkin token sayisi (blok hizali); nb=8 iken 64
+    localparam LOG2NA = (NA == 1) ? 0 : (NA == 2) ? 1 : (NA == 4) ? 2 : 3;
+    wire [6:0] npg_lin = (ayar_panel_sayisi + NA - 1) >> LOG2NA;   // dogrusal satirda panel GRUBU sayisi (NA panel birlikte)
     wire [6:0] kpv  = (kmax < 7'd48) ? 7'd48 : kmax;   // P.V'nin K'si: tile suresi K+16 >= 64 olmali (golge akitma 64 cevrim); kisa K sifirla doldurulur
     reg [1:0]  lnk;
     reg        ln_y_yaz_k; reg [12:0] ln_taban_y_k;
@@ -119,11 +131,24 @@ module ortak_cekirdek (
         .mesgul(pk_mesgul), .bitti(pk_bitti));
 
     // ---------------- panel tamponu: kopyalayici | gomulu parametre | agirlik sozcugu ----------------
-    wire        panel_yaz_etkin  = pk_yaz_etkin | p_yaz_etkin_y | w_yaz_etkin;
-    wire        panel_yaz_tampon = pk_yaz_etkin ? pk_yaz_tampon : (p_yaz_etkin_y ? p_yaz_tampon_y : w_yaz_tampon);
-    wire [1:0]  panel_yaz_secici = pk_yaz_etkin ? pk_yaz_secici : (p_yaz_etkin_y ? p_yaz_secici_y : 2'd0);
-    wire [10:0] panel_yaz_adres  = pk_yaz_etkin ? pk_yaz_adres  : (p_yaz_etkin_y ? p_yaz_adres_y  : w_yaz_adres);
-    wire [63:0] panel_yaz_veri   = pk_yaz_etkin ? pk_yaz_veri   : (p_yaz_etkin_y ? p_yaz_veri_y   : w_yaz_veri);
+    // 0. hattin yonga ici agirlik kopyalayicisi (AGIRLIK_ROM=1)
+    wire        r0_yaz_etkin, r0_yaz_tampon; wire [1:0] r0_yaz_secici; wire [10:0] r0_yaz_adres; wire [63:0] r0_yaz_veri;
+    generate if (AGIRLIK_ROM != 0) begin : g_rom0
+        wire [15:0] r0_oku_adres; wire [63:0] r0_oku_veri; wire r0_mesgul;
+        agirlik_rom_banka #(.DOSYA("agirlik_rom_b0.mem"), .D(ROM_D), .AW(16)) u_rom0 (.clk(clk), .adres(r0_oku_adres), .veri(r0_oku_veri));
+        panel_kopyalayici #(.K_UZUNLUK(512), .KAYNAK_AW(16), .K_DINAMIK(1)) u_rk0 (.clk(clk), .rst(rst), .basla(agr_basla), .k_uz(agr_k[9:0]), .k_pad(10'd0),
+            .kaynak_adres(agr_adres), .tampon(agr_tampon), .k_oku_adres(r0_oku_adres), .k_oku_veri(r0_oku_veri),
+            .panel_yaz_etkin(r0_yaz_etkin), .panel_yaz_tampon(r0_yaz_tampon), .panel_yaz_secici(r0_yaz_secici), .panel_yaz_adres(r0_yaz_adres), .panel_yaz_veri(r0_yaz_veri),
+            .mesgul(r0_mesgul), .bitti(agr_bitti));
+    end else begin : g_rom0_yok
+        assign r0_yaz_etkin = 1'b0; assign r0_yaz_tampon = 1'b0; assign r0_yaz_secici = 2'd0; assign r0_yaz_adres = 11'd0; assign r0_yaz_veri = 64'd0;
+        assign agr_bitti = 1'b0;
+    end endgenerate
+    wire        panel_yaz_etkin  = pk_yaz_etkin | r0_yaz_etkin | p_yaz_etkin_y | w_yaz_etkin;
+    wire        panel_yaz_tampon = pk_yaz_etkin ? pk_yaz_tampon : (r0_yaz_etkin ? r0_yaz_tampon : (p_yaz_etkin_y ? p_yaz_tampon_y : w_yaz_tampon));
+    wire [1:0]  panel_yaz_secici = pk_yaz_etkin ? pk_yaz_secici : (r0_yaz_etkin ? r0_yaz_secici : (p_yaz_etkin_y ? p_yaz_secici_y : 2'd0));
+    wire [10:0] panel_yaz_adres  = pk_yaz_etkin ? pk_yaz_adres  : (r0_yaz_etkin ? r0_yaz_adres  : (p_yaz_etkin_y ? p_yaz_adres_y  : w_yaz_adres));
+    wire [63:0] panel_yaz_veri   = pk_yaz_etkin ? pk_yaz_veri   : (r0_yaz_etkin ? r0_yaz_veri   : (p_yaz_etkin_y ? p_yaz_veri_y   : w_yaz_veri));
     wire        panel_oku_tampon; wire [10:0] panel_oku_adres; wire [63:0] panel_oku_veri;
     wire        sorgu_tampon; wire [2:0] sorgu_kanal; wire [31:0] sorgu_bias; wire [30:0] sorgu_m0;
     panel_tamponu #(.K_ENFAZLA(512), .K_GENISLIGI(11)) u_panel_tamponu (.clk(clk), .panel_yaz_etkin(panel_yaz_etkin), .panel_yaz_tampon(panel_yaz_tampon), .panel_yaz_secici(panel_yaz_secici),
@@ -136,9 +161,25 @@ module ortak_cekirdek (
     wire [12:0] ln_oku_adres; wire ln_yaz_etkin; wire [12:0] ln_yaz_adres; wire [63:0] ln_yaz_veri;
     wire        n_yaz_etkin, d_yaz_etkin; wire [11:0] n_yaz_adres, d_yaz_adres; wire [63:0] n_yaz_veri, d_yaz_veri;
     reg         sm_p_yaz_etkin; reg [8:0] sm_p_yaz_adres; reg [63:0] sm_p_yaz_veri;
-    wire        c_yaz_etkin = devrik_k ? d_yaz_etkin : n_yaz_etkin;
-    wire [11:0] c_yaz_adres = devrik_k ? d_yaz_adres : n_yaz_adres;
-    wire [63:0] c_yaz_veri  = devrik_k ? d_yaz_veri  : n_yaz_veri;
+    wire        c0_etkin = devrik_k ? d_yaz_etkin : n_yaz_etkin;               // 0. hattin cikis sozcugu (normal / devrik)
+    wire [11:0] c0_adres = devrik_k ? d_yaz_adres : n_yaz_adres;
+    wire [63:0] c0_veri  = devrik_k ? d_yaz_veri  : n_yaz_veri;
+    wire        c_yaz_etkin;
+    wire [11:0] c_yaz_adres;
+    wire [63:0] c_yaz_veri;
+    reg         arb_etkin;                                                      // NA>1: hatlarin FIFO'larindan siralanan sozcuk
+    reg  [75:0] arb_veri;
+    wire [NA-1:0] fifo_bos_v;
+    wire [NA-1:0] tasma_ek_v;
+    generate if (NA == 1) begin : g_yaz1
+        assign c_yaz_etkin = c0_etkin; assign c_yaz_adres = c0_adres; assign c_yaz_veri = c0_veri;
+        assign fifo_bos_v = 1'b1; assign tasma_ek_v = 1'b0;
+        initial begin arb_etkin = 1'b0; arb_veri = 76'd0; end
+    end else begin : g_yazN
+        assign c_yaz_etkin = (c0_etkin & ~t_lin) | arb_etkin;                  // dikkat baglami dogrudan, dogrusal satirlar FIFO uzerinden
+        assign c_yaz_adres = arb_etkin ? arb_veri[75:64] : c0_adres;
+        assign c_yaz_veri  = arb_etkin ? arb_veri[63:0]  : c0_veri;
+    end endgenerate
     wire        b_yaz_etkin = c_yaz_etkin | sm_p_yaz_etkin | ln_yaz_etkin | (dis_yaz_etkin & ~isyeri);
     wire [12:0] b_yaz_adres = c_yaz_etkin ? (tc + {1'b0, c_yaz_adres}) : sm_p_yaz_etkin ? (tc + {4'd0, sm_p_yaz_adres}) : ln_yaz_etkin ? ln_yaz_adres : dis_yaz_adres;
     wire [63:0] b_yaz_veri  = c_yaz_etkin ? c_yaz_veri : sm_p_yaz_etkin ? sm_p_yaz_veri : ln_yaz_etkin ? ln_yaz_veri : dis_yaz_veri;
@@ -159,20 +200,22 @@ module ortak_cekirdek (
     wire        calistir_t = (basla_d & t_lin) | calistir_att;
     wire [1:0]  panel_hazir_t = t_att ? ph_att : panel_hazir;
     wire        tile_bitti;
+    wire        tasma_l0;
+    assign tasma_hatasi = tasma_l0 | (|tasma_ek_v);
     wire        cikis_gecerli, cikis_tile_son;
     wire [2:0]  cikis_token, cikis_kanal;
     wire [3:0]  cikis_blok;
     wire [6:0]  cikis_panel;
     wire signed [31:0] cikis_birikec;
     tile_denetleyici #(.DIZI_BOYUTU(8), .BLOK_SAYISI(8), .K_GENISLIGI(11), .PANEL_GENISLIGI(7), .ADRES_GENISLIGI(12)) u_tile (
-        .clk(clk), .rst(rst), .calistir(calistir_t), .ayar_k(t_pv ? {4'b0000, kpv} : (t_qk ? 11'd64 : ayar_k)), .ayar_panel_sayisi(t_qk ? {3'b000, nb_k} : (t_pv ? 7'd8 : ayar_panel_sayisi)),
+        .clk(clk), .rst(rst), .calistir(calistir_t), .ayar_k(t_pv ? {4'b0000, kpv} : (t_qk ? 11'd64 : ayar_k)), .ayar_panel_sayisi(t_qk ? {3'b000, nb_k} : (t_pv ? 7'd8 : npg_lin)),
         .ayar_blok_sayisi(nb_k), .a_isaretsiz(t_pv),
         .mesgul(tile_mesgul), .katman_bitti(tile_bitti), .panel_hazir(panel_hazir_t), .panel_bitti(panel_bitti),
         .panel_bitti_tampon(panel_bitti_tampon), .aktivasyon_oku_adres(akt_oku_adres_g), .aktivasyon_oku_veri(bellek_oku_veri),
         .panel_oku_tampon(panel_oku_tampon), .panel_oku_adres(panel_oku_adres), .panel_oku_veri(panel_oku_veri),
         .sorgu_tampon(sorgu_tampon), .sorgu_kanal(sorgu_kanal), .sorgu_bias(sorgu_bias),
         .cikis_gecerli(cikis_gecerli), .cikis_token(cikis_token), .cikis_kanal(cikis_kanal), .cikis_blok(cikis_blok), .cikis_panel(cikis_panel),
-        .cikis_tile_son(cikis_tile_son), .cikis_birikec(cikis_birikec), .cikis_tasma(tasma_hatasi));
+        .cikis_tile_son(cikis_tile_son), .cikis_birikec(cikis_birikec), .cikis_tasma(tasma_l0));
 
     // ---------------- yeniden olcekleme (TEK carpma devresi; dort is turu sirayla kullanir) ----------------
     reg [30:0] m0_g1, m0_g2;
@@ -198,12 +241,47 @@ module ortak_cekirdek (
     wire        topla_gecerli = rs_gecerli & (t_lin | t_pv);
     cikis_sozcuk_toplayici #(.ADRES_GENISLIGI(12), .PANEL_GENISLIGI(7)) u_toplayici (
         .clk(clk), .rst(rst), .gecerli(topla_gecerli), .veri_int8(son_cikis),
-        .token_sirasi(rs_meta[16:14]), .kanal_sirasi(rs_meta[13:11]), .blok_no(rs_meta[10:7]), .panel_no(rs_meta[6:0] + (t_pv ? cikis_panel_ofset : 7'd0)),
+        .token_sirasi(rs_meta[16:14]), .kanal_sirasi(rs_meta[13:11]), .blok_no(rs_meta[10:7]), .panel_no(t_lin ? (rs_meta[6:0] << LOG2NA) : (rs_meta[6:0] + (t_pv ? cikis_panel_ofset : 7'd0))),
         .kanal_toplami(t_pv ? baglam_kanal : {ayar_panel_sayisi, 3'b000}), .yaz_etkin(n_yaz_etkin), .yaz_adres(n_yaz_adres), .yaz_veri(n_yaz_veri));
     cikis_sozcuk_toplayici_devrik #(.ADRES_GENISLIGI(12), .PANEL_GENISLIGI(7)) u_devrik (
         .clk(clk), .rst(rst), .gecerli(rs_gecerli & t_lin), .veri_int8(son_cikis),
-        .token_sirasi(rs_meta[16:14]), .kanal_sirasi(rs_meta[13:11]), .blok_no(rs_meta[10:7]), .panel_no(rs_meta[6:0]),
+        .token_sirasi(rs_meta[16:14]), .kanal_sirasi(rs_meta[13:11]), .blok_no(rs_meta[10:7]), .panel_no(rs_meta[6:0] << LOG2NA),
         .yaz_etkin(d_yaz_etkin), .yaz_adres(d_yaz_adres), .yaz_veri(d_yaz_veri));
+
+    // ---------------- paralel dogrusal hatlar (NA > 1) ve cikis siralayici ----------------
+    generate if (NA > 1) begin : g_na
+        wire [NA-1:0] pop_v;
+        wire [76*NA-1:0] fifo_cikis;
+        wire [NA-1:0] tasma_ff;
+        yaz_fifo #(.W(76)) u_ff0 (.clk(clk), .rst(rst), .yaz(c0_etkin & t_lin), .giris({c0_adres, c0_veri}), .oku(pop_v[0]), .cikis(fifo_cikis[0 +: 76]), .bos(fifo_bos_v[0]), .tasma(tasma_ff[0]));
+        assign tasma_ek_v[0] = tasma_ff[0];
+        assign pop_v[0] = ~fifo_bos_v[0];
+        genvar h;
+        for (h = 1; h < NA; h = h + 1) begin : g_h
+            localparam [7:0] HC = 8'd48 + h;
+            wire        h_etkin; wire [11:0] h_adr; wire [63:0] h_dat; wire h_tasma, h_rom_bitti, h_param_bitti;
+            ek_hat #(.HAT(h), .LOG2NA(LOG2NA), .ROM_DOSYA({"agirlik_rom_b", HC, ".mem"}), .ROM_D(ROM_D)) u_hat (
+                .clk(clk), .rst(rst), .calistir(basla_d & t_lin), .ayar_k(ayar_k), .ayar_panel_grup(npg_lin), .ayar_panel_gercek(ayar_panel_sayisi),
+                .ayar_blok_sayisi(nb_k), .ayar_kaydirma(ayar_kaydirma), .gelu_etkin(gelu_etkin), .devrik_k(devrik_k), .panel_hazir(panel_hazir), .a_veri(bellek_oku_veri),
+                .rom_basla(agr_basla), .rom_adres(agr_adres), .rom_tampon(agr_tampon), .rom_k(agr_k[9:0]), .rom_bitti(h_rom_bitti),
+                .param_basla(param_basla), .param_taban(param_taban + (h * 8)), .param_tampon(param_tampon), .param_bitti(h_param_bitti),
+                .g_yaz_etkin(g_yaz_etkin), .g_yaz_adres(g_yaz_adres), .g_yaz_veri(g_yaz_veri),
+                .yaz_etkin(h_etkin), .yaz_adres(h_adr), .yaz_veri(h_dat), .tasma(h_tasma));
+            yaz_fifo #(.W(76)) u_ff (.clk(clk), .rst(rst), .yaz(h_etkin), .giris({h_adr, h_dat}), .oku(pop_v[h]), .cikis(fifo_cikis[h*76 +: 76]), .bos(fifo_bos_v[h]), .tasma(tasma_ff[h]));
+            assign pop_v[h] = ~fifo_bos_v[h] & (&fifo_bos_v[h-1:0]);
+            assign tasma_ek_v[h] = h_tasma | tasma_ff[h];
+        end
+        reg [75:0] sec;
+        integer q;
+        always @* begin
+            sec = 76'd0;
+            for (q = 0; q < NA; q = q + 1) if (pop_v[q]) sec = sec | fifo_cikis[q*76 +: 76];
+        end
+        always @(posedge clk) begin
+            if (rst) begin arb_etkin <= 1'b0; arb_veri <= 76'd0; end
+            else begin arb_etkin <= |pop_v; arb_veri <= sec; end
+        end
+    end endgenerate
 
     // ---------------- Q.K^T skor tamponu: 64 x 64 x 16 bit ----------------
     reg signed [15:0] skor_ram [0:4095];
@@ -339,6 +417,14 @@ module ortak_cekirdek (
         if (rst || basla_d) kirpilan_sayisi <= 32'd0;
         else if (rs_kirp && t_lin) kirpilan_sayisi <= kirpilan_sayisi + 32'd1;
     end
-    wire lin_bitti = t_lin & isyeri & (devrik_k ? bg[15] : bg[5]);
+    wire lin_bitti_ham = t_lin & isyeri & (devrik_k ? bg[15] : bg[5]);
+    reg  lin_bekle;                                                                  // NA>1: hatlarin FIFO'lari bosalana kadar bekle
+    wire lin_bitti_na = lin_bekle & (&fifo_bos_v) & ~arb_etkin;
+    always @(posedge clk) begin
+        if (rst || basla_d) lin_bekle <= 1'b0;
+        else if (lin_bitti_ham) lin_bekle <= 1'b1;
+        else if (lin_bitti_na) lin_bekle <= 1'b0;
+    end
+    wire lin_bitti = (NA == 1) ? lin_bitti_ham : lin_bitti_na;
     assign bitti_ic = lin_bitti | att_bitti | ln_bitti;
 endmodule

@@ -60,6 +60,7 @@ for k, hedefler in enumerate(KUMELER):
     kos([os.path.join(KOK, "scripts", "uret_ln_vektor.py")], env)
     kos([os.path.join(KOK, "scripts", "uret_sinif_vektor.py")], env)
     kos([os.path.join(KOK, "scripts", "uret_katman_akis.py"), os.path.join(d, "akis.hex"), "--ns", "2", "--katman", "2"], env)
+    kos([os.path.join(KOK, "scripts", "uret_katman_akis.py"), os.path.join(d, "akis_akt.hex"), "--ns", "2", "--katman", "2", "--sadece_akt"], env)   # agirlik ROM modu icin
     ky = json.load(open(os.path.join(d, "test_vektorleri", "kunye.json"), encoding="utf-8"))
     print(f"   token sayilari: {ky['gercek_token_sayisi']}  logit: {ky['logit']}", flush=True)
 print("tamam")

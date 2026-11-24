@@ -73,3 +73,4 @@ rapor_sistemi/
 04-RTL_Komutsuz/sim/xs_saf_*/
 04-RTL_Komutsuz/sim/xs_lane*/
 04-RTL_Komutsuz/sentez/deney/cikti/*.xdc
+04-RTL_Komutsuz/vektor_rom/

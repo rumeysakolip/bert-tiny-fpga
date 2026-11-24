@@ -11,6 +11,9 @@ module tb_ortak_ust;
     parameter AKIS_BAYT = 2000000;          // akis dizisinin boyutu; gercek uzunluk dosyadan olculur
     parameter SDIR_V = "C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/vektor_sinif";
     parameter DOLGU_ATLA = 0;               // 1: cizelge cumlenin gercek blok sayisi (nb) kadar hesaplar, karsilastirma yalniz gecerli tokenlarda; 0: eski davranis (8 blok, 64 satir)
+    parameter NA = 1;                       // paralel dogrusal hat sayisi (agirlik ROM modu: 1, 2, 4, 8)
+    parameter AGIRLIK_ROM = 0;              // 1: agirliklar yonga ici bankalardan; akista yalniz aktivasyon bloklari (uret_katman_akis.py --sadece_akt)
+    parameter ROM_D = 8192;                 // agirlik bankasi derinligi
     parameter HIZLI_OLCUM = 0;              // 1: yalniz sure olcumu (xelab -generic_top "HIZLI_OLCUM=1"); sonuclar anlamsiz, "SAF HESAP" satiri okunur
 
     integer aralik, hizli, bayt_say;
@@ -24,7 +27,7 @@ module tb_ortak_ust;
     wire        hata, cumle_bitti, tasma_hatasi, skor_tasma, ln_tasma, bellek_catisma;
     wire [3:0]  satir_no, katman_no; wire [15:0] cumle_no; wire [31:0] hata_sayisi, kabul_edilen_bayt, kirpilan_sayisi; wire [6:0] cumle_uzunluk;
 
-    ortak_ust #(.KATMAN_ISLEM(KATMAN), .HIZLI_OLCUM(HIZLI_OLCUM), .DOLGU_ATLA(DOLGU_ATLA)) dut (.clk(clk), .rst(rst), .bayt_gecerli(bayt_gecerli), .bayt_veri(bayt_veri), .bayt_hazir(bayt_hazir),
+    ortak_ust #(.KATMAN_ISLEM(KATMAN), .HIZLI_OLCUM(HIZLI_OLCUM), .DOLGU_ATLA(DOLGU_ATLA), .NA(NA), .AGIRLIK_ROM(AGIRLIK_ROM), .ROM_D(ROM_D)) dut (.clk(clk), .rst(rst), .bayt_gecerli(bayt_gecerli), .bayt_veri(bayt_veri), .bayt_hazir(bayt_hazir),
         .gozlem(gozlem), .devam(devam), .satir_bitti(satir_bitti), .oku_adres(oku_adres), .oku_veri(oku_veri),
         .hata(hata), .satir_no(satir_no), .katman_no(katman_no), .cumle_no(cumle_no), .cumle_bitti(cumle_bitti), .sinif(sinif), .sonuc_gecerli(sonuc_gecerli), .logit0(logit0), .logit1(logit1),
         .hata_sayisi(hata_sayisi), .kabul_edilen_bayt(kabul_edilen_bayt), .cumle_uzunluk(cumle_uzunluk),

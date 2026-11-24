@@ -3,7 +3,7 @@ Akis (her cumle): [aktivasyon blogu] + her katman icin cizelge sirasiyla agirlik
   aktivasyon blogu : 1 bayt cumle uzunlugu + 1024 sozcuk x 8 bayt (8 bayt/sozcuk, kucuk-uclu) + CRC-16 (yuksek bayt once)
   agirlik paneli   : K sozcuk x 8 bayt + CRC-16     (K = 128; ileri besleme 2 icin 512)
 CRC: binascii.crc_hqx(veri, 0xFFFF) = CRC-16/CCITT-FALSE (devredeki hesap ayri yazilmistir -> bagimsiz dogrulama).
-Kullanim: python scripts/uret_katman_akis.py <cikis.hex> [--ns N] [--katman L] [--hata BAYT_SIRASI BIT]
+Kullanim: python scripts/uret_katman_akis.py <cikis.hex> [--ns N] [--katman L] [--hata BAYT_SIRASI BIT] [--sadece_akt]
 """
 import binascii, os, sys
 
@@ -28,7 +28,7 @@ def crc_ekle(veri):
     return list(veri) + [c >> 8, c & 0xFF]
 
 
-def uret(ns, katman_sayisi):
+def uret(ns, katman_sayisi, sadece_akt=False):
     akt = oku(os.path.join(VEK, "l0_q_girdi_blok.mem"))
     maske = oku(os.path.join(VEK, "maske.mem"))
     w = {}
@@ -44,6 +44,8 @@ def uret(ns, katman_sayisi):
         for t in range(1024):
             veri += list(akt[s * 1024 + t].to_bytes(8, "little"))
         akis += crc_ekle(veri)
+        if sadece_akt:
+            continue                                  # agirlik ROM modu: akista yalniz aktivasyon bloklari
         for L in range(katman_sayisi):
             for a in SATIRLAR + (SON if L == katman_sayisi - 1 else []):
                 K = 512 if a == "ffn2" else 128
@@ -60,7 +62,7 @@ if __name__ == "__main__":
     cikis = sys.argv[1]
     ns = int(sys.argv[sys.argv.index("--ns") + 1]) if "--ns" in sys.argv else 1
     nk = int(sys.argv[sys.argv.index("--katman") + 1]) if "--katman" in sys.argv else 1
-    a = uret(ns, nk)
+    a = uret(ns, nk, "--sadece_akt" in sys.argv)
     if "--hata" in sys.argv:
         i = sys.argv.index("--hata")
         a[int(sys.argv[i + 1])] ^= 1 << int(sys.argv[i + 2])
