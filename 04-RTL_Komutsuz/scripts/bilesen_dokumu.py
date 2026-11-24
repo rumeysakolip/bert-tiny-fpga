@@ -66,7 +66,14 @@ def hesapla(toplam, s):
 
 
 sonuc = []
-for kume, tok in KUMELER:
+CSV = os.path.join(KOK, "notlar", "sonuclar", "bilesen_dokumu.csv")
+if "--sadece-ciz" in sys.argv:                                   # kosulmadan, kayitli CSV'den ciz
+    for r in csv.DictReader(open(CSV, encoding="utf-8")):
+        sonuc.append((r["yapilandirma"], int(r["token"]), int(r["toplam"]), {a: int(r[a]) for a, _, _ in BILESEN}))
+    KUMELER_KOS = []
+else:
+    KUMELER_KOS = KUMELER
+for kume, tok in KUMELER_KOS:
     for i, (etiket, rom, na, ln, smp, hz, attp) in enumerate(YAPILAR):
         toplam, s = kos(etiket, rom, na, ln, smp, hz, attp, kume, ilk=True)
         d = hesapla(toplam, s)
@@ -94,7 +101,7 @@ for ax, (kume, tok) in zip(eksenler, KUMELER):
     for x, t in zip(xs, taban):
         ax.text(x, t + max(taban) * 0.015, f"{t:.2f}".replace(".", ","), ha="center", fontsize=9)
     ax.set_xticks(xs)
-    ax.set_xticklabels(["Basys 3\n1 dizi", "2\ndizi", "8\ndizi", "8 dizi,\ntam\nparalel"], fontsize=8.5)
+    ax.set_xticklabels(["Basys 3\n1 dizi", "2\ndizi", "8\ndizi", "8 dizi\n+LN+SM", "8 dizi\nhepsi"], fontsize=8.5)
     ax.set_title(f"{tok} belirteç", fontsize=10.5)
     ax.set_ylabel("Süre (ms, 100 MHz)" if tok == 32 else "")
 handles, etiketler = eksenler[0].get_legend_handles_labels()

@@ -26,10 +26,12 @@ yama("    reg [KARELER_TOPLAMI_GENISLIGI-1:0]         kareler_toplami;\n",
      "    reg [2*GIRIS_GENISLIGI+KANAL_SAYISI_LOG2-1:0] kare_yuk;       // yukleme sirasinda biriken sum(q^2)\n"
      "    reg [2:0]                                   ort_adim;         // ORTALAMA durumu alt adimi\n"
      "    reg signed [TOPLAM_GENISLIGI+2:0]           ort_t1;           // 2*sum(q) - N*m\n"
-     "    (* use_dsp = \"no\" *) reg signed [FARK_GENISLIGI+TOPLAM_GENISLIGI+2:0] ort_carpim;    // m * t1 (satir basina bir kez; LUT'ta)\n"
+     "    (* use_dsp = \"no\" *) reg signed [FARK_GENISLIGI+TOPLAM_GENISLIGI+2:0] ort_carpim;    // m * t1 (satir basina bir kez; LUT'ta, iki yarim carpim + toplama)\n"
+     "    (* use_dsp = \"no\" *) reg signed [FARK_GENISLIGI+15:0] ort_p_alt;                       // m * t1[13:0]\n"
+     "    (* use_dsp = \"no\" *) reg signed [FARK_GENISLIGI+TOPLAM_GENISLIGI-11:0] ort_p_ust;     // m * t1[ust:14]\n"
      "    wire [2*GIRIS_GENISLIGI-1:0] kare_giris = giris_veri * giris_veri;\n")
 yama("toplam <= 0; ortalama <= 0; kareler_toplami <= 0;",
-     "toplam <= 0; ortalama <= 0; kareler_toplami <= 0; kare_yuk <= 0; ort_adim <= 3'd0; ort_t1 <= 0; ort_carpim <= 0;")
+     "toplam <= 0; ortalama <= 0; kareler_toplami <= 0; kare_yuk <= 0; ort_adim <= 3'd0; ort_t1 <= 0; ort_carpim <= 0; ort_p_alt <= 0; ort_p_ust <= 0;")
 yama("sayac <= 0; toplam <= 0; kareler_toplami <= 0; durum <= DURUM_YUKLE;",
      "sayac <= 0; toplam <= 0; kareler_toplami <= 0; kare_yuk <= 0; ort_adim <= 3'd0; durum <= DURUM_YUKLE;")
 yama("                    toplam <= toplam + giris_veri;\n",
@@ -42,7 +44,8 @@ yama("""                DURUM_ORTALAMA: begin
                     case (ort_adim)
                         3'd0: begin ortalama <= (toplam + (1 <<< (KANAL_SAYISI_LOG2-1))) >>> KANAL_SAYISI_LOG2; ort_adim <= 3'd1; end
                         3'd1: begin ort_t1 <= (toplam <<< 1) - (ortalama <<< KANAL_SAYISI_LOG2); ort_adim <= 3'd2; end
-                        3'd2: begin ort_carpim <= ortalama * ort_t1; ort_adim <= 3'd3; end
+                        3'd2: begin ort_p_alt <= ortalama * $signed({1'b0, ort_t1[13:0]}); ort_p_ust <= ortalama * $signed(ort_t1[TOPLAM_GENISLIGI+2:14]); ort_adim <= 3'd3; end
+                        3'd3: begin ort_carpim <= ort_p_alt + (ort_p_ust <<< 14); ort_adim <= 3'd4; end
                         default: begin
                             kareler_toplami <= kare_yuk - ort_carpim; ort_adim <= 3'd0;
                             sayac <= 0; kare_asama1_gecerli <= 1'b0; kare_asama2_gecerli <= 1'b0; durum <= DURUM_VARYANS;

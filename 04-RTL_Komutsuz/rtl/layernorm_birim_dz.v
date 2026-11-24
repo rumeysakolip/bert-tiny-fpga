@@ -67,7 +67,9 @@ module layernorm_birim_dz #(
     reg [2*GIRIS_GENISLIGI+KANAL_SAYISI_LOG2-1:0] kare_yuk;       // yukleme sirasinda biriken sum(q^2)
     reg [2:0]                                   ort_adim;         // ORTALAMA durumu alt adimi
     reg signed [TOPLAM_GENISLIGI+2:0]           ort_t1;           // 2*sum(q) - N*m
-    (* use_dsp = "no" *) reg signed [FARK_GENISLIGI+TOPLAM_GENISLIGI+2:0] ort_carpim;    // m * t1 (satir basina bir kez; LUT'ta)
+    (* use_dsp = "no" *) reg signed [FARK_GENISLIGI+TOPLAM_GENISLIGI+2:0] ort_carpim;    // m * t1 (satir basina bir kez; LUT'ta, iki yarim carpim + toplama)
+    (* use_dsp = "no" *) reg signed [FARK_GENISLIGI+15:0] ort_p_alt;                       // m * t1[13:0]
+    (* use_dsp = "no" *) reg signed [FARK_GENISLIGI+TOPLAM_GENISLIGI-11:0] ort_p_ust;     // m * t1[ust:14]
     wire [2*GIRIS_GENISLIGI-1:0] kare_giris = giris_veri * giris_veri;
     reg [VARYANS_GENISLIGI-1:0]        karekok_girisi, karekok_sonucu, karekok_bit;
     reg [KAREKOK_BIT_SAYISI:0]             karekok_sayaci;
@@ -146,7 +148,7 @@ module layernorm_birim_dz #(
     always @(posedge clk) begin
         if (rst) begin
             durum <= DURUM_BOSTA; sayac <= 0; cikis_gecerli <= 1'b0; cikis_veri <= 8'sd0; cikis_son <= 1'b0;
-            toplam <= 0; ortalama <= 0; kareler_toplami <= 0; kare_yuk <= 0; ort_adim <= 3'd0; ort_t1 <= 0; ort_carpim <= 0; standart_sapma <= 32'd1; bolum_a <= 0; gamma_carpim <= 0; olcek_toplam <= 0; kaydirilmis <= 0; fark_kayit <= 0; fark_karesi_kayit <= 0; kare_asama1_gecerli <= 1'b0; kare_asama2_gecerli <= 1'b0;
+            toplam <= 0; ortalama <= 0; kareler_toplami <= 0; kare_yuk <= 0; ort_adim <= 3'd0; ort_t1 <= 0; ort_carpim <= 0; ort_p_alt <= 0; ort_p_ust <= 0; standart_sapma <= 32'd1; bolum_a <= 0; gamma_carpim <= 0; olcek_toplam <= 0; kaydirilmis <= 0; fark_kayit <= 0; fark_karesi_kayit <= 0; kare_asama1_gecerli <= 1'b0; kare_asama2_gecerli <= 1'b0;
             karekok_girisi <= 0; karekok_sonucu <= 0; karekok_bit <= 0; karekok_sayaci <= 0; epsilon_kayit <= 0; olcek_m0_kayit <= 0; kaydirma_kayit <= 0; karekok_deneme <= 0; karekok_evresi <= 2'd0; karekok_buyuk_esit <= 1'b0;
             bolum_a_gecerli <= 1'b0; bolum_b_gecerli <= 1'b0; gamma_carpim_gecerli <= 1'b0; olcek_carpim_gecerli <= 1'b0; olcek_toplam_gecerli <= 1'b0; yuvarlama_gecerli <= 1'b0; kaydirma_gecerli <= 1'b0; beta_gecerli <= 1'b0;
             bolum_a_son <= 1'b0; bolum_b_son <= 1'b0; gamma_carpim_son <= 1'b0; olcek_carpim_son <= 1'b0; olcek_toplam_son <= 1'b0; yuvarlama_son <= 1'b0; kaydirma_son <= 1'b0; beta_son <= 1'b0;
@@ -193,7 +195,8 @@ module layernorm_birim_dz #(
                     case (ort_adim)
                         3'd0: begin ortalama <= (toplam + (1 <<< (KANAL_SAYISI_LOG2-1))) >>> KANAL_SAYISI_LOG2; ort_adim <= 3'd1; end
                         3'd1: begin ort_t1 <= (toplam <<< 1) - (ortalama <<< KANAL_SAYISI_LOG2); ort_adim <= 3'd2; end
-                        3'd2: begin ort_carpim <= ortalama * ort_t1; ort_adim <= 3'd3; end
+                        3'd2: begin ort_p_alt <= ortalama * $signed({1'b0, ort_t1[13:0]}); ort_p_ust <= ortalama * $signed(ort_t1[TOPLAM_GENISLIGI+2:14]); ort_adim <= 3'd3; end
+                        3'd3: begin ort_carpim <= ort_p_alt + (ort_p_ust <<< 14); ort_adim <= 3'd4; end
                         default: begin
                             kareler_toplami <= kare_yuk - ort_carpim; ort_adim <= 3'd0;
                             sayac <= 0; kare_asama1_gecerli <= 1'b0; kare_asama2_gecerli <= 1'b0; durum <= DURUM_VARYANS;
