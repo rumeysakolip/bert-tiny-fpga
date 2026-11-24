@@ -1,0 +1,5 @@
+Basys 3 (1 dizi, ağırlıklar flaştan): FPGA işlemciden hızlı olduğu uzunluklar: 10 belirteçe kadar
+2 paralel dizi: FPGA işlemciden hızlı olduğu uzunluklar: 15 belirteçe kadar
+8 paralel dizi (yalnız doğrusal katmanlar): FPGA işlemciden hızlı olduğu uzunluklar: 27 belirteçe kadar
+8 paralel dizi + paralel LayerNorm ve Softmax: FPGA işlemciden hızlı olduğu uzunluklar: hepsinde (8–64)
+8 paralel dizi + LayerNorm, Softmax ve dikkat paralel (üst model): FPGA işlemciden hızlı olduğu uzunluklar: hepsinde (8–64)

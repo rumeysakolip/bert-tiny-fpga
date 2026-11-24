@@ -67,3 +67,12 @@ Test `tb/tb_ortak_ust.v` (Vivado: `vivado/sim_ortak_ust.bat`): 2 katman, 1 cüml
 ## Adım 5d-v ve kapanış (12 Kasım 2026)
 Çizelgeye pooler (tanh, yalnız ilk token) ve sınıflandırıcı satırları ile karar eklendi (`sinif`, `logit0`, `logit1`, `sonuc_gecerli`). Test `tb/tb_ortak_ust.v` (Vivado: `vivado/sim_ortak_ust_temiz.bat`, günlük `sim/xs_ust/gunluk.txt`): 2 katman, 4 cümle, 328 716 kontrol, 0 hata, her cümle ≈ 817 000 çevrim, dört cümlenin sınıfı doğru. Hatalı akış (tek bit) ilk bozuk blokta yakalanır, çizelge durur.
 Vivado (üst modül, 100 MHz): 87 DSP, 25 blok bellek, 4 960 LUT, 6 399 kayıtçık, WNS +0,279 ns. Ayrıntı: `notlar/MIMARI_NOTU_5d_ortak_cekirdek_cizelge.md`.
+
+## Hesap süresi çalışması (16–24 Kasım 2026)
+Ayrıntılı kayıt: `notlar/DENEY_KAYDI.md` (D01–D18); mimari not: `notlar/MIMARI_NOTU_hizlandirma_secenekleri.md`.
+- **Ölçüt:** bilgisayar–FPGA iletişimi ve ağırlık akışı hariç saf hesap süresi, işlemciyle aynı cümle uzunluğunda. Ölçüm kipi `HIZLI_OLCUM` (Basys 3 akışında panel bloklarını bekletmez) ve yonga içi ağırlık ROM kipi (`AGIRLIK_ROM`).
+- **Dolgu atlama (`DOLGU_ATLA`):** cümlenin gerçek blok sayısı nb = ⌈token/8⌉ kadar hesap; nb = 1…8 altın modelle bit-birebir.
+- **LayerNorm:** varyans yükleme sırasında biriken kareler toplamıyla (satır başı −126 çevrim).
+- **Paralel yapı (üst model):** `NA` paralel doğrusal hat (`rtl/ek_hat.v`), `LN_PAR` (8 hatlı LayerNorm, `rtl/artik_ln_par.v`), `SMP` (8 birimli Softmax), `ATTP` (Q·Kᵀ ve P·V 8 hatta). Ağırlıklar `scripts/uret_agirlik_rom.py <NA>` ile üretilen banka dosyalarından (`agirlik_rom_b<i>.mem`).
+- **Koşturma:** `python scripts/kos_xsim.py --na 8 --ln-par 1 --smp 1 --attp 1 --kume kume_4_64_64 --mod dogruluk|sure` (xsim; vektörler `python scripts/uret_dolgu_vektorleri.py` ile). Süre taraması `scripts/tarama_sure.py`, bileşen dökümü `scripts/bilesen_dokumu.py`, görseller `scripts/ciz_karsilastirma.py`, `scripts/ciz_kaynak_flas.py` (çıktı `raporlar/gorseller/g14…g19`).
+- **Sentez:** Basys 3 için `sentez/sentez_ust.tcl` (varsayılan parametreler: 1 hat); büyük parça için `sentez/sentez_buyuk.tcl -tclargs <NA> <saat_ns> <etiket> <parça> <LN_PAR> <SMP> <ATTP>`.

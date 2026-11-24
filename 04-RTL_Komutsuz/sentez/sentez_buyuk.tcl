@@ -1,11 +1,18 @@
 # Buyuk FPGA (XC7A200T) icin ortak_ust sentezi + yerlestirme: NA paralel dogrusal hat, agirlik ROM, paralel LayerNorm ve Softmax.
-# Kullanim (cwd: 04-RTL_Komutsuz):  vivado -mode batch -source sentez/sentez_buyuk.tcl -tclargs <NA> <saat_ns> <etiket>
-#   ornek: vivado -mode batch -source sentez/sentez_buyuk.tcl -tclargs 8 10.0 na8
+# Kullanim (cwd: 04-RTL_Komutsuz):  vivado -mode batch -source sentez/sentez_buyuk.tcl -tclargs <NA> <saat_ns> <etiket> [parca] [LN_PAR] [SMP] [ATTP]
+#   ornek: vivado -mode batch -source sentez/sentez_buyuk.tcl -tclargs 8 10.0 na8 xc7a200tfbg676-2 1 1 1
 # Onkosul: python scripts/uret_agirlik_rom.py <NA>  (vektor_rom/na<NA>/ ) 
-set part xc7a200tfbg676-2
 set na   [lindex $argv 0]
 set per  [lindex $argv 1]
 set tag  [lindex $argv 2]
+set part [lindex $argv 3]
+set lnp  [lindex $argv 4]
+set smp  [lindex $argv 5]
+set attp [lindex $argv 6]
+if {$part eq ""} { set part xc7a200tfbg676-2 }
+if {$lnp eq ""} { set lnp 1 }
+if {$smp eq ""} { set smp 1 }
+if {$attp eq ""} { set attp 0 }
 if {$na eq ""} { set na 8 }
 if {$per eq ""} { set per 10.0 }
 if {$tag eq ""} { set tag na$na }
@@ -24,11 +31,11 @@ set f [open $xdc w]; puts $f "create_clock -period $per -name clk \[get_ports cl
 read_xdc $xdc
 cd $rd
 synth_design -top ortak_ust -part $part -mode out_of_context -flatten_hierarchy rebuilt -include_dirs [list $kok/rtl] \
-    -generic NA=$na -generic AGIRLIK_ROM=1 -generic ROM_D=$romd -generic LN_PAR=1 -generic SMP=1 -generic KATMAN_ISLEM=2
+    -generic NA=$na -generic AGIRLIK_ROM=1 -generic ROM_D=$romd -generic LN_PAR=$lnp -generic SMP=$smp -generic ATTP=$attp -generic KATMAN_ISLEM=2
 report_utilization -file $rd/sentez_kullanim.txt
 opt_design
 place_design
 route_design
 report_utilization -file $rd/impl_kullanim.txt
 report_timing_summary -delay_type min_max -max_paths 5 -file $rd/impl_zamanlama.txt
-puts "SENTEZ_BITTI $tag"
+puts "SENTEZ_BITTI $tag $part"

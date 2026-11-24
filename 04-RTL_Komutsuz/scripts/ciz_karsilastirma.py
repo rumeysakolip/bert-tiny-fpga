@@ -51,15 +51,16 @@ for r in csv.DictReader(open(yol, encoding="utf-8")):
 
 
 def egri(ad, na, mhz=100.0):
-    xs = sorted(t for (a, n, t) in satirlar if a == ad and n == na)
+    xs = sorted(t for (a, n, t) in satirlar if a == ad and n == na and t % 8 == 0)       # 25 belirteç 32 ile aynı blok sayısı: eğriden çıkarıldı
     return xs, [satirlar[(ad, na, t)] / (mhz * 1e3) for t in xs]
 
 
 YAPILANDIRMALAR = [
-    ("basys3", 1, "Basys 3 (1 dizi, ağırlıklar flaştan)", GRI, "-", "o"),
+    ("basys3", 1, "Basys 3: 1 dizi (ağırlık akışı beklemesi hariç)", GRI, "-", "o"),
     ("temel", 2, "2 paralel dizi", TURUNCU, "-", "s"),
     ("temel", 8, "8 paralel dizi (yalnız doğrusal katmanlar)", MOR, "-", "^"),
     ("tam", 8, "8 paralel dizi + paralel LayerNorm ve Softmax", MAVI, "-", "D"),
+    ("tamatt", 8, "8 paralel dizi + LayerNorm, Softmax ve dikkat paralel (üst model)", YESIL, "-", "*"),
 ]
 
 
@@ -93,7 +94,7 @@ def kaydet(fig, ad):
 
 
 # ---------------- g14: sure - uzunluk ----------------
-fig, ax = plt.subplots(figsize=(W, 3.4))
+fig, ax = plt.subplots(figsize=(W, 3.5))
 ks = sorted(cpu)
 ax.fill_between(ks, [cpu[k] for k in ks], [min(cpu_kotu[k], 2.2) for k in ks], color="#dddddd", alpha=0.6, lw=0, label="İşlemci, olası dalgalanma aralığı")
 ax.plot(ks, [cpu[k] for k in ks], color="black", lw=2.0, marker="x", label="İşlemci (en iyi ölçüm, tek cümle)")
@@ -111,13 +112,13 @@ ax.set_xticks([8, 16, 24, 32, 40, 48, 56, 64])
 ax.set_yticks([0.2, 0.5, 1, 2, 5, 10])
 ax.get_yaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, p: tr(v, 1 if v < 1 else 0)))
 ax.grid(True, which="both", color="#dddddd", lw=0.6)
-ax.legend(loc="upper left", frameon=False)
+ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2, frameon=False)
 kaydet(fig, "g14_sure_uzunluk.png")
 
 # ---------------- g15: hizlanma ----------------
 fig, ax = plt.subplots(figsize=(W, 3.0))
 ax.axhline(1.0, color="black", lw=1.4)
-ax.text(64.5, 1.04, "eşitlik", ha="right", va="bottom", fontsize=FK - 1)
+ax.text(8.3, 1.04, "eşitlik", ha="left", va="bottom", fontsize=FK - 1)
 for ad, na, etiket, renk, cizgi, isaret in YAPILANDIRMALAR:
     xs, ys = egri(ad, na)
     if not xs:
@@ -130,7 +131,7 @@ ax.set_yscale("log")
 ax.set_yticks([0.2, 0.5, 1, 2, 5])
 ax.get_yaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, p: tr(v, 1 if v < 1 else 0)))
 ax.grid(True, which="both", color="#dddddd", lw=0.6)
-ax.legend(loc="lower left", frameon=False, bbox_to_anchor=(0.0, 0.0))
+ax.legend(loc="upper center", frameon=False, bbox_to_anchor=(0.5, -0.2), ncol=2)
 kaydet(fig, "g15_hizlanma.png")
 
 # ---------------- g16: hat sayisina gore olcekleme ----------------
@@ -158,8 +159,7 @@ ax.set_yticks([0.5, 1, 2, 5]); ax.get_yaxis().set_major_formatter(matplotlib.tic
 ax.set_xlabel("Paralel doğrusal dizi sayısı")
 ax.set_ylabel("Çıkarım süresi (ms, 100 MHz)")
 ax.grid(True, which="both", color="#dddddd", lw=0.6)
-ax.text(8.1, ax.get_ylim()[0] * 1.15, "noktalı çizgi: ideal ölçekleme", ha="right", fontsize=FK - 1, color="#555555")
-ax.legend(loc="upper right", frameon=False, fontsize=FK - 2)
+ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.22), ncol=1, frameon=False, fontsize=FK - 2)
 kaydet(fig, "g16_hat_olcekleme.png")
 
 with open(os.path.join(KOK, "notlar", "sonuclar", "kesisim.txt"), "w", encoding="utf-8") as f:

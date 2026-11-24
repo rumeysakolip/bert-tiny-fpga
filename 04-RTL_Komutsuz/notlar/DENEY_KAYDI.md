@@ -145,3 +145,37 @@ Hızlanma (nb=8'e göre, hesap): nb=1 için 8,0 kat, nb=2 için 4,2 kat, nb=4 i�
 **Yöntem:** Σ(q−m)² = Σq² − 2m·Σq + 128·m² (m tamsayı olduğundan tam eşitlik). Σq² yükleme sırasında biriktirilir (18×18 çarpma ve toplama, eski fark-kare çarpımının yerini aldı; DSP sayısı aynı), ortalamadan sonra dört adımda (ortalama, 2Σq−128m, m×t1 LUT'ta, çıkarma) kareler toplamı bulunur. Değişiklik `scripts/uret_ln_duzeltilmis.py` üretecine eklendi, `rtl/layernorm_birim_dz.v` yeniden üretildi.
 **Sonuç (ölçüldü, xsim):** eski regresyon 328 716 kontrol, 0 hata (altın modelle bit-birebir); nb=8 saf hesap 716 438 → **683 926 çevrim** (−32 512 = 4 LayerNorm × 64 satır × ≈ 127 çevrim); LayerNorm satır süresi ≈ 683 → ≈ 557 çevrim (hesap, satır sürelerinden).
 **Yorum:** Beklenen kazanç (≈ 130 çevrim/satır) gerçekleşti. Sıradaki adım (satır örtüştürme) ≈ 557 → ≈ 400 hedefliyor.
+
+---
+
+# 24 Kasım 2026 — üst model (büyük FPGA) çalışması
+
+Kararlar (Rümeysa, 24 Kasım): hedef parça XC7A200T (740 DSP, 365 blok bellek); büyük tasarımda matris dizileri, LayerNorm ve Softmax paralel; ağırlıklar yonga içi blok bellekte (açılışta flaştan yüklenir, çıkarım süresine girmez; işlemcinin modeli önceden belleğe yüklemesiyle eşit koşul); değişiklikler ayrı dalda (`hizlandirma`) aşama başı yerel commit.
+Ortak ölçüm yöntemi: tek cümle, `tb_ortak_ust` süre kipi; "saf hesap" = aktivasyon bloğunun doğrulandığı çevrimden sonuç darbesine kadar; hepsi xsim; 100 MHz varsayımıyla çevrimden ms'ye çevrildi (frekans sentez sonuçlarından ayrıca irdelendi).
+
+## D13 — Paralel doğrusal hatlar (NA) ve yonga içi ağırlık belleği
+**Amaç:** Matris çarpımlarını (çevrimin ≈ yüzde 68'i) birden çok 8×8 dizide paralel yapmak.
+**Tasarım (`rtl/ek_hat.v`, `agirlik_rom_banka.v`, `yaz_fifo.v`; `cizelge_ortak.v`, `ortak_cekirdek.v`, `ortak_ust.v`):** Doğrusal satırda NA hat birlikte çalışır; hat h her panel grubunun h numaralı panelini (genel panel = grup·NA + h) hesaplar. Her hat kendi ağırlık bankasına (banka h, her satırın h, h+NA, h+2NA… numaralı panelleri), panel tamponuna, parametre okuyucusuna, tile denetleyicisine, sistolik dizisine, yeniden ölçekleme devresine, GELU tablosuna ve çıkış toplayıcısına sahiptir. Aktivasyon sözcüğü (A işleneni) ve panel hazır işareti tüm hatlarda ortaktır; hatlar aynı denetim durum makinesini aynı girdilerle sürdüğünden adım adım eşgüdümlüdür. Hatların çıkış sözcükleri 64 derinlikli FIFO'lardan geçip tek bellek yazma portuna sıralanır. Ağırlık imajları `scripts/uret_agirlik_rom.py NA` ile modelin `*_w_panel.mem` dosyalarından üretilir (NA'ya bölünmeyen panel sayıları sıfır panelle tamamlanır, bu panellerin çıkışı yazılmaz).
+**Doğrulama (ölçüldü, xsim, altın modelle bit-birebir):** NA=1 (ağırlık ROM kipi) ve NA=8 için yedi vektör kümesinin hepsi (8–64 token, nb=1…8) 0 hata, sınıflar doğru (24 966 / 55 686 / 106 886 / 147 846 / 164 358 / 82 438 / 123 398 kontrol). Eski bayt akışı kipi (NA=1) regresyonu: 4 cümle, 328 716 kontrol, 0 hata, 3 139 182 çevrim.
+**Saf hesap süreleri (ölçüldü, 100 MHz; yalnız doğrusal katmanlar paralel, LayerNorm ve Softmax seri; çevrim):**
+NA=1: 8 token 107 014; 16 token 170 974; 24 token 251 418; 32 token 334 110; 40 token 418 978; 48 token 506 022; 56 token 597 322; 64 token 691 374.
+NA=2: 70 954; 115 522; 169 086; 224 898; 282 886; 343 050; 407 470; 474 642.
+NA=4: 52 660; 87 844; 127 968; 170 340; 214 888; 261 612; 312 592; 366 324.
+NA=8: 42 433; 72 587; 105 991; 141 643; 179 471; 219 475; 263 735; 310 747.
+(Basys 3 akış kipi, ölçüm kipi: 85 630; 163 526; 243 970; 326 662; 411 530; 498 574; 589 874; 683 926.) Süre hat sayısıyla ideal oranda azalmıyor: NA=8'de 64 token için 2,2 kat (691 374 → 310 747); kalan süre LayerNorm, Softmax ve dikkat çarpımlarında.
+
+## D14 — Paralel LayerNorm (artik_ln_par)
+**Amaç:** LayerNorm bir blogun 8 satırını ayrı ayrı (satır başına ≈ 557 çevrim) işliyordu.
+**Tasarım:** Bir aktivasyon sözcüğü (8 token'ın aynı kanalı) bir kez okunur, hat i sözcüğün i. baytını alır; her hat kendi yeniden ölçekleme devresine ve LayerNorm birimine sahiptir (8 hat), çıkış sözcüğü (8 hattın aynı kanalı) doğrudan yazılır, yeniden ölçeklenmemiş çıkış (ham LayerNorm 1 çıkışı) bir tamponda biriktirilip blok sonunda yazılır. Aynı sabitler ve aynı hesap; bit-birebir.
+**Doğrulama (ölçüldü):** NA=8 + paralel LayerNorm: yedi küme 0 hata.
+## D15 — Paralel Softmax
+**Tasarım:** Bir blogun 8 satırı 8 Softmax biriminde birlikte işlenir; skor belleği token'a göre 8 bankaya bölünür (hat i, bloğun i. token'ının satırını okur); 8 birimin aynı sütundaki çıkışları tek olasılık sözcüğü olarak yazılır (K≥48 sıfır dolgusu korunur).
+**Doğrulama (ölçüldü):** NA=8 + paralel LayerNorm + paralel Softmax: yedi küme 0 hata.
+## D16 — Dikkat (Q·Kᵀ, P·V) 8 hatta
+**Tasarım:** Q·Kᵀ'de hat h, h. anahtar bloğunun paneli; P·V'de hat h, h. değer kanal paneli. K^T ve V panelleri aktivasyon belleğinden hatlara sırayla kopyalanır, sonra tüm hatlar birlikte hesaplar. Skorlar hat bankalarına (hat, token) yazılır, Softmax 8 token'ı tek okumada alır; P·V bağlam sözcükleri FIFO'lardan sıralanır.
+**Doğrulama (ölçüldü):** NA=8 + hepsi paralel: yedi küme 0 hata.
+
+## D17 — Büyük FPGA sentez ve yerleştirme (ilk koşu: 8 hat + paralel LayerNorm ve Softmax, ağırlık ROM)
+**Yöntem:** `sentez/sentez_buyuk.tcl` (ortak_ust, bağlamsız, 100 MHz, Vivado 2025.1); parça XC7A200T (`xc7a200tfbg676-2`).
+**Sonuç (ölçüldü, yerleştirme ve yönlendirme sonrası):** 720 DSP (740'ın yüzde 97,3'ü), 33 213 LUT (yüzde 24,8), 43 418 yazmaç (yüzde 16,2), 223,5 blok bellek (yüzde 61,2); **WNS +0,370 ns, WHS +0,065 ns** (kısıtlar sağlandı). En kötü yol mantıksız (0 mantık seviyesi), tamamı yönlendirme (9,1 ns): hat 1'in yeniden ölçekleme devresindeki kaydırma yazmacının yayılımı, DSP sütunları arasında uzun bir yol; DSP doluluğu yüzde 97 olduğundan yönlendirme baskılı. (Bu koşuda dikkat hatları (ATTP) yoktu; son tasarımın sentezi D18'de.)
+**XC7A100T (`xc7a100tcsg324-1`) denemesi (2 hat, LayerNorm ve Softmax seri):** 156 DSP (yüzde 65), 20 456 LUT (yüzde 32), **145,5 blok bellek (yüzde 107,8)** → sığmıyor. Yalnız modelin ağırlıkları 410 624 bayttır (≈ 91 blok bellek karosu); aktivasyon belleği, panel tamponları ve tablolarla 135 karoluk bellek yetmiyor. Sonuç: ağırlıkların yonga içinde tutulduğu tasarım XC7A100T'ye ve (50 karo bellek) Basys 3'e sığmaz; büyük parça gerekli.

@@ -18,26 +18,27 @@ import matplotlib.pyplot as plt
 KOK = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 PROJE = os.path.dirname(KOK)
 OUT = os.path.join(PROJE, "raporlar", "gorseller")
-YAPILAR = [  # etiket, rom, na, ln_par, smp, hizli_olcum
-    ("Basys 3 (1 dizi)", 0, 1, 0, 0, 1),
-    ("2 paralel dizi", 1, 2, 0, 0, 0),
-    ("8 paralel dizi", 1, 8, 0, 0, 0),
-    ("8 dizi + LayerNorm + Softmax paralel", 1, 8, 1, 1, 0),
+YAPILAR = [  # etiket, rom, na, ln_par, smp, hizli_olcum, attp
+    ("Basys 3 (1 dizi)", 0, 1, 0, 0, 1, 0),
+    ("2 paralel dizi", 1, 2, 0, 0, 0, 0),
+    ("8 paralel dizi", 1, 8, 0, 0, 0, 0),
+    ("8 dizi + LayerNorm + Softmax paralel", 1, 8, 1, 1, 0, 0),
+    ("8 dizi + hepsi paralel", 1, 8, 1, 1, 0, 1),
 ]
 KUMELER = [("kume_2_32_49", 32), ("kume_4_64_64", 64)]
 BILESEN = [("dogrusal", "Q, K, V, çıkış", "#1f77b4"), ("ffn", "İleri besleme", "#e69f00"), ("dikkat", "Dikkat (Q·Kᵀ, Softmax, P·V)", "#009e73"),
            ("ln", "LayerNorm", "#cc79a7"), ("son", "Havuzlama ve sınıflandırıcı", "#7f7f7f"), ("diger", "Diğer", "#dddddd")]
 
 
-def kos(etiket, rom, na, ln, smp, hz, kume, ilk):
+def kos(etiket, rom, na, ln, smp, hz, attp, kume, ilk):
     komut = [sys.executable, os.path.join(KOK, "scripts", "kos_xsim.py"), "--na", str(na), "--rom", str(rom), "--dolgu", "1", "--hizli-olcum", str(hz),
-             "--ln-par", str(ln), "--smp", str(smp), "--kume", kume, "--mod", "sure", "--etiket", f"dokum_{na}_{rom}_{ln}_{smp}"]
+             "--ln-par", str(ln), "--smp", str(smp), "--attp", str(attp), "--kume", kume, "--mod", "sure", "--etiket", f"dokum_{na}_{rom}_{ln}_{smp}_{attp}"]
     if not ilk:
         komut.append("--derleme-atla")
     r = subprocess.run(komut, cwd=KOK, capture_output=True, text=True, encoding="utf-8", errors="replace")
     m = re.search(r"SAF HESAP .*?(\d+) cevrim", r.stdout)
     toplam = int(m.group(1)) if m else None
-    g = open(os.path.join(KOK, "sim", f"xs_k_dokum_{na}_{rom}_{ln}_{smp}", "gunluk.txt"), encoding="utf-8", errors="replace").read()
+    g = open(os.path.join(KOK, "sim", f"xs_k_dokum_{na}_{rom}_{ln}_{smp}_{attp}", "gunluk.txt"), encoding="utf-8", errors="replace").read()
     s = [(int(a), int(b), int(c)) for a, b, c in re.findall(r"SATIR katman (\d+) satir (\d+) basladi cevrim (\d+)", g)]
     return toplam, s
 
@@ -66,8 +67,8 @@ def hesapla(toplam, s):
 
 sonuc = []
 for kume, tok in KUMELER:
-    for i, (etiket, rom, na, ln, smp, hz) in enumerate(YAPILAR):
-        toplam, s = kos(etiket, rom, na, ln, smp, hz, kume, ilk=(kume == KUMELER[0][0]))
+    for i, (etiket, rom, na, ln, smp, hz, attp) in enumerate(YAPILAR):
+        toplam, s = kos(etiket, rom, na, ln, smp, hz, attp, kume, ilk=True)
         d = hesapla(toplam, s)
         sonuc.append((etiket, tok, toplam, d))
         print(etiket, tok, toplam, d, flush=True)
