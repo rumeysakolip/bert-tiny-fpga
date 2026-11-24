@@ -5,7 +5,9 @@
 `timescale 1ns/1ps
 module ortak_ust #(
     parameter KATMAN_ISLEM = 1,
-    parameter SINIFLANDIR  = 1
+    parameter SINIFLANDIR  = 1,
+    parameter HIZLI_OLCUM  = 0,                   // 1: yalniz sure olcumu (panel akisi beklenmez, sonuclar anlamsiz); 0: normal
+    parameter DOLGU_ATLA   = 1                    // 1: cumlenin gercek blok sayisi kadar hesap (nb = ceil(token/8)); 0: her zaman 8 blok (eski davranis)
 ) (
     input  wire         clk,
     input  wire         rst,
@@ -47,7 +49,7 @@ module ortak_ust #(
     wire         c_bitti, c_pbasla, c_pbitti, c_ptampon, c_tbasla, c_tbitti; wire [11:0] c_ptaban; wire [2:0] c_tsec;
     wire [1:0]   c_phazir; wire c_pbit, c_pbit_t;
 
-    akis_ayristirici #(.GOMULU(1)) u_ayristirici (
+    akis_ayristirici #(.GOMULU(1), .HIZLI_OLCUM(HIZLI_OLCUM)) u_ayristirici (
         .clk(clk), .rst(rst), .bayt_gecerli(bayt_gecerli), .bayt_veri(bayt_veri), .bayt_hazir(bayt_hazir),
         .blok_basla(blok_basla), .blok_tur(blok_tur), .blok_tampon(blok_tampon), .blok_k(blok_k),
         .blok_tamam(blok_tamam), .blok_hatali(blok_hatali),
@@ -57,7 +59,7 @@ module ortak_ust #(
         .hata_sayisi(hata_sayisi), .kabul_edilen_bayt(kabul_edilen_bayt), .cumle_uzunluk(cumle_uzunluk));
 
     wire        ic_oku; wire [12:0] ic_adres; wire [3:0] c_blok;
-    cizelge_ortak #(.KATMAN_ISLEM(KATMAN_ISLEM), .SINIFLANDIR(SINIFLANDIR)) u_cizelge (
+    cizelge_ortak #(.KATMAN_ISLEM(KATMAN_ISLEM), .SINIFLANDIR(SINIFLANDIR), .DOLGU_ATLA(DOLGU_ATLA)) u_cizelge (
         .clk(clk), .rst(rst),
         .blok_basla(blok_basla), .blok_tur(blok_tur), .blok_tampon(blok_tampon), .blok_k(blok_k), .blok_tamam(blok_tamam), .blok_hatali(blok_hatali),
         .cumle_uzunluk(cumle_uzunluk),

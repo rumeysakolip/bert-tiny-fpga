@@ -5,7 +5,9 @@ Cikti: vektor_sinif/pooler_tanh_zincir.mem ([n][128] INT8), classifier_zincir.me
 import os
 import numpy as np
 KOK = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-V = os.path.join(KOK, "..", "02-RTL_Altin_Model", "03_Sonuclar", "test_vektorleri")
+V = os.environ.get("DOLGU_VEK") or os.path.join(KOK, "..", "02-RTL_Altin_Model", "03_Sonuclar", "test_vektorleri")
+LN = os.environ.get("DOLGU_LN") or os.path.join(KOK, "vektor_ln")
+SN = os.environ.get("DOLGU_SINIF") or os.path.join(KOK, "vektor_sinif")
 P = os.path.join(KOK, "..", "02-RTL_Altin_Model", "03_Sonuclar", "parametreler")
 def oku(p): return [int(l, 16) for l in (x.strip() for x in open(p)) if l and not l.startswith("//")]
 def s8(v): return v - 256 if v > 127 else v
@@ -29,9 +31,9 @@ assert (katman(pg, "pooler", 16, 38, True, 128) == cg).all()
 cc = np.array([s8(v) for v in oku(os.path.join(V, "classifier_cikis.mem"))]).reshape(-1, 2)
 assert (katman(cg, "classifier", 1, 42, False, 2) == cc).all()
 # zincir
-z4 = np.array([s8(v) for v in oku(os.path.join(KOK, "vektor_ln", "ln4_cikis.mem"))]).reshape(-1, 64, 128)[:, 0, :]
+z4 = np.array([s8(v) for v in oku(os.path.join(LN, "ln4_cikis.mem"))]).reshape(-1, 64, 128)[:, 0, :]
 pt = katman(z4, "pooler", 16, 38, True, 128); lg = katman(pt, "classifier", 1, 42, False, 2)
-os.makedirs(os.path.join(KOK, "vektor_sinif"), exist_ok=True)
-def yaz(ad, a): open(os.path.join(KOK, "vektor_sinif", ad), "w").write("\n".join(f"{int(v) & 0xFF:02x}" for v in a.flatten()) + "\n")
+os.makedirs(SN, exist_ok=True)
+def yaz(ad, a): open(os.path.join(SN, ad), "w").write("\n".join(f"{int(v) & 0xFF:02x}" for v in a.flatten()) + "\n")
 yaz("pooler_tanh_zincir.mem", pt); yaz("classifier_zincir.mem", lg); yaz("sinif_zincir.mem", (lg[:, 1] > lg[:, 0]).astype(int))
 print("zincir logit:", lg.tolist(), "sinif:", (lg[:, 1] > lg[:, 0]).astype(int).tolist(), "| ara dosya tahmini:", (cc[:, 1] > cc[:, 0]).astype(int).tolist())

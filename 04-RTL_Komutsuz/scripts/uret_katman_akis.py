@@ -8,7 +8,7 @@ Kullanim: python scripts/uret_katman_akis.py <cikis.hex> [--ns N] [--katman L] [
 import binascii, os, sys
 
 KOK = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-VEK = os.path.join(KOK, "02-RTL_Altin_Model", "03_Sonuclar", "test_vektorleri")
+VEK = os.environ.get("DOLGU_VEK") or os.path.join(KOK, "02-RTL_Altin_Model", "03_Sonuclar", "test_vektorleri")
 SATIRLAR = ["q", "k", "v", "attn_out", "ffn1", "ffn2"]
 SON = ["pooler", "classifier"]            # son katmandan sonra: pooler (16 panel), siniflandirici (1 panel)
 

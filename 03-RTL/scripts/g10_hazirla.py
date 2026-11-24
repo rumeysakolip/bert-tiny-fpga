@@ -19,7 +19,7 @@ import sys
 import numpy as np
 
 KOK = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-VEK = os.path.join(KOK, "02-RTL_Altin_Model", "03_Sonuclar", "test_vektorleri")
+VEK = os.environ.get("DOLGU_VEK") or os.path.join(KOK, "02-RTL_Altin_Model", "03_Sonuclar", "test_vektorleri")   # DOLGU_VEK: baska vektor dizini (04 dolgu atlama sinamasi)
 
 
 def mem(ad, bit, imzali=True):
@@ -87,8 +87,9 @@ def main():
             rapor[f"l{i}_h{h}"] = {"qk_maks": int(np.abs(qk[:, h]).max()), "av_maks": int(np.abs(av[:, h]).max()),
                                    "p_min": int(p.min()), "p_maks": int(p.max()),
                                    "p_ort_satir_toplam": float(p[:, h].sum(-1).mean())}
-    os.makedirs(os.path.join(KOK, "03-RTL", "sim"), exist_ok=True)
-    json.dump(rapor, open(os.path.join(KOK, "03-RTL", "sim", "g10_hazir.json"), "w"), indent=1)
+    if not os.environ.get("DOLGU_VEK"):
+        os.makedirs(os.path.join(KOK, "03-RTL", "sim"), exist_ok=True)
+        json.dump(rapor, open(os.path.join(KOK, "03-RTL", "sim", "g10_hazir.json"), "w"), indent=1)
     print(f"G10 HAZIRLIK: {'PASS' if hata == 0 else 'FAIL'} (8 vektör kümesi, bağımsız numpy denetiminde {hata} hata)")
     return 0 if hata == 0 else 1
 

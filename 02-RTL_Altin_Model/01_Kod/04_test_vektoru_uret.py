@@ -135,6 +135,8 @@ def main():
     ap.add_argument("--kip", choices=["A", "B"], default="B",
                     help="B: donanım-sadık (cikis_q üretilir, ara_olcekler.json gerekir)")
     ap.add_argument("--ara_olcek", default=None)
+    ap.add_argument("--uzat", type=int, nargs="*", default=None,
+                    help="her secili cumle icin dikkat maskesini ilk N tokene uzat (dolgu atlama sinamasi icin uzun girdi; N >= gercek uzunluk)")
     ap.add_argument("--idx", type=int, nargs="*", default=None,
                     help="belirli cümle indeksleri (varsayılan: en kısa n_cumle tanesi)")
     a = ap.parse_args()
@@ -144,6 +146,11 @@ def main():
     sec = (a.idx if a.idx
            else list(np.argsort(maske.sum(1))[:a.n_cumle]))
     sec = [int(i) for i in sec]
+    if a.uzat:
+        assert len(a.uzat) == len(sec)
+        for i, n in zip(sec, a.uzat):
+            assert n >= int(maske[i].sum()) and n <= maske.shape[1]
+            maske[i, :n] = 1
     print(f"Seçilen cümleler: {sec} (token sayıları: {[int(maske[i].sum()) for i in sec]})")
 
     cikis = os.path.join(a.cikis, "test_vektorleri")
@@ -163,7 +170,7 @@ def main():
     kunye = {"kip": a.kip, "cumle_idx": sec,
              "cumleler": [cumleler[i] for i in sec],
              "etiket": [int(etiket[i]) for i in sec],
-             "gercek_token_sayisi": [int(maske[i].sum()) for i in sec],
+             "gercek_token_sayisi": [int(maske[i].sum()) for i in sec], "uzat": (a.uzat or []),
              "dizi_uzunlugu": S.DIZI_UZUNLUGU,
              "logit": logit.tolist(),
              "tahmin": logit.argmax(1).tolist(),

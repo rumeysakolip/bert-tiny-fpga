@@ -18,16 +18,18 @@ import ortak  # noqa: E402
 from altin import model, nicem, sabitler as S  # noqa: E402
 from altin import dogrusal_olmayan as dol  # noqa: E402
 
-OUT = os.path.join(KOK, "vektor_ln")
+OUT = os.environ.get("DOLGU_LN") or os.path.join(KOK, "vektor_ln")           # DOLGU_LN: baska cikti dizini (dolgu atlama vektorleri)
 RTL = os.path.join(KOK, "rtl")
 os.makedirs(OUT, exist_ok=True)
 
 ap = ortak.ortak_argumanlar(argparse.ArgumentParser())
 a = ap.parse_args([])
+if os.environ.get("DOLGU_CIKIS"): a.cikis = os.environ["DOLGU_CIKIS"]            # test_vektorleri/kunye.json ve ara_olcekler.json burada
 p, _, cumleler, etiket, ids, maske, y = ortak.yukle_hepsi(a)
 ara = json.load(open(os.path.join(a.cikis, "ara_olcekler.json"), encoding="utf-8"))["olcekler"]
 kunye = json.load(open(os.path.join(a.cikis, "test_vektorleri", "kunye.json"), encoding="utf-8"))
 sec = kunye["cumle_idx"]
+for _i, _n in zip(sec, kunye.get("uzat", [])): maske[_i, :_n] = 1                # 04_test_vektoru_uret.py --uzat ile ayni maske uzatmasi
 n_c = len(sec)
 
 olaylar = []
@@ -119,8 +121,9 @@ for j, i in enumerate(ln_idx[1:], start=1):          # 0: gomme LayerNorm (bilgi
     open(os.path.join(OUT, f"ln{j}_cikis.mem"), "w").write("\n".join(f"{int(v) & 0xFF:02x}" for v in z.reshape(-1)) + "\n")
     print(f"LN {j}: s_in={s_in:.5g} q aralik [{q.min()},{q.max()}] eps={eps_q} Mx={M0x}/{nx} Ma={M0a}/{na} Ml={M0l}/{nl} Mo={M0o}/{no}  dogrulama tamam")
 
-open(os.path.join(RTL, "ln_gamma.mem"), "w").write("\n".join(f"{v:04x}" for v in gam_tum) + "\n")
-open(os.path.join(RTL, "ln_beta.mem"), "w").write("\n".join(f"{v:04x}" for v in bet_tum) + "\n")
+RTL_YAZ = os.environ.get("DOLGU_RTL_YAZMA", "1") != "0"                 # 0: rtl/ altindaki sabit dosyalari yeniden yazma
+if RTL_YAZ: open(os.path.join(RTL, "ln_gamma.mem"), "w").write("\n".join(f"{v:04x}" for v in gam_tum) + "\n")
+if RTL_YAZ: open(os.path.join(RTL, "ln_beta.mem"), "w").write("\n".join(f"{v:04x}" for v in bet_tum) + "\n")
 satir = ["// uret_ln_vektor.py tarafindan uretildi; elle duzenlemeyin", "localparam LN_SAYISI = 4;"]
 for ad, anahtar, g in (("ln_eps", "eps", 40), ("ln_m0", "ml", 31), ("ln_n", "nl", 6), ("ln_x_m0", "mx", 31), ("ln_x_n", "nx", 6),
                        ("ln_a_m0", "ma", 31), ("ln_a_n", "na", 6), ("ln_o_m0", "mo", 31), ("ln_o_n", "no", 6), ("ln_yalniz_ilk_token", "ilk", 1)):
@@ -128,5 +131,5 @@ for ad, anahtar, g in (("ln_eps", "eps", 40), ("ln_m0", "ml", 31), ("ln_n", "nl"
     for j, h in enumerate(harita):
         satir.append(f"        {j}: {ad} = {g}'d{h[anahtar]};")
     satir.append(f"        default: {ad} = {g}'d0; endcase end endfunction")
-open(os.path.join(RTL, "ln_harita.vh"), "w").write("\n".join(satir) + "\n")
+if RTL_YAZ: open(os.path.join(RTL, "ln_harita.vh"), "w").write("\n".join(satir) + "\n")
 print("cumle sayisi:", n_c, "| LN sabitleri:", harita[0])

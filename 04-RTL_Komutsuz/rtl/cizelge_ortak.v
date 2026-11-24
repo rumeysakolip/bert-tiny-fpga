@@ -15,7 +15,8 @@
 `timescale 1ns/1ps
 module cizelge_ortak #(
     parameter KATMAN_ISLEM = 1,
-    parameter SINIFLANDIR  = 1                    // 1: son katmandan sonra pooler (tanh) ve siniflandirici satirlari + karar
+    parameter SINIFLANDIR  = 1,                   // 1: son katmandan sonra pooler (tanh) ve siniflandirici satirlari + karar
+    parameter DOLGU_ATLA   = 1                    // 1: token blogu sayisi nb = ceil(cumle_uzunluk/8) (dolgu bloklari hesaplanmaz); 0: her zaman 8 blok (eski davranis)
 ) (
     input  wire         clk,
     input  wire         rst,
@@ -238,6 +239,9 @@ function [8*16-1:0] katman_ad; input integer i; begin case (i)
     function [5:0]  pv_n;  input integer l; begin pv_n  = 6'd37; end endfunction
 
     wire [3:0]  sn   = satir_no;
+    // dolgu atlama: cumlenin gercek uzunlugundan (akis ayristirici, aktivasyon blogu dogrulaninca) blok sayisi; gecersiz uzunluk (0 ya da > 64) = 8 blok
+    wire [7:0]  uz_toplam = {1'b0, cumle_uzunluk} + 8'd7;
+    wire [3:0]  nb_w = (DOLGU_ATLA == 0 || cumle_uzunluk == 7'd0 || cumle_uzunluk > 7'd64) ? 4'd8 : uz_toplam[6:3];
     wire [1:0]  tur  = s_tur(sn);
     wire [2:0]  kat  = s_kat(sn);
     wire [6:0]  npan = s_panel(sn);
@@ -284,10 +288,11 @@ function [8*16-1:0] katman_ad; input integer i; begin case (i)
                 S_SATIR: begin
                     // satira ozgu ayarlar
                     taban_giris <= s_tg(sn); taban_ikinci <= s_ti(sn); taban_cikis <= s_tc(sn);
+                    ayar_blok_sayisi <= nb_w;                       // her satir turu icin nb (pooler / siniflandirici asagida 1'e cekilir)
                     case (tur)
                         2'd0: begin
                             is_tipi <= 3'd0; ayar_k <= katman_k(kidx); ayar_panel_sayisi <= npan; ayar_kaydirma <= katman_kaydirma(kidx);
-                            gelu_etkin <= (sn == 4'd11 || sn == 4'd14); devrik_yaz <= (sn == 4'd4); ayar_blok_sayisi <= (sn >= 4'd14) ? 4'd1 : 4'd0;
+                            gelu_etkin <= (sn == 4'd11 || sn == 4'd14); devrik_yaz <= (sn == 4'd4); ayar_blok_sayisi <= (sn >= 4'd14) ? 4'd1 : nb_w;
                             bos <= 2'b11; panel_hazir <= 2'b00; yuklenen <= 0; alinan <= 0; basladi <= 1'b0; fdurum <= F_BOS;
                             if (sn == 4'd11 || sn == 4'd14) durum <= S_TABLO; else durum <= S_DOGRUSAL;
                         end

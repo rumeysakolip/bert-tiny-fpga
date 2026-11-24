@@ -66,3 +66,10 @@ raporlar/ara_rapor/*.pdf
 # raporlar depoya konmaz
 raporlar/
 rapor_sistemi/
+
+# dolgu atlama vektorleri (scripts/uret_dolgu_vektorleri.py ile yeniden uretilir) ve benzetim cikti dizinleri
+04-RTL_Komutsuz/vektor_dolgu/
+04-RTL_Komutsuz/sim/xs_dolgu/
+04-RTL_Komutsuz/sim/xs_saf_*/
+04-RTL_Komutsuz/sim/xs_lane*/
+04-RTL_Komutsuz/sentez/deney/cikti/*.xdc

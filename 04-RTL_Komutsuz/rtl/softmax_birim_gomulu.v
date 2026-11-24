@@ -14,12 +14,14 @@
 module softmax_birim_gomulu #(
     parameter SATIR_UZUNLUGU    = 64,
     parameter SATIR_UZUNLUGU_LOG2 = 6,
-    parameter TABLO_DOSYASI = "exp_tablosu.mem"        // 512 x 16 bit ustel tablosu; yuklenebilir dosyaya baslangic degeri olarak gomulur
+    parameter TABLO_DOSYASI = "exp_tablosu.mem",       // 512 x 16 bit ustel tablosu; yuklenebilir dosyaya baslangic degeri olarak gomulur
+    parameter DINAMIK       = 0                        // 1: satir uzunlugu her satirda `satir_uz` girisinden alinir (dolgu atlama); 0: SATIR_UZUNLUGU sabit, `satir_uz` kullanilmaz
 ) (
     input  wire                 clk,
     input  wire                 rst,
     input  wire [23:0]          olcek_m0,
     input  wire                 baslat,
+    input  wire [SATIR_UZUNLUGU_LOG2:0] satir_uz,       // DINAMIK=1: bu satirdaki eleman sayisi (1..SATIR_UZUNLUGU; 0 ya da buyuk deger = SATIR_UZUNLUGU)
     output wire                 giris_hazir,
     input  wire                 giris_gecerli,
     input  wire signed [31:0]   giris_veri,
@@ -35,6 +37,12 @@ module softmax_birim_gomulu #(
 
     reg [3:0] durum;
     reg [SATIR_UZUNLUGU_LOG2:0] sayac;
+    // satir uzunlugu (DINAMIK=0 iken sabit; tum karsilastirmalar bu uc degerle yapilir)
+    reg  [SATIR_UZUNLUGU_LOG2:0] uz_kayit;                                              // baslat aninda kilitlenen eleman sayisi
+    wire [SATIR_UZUNLUGU_LOG2:0] uz_istek = (satir_uz == 0 || satir_uz > SATIR_UZUNLUGU) ? SATIR_UZUNLUGU : satir_uz;
+    wire [SATIR_UZUNLUGU_LOG2:0] uz_k     = (DINAMIK != 0) ? uz_kayit : SATIR_UZUNLUGU;  // L
+    wire [SATIR_UZUNLUGU_LOG2:0] uz_son   = uz_k - 1'b1;                                 // L-1
+    wire [SATIR_UZUNLUGU_LOG2:0] uz_dren  = uz_k + 3'd4;                                 // L+4 (boru hatti bosalmasi)
     reg signed [31:0] skor_tamponu [0:SATIR_UZUNLUGU-1];
     reg               maske_tamponu [0:SATIR_UZUNLUGU-1];
     reg [15:0]        us_tamponu [0:SATIR_UZUNLUGU-1];
@@ -80,13 +88,13 @@ module softmax_birim_gomulu #(
     always @(posedge clk) begin
         if (rst) begin
             durum <= DURUM_BOSTA; sayac <= 0; cikis_gecerli <= 1'b0; cikis_veri <= 8'd0; cikis_son <= 1'b0; cikis_sayaci <= 0; pay_kayit <= 0; pay_gecerli_kayit <= 1'b0;
-            en_buyuk_skor <= 0; en_buyuk_gecerli <= 1'b0; olcek_m0_kayit <= 0; skor_farki <= 0; carpim1 <= 0; carpim2 <= 0; toplam_us <= 0;
+            en_buyuk_skor <= 0; en_buyuk_gecerli <= 1'b0; olcek_m0_kayit <= 0; uz_kayit <= SATIR_UZUNLUGU; skor_farki <= 0; carpim1 <= 0; carpim2 <= 0; toplam_us <= 0;
             asama1_gecerli <= 1'b0; asama2_gecerli <= 1'b0; asama3_gecerli <= 1'b0; asama4_gecerli <= 1'b0; asama5_gecerli <= 1'b0;
             asama1_indeks <= 0; asama2_indeks <= 0; asama3_indeks <= 0; asama4_indeks <= 0; asama5_indeks <= 0; asama1_maske <= 1'b0; asama2_maske <= 1'b0; asama3_maske <= 1'b0; asama4_maske <= 1'b0; asama5_maske <= 1'b0; asama1_skor <= 0;
         end else begin
             pay_kayit <= pay_hesap; pay_gecerli_kayit <= (durum == DURUM_CIKTI);
             // eleman boru hatti (serbest akar; gecerli bayragi ile)
-            asama1_gecerli <= (durum == DURUM_FARK) && (sayac < SATIR_UZUNLUGU); asama1_indeks <= satir_sirasi; asama1_skor <= skor_tamponu[satir_sirasi]; asama1_maske <= maske_tamponu[satir_sirasi];
+            asama1_gecerli <= (durum == DURUM_FARK) && (sayac < uz_k); asama1_indeks <= satir_sirasi; asama1_skor <= skor_tamponu[satir_sirasi]; asama1_maske <= maske_tamponu[satir_sirasi];
             asama2_gecerli <= asama1_gecerli; asama2_indeks <= asama1_indeks; asama2_maske <= asama1_maske; skor_farki <= asama1_maske ? (en_buyuk_skor - asama1_skor) : 34'd0;
             asama3_gecerli <= asama2_gecerli; asama3_indeks <= asama2_indeks; asama3_maske <= asama2_maske; carpim1 <= skor_farki * olcek_m0_kayit;
             asama4_gecerli <= asama3_gecerli; asama4_indeks <= asama3_indeks; asama4_maske <= asama3_maske; carpim2 <= carpim1;
@@ -94,29 +102,29 @@ module softmax_birim_gomulu #(
             if (asama5_gecerli) begin us_tamponu[asama5_indeks] <= us_degeri; toplam_us <= toplam_us + us_degeri; end
             // cikis: boru hattindan gelen her bolum bir cikis elemanidir
             cikis_gecerli <= bolum_gecerli;
-            cikis_son  <= bolum_gecerli && (cikis_sayaci == SATIR_UZUNLUGU-1);
-            if (bolum_gecerli) begin cikis_veri <= bolum_veri; cikis_sayaci <= (cikis_sayaci == SATIR_UZUNLUGU-1) ? {(SATIR_UZUNLUGU_LOG2+1){1'b0}} : cikis_sayaci + 1'b1; end
+            cikis_son  <= bolum_gecerli && (cikis_sayaci == uz_son);
+            if (bolum_gecerli) begin cikis_veri <= bolum_veri; cikis_sayaci <= (cikis_sayaci == uz_son) ? {(SATIR_UZUNLUGU_LOG2+1){1'b0}} : cikis_sayaci + 1'b1; end
             case (durum)
                 DURUM_BOSTA: if (baslat) begin
-                    olcek_m0_kayit <= olcek_m0; sayac <= 0; cikis_sayaci <= 0; en_buyuk_gecerli <= 1'b0; en_buyuk_skor <= 0; toplam_us <= 0; durum <= DURUM_YUKLE;
+                    olcek_m0_kayit <= olcek_m0; uz_kayit <= uz_istek; sayac <= 0; cikis_sayaci <= 0; en_buyuk_gecerli <= 1'b0; en_buyuk_skor <= 0; toplam_us <= 0; durum <= DURUM_YUKLE;
                 end
                 DURUM_YUKLE: if (giris_gecerli) begin
                     skor_tamponu[satir_sirasi] <= giris_veri; maske_tamponu[satir_sirasi] <= giris_maske;
                     if (giris_maske && (!en_buyuk_gecerli || giris_veri > en_buyuk_skor)) begin en_buyuk_skor <= giris_veri; en_buyuk_gecerli <= 1'b1; end
-                    if (sayac == SATIR_UZUNLUGU-1) begin sayac <= 0; durum <= DURUM_FARK; end else sayac <= sayac + 1;
+                    if (sayac == uz_son) begin sayac <= 0; durum <= DURUM_FARK; end else sayac <= sayac + 1;
                 end
                 DURUM_FARK: begin                                              // L eleman besle, 5 asama bosalt
-                    if (sayac == SATIR_UZUNLUGU+4) begin sayac <= 0; durum <= DURUM_TERS_BASLAT; end else sayac <= sayac + 1;
+                    if (sayac == uz_dren) begin sayac <= 0; durum <= DURUM_TERS_BASLAT; end else sayac <= sayac + 1;
                 end
                 DURUM_TERS_BASLAT: durum <= DURUM_TERS_BEKLE;                                       // ters_baslat bu durumda 1 cevrimlik darbedir
                 DURUM_TERS_BEKLE: if (ters_hazir) begin sayac <= 0; durum <= DURUM_CIKTI; end
                 DURUM_CIKTI: begin                                               // her cevrimde bir eleman
-                    if (sayac == SATIR_UZUNLUGU-1) durum <= DURUM_BOSALT; else sayac <= sayac + 1;
+                    if (sayac == uz_son) durum <= DURUM_BOSALT; else sayac <= sayac + 1;
                 end
                 DURUM_BOSALT: ;                                                   // son cikis gelince asagida IDLE'a donulur
                 default: durum <= DURUM_BOSTA;
             endcase
-            if (bolum_gecerli && cikis_sayaci == SATIR_UZUNLUGU-1) durum <= DURUM_BOSTA;
+            if (bolum_gecerli && cikis_sayaci == uz_son) durum <= DURUM_BOSTA;
         end
     end
 endmodule

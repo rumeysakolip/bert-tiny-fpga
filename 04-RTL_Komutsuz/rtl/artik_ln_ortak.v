@@ -20,6 +20,7 @@ module artik_ln_ortak (
     input  wire [12:0]  taban_cikis,
     input  wire         y_yaz,                   // 1: yeniden olceklenmemis cikis (y) ayrica taban_cikis_y'ye yazilir
     input  wire [12:0]  taban_cikis_y,
+    input  wire [3:0]   ayar_blok_sayisi,        // islenecek token blogu sayisi nb (1..8; 0 ya da 8'den buyuk = 8): satir sayisi 8*nb
     output wire         mesgul,
     output reg          bitti,
     // bellek (kayitli okuma, 1 cevrim)
@@ -129,6 +130,9 @@ function [0:0] ln_yalniz_ilk_token; input integer i; begin case (i)
     reg [12:0] tx, ta, tc;
     reg [8:0]  pj;                          // parametre yukleme sayaci (0..129)
     reg [5:0]  satir;                       // 0..63
+    reg [5:0]  son_satir;                   // bu isin son satiri = 8*nb-1 (basla'da kilitlenir)
+    wire [3:0] nb_etkin = (ayar_blok_sayisi == 4'd0 || ayar_blok_sayisi > 4'd8) ? 4'd8 : ayar_blok_sayisi;
+    wire [3:0] nb_eksi1 = nb_etkin - 4'd1;
     reg [8:0]  s;                           // yukleme adimi 0..255 (+ bosaltma)
     reg [7:0]  gir_say;                     // LayerNorm'a verilen eleman sayisi
     reg [8:0]  cik_say;                     // alinan LayerNorm cikis sayisi (yeniden olceklenmis)
@@ -179,7 +183,7 @@ function [0:0] ln_yalniz_ilk_token; input integer i; begin case (i)
 
             case (durum)
                 D_BOS: if (basla) begin
-                    ln_k <= ln_no; tx <= taban_x; ta <= taban_a; tc <= taban_cikis; y_on <= y_yaz; tcy <= taban_cikis_y; tasma <= 1'b0; pj <= 9'd0; satir <= 6'd0;
+                    ln_k <= ln_no; son_satir <= {nb_eksi1[2:0], 3'b111}; tx <= taban_x; ta <= taban_a; tc <= taban_cikis; y_on <= y_yaz; tcy <= taban_cikis_y; tasma <= 1'b0; pj <= 9'd0; satir <= 6'd0;
                     eps_r <= ln_eps(ln_no); lm0_r <= ln_m0(ln_no); ln_n_r <= ln_n(ln_no); durum <= D_PAR;
                 end
                 D_PAR: begin                                                   // gamma/beta'yi LayerNorm birimine yaz (gomulu bellekten)
@@ -210,7 +214,7 @@ function [0:0] ln_yalniz_ilk_token; input integer i; begin case (i)
                                  obuf[3*128 + yaz_say[6:0]], obuf[2*128 + yaz_say[6:0]], obuf[1*128 + yaz_say[6:0]], obuf[0*128 + yaz_say[6:0]]};
                     if (yaz_say == 8'd127) begin
                         if (y_on) begin yaz_say <= 8'd0; durum <= D_YAZY; end
-                        else if (satir == 6'd63) begin bitti <= 1'b1; durum <= D_BOS; end
+                        else if (satir == son_satir) begin bitti <= 1'b1; durum <= D_BOS; end
                         else begin satir <= satir + 6'd1; durum <= D_BASLAT; end
                     end else yaz_say <= yaz_say + 8'd1;
                 end
@@ -219,7 +223,7 @@ function [0:0] ln_yalniz_ilk_token; input integer i; begin case (i)
                     yaz_veri <= {ybuf[7*128 + yaz_say[6:0]], ybuf[6*128 + yaz_say[6:0]], ybuf[5*128 + yaz_say[6:0]], ybuf[4*128 + yaz_say[6:0]],
                                  ybuf[3*128 + yaz_say[6:0]], ybuf[2*128 + yaz_say[6:0]], ybuf[1*128 + yaz_say[6:0]], ybuf[0*128 + yaz_say[6:0]]};
                     if (yaz_say == 8'd127) begin
-                        if (satir == 6'd63) begin bitti <= 1'b1; durum <= D_BOS; end
+                        if (satir == son_satir) begin bitti <= 1'b1; durum <= D_BOS; end
                         else begin satir <= satir + 6'd1; durum <= D_BASLAT; end
                     end else yaz_say <= yaz_say + 8'd1;
                 end

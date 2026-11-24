@@ -21,7 +21,10 @@ module akis_ayristirici #(
     parameter AKT_SOZCUK      = 1024,                      // aktivasyon blogu: 64 bit sozcuk sayisi (8 token blogu x K=128)
     parameter K_GENISLIGI     = 11,
     parameter ADRES_GENISLIGI = 12,
-    parameter GOMULU          = 0                         // 1: bias ve M0 bitstream'e gomulu; panel blogu yalniz K x 8 bayt agirlik + CRC
+    parameter GOMULU          = 0,                        // 1: bias ve M0 bitstream'e gomulu; panel blogu yalniz K x 8 bayt agirlik + CRC
+    parameter HIZLI_OLCUM     = 0                         // 1: YALNIZ SURE OLCUMU. Agirlik paneli bloklari bayt tuketmeden 1 cevrimde "tamam" sayilir
+                                                          //    (agirliklarin hizli bellekte hazir bekledigi varsayilir). Panel verisi yazilmaz, sonuclar ANLAMSIZ olur.
+                                                          //    0 iken devre eskisiyle birebir aynidir.
 ) (
     input  wire                       clk,
     input  wire                       rst,
@@ -98,7 +101,9 @@ module akis_ayristirici #(
             crc <= 16'hFFFF; bayt_no <= 3'd0; sozcuk_no <= 0; faz <= 2'd0; cumle_uzunluk <= 7'd0; uzunluk_alindi <= 1'b0;
         end else begin
             case (durum)
-                D_BOS: if (blok_basla) begin
+                D_BOS: if (blok_basla && HIZLI_OLCUM != 0 && blok_tur == 1'b1) begin
+                    blok_tamam <= 1'b1;                                  // olcum kipi: panel akisi beklenmez, durum D_BOS'ta kalir
+                end else if (blok_basla) begin
                     tur_r <= blok_tur; tampon_r <= blok_tampon; k_r <= blok_k;
                     faz <= 2'd0; sozcuk_no <= 0; bayt_no <= 3'd0; crc <= 16'hFFFF;
                     uzunluk_alindi <= (blok_tur == 1'b1);              // panel blogunda uzunluk baytı yok; aktivasyon blogunda ilk bayt uzunluk

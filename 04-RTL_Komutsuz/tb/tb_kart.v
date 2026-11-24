@@ -18,7 +18,7 @@ module tb_kart;
     wire f_sck, f_cs_n, f_io0, f_oe; wire [3:0] f_out; wire f_surer;
 
     // kart hatti: denetleyici io0'i yalniz f_oe iken surer; flas yalniz veri asamasinda surer
-    kart_mantik #(.BOL(BOL), .AKIS_TABAN(TABAN), .CUMLE_BAYT(BAYT_CUMLE), .DEB_BIT(4)) dut (
+    kart_mantik #(.BOL(BOL), .AKIS_TABAN(TABAN), .CUMLE_BAYT(BAYT_CUMLE), .DEB_BIT(4), .GOR_BIT(16)) dut (
         .clk(clk), .btn(btn), .sw(sw), .led(led), .seg(seg), .dp(dp), .an(an),
         .flas_sck(f_sck), .flas_cs_n(f_cs_n), .flas_io0_o(f_io0), .flas_io_oe(f_oe), .flas_io_i(f_surer ? f_out : 4'h0));
     flas_modeli #(.BOYUT(NS*BAYT_CUMLE), .DOSYA(AKIS_V), .TABAN(TABAN), .TV(8)) flas (
@@ -71,7 +71,9 @@ module tb_kart;
         // sonuc bitene kadar bekle (LED[8])
         begin : bekle
             integer sinir; sinir = 0;
-            while (!led[8] && !led[6] && sinir < 40000000) begin @(posedge clk); sinir = sinir + 1; end
+            // !== : baslangicta led X ise (olay sirasi) dongu hemen cikmasin; gecici cikis olursa asagidaki satir gosterir
+            while (led[8] !== 1'b1 && led[6] !== 1'b1 && sinir < 40000000) begin @(posedge clk); sinir = sinir + 1; end
+            $display("bekleme bitti: cevrim %0d, led[8]=%b led[6]=%b", cyc, led[8], led[6]);
             if (!led[8]) begin $display("HATA: sonuc gelmedi (hata LED=%0b, satir=%0d, okunan bayt=%0d)", led[6], led[3:0], dut.kabul_edilen_bayt); errors = errors + 1; end
         end
         repeat (3000) @(posedge clk);

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
-| Date         : Thu Nov 12 12:06:08 2026
+| Date         : Thu Nov 19 17:58:34 2026
 | Host         : pc running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -delay_type min_max -max_paths 5 -file C:/Users/rumey/Documents/biitirme-projem/04-RTL_Komutsuz/sentez/cikti/ust_impl_zamanlama.txt
 | Design       : ortak_ust
@@ -138,7 +138,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      0.279        0.000                      0                24644        0.059        0.000                      0                24644        3.750        0.000                       0                  7589  
+      0.411        0.000                      0                24808        0.053        0.000                      0                24808        3.750        0.000                       0                  7640  
 
 
 All user specified timing constraints are met.
@@ -161,7 +161,7 @@ clk    {0.000 5.000}      10.000          100.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-clk                 0.279        0.000                      0                24644        0.059        0.000                      0                24644        3.750        0.000                       0                  7589  
+clk                 0.411        0.000                      0                24808        0.053        0.000                      0                24808        3.750        0.000                       0                  7640  
 
 
 ------------------------------------------------------------------------------------------------
@@ -192,24 +192,24 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  clk
   To Clock:  clk
 
-Setup :            0  Failing Endpoints,  Worst Slack        0.279ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.059ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        0.411ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.053ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.279ns  (required time - arrival time)
-  Source:                 u_cekirdek/tip_reg[1]/C
+Slack (MET) :             0.411ns  (required time - arrival time)
+  Source:                 u_cekirdek/u_tile/blok_no_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[8]
+  Destination:            u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_1/ADDRBWRADDR[5]
                             (rising edge-triggered cell RAMB36E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        9.071ns  (logic 3.381ns (37.275%)  route 5.690ns (62.725%))
-  Logic Levels:           11  (CARRY4=3 LUT2=3 LUT5=2 LUT6=3)
+  Data Path Delay:        8.939ns  (logic 2.564ns (28.683%)  route 6.375ns (71.317%))
+  Logic Levels:           9  (CARRY4=2 LUT3=1 LUT4=2 LUT5=1 LUT6=3)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -224,274 +224,58 @@ Slack (MET) :             0.279ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock clk rise edge)        0.000     0.000 r  
                                                       0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.973     0.973    u_cekirdek/clk
-    SLICE_X33Y50         FDRE                                         r  u_cekirdek/tip_reg[1]/C
+                         net (fo=7641, unset)         0.973     0.973    u_cekirdek/u_tile/clk
+    SLICE_X29Y66         FDRE                                         r  u_cekirdek/u_tile/blok_no_reg[2]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X33Y50         FDRE (Prop_fdre_C_Q)         0.456     1.429 r  u_cekirdek/tip_reg[1]/Q
-                         net (fo=147, routed)         0.769     2.198    u_cekirdek/u_tile/birikec_reg[1]
-    SLICE_X31Y51         LUT2 (Prop_lut2_I1_O)        0.150     2.348 r  u_cekirdek/u_tile/k_uzunlugu_kayit[6]_i_1__0/O
-                         net (fo=5, routed)           0.809     3.157    u_cekirdek/u_tile/t_att
-    SLICE_X32Y50         LUT6 (Prop_lut6_I4_O)        0.326     3.483 r  u_cekirdek/u_tile/FSM_onehot_durum[4]_i_5/O
-                         net (fo=3, routed)           0.173     3.656    u_cekirdek/u_tile/u_sistolik_dizi/yeni_panel_tile_baslat
-    SLICE_X32Y50         LUT2 (Prop_lut2_I1_O)        0.124     3.780 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_58/O
-                         net (fo=26, routed)          0.749     4.529    u_cekirdek/u_tile/u_sistolik_dizi/tile_baslat
-    SLICE_X31Y48         LUT5 (Prop_lut5_I3_O)        0.124     4.653 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_140/O
-                         net (fo=1, routed)           0.000     4.653    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_140_n_0
-    SLICE_X31Y48         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     5.203 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127/CO[3]
-                         net (fo=1, routed)           0.000     5.203    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127_n_0
-    SLICE_X31Y49         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222     5.425 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim_reg[2]_i_4/O[0]
-                         net (fo=1, routed)           0.296     5.721    u_cekirdek/u_tile/u_sistolik_dizi/akt_oku_adres_g[10]
-    SLICE_X31Y47         LUT2 (Prop_lut2_I1_O)        0.299     6.020 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_5/O
-                         net (fo=1, routed)           0.000     6.020    u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_5_n_0
-    SLICE_X31Y47         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580     6.600 f  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim_reg[2]_i_2/O[2]
-                         net (fo=1, routed)           0.299     6.899    u_cekirdek/u_tile/u_sistolik_dizi/b_oku1_adres1[11]
-    SLICE_X32Y47         LUT6 (Prop_lut6_I0_O)        0.302     7.201 f  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[1]_i_1/O
-                         net (fo=5, routed)           0.517     7.718    u_cekirdek/u_tile/u_sistolik_dizi/tip_reg[0]
-    SLICE_X32Y47         LUT5 (Prop_lut5_I4_O)        0.124     7.842 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_12__2/O
-                         net (fo=20, routed)          0.672     8.514    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_12__2_n_0
-    SLICE_X32Y43         LUT6 (Prop_lut6_I1_O)        0.124     8.638 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_8__3/O
-                         net (fo=2, routed)           1.405    10.044    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_0_37[3]
-    RAMB36_X1Y6          RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[8]
+    SLICE_X29Y66         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  u_cekirdek/u_tile/blok_no_reg[2]/Q
+                         net (fo=4, routed)           0.688     2.080    u_cekirdek/u_tile/blok_no_reg_n_0_[2]
+    SLICE_X28Y66         LUT4 (Prop_lut4_I2_O)        0.297     2.377 r  u_cekirdek/u_tile/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.355     2.732    u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X29Y66         LUT6 (Prop_lut6_I4_O)        0.124     2.856 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_60/O
+                         net (fo=37, routed)          0.755     3.611    u_cekirdek/u_tile/u_sistolik_dizi/ayni_panel_tile_baslat
+    SLICE_X29Y64         LUT3 (Prop_lut3_I2_O)        0.124     3.735 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_58/O
+                         net (fo=20, routed)          0.810     4.545    u_cekirdek/u_tile/u_sistolik_dizi/tile_baslat
+    SLICE_X29Y57         LUT5 (Prop_lut5_I3_O)        0.124     4.669 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_144/O
+                         net (fo=1, routed)           0.000     4.669    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_144_n_0
+    SLICE_X29Y57         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     5.070 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_130/CO[3]
+                         net (fo=1, routed)           0.000     5.070    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_130_n_0
+    SLICE_X29Y58         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     5.383 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127/O[3]
+                         net (fo=4, routed)           0.511     5.894    u_cekirdek/u_tile/u_sistolik_dizi/akt_oku_adres_g[10]
+    SLICE_X30Y58         LUT6 (Prop_lut6_I5_O)        0.306     6.200 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_2/O
+                         net (fo=1, routed)           0.557     6.757    u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_2_n_0
+    SLICE_X30Y56         LUT4 (Prop_lut4_I0_O)        0.116     6.873 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_1/O
+                         net (fo=62, routed)          1.284     8.157    u_cekirdek/u_tile/u_sistolik_dizi/isyeri_reg
+    SLICE_X34Y55         LUT6 (Prop_lut6_I2_O)        0.340     8.497 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_11__3/O
+                         net (fo=2, routed)           1.415     9.912    u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_0_1[0]
+    RAMB36_X2Y11         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_1/ADDRBWRADDR[5]
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)       10.000    10.000 r  
                                                       0.000    10.000 r  clk (IN)
-                         net (fo=7590, unset)         0.924    10.924    u_cekirdek/u_bellek/birim[3].u_birim/clk
-    RAMB36_X1Y6          RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/CLKBWRCLK
+                         net (fo=7641, unset)         0.924    10.924    u_cekirdek/u_bellek/birim[2].u_birim/clk
+    RAMB36_X2Y11         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_1/CLKBWRCLK
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    RAMB36_X1Y6          RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[8])
-                                                     -0.566    10.323    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1
+    RAMB36_X2Y11         RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[5])
+                                                     -0.566    10.323    u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_1
   -------------------------------------------------------------------
                          required time                         10.323    
-                         arrival time                         -10.044    
+                         arrival time                          -9.912    
   -------------------------------------------------------------------
-                         slack                                  0.279    
+                         slack                                  0.411    
 
-Slack (MET) :             0.341ns  (required time - arrival time)
-  Source:                 u_cekirdek/tip_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            u_cekirdek/u_bellek/birim[4].u_birim/bellek_reg_1/ADDRBWRADDR[10]
-                            (rising edge-triggered cell RAMB36E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        9.009ns  (logic 3.321ns (36.864%)  route 5.688ns (63.136%))
-  Logic Levels:           10  (CARRY4=3 LUT2=3 LUT5=1 LUT6=3)
-  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
-    Source Clock Delay      (SCD):    0.973ns
-    Clock Pessimism Removal (CPR):    0.000ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-                                                      0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.973     0.973    u_cekirdek/clk
-    SLICE_X33Y50         FDRE                                         r  u_cekirdek/tip_reg[1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X33Y50         FDRE (Prop_fdre_C_Q)         0.456     1.429 r  u_cekirdek/tip_reg[1]/Q
-                         net (fo=147, routed)         0.769     2.198    u_cekirdek/u_tile/birikec_reg[1]
-    SLICE_X31Y51         LUT2 (Prop_lut2_I1_O)        0.150     2.348 r  u_cekirdek/u_tile/k_uzunlugu_kayit[6]_i_1__0/O
-                         net (fo=5, routed)           0.809     3.157    u_cekirdek/u_tile/t_att
-    SLICE_X32Y50         LUT6 (Prop_lut6_I4_O)        0.326     3.483 r  u_cekirdek/u_tile/FSM_onehot_durum[4]_i_5/O
-                         net (fo=3, routed)           0.173     3.656    u_cekirdek/u_tile/u_sistolik_dizi/yeni_panel_tile_baslat
-    SLICE_X32Y50         LUT2 (Prop_lut2_I1_O)        0.124     3.780 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_58/O
-                         net (fo=26, routed)          0.749     4.529    u_cekirdek/u_tile/u_sistolik_dizi/tile_baslat
-    SLICE_X31Y48         LUT5 (Prop_lut5_I3_O)        0.124     4.653 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_140/O
-                         net (fo=1, routed)           0.000     4.653    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_140_n_0
-    SLICE_X31Y48         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     5.203 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127/CO[3]
-                         net (fo=1, routed)           0.000     5.203    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127_n_0
-    SLICE_X31Y49         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222     5.425 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim_reg[2]_i_4/O[0]
-                         net (fo=1, routed)           0.296     5.721    u_cekirdek/u_tile/u_sistolik_dizi/akt_oku_adres_g[10]
-    SLICE_X31Y47         LUT2 (Prop_lut2_I1_O)        0.299     6.020 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_5/O
-                         net (fo=1, routed)           0.000     6.020    u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_5_n_0
-    SLICE_X31Y47         CARRY4 (Prop_carry4_S[1]_O[3])
-                                                      0.640     6.660 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim_reg[2]_i_2/O[3]
-                         net (fo=1, routed)           0.485     7.145    u_cekirdek/u_tile/u_sistolik_dizi/b_oku1_adres1[12]
-    SLICE_X32Y47         LUT6 (Prop_lut6_I0_O)        0.306     7.451 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_1/O
-                         net (fo=62, routed)          1.135     8.586    u_cekirdek/u_tile/u_sistolik_dizi/oku_adres_reg[12]
-    SLICE_X40Y50         LUT6 (Prop_lut6_I2_O)        0.124     8.710 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_6__1/O
-                         net (fo=2, routed)           1.271     9.982    u_cekirdek/u_bellek/birim[4].u_birim/bellek_reg_0_1[5]
-    RAMB36_X1Y12         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[4].u_birim/bellek_reg_1/ADDRBWRADDR[10]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)       10.000    10.000 r  
-                                                      0.000    10.000 r  clk (IN)
-                         net (fo=7590, unset)         0.924    10.924    u_cekirdek/u_bellek/birim[4].u_birim/clk
-    RAMB36_X1Y12         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[4].u_birim/bellek_reg_1/CLKBWRCLK
-                         clock pessimism              0.000    10.924    
-                         clock uncertainty           -0.035    10.889    
-    RAMB36_X1Y12         RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[10])
-                                                     -0.566    10.323    u_cekirdek/u_bellek/birim[4].u_birim/bellek_reg_1
-  -------------------------------------------------------------------
-                         required time                         10.323    
-                         arrival time                          -9.982    
-  -------------------------------------------------------------------
-                         slack                                  0.341    
-
-Slack (MET) :             0.348ns  (required time - arrival time)
-  Source:                 u_cekirdek/tip_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            u_cekirdek/u_bellek/birim[1].u_birim/bellek_reg_1/ADDRBWRADDR[12]
-                            (rising edge-triggered cell RAMB36E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        9.002ns  (logic 3.381ns (37.558%)  route 5.621ns (62.442%))
-  Logic Levels:           11  (CARRY4=3 LUT2=3 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
-    Source Clock Delay      (SCD):    0.973ns
-    Clock Pessimism Removal (CPR):    0.000ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-                                                      0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.973     0.973    u_cekirdek/clk
-    SLICE_X33Y50         FDRE                                         r  u_cekirdek/tip_reg[1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X33Y50         FDRE (Prop_fdre_C_Q)         0.456     1.429 r  u_cekirdek/tip_reg[1]/Q
-                         net (fo=147, routed)         0.769     2.198    u_cekirdek/u_tile/birikec_reg[1]
-    SLICE_X31Y51         LUT2 (Prop_lut2_I1_O)        0.150     2.348 r  u_cekirdek/u_tile/k_uzunlugu_kayit[6]_i_1__0/O
-                         net (fo=5, routed)           0.809     3.157    u_cekirdek/u_tile/t_att
-    SLICE_X32Y50         LUT6 (Prop_lut6_I4_O)        0.326     3.483 r  u_cekirdek/u_tile/FSM_onehot_durum[4]_i_5/O
-                         net (fo=3, routed)           0.173     3.656    u_cekirdek/u_tile/u_sistolik_dizi/yeni_panel_tile_baslat
-    SLICE_X32Y50         LUT2 (Prop_lut2_I1_O)        0.124     3.780 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_58/O
-                         net (fo=26, routed)          0.749     4.529    u_cekirdek/u_tile/u_sistolik_dizi/tile_baslat
-    SLICE_X31Y48         LUT5 (Prop_lut5_I3_O)        0.124     4.653 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_140/O
-                         net (fo=1, routed)           0.000     4.653    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_140_n_0
-    SLICE_X31Y48         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     5.203 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127/CO[3]
-                         net (fo=1, routed)           0.000     5.203    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127_n_0
-    SLICE_X31Y49         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222     5.425 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim_reg[2]_i_4/O[0]
-                         net (fo=1, routed)           0.296     5.721    u_cekirdek/u_tile/u_sistolik_dizi/akt_oku_adres_g[10]
-    SLICE_X31Y47         LUT2 (Prop_lut2_I1_O)        0.299     6.020 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_5/O
-                         net (fo=1, routed)           0.000     6.020    u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_5_n_0
-    SLICE_X31Y47         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580     6.600 f  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim_reg[2]_i_2/O[2]
-                         net (fo=1, routed)           0.299     6.899    u_cekirdek/u_tile/u_sistolik_dizi/b_oku1_adres1[11]
-    SLICE_X32Y47         LUT6 (Prop_lut6_I0_O)        0.302     7.201 f  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[1]_i_1/O
-                         net (fo=5, routed)           0.313     7.514    u_cekirdek/u_tile/u_sistolik_dizi/tip_reg[0]
-    SLICE_X35Y47         LUT5 (Prop_lut5_I4_O)        0.124     7.638 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_74/O
-                         net (fo=40, routed)          0.880     8.518    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_74_n_0
-    SLICE_X41Y46         LUT6 (Prop_lut6_I3_O)        0.124     8.642 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_4__2/O
-                         net (fo=2, routed)           1.333     9.975    u_cekirdek/u_bellek/birim[1].u_birim/bellek_reg_0_1[7]
-    RAMB36_X2Y9          RAMB36E1                                     r  u_cekirdek/u_bellek/birim[1].u_birim/bellek_reg_1/ADDRBWRADDR[12]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)       10.000    10.000 r  
-                                                      0.000    10.000 r  clk (IN)
-                         net (fo=7590, unset)         0.924    10.924    u_cekirdek/u_bellek/birim[1].u_birim/clk
-    RAMB36_X2Y9          RAMB36E1                                     r  u_cekirdek/u_bellek/birim[1].u_birim/bellek_reg_1/CLKBWRCLK
-                         clock pessimism              0.000    10.924    
-                         clock uncertainty           -0.035    10.889    
-    RAMB36_X2Y9          RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[12])
-                                                     -0.566    10.323    u_cekirdek/u_bellek/birim[1].u_birim/bellek_reg_1
-  -------------------------------------------------------------------
-                         required time                         10.323    
-                         arrival time                          -9.975    
-  -------------------------------------------------------------------
-                         slack                                  0.348    
-
-Slack (MET) :             0.372ns  (required time - arrival time)
-  Source:                 u_cekirdek/tip_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[9]
-                            (rising edge-triggered cell RAMB36E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        8.978ns  (logic 3.381ns (37.660%)  route 5.597ns (62.340%))
-  Logic Levels:           11  (CARRY4=3 LUT2=3 LUT5=2 LUT6=3)
-  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
-    Source Clock Delay      (SCD):    0.973ns
-    Clock Pessimism Removal (CPR):    0.000ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-                                                      0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.973     0.973    u_cekirdek/clk
-    SLICE_X33Y50         FDRE                                         r  u_cekirdek/tip_reg[1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X33Y50         FDRE (Prop_fdre_C_Q)         0.456     1.429 r  u_cekirdek/tip_reg[1]/Q
-                         net (fo=147, routed)         0.769     2.198    u_cekirdek/u_tile/birikec_reg[1]
-    SLICE_X31Y51         LUT2 (Prop_lut2_I1_O)        0.150     2.348 r  u_cekirdek/u_tile/k_uzunlugu_kayit[6]_i_1__0/O
-                         net (fo=5, routed)           0.809     3.157    u_cekirdek/u_tile/t_att
-    SLICE_X32Y50         LUT6 (Prop_lut6_I4_O)        0.326     3.483 r  u_cekirdek/u_tile/FSM_onehot_durum[4]_i_5/O
-                         net (fo=3, routed)           0.173     3.656    u_cekirdek/u_tile/u_sistolik_dizi/yeni_panel_tile_baslat
-    SLICE_X32Y50         LUT2 (Prop_lut2_I1_O)        0.124     3.780 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_58/O
-                         net (fo=26, routed)          0.749     4.529    u_cekirdek/u_tile/u_sistolik_dizi/tile_baslat
-    SLICE_X31Y48         LUT5 (Prop_lut5_I3_O)        0.124     4.653 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_140/O
-                         net (fo=1, routed)           0.000     4.653    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_140_n_0
-    SLICE_X31Y48         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     5.203 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127/CO[3]
-                         net (fo=1, routed)           0.000     5.203    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127_n_0
-    SLICE_X31Y49         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222     5.425 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim_reg[2]_i_4/O[0]
-                         net (fo=1, routed)           0.296     5.721    u_cekirdek/u_tile/u_sistolik_dizi/akt_oku_adres_g[10]
-    SLICE_X31Y47         LUT2 (Prop_lut2_I1_O)        0.299     6.020 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_5/O
-                         net (fo=1, routed)           0.000     6.020    u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_5_n_0
-    SLICE_X31Y47         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580     6.600 f  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim_reg[2]_i_2/O[2]
-                         net (fo=1, routed)           0.299     6.899    u_cekirdek/u_tile/u_sistolik_dizi/b_oku1_adres1[11]
-    SLICE_X32Y47         LUT6 (Prop_lut6_I0_O)        0.302     7.201 f  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[1]_i_1/O
-                         net (fo=5, routed)           0.517     7.718    u_cekirdek/u_tile/u_sistolik_dizi/tip_reg[0]
-    SLICE_X32Y47         LUT5 (Prop_lut5_I4_O)        0.124     7.842 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_12__2/O
-                         net (fo=20, routed)          0.686     8.528    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_12__2_n_0
-    SLICE_X32Y44         LUT6 (Prop_lut6_I1_O)        0.124     8.652 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_7__3/O
-                         net (fo=2, routed)           1.299     9.951    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_0_37[4]
-    RAMB36_X1Y6          RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[9]
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)       10.000    10.000 r  
-                                                      0.000    10.000 r  clk (IN)
-                         net (fo=7590, unset)         0.924    10.924    u_cekirdek/u_bellek/birim[3].u_birim/clk
-    RAMB36_X1Y6          RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/CLKBWRCLK
-                         clock pessimism              0.000    10.924    
-                         clock uncertainty           -0.035    10.889    
-    RAMB36_X1Y6          RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[9])
-                                                     -0.566    10.323    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1
-  -------------------------------------------------------------------
-                         required time                         10.323    
-                         arrival time                          -9.951    
-  -------------------------------------------------------------------
-                         slack                                  0.372    
-
-Slack (MET) :             0.387ns  (required time - arrival time)
-  Source:                 u_cekirdek/tip_reg[1]/C
+Slack (MET) :             0.534ns  (required time - arrival time)
+  Source:                 u_cekirdek/u_tile/blok_no_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[14]
                             (rising edge-triggered cell RAMB36E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
-  Data Path Delay:        8.963ns  (logic 3.381ns (37.721%)  route 5.582ns (62.279%))
-  Logic Levels:           11  (CARRY4=3 LUT2=3 LUT5=2 LUT6=3)
+  Data Path Delay:        8.816ns  (logic 2.564ns (29.085%)  route 6.252ns (70.915%))
+  Logic Levels:           9  (CARRY4=2 LUT3=1 LUT4=2 LUT5=1 LUT6=3)
   Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
     Source Clock Delay      (SCD):    0.973ns
@@ -506,52 +290,245 @@ Slack (MET) :             0.387ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          (clock clk rise edge)        0.000     0.000 r  
                                                       0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.973     0.973    u_cekirdek/clk
-    SLICE_X33Y50         FDRE                                         r  u_cekirdek/tip_reg[1]/C
+                         net (fo=7641, unset)         0.973     0.973    u_cekirdek/u_tile/clk
+    SLICE_X29Y66         FDRE                                         r  u_cekirdek/u_tile/blok_no_reg[2]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X33Y50         FDRE (Prop_fdre_C_Q)         0.456     1.429 r  u_cekirdek/tip_reg[1]/Q
-                         net (fo=147, routed)         0.769     2.198    u_cekirdek/u_tile/birikec_reg[1]
-    SLICE_X31Y51         LUT2 (Prop_lut2_I1_O)        0.150     2.348 r  u_cekirdek/u_tile/k_uzunlugu_kayit[6]_i_1__0/O
-                         net (fo=5, routed)           0.809     3.157    u_cekirdek/u_tile/t_att
-    SLICE_X32Y50         LUT6 (Prop_lut6_I4_O)        0.326     3.483 r  u_cekirdek/u_tile/FSM_onehot_durum[4]_i_5/O
-                         net (fo=3, routed)           0.173     3.656    u_cekirdek/u_tile/u_sistolik_dizi/yeni_panel_tile_baslat
-    SLICE_X32Y50         LUT2 (Prop_lut2_I1_O)        0.124     3.780 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_58/O
-                         net (fo=26, routed)          0.749     4.529    u_cekirdek/u_tile/u_sistolik_dizi/tile_baslat
-    SLICE_X31Y48         LUT5 (Prop_lut5_I3_O)        0.124     4.653 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_140/O
-                         net (fo=1, routed)           0.000     4.653    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_140_n_0
-    SLICE_X31Y48         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     5.203 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127/CO[3]
-                         net (fo=1, routed)           0.000     5.203    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127_n_0
-    SLICE_X31Y49         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222     5.425 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim_reg[2]_i_4/O[0]
-                         net (fo=1, routed)           0.296     5.721    u_cekirdek/u_tile/u_sistolik_dizi/akt_oku_adres_g[10]
-    SLICE_X31Y47         LUT2 (Prop_lut2_I1_O)        0.299     6.020 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_5/O
-                         net (fo=1, routed)           0.000     6.020    u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[2]_i_5_n_0
-    SLICE_X31Y47         CARRY4 (Prop_carry4_S[1]_O[2])
-                                                      0.580     6.600 f  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim_reg[2]_i_2/O[2]
-                         net (fo=1, routed)           0.299     6.899    u_cekirdek/u_tile/u_sistolik_dizi/b_oku1_adres1[11]
-    SLICE_X32Y47         LUT6 (Prop_lut6_I0_O)        0.302     7.201 f  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[1]_i_1/O
-                         net (fo=5, routed)           0.517     7.718    u_cekirdek/u_tile/u_sistolik_dizi/tip_reg[0]
-    SLICE_X32Y47         LUT5 (Prop_lut5_I4_O)        0.124     7.842 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_12__2/O
-                         net (fo=20, routed)          0.685     8.527    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_12__2_n_0
-    SLICE_X32Y45         LUT6 (Prop_lut6_I1_O)        0.124     8.651 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_2__3/O
-                         net (fo=2, routed)           1.285     9.936    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_0_37[9]
-    RAMB36_X1Y6          RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[14]
+    SLICE_X29Y66         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  u_cekirdek/u_tile/blok_no_reg[2]/Q
+                         net (fo=4, routed)           0.688     2.080    u_cekirdek/u_tile/blok_no_reg_n_0_[2]
+    SLICE_X28Y66         LUT4 (Prop_lut4_I2_O)        0.297     2.377 r  u_cekirdek/u_tile/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.355     2.732    u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X29Y66         LUT6 (Prop_lut6_I4_O)        0.124     2.856 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_60/O
+                         net (fo=37, routed)          0.755     3.611    u_cekirdek/u_tile/u_sistolik_dizi/ayni_panel_tile_baslat
+    SLICE_X29Y64         LUT3 (Prop_lut3_I2_O)        0.124     3.735 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_58/O
+                         net (fo=20, routed)          0.810     4.545    u_cekirdek/u_tile/u_sistolik_dizi/tile_baslat
+    SLICE_X29Y57         LUT5 (Prop_lut5_I3_O)        0.124     4.669 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_144/O
+                         net (fo=1, routed)           0.000     4.669    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_144_n_0
+    SLICE_X29Y57         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     5.070 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_130/CO[3]
+                         net (fo=1, routed)           0.000     5.070    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_130_n_0
+    SLICE_X29Y58         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     5.383 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127/O[3]
+                         net (fo=4, routed)           0.511     5.894    u_cekirdek/u_tile/u_sistolik_dizi/akt_oku_adres_g[10]
+    SLICE_X30Y58         LUT6 (Prop_lut6_I5_O)        0.306     6.200 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_2/O
+                         net (fo=1, routed)           0.557     6.757    u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_2_n_0
+    SLICE_X30Y56         LUT4 (Prop_lut4_I0_O)        0.116     6.873 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_1/O
+                         net (fo=62, routed)          1.043     7.916    u_cekirdek/u_ln/bellek_reg_0[0]
+    SLICE_X29Y56         LUT6 (Prop_lut6_I2_O)        0.340     8.256 r  u_cekirdek/u_ln/bellek_reg_0_i_2__2/O
+                         net (fo=2, routed)           1.532     9.789    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_0_37[9]
+    RAMB36_X1Y14         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[14]
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)       10.000    10.000 r  
                                                       0.000    10.000 r  clk (IN)
-                         net (fo=7590, unset)         0.924    10.924    u_cekirdek/u_bellek/birim[3].u_birim/clk
-    RAMB36_X1Y6          RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/CLKBWRCLK
+                         net (fo=7641, unset)         0.924    10.924    u_cekirdek/u_bellek/birim[3].u_birim/clk
+    RAMB36_X1Y14         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/CLKBWRCLK
                          clock pessimism              0.000    10.924    
                          clock uncertainty           -0.035    10.889    
-    RAMB36_X1Y6          RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[14])
+    RAMB36_X1Y14         RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[14])
                                                      -0.566    10.323    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1
   -------------------------------------------------------------------
                          required time                         10.323    
-                         arrival time                          -9.936    
+                         arrival time                          -9.789    
   -------------------------------------------------------------------
-                         slack                                  0.387    
+                         slack                                  0.534    
+
+Slack (MET) :             0.538ns  (required time - arrival time)
+  Source:                 u_cekirdek/u_tile/blok_no_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[6]
+                            (rising edge-triggered cell RAMB36E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        8.812ns  (logic 2.564ns (29.096%)  route 6.248ns (70.904%))
+  Logic Levels:           9  (CARRY4=2 LUT3=1 LUT4=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=7641, unset)         0.973     0.973    u_cekirdek/u_tile/clk
+    SLICE_X29Y66         FDRE                                         r  u_cekirdek/u_tile/blok_no_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y66         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  u_cekirdek/u_tile/blok_no_reg[2]/Q
+                         net (fo=4, routed)           0.688     2.080    u_cekirdek/u_tile/blok_no_reg_n_0_[2]
+    SLICE_X28Y66         LUT4 (Prop_lut4_I2_O)        0.297     2.377 r  u_cekirdek/u_tile/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.355     2.732    u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X29Y66         LUT6 (Prop_lut6_I4_O)        0.124     2.856 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_60/O
+                         net (fo=37, routed)          0.755     3.611    u_cekirdek/u_tile/u_sistolik_dizi/ayni_panel_tile_baslat
+    SLICE_X29Y64         LUT3 (Prop_lut3_I2_O)        0.124     3.735 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_58/O
+                         net (fo=20, routed)          0.810     4.545    u_cekirdek/u_tile/u_sistolik_dizi/tile_baslat
+    SLICE_X29Y57         LUT5 (Prop_lut5_I3_O)        0.124     4.669 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_144/O
+                         net (fo=1, routed)           0.000     4.669    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_144_n_0
+    SLICE_X29Y57         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     5.070 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_130/CO[3]
+                         net (fo=1, routed)           0.000     5.070    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_130_n_0
+    SLICE_X29Y58         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     5.383 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127/O[3]
+                         net (fo=4, routed)           0.511     5.894    u_cekirdek/u_tile/u_sistolik_dizi/akt_oku_adres_g[10]
+    SLICE_X30Y58         LUT6 (Prop_lut6_I5_O)        0.306     6.200 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_2/O
+                         net (fo=1, routed)           0.557     6.757    u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_2_n_0
+    SLICE_X30Y56         LUT4 (Prop_lut4_I0_O)        0.116     6.873 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_1/O
+                         net (fo=62, routed)          1.054     7.928    u_cekirdek/u_ln/bellek_reg_0[0]
+    SLICE_X28Y54         LUT6 (Prop_lut6_I2_O)        0.340     8.268 r  u_cekirdek/u_ln/bellek_reg_0_i_10__2/O
+                         net (fo=2, routed)           1.517     9.785    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_0_37[1]
+    RAMB36_X1Y14         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[6]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=7641, unset)         0.924    10.924    u_cekirdek/u_bellek/birim[3].u_birim/clk
+    RAMB36_X1Y14         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/CLKBWRCLK
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    RAMB36_X1Y14         RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[6])
+                                                     -0.566    10.323    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1
+  -------------------------------------------------------------------
+                         required time                         10.323    
+                         arrival time                          -9.785    
+  -------------------------------------------------------------------
+                         slack                                  0.538    
+
+Slack (MET) :             0.549ns  (required time - arrival time)
+  Source:                 u_cekirdek/u_tile/blok_no_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[11]
+                            (rising edge-triggered cell RAMB36E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        8.801ns  (logic 2.564ns (29.131%)  route 6.237ns (70.869%))
+  Logic Levels:           9  (CARRY4=2 LUT3=1 LUT4=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=7641, unset)         0.973     0.973    u_cekirdek/u_tile/clk
+    SLICE_X29Y66         FDRE                                         r  u_cekirdek/u_tile/blok_no_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y66         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  u_cekirdek/u_tile/blok_no_reg[2]/Q
+                         net (fo=4, routed)           0.688     2.080    u_cekirdek/u_tile/blok_no_reg_n_0_[2]
+    SLICE_X28Y66         LUT4 (Prop_lut4_I2_O)        0.297     2.377 r  u_cekirdek/u_tile/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.355     2.732    u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X29Y66         LUT6 (Prop_lut6_I4_O)        0.124     2.856 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_60/O
+                         net (fo=37, routed)          0.755     3.611    u_cekirdek/u_tile/u_sistolik_dizi/ayni_panel_tile_baslat
+    SLICE_X29Y64         LUT3 (Prop_lut3_I2_O)        0.124     3.735 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_58/O
+                         net (fo=20, routed)          0.810     4.545    u_cekirdek/u_tile/u_sistolik_dizi/tile_baslat
+    SLICE_X29Y57         LUT5 (Prop_lut5_I3_O)        0.124     4.669 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_144/O
+                         net (fo=1, routed)           0.000     4.669    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_144_n_0
+    SLICE_X29Y57         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     5.070 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_130/CO[3]
+                         net (fo=1, routed)           0.000     5.070    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_130_n_0
+    SLICE_X29Y58         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     5.383 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127/O[3]
+                         net (fo=4, routed)           0.511     5.894    u_cekirdek/u_tile/u_sistolik_dizi/akt_oku_adres_g[10]
+    SLICE_X30Y58         LUT6 (Prop_lut6_I5_O)        0.306     6.200 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_2/O
+                         net (fo=1, routed)           0.557     6.757    u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_2_n_0
+    SLICE_X30Y56         LUT4 (Prop_lut4_I0_O)        0.116     6.873 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_1/O
+                         net (fo=62, routed)          1.004     7.877    u_cekirdek/u_ln/bellek_reg_0[0]
+    SLICE_X31Y56         LUT6 (Prop_lut6_I2_O)        0.340     8.217 r  u_cekirdek/u_ln/bellek_reg_0_i_5__2/O
+                         net (fo=2, routed)           1.558     9.774    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_0_37[6]
+    RAMB36_X1Y14         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/ADDRBWRADDR[11]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=7641, unset)         0.924    10.924    u_cekirdek/u_bellek/birim[3].u_birim/clk
+    RAMB36_X1Y14         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1/CLKBWRCLK
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    RAMB36_X1Y14         RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[11])
+                                                     -0.566    10.323    u_cekirdek/u_bellek/birim[3].u_birim/bellek_reg_1
+  -------------------------------------------------------------------
+                         required time                         10.323    
+                         arrival time                          -9.774    
+  -------------------------------------------------------------------
+                         slack                                  0.549    
+
+Slack (MET) :             0.579ns  (required time - arrival time)
+  Source:                 u_cekirdek/u_tile/blok_no_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_1/ADDRBWRADDR[10]
+                            (rising edge-triggered cell RAMB36E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk rise@10.000ns - clk rise@0.000ns)
+  Data Path Delay:        8.771ns  (logic 2.564ns (29.232%)  route 6.207ns (70.768%))
+  Logic Levels:           9  (CARRY4=2 LUT3=1 LUT4=2 LUT5=1 LUT6=3)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 10.924 - 10.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=7641, unset)         0.973     0.973    u_cekirdek/u_tile/clk
+    SLICE_X29Y66         FDRE                                         r  u_cekirdek/u_tile/blok_no_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y66         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  u_cekirdek/u_tile/blok_no_reg[2]/Q
+                         net (fo=4, routed)           0.688     2.080    u_cekirdek/u_tile/blok_no_reg_n_0_[2]
+    SLICE_X28Y66         LUT4 (Prop_lut4_I2_O)        0.297     2.377 r  u_cekirdek/u_tile/akitma_son_blok_i_3/O
+                         net (fo=2, routed)           0.355     2.732    u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_1_0
+    SLICE_X29Y66         LUT6 (Prop_lut6_I4_O)        0.124     2.856 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_60/O
+                         net (fo=37, routed)          0.755     3.611    u_cekirdek/u_tile/u_sistolik_dizi/ayni_panel_tile_baslat
+    SLICE_X29Y64         LUT3 (Prop_lut3_I2_O)        0.124     3.735 r  u_cekirdek/u_tile/u_sistolik_dizi/agirlik_reg_0_i_58/O
+                         net (fo=20, routed)          0.810     4.545    u_cekirdek/u_tile/u_sistolik_dizi/tile_baslat
+    SLICE_X29Y57         LUT5 (Prop_lut5_I3_O)        0.124     4.669 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_144/O
+                         net (fo=1, routed)           0.000     4.669    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_144_n_0
+    SLICE_X29Y57         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     5.070 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_130/CO[3]
+                         net (fo=1, routed)           0.000     5.070    u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_130_n_0
+    SLICE_X29Y58         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     5.383 r  u_cekirdek/u_tile/u_sistolik_dizi/bellek_reg_0_i_127/O[3]
+                         net (fo=4, routed)           0.511     5.894    u_cekirdek/u_tile/u_sistolik_dizi/akt_oku_adres_g[10]
+    SLICE_X30Y58         LUT6 (Prop_lut6_I5_O)        0.306     6.200 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_2/O
+                         net (fo=1, routed)           0.557     6.757    u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_2_n_0
+    SLICE_X30Y56         LUT4 (Prop_lut4_I0_O)        0.116     6.873 r  u_cekirdek/u_tile/u_sistolik_dizi/oku1_birim[0]_i_1/O
+                         net (fo=62, routed)          1.352     8.225    u_cekirdek/u_ln/bellek_reg_0[0]
+    SLICE_X39Y56         LUT6 (Prop_lut6_I2_O)        0.340     8.565 r  u_cekirdek/u_ln/bellek_reg_0_i_6__3/O
+                         net (fo=2, routed)           1.179     9.744    u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_0_1[5]
+    RAMB36_X2Y11         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_1/ADDRBWRADDR[10]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)       10.000    10.000 r  
+                                                      0.000    10.000 r  clk (IN)
+                         net (fo=7641, unset)         0.924    10.924    u_cekirdek/u_bellek/birim[2].u_birim/clk
+    RAMB36_X2Y11         RAMB36E1                                     r  u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_1/CLKBWRCLK
+                         clock pessimism              0.000    10.924    
+                         clock uncertainty           -0.035    10.889    
+    RAMB36_X2Y11         RAMB36E1 (Setup_ramb36e1_CLKBWRCLK_ADDRBWRADDR[10])
+                                                     -0.566    10.323    u_cekirdek/u_bellek/birim[2].u_birim/bellek_reg_1
+  -------------------------------------------------------------------
+                         required time                         10.323    
+                         arrival time                          -9.744    
+  -------------------------------------------------------------------
+                         slack                                  0.579    
 
 
 
@@ -559,15 +536,15 @@ Slack (MET) :             0.387ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.059ns  (arrival time - required time)
-  Source:                 u_cekirdek/u_ln/cik_say_reg[5]/C
+Slack (MET) :             0.053ns  (arrival time - required time)
+  Source:                 u_cekirdek/u_sm/cikis_veri_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMA/WADR5
+  Destination:            u_cekirdek/pbuf_reg_r8_0_63_3_5/RAMA/I
                             (rising edge-triggered cell RAMD64E clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.250ns  (logic 0.141ns (56.331%)  route 0.109ns (43.669%))
+  Data Path Delay:        0.221ns  (logic 0.141ns (63.716%)  route 0.080ns (36.284%))
   Logic Levels:           0  
   Clock Path Skew:        0.022ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    0.432ns
@@ -578,156 +555,36 @@ Slack (MET) :             0.059ns  (arrival time - required time)
   -------------------------------------------------------------------    -------------------
                          (clock clk rise edge)        0.000     0.000 r  
                                                       0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.410     0.410    u_cekirdek/u_ln/clk
-    SLICE_X45Y69         FDRE                                         r  u_cekirdek/u_ln/cik_say_reg[5]/C
+                         net (fo=7641, unset)         0.410     0.410    u_cekirdek/u_sm/clk
+    SLICE_X47Y50         FDRE                                         r  u_cekirdek/u_sm/cikis_veri_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X45Y69         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  u_cekirdek/u_ln/cik_say_reg[5]/Q
-                         net (fo=243, routed)         0.109     0.660    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/ADDRD5
-    SLICE_X46Y69         RAMD64E                                      r  u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMA/WADR5
+    SLICE_X47Y50         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  u_cekirdek/u_sm/cikis_veri_reg[3]/Q
+                         net (fo=8, routed)           0.080     0.631    u_cekirdek/pbuf_reg_r8_0_63_3_5/DIA
+    SLICE_X46Y50         RAMD64E                                      r  u_cekirdek/pbuf_reg_r8_0_63_3_5/RAMA/I
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)        0.000     0.000 r  
                                                       0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.432     0.432    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/WCLK
-    SLICE_X46Y69         RAMD64E                                      r  u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMA/CLK
+                         net (fo=7641, unset)         0.432     0.432    u_cekirdek/pbuf_reg_r8_0_63_3_5/WCLK
+    SLICE_X46Y50         RAMD64E                                      r  u_cekirdek/pbuf_reg_r8_0_63_3_5/RAMA/CLK
                          clock pessimism              0.000     0.432    
-    SLICE_X46Y69         RAMD64E (Hold_ramd64e_CLK_WADR5)
-                                                      0.170     0.602    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMA
+    SLICE_X46Y50         RAMD64E (Hold_ramd64e_CLK_I)
+                                                      0.147     0.579    u_cekirdek/pbuf_reg_r8_0_63_3_5/RAMA
   -------------------------------------------------------------------
-                         required time                         -0.602    
-                         arrival time                           0.660    
+                         required time                         -0.579    
+                         arrival time                           0.631    
   -------------------------------------------------------------------
-                         slack                                  0.059    
+                         slack                                  0.053    
 
-Slack (MET) :             0.059ns  (arrival time - required time)
-  Source:                 u_cekirdek/u_ln/cik_say_reg[5]/C
+Slack (MET) :             0.066ns  (arrival time - required time)
+  Source:                 u_cekirdek/u_ln/u_ln/hazirlik3_pay_mutlak_reg[23]/C
                             (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMB/WADR5
-                            (rising edge-triggered cell RAMD64E clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.250ns  (logic 0.141ns (56.331%)  route 0.109ns (43.669%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.022ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    0.432ns
-    Source Clock Delay      (SCD):    0.410ns
-    Clock Pessimism Removal (CPR):    -0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-                                                      0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.410     0.410    u_cekirdek/u_ln/clk
-    SLICE_X45Y69         FDRE                                         r  u_cekirdek/u_ln/cik_say_reg[5]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X45Y69         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  u_cekirdek/u_ln/cik_say_reg[5]/Q
-                         net (fo=243, routed)         0.109     0.660    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/ADDRD5
-    SLICE_X46Y69         RAMD64E                                      r  u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMB/WADR5
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)        0.000     0.000 r  
-                                                      0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.432     0.432    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/WCLK
-    SLICE_X46Y69         RAMD64E                                      r  u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMB/CLK
-                         clock pessimism              0.000     0.432    
-    SLICE_X46Y69         RAMD64E (Hold_ramd64e_CLK_WADR5)
-                                                      0.170     0.602    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMB
-  -------------------------------------------------------------------
-                         required time                         -0.602    
-                         arrival time                           0.660    
-  -------------------------------------------------------------------
-                         slack                                  0.059    
-
-Slack (MET) :             0.059ns  (arrival time - required time)
-  Source:                 u_cekirdek/u_ln/cik_say_reg[5]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMC/WADR5
-                            (rising edge-triggered cell RAMD64E clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.250ns  (logic 0.141ns (56.331%)  route 0.109ns (43.669%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.022ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    0.432ns
-    Source Clock Delay      (SCD):    0.410ns
-    Clock Pessimism Removal (CPR):    -0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-                                                      0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.410     0.410    u_cekirdek/u_ln/clk
-    SLICE_X45Y69         FDRE                                         r  u_cekirdek/u_ln/cik_say_reg[5]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X45Y69         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  u_cekirdek/u_ln/cik_say_reg[5]/Q
-                         net (fo=243, routed)         0.109     0.660    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/ADDRD5
-    SLICE_X46Y69         RAMD64E                                      r  u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMC/WADR5
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)        0.000     0.000 r  
-                                                      0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.432     0.432    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/WCLK
-    SLICE_X46Y69         RAMD64E                                      r  u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMC/CLK
-                         clock pessimism              0.000     0.432    
-    SLICE_X46Y69         RAMD64E (Hold_ramd64e_CLK_WADR5)
-                                                      0.170     0.602    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMC
-  -------------------------------------------------------------------
-                         required time                         -0.602    
-                         arrival time                           0.660    
-  -------------------------------------------------------------------
-                         slack                                  0.059    
-
-Slack (MET) :             0.059ns  (arrival time - required time)
-  Source:                 u_cekirdek/u_ln/cik_say_reg[5]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMD/WADR5
-                            (rising edge-triggered cell RAMD64E clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.250ns  (logic 0.141ns (56.331%)  route 0.109ns (43.669%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.022ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    0.432ns
-    Source Clock Delay      (SCD):    0.410ns
-    Clock Pessimism Removal (CPR):    -0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk rise edge)        0.000     0.000 r  
-                                                      0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.410     0.410    u_cekirdek/u_ln/clk
-    SLICE_X45Y69         FDRE                                         r  u_cekirdek/u_ln/cik_say_reg[5]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X45Y69         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  u_cekirdek/u_ln/cik_say_reg[5]/Q
-                         net (fo=243, routed)         0.109     0.660    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/ADDRD5
-    SLICE_X46Y69         RAMD64E                                      r  u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMD/WADR5
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk rise edge)        0.000     0.000 r  
-                                                      0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.432     0.432    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/WCLK
-    SLICE_X46Y69         RAMD64E                                      r  u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMD/CLK
-                         clock pessimism              0.000     0.432    
-    SLICE_X46Y69         RAMD64E (Hold_ramd64e_CLK_WADR5)
-                                                      0.170     0.602    u_cekirdek/u_ln/ybuf_reg_r4_512_575_6_7/RAMD
-  -------------------------------------------------------------------
-                         required time                         -0.602    
-                         arrival time                           0.660    
-  -------------------------------------------------------------------
-                         slack                                  0.059    
-
-Slack (MET) :             0.061ns  (arrival time - required time)
-  Source:                 u_cekirdek/u_ln/u_ln/hazirlik3_pay_mutlak_reg[15]/C
-                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay2_reg[15]_srl3/D
+  Destination:            u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay2_reg[23]_srl3/D
                             (rising edge-triggered cell SRL16E clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
-  Data Path Delay:        0.265ns  (logic 0.141ns (53.133%)  route 0.124ns (46.867%))
+  Data Path Delay:        0.271ns  (logic 0.141ns (52.105%)  route 0.130ns (47.895%))
   Logic Levels:           0  
   Clock Path Skew:        0.022ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    0.432ns
@@ -738,26 +595,146 @@ Slack (MET) :             0.061ns  (arrival time - required time)
   -------------------------------------------------------------------    -------------------
                          (clock clk rise edge)        0.000     0.000 r  
                                                       0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.410     0.410    u_cekirdek/u_ln/u_ln/clk
-    SLICE_X57Y44         FDRE                                         r  u_cekirdek/u_ln/u_ln/hazirlik3_pay_mutlak_reg[15]/C
+                         net (fo=7641, unset)         0.410     0.410    u_cekirdek/u_ln/u_ln/clk
+    SLICE_X53Y41         FDRE                                         r  u_cekirdek/u_ln/u_ln/hazirlik3_pay_mutlak_reg[23]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X57Y44         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  u_cekirdek/u_ln/u_ln/hazirlik3_pay_mutlak_reg[15]/Q
-                         net (fo=3, routed)           0.124     0.676    u_cekirdek/u_ln/u_ln/u_ters_bolucu/Q[15]
-    SLICE_X56Y43         SRL16E                                       r  u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay2_reg[15]_srl3/D
+    SLICE_X53Y41         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  u_cekirdek/u_ln/u_ln/hazirlik3_pay_mutlak_reg[23]/Q
+                         net (fo=3, routed)           0.130     0.681    u_cekirdek/u_ln/u_ln/u_ters_bolucu/Q[23]
+    SLICE_X52Y39         SRL16E                                       r  u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay2_reg[23]_srl3/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk rise edge)        0.000     0.000 r  
                                                       0.000     0.000 r  clk (IN)
-                         net (fo=7590, unset)         0.432     0.432    u_cekirdek/u_ln/u_ln/u_ters_bolucu/clk
-    SLICE_X56Y43         SRL16E                                       r  u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay2_reg[15]_srl3/CLK
+                         net (fo=7641, unset)         0.432     0.432    u_cekirdek/u_ln/u_ln/u_ters_bolucu/clk
+    SLICE_X52Y39         SRL16E                                       r  u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay2_reg[23]_srl3/CLK
                          clock pessimism              0.000     0.432    
-    SLICE_X56Y43         SRL16E (Hold_srl16e_CLK_D)
-                                                      0.183     0.615    u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay2_reg[15]_srl3
+    SLICE_X52Y39         SRL16E (Hold_srl16e_CLK_D)
+                                                      0.183     0.615    u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay2_reg[23]_srl3
   -------------------------------------------------------------------
                          required time                         -0.615    
-                         arrival time                           0.676    
+                         arrival time                           0.681    
   -------------------------------------------------------------------
-                         slack                                  0.061    
+                         slack                                  0.066    
+
+Slack (MET) :             0.074ns  (arrival time - required time)
+  Source:                 u_cekirdek/u_ln/p_gamma_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_cekirdek/u_ln/u_ln/gamma_tablosu_reg/DIADI[3]
+                            (rising edge-triggered cell RAMB18E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.251ns  (logic 0.141ns (56.256%)  route 0.110ns (43.744%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.022ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.432ns
+    Source Clock Delay      (SCD):    0.410ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=7641, unset)         0.410     0.410    u_cekirdek/u_ln/clk
+    SLICE_X48Y83         FDRE                                         r  u_cekirdek/u_ln/p_gamma_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y83         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  u_cekirdek/u_ln/p_gamma_reg[3]/Q
+                         net (fo=1, routed)           0.110     0.661    u_cekirdek/u_ln/u_ln/gamma_tablosu_reg_1[3]
+    RAMB18_X1Y33         RAMB18E1                                     r  u_cekirdek/u_ln/u_ln/gamma_tablosu_reg/DIADI[3]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=7641, unset)         0.432     0.432    u_cekirdek/u_ln/u_ln/clk
+    RAMB18_X1Y33         RAMB18E1                                     r  u_cekirdek/u_ln/u_ln/gamma_tablosu_reg/CLKARDCLK
+                         clock pessimism              0.000     0.432    
+    RAMB18_X1Y33         RAMB18E1 (Hold_ramb18e1_CLKARDCLK_DIADI[3])
+                                                      0.155     0.587    u_cekirdek/u_ln/u_ln/gamma_tablosu_reg
+  -------------------------------------------------------------------
+                         required time                         -0.587    
+                         arrival time                           0.661    
+  -------------------------------------------------------------------
+                         slack                                  0.074    
+
+Slack (MET) :             0.076ns  (arrival time - required time)
+  Source:                 u_cekirdek/u_ln/p_gamma_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_cekirdek/u_ln/u_ln/gamma_tablosu_reg/DIADI[2]
+                            (rising edge-triggered cell RAMB18E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.252ns  (logic 0.141ns (55.866%)  route 0.111ns (44.134%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.022ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.432ns
+    Source Clock Delay      (SCD):    0.410ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=7641, unset)         0.410     0.410    u_cekirdek/u_ln/clk
+    SLICE_X48Y83         FDRE                                         r  u_cekirdek/u_ln/p_gamma_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y83         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  u_cekirdek/u_ln/p_gamma_reg[2]/Q
+                         net (fo=1, routed)           0.111     0.663    u_cekirdek/u_ln/u_ln/gamma_tablosu_reg_1[2]
+    RAMB18_X1Y33         RAMB18E1                                     r  u_cekirdek/u_ln/u_ln/gamma_tablosu_reg/DIADI[2]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=7641, unset)         0.432     0.432    u_cekirdek/u_ln/u_ln/clk
+    RAMB18_X1Y33         RAMB18E1                                     r  u_cekirdek/u_ln/u_ln/gamma_tablosu_reg/CLKARDCLK
+                         clock pessimism              0.000     0.432    
+    RAMB18_X1Y33         RAMB18E1 (Hold_ramb18e1_CLKARDCLK_DIADI[2])
+                                                      0.155     0.587    u_cekirdek/u_ln/u_ln/gamma_tablosu_reg
+  -------------------------------------------------------------------
+                         required time                         -0.587    
+                         arrival time                           0.663    
+  -------------------------------------------------------------------
+                         slack                                  0.076    
+
+Slack (MET) :             0.087ns  (arrival time - required time)
+  Source:                 u_cekirdek/u_ln/u_ln/yuvarlama_indeks_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            u_cekirdek/u_ln/u_ln/beta_tablosu_reg/ADDRBWRADDR[7]
+                            (rising edge-triggered cell RAMB18E1 clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.292ns  (logic 0.141ns (48.370%)  route 0.151ns (51.630%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.022ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.432ns
+    Source Clock Delay      (SCD):    0.410ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=7641, unset)         0.410     0.410    u_cekirdek/u_ln/u_ln/clk
+    SLICE_X48Y81         FDRE                                         r  u_cekirdek/u_ln/u_ln/yuvarlama_indeks_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y81         FDRE (Prop_fdre_C_Q)         0.141     0.551 r  u_cekirdek/u_ln/u_ln/yuvarlama_indeks_reg[3]/Q
+                         net (fo=1, routed)           0.151     0.702    u_cekirdek/u_ln/u_ln/yuvarlama_indeks[3]
+    RAMB18_X1Y32         RAMB18E1                                     r  u_cekirdek/u_ln/u_ln/beta_tablosu_reg/ADDRBWRADDR[7]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=7641, unset)         0.432     0.432    u_cekirdek/u_ln/u_ln/clk
+    RAMB18_X1Y32         RAMB18E1                                     r  u_cekirdek/u_ln/u_ln/beta_tablosu_reg/CLKBWRCLK
+                         clock pessimism              0.000     0.432    
+    RAMB18_X1Y32         RAMB18E1 (Hold_ramb18e1_CLKBWRCLK_ADDRBWRADDR[7])
+                                                      0.183     0.615    u_cekirdek/u_ln/u_ln/beta_tablosu_reg
+  -------------------------------------------------------------------
+                         required time                         -0.615    
+                         arrival time                           0.702    
+  -------------------------------------------------------------------
+                         slack                                  0.087    
 
 
 
@@ -772,20 +749,20 @@ Sources:            { clk }
 
 Check Type        Corner  Lib Pin      Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
 Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y20   u_cekirdek/u_ln/u_ln/fark_karesi_kayit_reg__0/CLK
-Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y23   u_cekirdek/u_ln/u_ln/gamma_carpim_reg/CLK
-Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y17   u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim1_reg/CLK
-Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y15   u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim1_reg__0/CLK
-Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y11   u_cekirdek/u_sm/carpim1_reg/CLK
-Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X38Y53  u_cekirdek/pbuf_reg_r1_0_63_0_2/RAMA/CLK
-Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X38Y53  u_cekirdek/pbuf_reg_r1_0_63_0_2/RAMA/CLK
-Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X38Y53  u_cekirdek/pbuf_reg_r1_0_63_0_2/RAMB/CLK
-Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X38Y53  u_cekirdek/pbuf_reg_r1_0_63_0_2/RAMB/CLK
-Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X38Y53  u_cekirdek/pbuf_reg_r1_0_63_0_2/RAMC/CLK
-High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X38Y53  u_cekirdek/pbuf_reg_r1_0_63_0_2/RAMA/CLK
-High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X38Y53  u_cekirdek/pbuf_reg_r1_0_63_0_2/RAMA/CLK
-High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X38Y53  u_cekirdek/pbuf_reg_r1_0_63_0_2/RAMB/CLK
-High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X38Y53  u_cekirdek/pbuf_reg_r1_0_63_0_2/RAMB/CLK
-High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X38Y53  u_cekirdek/pbuf_reg_r1_0_63_0_2/RAMC/CLK
+Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y28   u_cekirdek/u_ln/u_ln/gamma_carpim_reg/CLK
+Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y19   u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim1_reg/CLK
+Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y17   u_cekirdek/u_ln/u_ln/u_ters_bolucu/pay_carpim1_reg__0/CLK
+Min Period        n/a     DSP48E1/CLK  n/a            3.884         10.000      6.116      DSP48_X1Y6    u_cekirdek/u_sm/carpim1_reg/CLK
+Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y63  u_cekirdek/pbuf_reg_r1_448_511_0_2/RAMA/CLK
+Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y63  u_cekirdek/pbuf_reg_r1_448_511_0_2/RAMA/CLK
+Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y63  u_cekirdek/pbuf_reg_r1_448_511_0_2/RAMB/CLK
+Low Pulse Width   Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y63  u_cekirdek/pbuf_reg_r1_448_511_0_2/RAMB/CLK
+Low Pulse Width   Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y63  u_cekirdek/pbuf_reg_r1_448_511_0_2/RAMC/CLK
+High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y63  u_cekirdek/pbuf_reg_r1_448_511_0_2/RAMA/CLK
+High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y63  u_cekirdek/pbuf_reg_r1_448_511_0_2/RAMA/CLK
+High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y63  u_cekirdek/pbuf_reg_r1_448_511_0_2/RAMB/CLK
+High Pulse Width  Fast    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y63  u_cekirdek/pbuf_reg_r1_448_511_0_2/RAMB/CLK
+High Pulse Width  Slow    RAMD64E/CLK  n/a            1.250         5.000       3.750      SLICE_X46Y63  u_cekirdek/pbuf_reg_r1_448_511_0_2/RAMC/CLK
 
 
 

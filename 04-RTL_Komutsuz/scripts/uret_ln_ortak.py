@@ -16,7 +16,8 @@ degistir("module artik_ln_blogu (", "module artik_ln_ortak (")
 degistir("    input  wire [12:0]  taban_cikis,\n",
          "    input  wire [12:0]  taban_cikis,\n"
          "    input  wire         y_yaz,                   // 1: yeniden olceklenmemis cikis (y) ayrica taban_cikis_y'ye yazilir\n"
-         "    input  wire [12:0]  taban_cikis_y,\n")
+         "    input  wire [12:0]  taban_cikis_y,\n"
+         "    input  wire [3:0]   ayar_blok_sayisi,        // islenecek token blogu sayisi nb (1..8; 0 ya da 8'den buyuk = 8): satir sayisi 8*nb\n")
 degistir("    output reg          tasma                    // artik toplam 18 bite sigmadi (sticky; basla ile temizlenir)\n);",
          """    output reg          tasma,                   // artik toplam 18 bite sigmadi (sticky; basla ile temizlenir)
     // ortak yeniden olcekleme birimine baglanti (bu blok kendi carpma devresini tasimaz)
@@ -67,6 +68,15 @@ degistir("""                    if (yaz_say == 8'd127) begin
                     end else yaz_say <= yaz_say + 8'd1;
                 end
 """)
+# ---- dolgu atlama: satir sayisi 8*nb (son satir = 8*nb-1) ----
+degistir("    reg [5:0]  satir;                       // 0..63\n",
+         "    reg [5:0]  satir;                       // 0..63\n"
+         "    reg [5:0]  son_satir;                   // bu isin son satiri = 8*nb-1 (basla'da kilitlenir)\n"
+         "    wire [3:0] nb_etkin = (ayar_blok_sayisi == 4'd0 || ayar_blok_sayisi > 4'd8) ? 4'd8 : ayar_blok_sayisi;\n"
+         "    wire [3:0] nb_eksi1 = nb_etkin - 4'd1;\n")
+degistir("ln_k <= ln_no; tx <= taban_x;", "ln_k <= ln_no; son_satir <= {nb_eksi1[2:0], 3'b111}; tx <= taban_x;")
+assert t.count("satir == 6'd63") == 2, t.count("satir == 6'd63")
+t = t.replace("satir == 6'd63", "satir == son_satir")
 t = "// artik_ln_ortak.v -- artik_ln_blogu.v'nin ortak yeniden olcekleme birimine baglanan hali (uret_ln_ortak.py ile uretilir)\n" + t
 open(os.path.join(KOK, "rtl", "artik_ln_ortak.v"), "w", encoding="utf-8").write(t)
 print("uretildi: rtl/artik_ln_ortak.v")

@@ -71,10 +71,17 @@ module ortak_cekirdek (
     reg [2:0]  tip;
     reg [12:0] tg, ti, tc;
     reg        isyeri, basla_d, devrik_k;
+    reg [3:0]  nb_k;                       // bu isin token blogu sayisi nb (1..8), basla'da kilitlenir (dolgu atlama)
+    wire [6:0] kmax = {nb_k, 3'b000};      // 8*nb: etkin token sayisi (blok hizali); nb=8 iken 64
+    wire [6:0] kpv  = (kmax < 7'd48) ? 7'd48 : kmax;   // P.V'nin K'si: tile suresi K+16 >= 64 olmali (golge akitma 64 cevrim); kisa K sifirla doldurulur
     reg [1:0]  lnk;
     reg        ln_y_yaz_k; reg [12:0] ln_taban_y_k;
-    wire t_lin = (tip == 3'd0), t_qk = (tip == 3'd1), t_pv = (tip == 3'd2), t_ln = (tip == 3'd3);
-    wire t_att = t_qk | t_pv;
+    // is turu: tek 3 bitlik `tip` kaydi cok yuklu (fanout ~177) ve kritik yolun basindaydi; bu yuzden bir-sicak ayri kayitlar, her biri sinirli yukle (zamanlama; islev ayni)
+    (* max_fanout = 24 *) reg t_lin;       // 0 dogrusal
+    (* max_fanout = 24 *) reg t_qk;        // 1 Q.K^T + Softmax
+    (* max_fanout = 24 *) reg t_pv;        // 2 P.V
+    (* max_fanout = 24 *) reg t_ln;        // 3 artik + LayerNorm
+    (* max_fanout = 24 *) reg t_att;       // t_qk | t_pv
     wire bitti_ic;
     wire tile_mesgul;                    // (xsim: kullanimdan once bildirilmeli)
     assign mesgul = isyeri;
@@ -82,9 +89,9 @@ module ortak_cekirdek (
     always @(posedge clk) begin
         basla_d <= 1'b0;
         if (rst) begin
-            isyeri <= 1'b0; tip <= 3'd0; devrik_k <= 1'b0; tg <= 13'd0; ti <= 13'd0; tc <= 13'd0; lnk <= 2'd0; ln_y_yaz_k <= 1'b0; ln_taban_y_k <= 13'd0;
+            isyeri <= 1'b0; nb_k <= 4'd8; tip <= 3'd0; t_lin <= 1'b1; t_qk <= 1'b0; t_pv <= 1'b0; t_ln <= 1'b0; t_att <= 1'b0; devrik_k <= 1'b0; tg <= 13'd0; ti <= 13'd0; tc <= 13'd0; lnk <= 2'd0; ln_y_yaz_k <= 1'b0; ln_taban_y_k <= 13'd0;
         end else if (basla && !isyeri) begin
-            tip <= is_tipi; tg <= taban_giris; ti <= taban_ikinci; tc <= taban_cikis; lnk <= ln_no; ln_y_yaz_k <= ln_y_yaz; ln_taban_y_k <= ln_taban_y;
+            nb_k <= (ayar_blok_sayisi == 4'd0 || ayar_blok_sayisi > 4'd8) ? 4'd8 : ayar_blok_sayisi; tip <= is_tipi; t_lin <= (is_tipi == 3'd0); t_qk <= (is_tipi == 3'd1); t_pv <= (is_tipi == 3'd2); t_ln <= (is_tipi == 3'd3); t_att <= (is_tipi == 3'd1) || (is_tipi == 3'd2); tg <= taban_giris; ti <= taban_ikinci; tc <= taban_cikis; lnk <= ln_no; ln_y_yaz_k <= ln_y_yaz; ln_taban_y_k <= ln_taban_y;
             devrik_k <= (is_tipi == 3'd0) && devrik_yaz; isyeri <= 1'b1; basla_d <= 1'b1;
         end else if (bitti_ic) isyeri <= 1'b0;
     end
@@ -106,7 +113,7 @@ module ortak_cekirdek (
     wire        pk_mesgul, pk_bitti;
     reg         pk_basla; reg [12:0] pk_kaynak; reg pk_tampon;
     wire [12:0] k_oku_adres; wire [63:0] k_oku_veri;
-    panel_kopyalayici #(.K_UZUNLUK(64), .KAYNAK_AW(13)) u_kop (.clk(clk), .rst(rst), .basla(pk_basla), .kaynak_adres(pk_kaynak), .tampon(pk_tampon),
+    panel_kopyalayici #(.K_UZUNLUK(64), .KAYNAK_AW(13), .K_DINAMIK(1)) u_kop (.clk(clk), .rst(rst), .basla(pk_basla), .k_uz(t_pv ? {3'b000, kmax} : 10'd64), .k_pad(t_pv ? {3'b000, kpv} : 10'd64), .kaynak_adres(pk_kaynak), .tampon(pk_tampon),
         .k_oku_adres(k_oku_adres), .k_oku_veri(k_oku_veri),
         .panel_yaz_etkin(pk_yaz_etkin), .panel_yaz_tampon(pk_yaz_tampon), .panel_yaz_secici(pk_yaz_secici), .panel_yaz_adres(pk_yaz_adres), .panel_yaz_veri(pk_yaz_veri),
         .mesgul(pk_mesgul), .bitti(pk_bitti));
@@ -135,7 +142,13 @@ module ortak_cekirdek (
     wire        b_yaz_etkin = c_yaz_etkin | sm_p_yaz_etkin | ln_yaz_etkin | (dis_yaz_etkin & ~isyeri);
     wire [12:0] b_yaz_adres = c_yaz_etkin ? (tc + {1'b0, c_yaz_adres}) : sm_p_yaz_etkin ? (tc + {4'd0, sm_p_yaz_adres}) : ln_yaz_etkin ? ln_yaz_adres : dis_yaz_adres;
     wire [63:0] b_yaz_veri  = c_yaz_etkin ? c_yaz_veri : sm_p_yaz_etkin ? sm_p_yaz_veri : ln_yaz_etkin ? ln_yaz_veri : dis_yaz_veri;
-    wire [12:0] b_oku1_adres = isyeri ? (t_ln ? ln_oku_adres : (tg + {1'b0, akt_oku_adres_g})) : dis_oku_adres;
+    // A operandi adresi = taban + tile adresi. Tum tabanlar 512'nin kati (0, 1024, 1536, 4096, 5120), bu yuzden alt 9 bit toplamaya girmez:
+    // toplama yalniz ust 4 bitte (13 bitlik tam toplayici yerine; kritik yolu kisaltir)
+    wire [12:0] akt_adres_tg = {tg[12:9] + {1'b0, akt_oku_adres_g[11:9]}, akt_oku_adres_g[8:0]};
+    // synthesis translate_off
+    always @(posedge clk) if (isyeri && !t_ln && tg[8:0] != 9'd0) $display("HATA: taban_giris 512'nin kati degil (%0d); adres toplami dar toplayici ile yanlis olur", tg);
+    // synthesis translate_on
+    wire [12:0] b_oku1_adres = isyeri ? (t_ln ? ln_oku_adres : akt_adres_tg) : dis_oku_adres;
     birlesik_bellek_2o #(.BIRIM_SAYISI(6), .AW(13)) u_bellek (.clk(clk), .yaz_etkin(b_yaz_etkin), .yaz_adres(b_yaz_adres), .yaz_veri(b_yaz_veri),
         .oku1_etkin(isyeri & (t_ln | tile_mesgul)), .oku1_adres(b_oku1_adres), .oku1_veri(bellek_oku_veri), .oku2_etkin(pk_mesgul), .oku2_adres(k_oku_adres), .oku2_veri(k_oku_veri), .catisma(bellek_catisma));
     assign dis_oku_veri = bellek_oku_veri;
@@ -152,8 +165,8 @@ module ortak_cekirdek (
     wire [6:0]  cikis_panel;
     wire signed [31:0] cikis_birikec;
     tile_denetleyici #(.DIZI_BOYUTU(8), .BLOK_SAYISI(8), .K_GENISLIGI(11), .PANEL_GENISLIGI(7), .ADRES_GENISLIGI(12)) u_tile (
-        .clk(clk), .rst(rst), .calistir(calistir_t), .ayar_k(t_att ? 11'd64 : ayar_k), .ayar_panel_sayisi(t_att ? 7'd8 : ayar_panel_sayisi),
-        .ayar_blok_sayisi(t_att ? 4'd0 : ayar_blok_sayisi), .a_isaretsiz(t_pv),
+        .clk(clk), .rst(rst), .calistir(calistir_t), .ayar_k(t_pv ? {4'b0000, kpv} : (t_qk ? 11'd64 : ayar_k)), .ayar_panel_sayisi(t_qk ? {3'b000, nb_k} : (t_pv ? 7'd8 : ayar_panel_sayisi)),
+        .ayar_blok_sayisi(nb_k), .a_isaretsiz(t_pv),
         .mesgul(tile_mesgul), .katman_bitti(tile_bitti), .panel_hazir(panel_hazir_t), .panel_bitti(panel_bitti),
         .panel_bitti_tampon(panel_bitti_tampon), .aktivasyon_oku_adres(akt_oku_adres_g), .aktivasyon_oku_veri(bellek_oku_veri),
         .panel_oku_tampon(panel_oku_tampon), .panel_oku_adres(panel_oku_adres), .panel_oku_veri(panel_oku_veri),
@@ -209,7 +222,7 @@ module ortak_cekirdek (
     reg  signed [31:0] sm_giris_veri;
     wire        sm_giris_hazir, sm_cikis_gecerli, sm_cikis_son, sm_mesgul;
     wire [7:0]  sm_cikis_veri;
-    softmax_birim_gomulu #(.SATIR_UZUNLUGU(64), .TABLO_DOSYASI("exp_l0.mem")) u_sm (.clk(clk), .rst(rst), .olcek_m0(ayar_m0_sm), .baslat(sm_baslat),
+    softmax_birim_gomulu #(.SATIR_UZUNLUGU(64), .TABLO_DOSYASI("exp_l0.mem"), .DINAMIK(1)) u_sm (.clk(clk), .rst(rst), .olcek_m0(ayar_m0_sm), .baslat(sm_baslat), .satir_uz(kmax),
         .giris_hazir(sm_giris_hazir), .giris_gecerli(sm_giris_gecerli), .giris_veri(sm_giris_veri), .giris_maske(sm_giris_maske),
         .cikis_gecerli(sm_cikis_gecerli), .cikis_veri(sm_cikis_veri), .cikis_son(sm_cikis_son), .mesgul(sm_mesgul));
 
@@ -223,14 +236,14 @@ module ortak_cekirdek (
         if (rst || att_basla) cikis_say <= 7'd0;
         else if (sm_cikis_gecerli) begin
             pbuf[{satir_mod, cikis_say[5:0]}] <= sm_cikis_veri;
-            cikis_say <= (cikis_say == 7'd63) ? 7'd0 : cikis_say + 7'd1;
+            cikis_say <= (cikis_say == kmax - 7'd1) ? 7'd0 : cikis_say + 7'd1;
             if (sm_cikis_son) satir_tamam <= 1'b1;
         end
     end
 
     // ---------------- artik toplama + LayerNorm (ortak carpma devresini kullanir) ----------------
     wire ln_bitti;
-    artik_ln_ortak u_ln (.clk(clk), .rst(rst), .basla(basla_d & t_ln), .ln_no(lnk), .taban_x(tg), .taban_a(ti), .taban_cikis(tc), .y_yaz(ln_y_yaz_k), .taban_cikis_y(ln_taban_y_k),
+    artik_ln_ortak u_ln (.clk(clk), .rst(rst), .basla(basla_d & t_ln), .ln_no(lnk), .taban_x(tg), .taban_a(ti), .taban_cikis(tc), .y_yaz(ln_y_yaz_k), .taban_cikis_y(ln_taban_y_k), .ayar_blok_sayisi(nb_k),
         .mesgul(), .bitti(ln_bitti), .oku_adres(ln_oku_adres), .oku_veri(bellek_oku_veri),
         .yaz_etkin(ln_yaz_etkin), .yaz_adres(ln_yaz_adres), .yaz_veri(ln_yaz_veri), .tasma(ln_tasma),
         .rs_gir_gecerli(ln_rs_gir_gecerli), .rs_genis(ln_rs_genis), .rs_gir_veri(ln_rs_gir_veri), .rs_m0(ln_rs_m0), .rs_n(ln_rs_n), .rs_meta_gir(ln_rs_meta_gir),
@@ -252,12 +265,14 @@ module ortak_cekirdek (
     reg        att_bitti;
     function [12:0] kaynak_panel; input [3:0] p; begin kaynak_panel = ti + {p, 6'd0}; end endfunction
     reg [1:0] ph;
+    wire [3:0] np_att = t_qk ? nb_k : 4'd8;   // panel sayisi: Q.K^T'de anahtar bloklari (nb), P.V'de deger kanal panelleri (8)
+    reg [8:0]  grup_taban;                     // P.V'de olasilik bellegi: 8 satirlik grubun taban adresi = grup*8*nb
 
     always @(posedge clk) begin
         pk_basla <= 1'b0; calistir_att <= 1'b0; sm_baslat <= 1'b0; att_bitti <= 1'b0; sm_p_yaz_etkin <= 1'b0; sm_giris_gecerli <= 1'b0;
         if (rst) begin
             durum <= D_BOS; ph_att <= 2'b00; bos <= 2'b00; yuklenen <= 0; kop_mesgul <= 1'b0; kop_tampon <= 1'b0; satir <= 0; satir_mod <= 0;
-            gir_gecerli_d <= 1'b0; gir_gecerli_d2 <= 1'b0; skor_ic_adres <= 0; pk_kaynak <= 0; pk_tampon <= 1'b0;
+            gir_gecerli_d <= 1'b0; gir_gecerli_d2 <= 1'b0; grup_taban <= 9'd0; skor_ic_adres <= 0; pk_kaynak <= 0; pk_tampon <= 1'b0;
         end else begin
             ph = ph_att;
             if (panel_bitti && t_att) begin ph[panel_bitti_tampon] = 1'b0; bos[panel_bitti_tampon] <= 1'b1; end
@@ -267,12 +282,12 @@ module ortak_cekirdek (
             case (durum)
                 D_BOS: if (att_basla) begin yuklenen <= 0; bos <= 2'b00; satir <= 0; satir_mod <= 0; durum <= D_P0; end
                 D_P0: begin pk_basla <= 1'b1; pk_kaynak <= kaynak_panel(4'd0); pk_tampon <= 1'b0; kop_mesgul <= 1'b1; kop_tampon <= 1'b0; yuklenen <= 4'd1; durum <= D_P0W; end
-                D_P0W: if (pk_bitti) durum <= D_P1;
+                D_P0W: if (pk_bitti) durum <= (np_att == 4'd1) ? D_CAL : D_P1;
                 D_P1: begin pk_basla <= 1'b1; pk_kaynak <= kaynak_panel(4'd1); pk_tampon <= 1'b1; kop_mesgul <= 1'b1; kop_tampon <= 1'b1; yuklenen <= 4'd2; durum <= D_P1W; end
                 D_P1W: if (pk_bitti) durum <= D_CAL;
                 D_CAL: begin calistir_att <= 1'b1; durum <= D_KOS; end
                 D_KOS: begin
-                    if (!kop_mesgul && yuklenen < 4'd8 && bos[yuklenen[0]]) begin
+                    if (!kop_mesgul && yuklenen < np_att && bos[yuklenen[0]]) begin
                         pk_basla <= 1'b1; pk_kaynak <= kaynak_panel(yuklenen); pk_tampon <= yuklenen[0];
                         kop_mesgul <= 1'b1; kop_tampon <= yuklenen[0]; bos[yuklenen[0]] <= 1'b0; yuklenen <= yuklenen + 4'd1;
                     end
@@ -282,29 +297,29 @@ module ortak_cekirdek (
                     akit_say <= akit_say + 4'd1;
                     if (akit_say == 4'd12) begin
                         if (t_pv) begin att_bitti <= 1'b1; durum <= D_BOS; end
-                        else begin satir <= 0; satir_mod <= 0; durum <= S_BASLAT; end
+                        else begin satir <= 0; satir_mod <= 0; grup_taban <= 9'd0; durum <= S_BASLAT; end
                     end
                 end
                 S_BASLAT: begin sm_baslat <= 1'b1; gir_say <= 7'd0; durum <= S_HAZIR; end
                 S_HAZIR: if (sm_giris_hazir) durum <= S_GIRIS;
                 S_GIRIS: begin
-                    if (gir_say < 7'd64) begin
+                    if (gir_say < kmax) begin
                         skor_ic_adres <= {satir[5:0], gir_say[5:0]};
                         gir_gecerli_d <= 1'b1; gir_idx_d <= gir_say; gir_say <= gir_say + 7'd1;
                     end else gir_gecerli_d <= 1'b0;
-                    if (gir_say == 7'd64 && !gir_gecerli_d && !gir_gecerli_d2) durum <= S_BEKLE;
+                    if (gir_say == kmax && !gir_gecerli_d && !gir_gecerli_d2) durum <= S_BEKLE;
                 end
                 S_BEKLE: if (satir_tamam) begin
                     if (satir_mod == 3'd7) begin yaz_say <= 7'd0; durum <= S_YAZ; end
                     else begin satir <= satir + 7'd1; satir_mod <= satir_mod + 3'd1; durum <= S_BASLAT; end
                 end
                 S_YAZ: begin
-                    sm_p_yaz_etkin <= 1'b1; sm_p_yaz_adres <= {satir[5:3], yaz_say[5:0]};
-                    sm_p_yaz_veri <= {pbuf[7*64 + yaz_say[5:0]], pbuf[6*64 + yaz_say[5:0]], pbuf[5*64 + yaz_say[5:0]], pbuf[4*64 + yaz_say[5:0]],
-                                      pbuf[3*64 + yaz_say[5:0]], pbuf[2*64 + yaz_say[5:0]], pbuf[1*64 + yaz_say[5:0]], pbuf[0*64 + yaz_say[5:0]]};
-                    if (yaz_say == 7'd63) begin
-                        if (satir == 7'd63) begin att_bitti <= 1'b1; durum <= D_BOS; end
-                        else begin satir <= satir + 7'd1; satir_mod <= 3'd0; durum <= S_BASLAT; end
+                    sm_p_yaz_etkin <= 1'b1; sm_p_yaz_adres <= grup_taban + {3'b000, yaz_say[5:0]};
+                    sm_p_yaz_veri <= (yaz_say < kmax) ? {pbuf[7*64 + yaz_say[5:0]], pbuf[6*64 + yaz_say[5:0]], pbuf[5*64 + yaz_say[5:0]], pbuf[4*64 + yaz_say[5:0]],
+                                      pbuf[3*64 + yaz_say[5:0]], pbuf[2*64 + yaz_say[5:0]], pbuf[1*64 + yaz_say[5:0]], pbuf[0*64 + yaz_say[5:0]]} : 64'd0;   // kmax..kpv-1: sifir dolgu
+                    if (yaz_say == kpv - 7'd1) begin
+                        if (satir == kmax - 7'd1) begin att_bitti <= 1'b1; durum <= D_BOS; end
+                        else begin satir <= satir + 7'd1; satir_mod <= 3'd0; grup_taban <= grup_taban + {2'b00, kpv}; durum <= S_BASLAT; end
                     end else yaz_say <= yaz_say + 7'd1;
                 end
                 default: durum <= D_BOS;

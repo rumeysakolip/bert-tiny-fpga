@@ -15,7 +15,8 @@ module kart_mantik #(
     parameter BOL        = 4,                    // SCK yarim periyodu (sistem saati cevrimi); SCK = 100 MHz / (2*BOL)
     parameter [23:0] AKIS_TABAN = 24'h240000,    // flasta akisin basladigi adres
     parameter [31:0] CUMLE_BAYT = 32'd419429,    // bir cumlenin akis uzunlugu (bayt)
-    parameter DEB_BIT    = 20                    // dugme suzgeci: 2^DEB_BIT cevrim
+    parameter DEB_BIT    = 20,                   // dugme suzgeci: 2^DEB_BIT cevrim
+    parameter GOR_BIT    = 24                    // yeniden baslatma sonrasi "----" suresi: 2^GOR_BIT cevrim (kartta 24 = 0,17 s; yalniz benzetimde kucultulur)
 ) (
     input  wire        clk,
     input  wire        btn,
@@ -200,8 +201,8 @@ module kart_mantik #(
     ikili_bcd u_bcd (.clk(clk), .ikili(deger), .bcd(bcd));
 
     // karakter kodlari: 0-9 rakam, 10 '-', 11 bos, 12 'E', 13 'r'
-    reg [24:0] gor_say = 25'd0;               // yeniden baslatmadan sonra ~0,33 s tire: baslatma goze gorunsun
-    always @(posedge clk) if (rst_c) gor_say <= 25'd0; else if (!gor_say[24]) gor_say <= gor_say + 25'd1;
+    reg [GOR_BIT:0] gor_say = 0;              // yeniden baslatmadan sonra 2^GOR_BIT cevrim (24: ~0,17 s) tire: baslatma goze gorunsun
+    always @(posedge clk) if (rst_c) gor_say <= 0; else if (!gor_say[GOR_BIT]) gor_say <= gor_say + 1'b1;
     reg [15:0] kod;
     reg        sayi_goster;
     always @* begin
@@ -212,7 +213,7 @@ module kart_mantik #(
             else kod = bcd;
         end
         else if (hata_k) kod = {4'd12, 4'd13, 4'd13, 4'd11};
-        else if ((!bitti || !gor_say[24]) && mod != 2'd3) kod = {4'd10, 4'd10, 4'd10, 4'd10};
+        else if ((!bitti || !gor_say[GOR_BIT]) && mod != 2'd3) kod = {4'd10, 4'd10, 4'd10, 4'd10};
         else begin
             sayi_goster = 1'b1;
             if (mod == 2'd0 || mod == 2'd1) kod = {neg ? 4'd10 : 4'd11, bcd[11:0]};
